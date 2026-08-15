@@ -1,0 +1,11 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace SchemaDiscovery.Entities
+{
+    public class StoredProcedure : DatabaseObject
+    {
+
+    }
+}
