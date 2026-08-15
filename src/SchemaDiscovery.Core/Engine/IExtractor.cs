@@ -18,4 +18,12 @@ namespace SchemaDiscovery.Core.Engine
     {
         Task ExtractAsync(ExtractionOptions options, CancellationToken cancellationToken);
     }
+
+    public class Extractor : IExtractor
+    {
+        public Task ExtractAsync(ExtractionOptions options, CancellationToken cancellationToken)
+        {
+            throw new NotImplementedException();
+        }
+    }
 }

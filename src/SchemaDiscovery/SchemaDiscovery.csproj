@@ -7,4 +7,13 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Autofac" Version="9.3.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SchemaDiscovery.Core\SchemaDiscovery.Core.csproj" />
+    <ProjectReference Include="..\SchemaDiscovery.SqlServer\SchemaDiscovery.SqlServer.csproj" />
+  </ItemGroup>
+
 </Project>
