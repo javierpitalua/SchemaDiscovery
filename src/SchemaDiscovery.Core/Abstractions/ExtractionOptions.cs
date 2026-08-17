@@ -10,5 +10,9 @@ namespace SchemaDiscovery.Core.Abstractions
         public string ConnectionString { get; set; }
         public DatabaseType DatabaseType { get; set; }
         public string OutputPath { get; set; }
+        
+        
+        // TODO: imPLEMENT Humanizer
+        public string Culture { get; set; } = "en-US";
     }
 }
