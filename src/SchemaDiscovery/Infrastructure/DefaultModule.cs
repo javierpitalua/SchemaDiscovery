@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Autofac;
+using SchemaDiscovery.Core.Abstractions;
+using SchemaDiscovery.SqlServer;
 
 namespace SchemaDiscovery.Infrastructure
 {
@@ -8,7 +11,12 @@ namespace SchemaDiscovery.Infrastructure
     {
         override protected void Load(Autofac.ContainerBuilder builder)
         {
-         //   builder.RegisterType<SqlServer.SqlServerCrawler>().As<IDatabaseCrawler>();
+            builder
+                    .RegisterAssemblyTypes(typeof(SchemaDiscovery.Core.AssemblyMarker).Assembly)
+                    .AsImplementedInterfaces();
+            
+            
+            builder.RegisterType<SqlServerCrawler>().As<IDatabaseCrawler>();
         }
     }
 }

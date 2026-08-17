@@ -1,14 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace SchemaDiscovery.Entities
+﻿namespace SchemaDiscovery.Core.Entities
 {
-    public class Table : DatabaseObject, IEquatable<Table>
-    {
-        public bool Equals(Table? other)
-        {
-            throw new NotImplementedException();
-        }
-    }
+    public class Table : DatabaseObjectWithColumns { }
 }

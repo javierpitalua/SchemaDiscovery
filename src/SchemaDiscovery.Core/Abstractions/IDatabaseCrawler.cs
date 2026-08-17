@@ -1,10 +1,8 @@
-﻿using SchemaDiscovery.Core.Abstractions;
+﻿using SchemaDiscovery.Core.Engine;
+using SchemaDiscovery.Core.Entities;
 using SchemaDiscovery.Entities;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace SchemaDiscovery.Abstractions
+namespace SchemaDiscovery.Core.Abstractions
 {
     public interface ITableExtractor
     {
@@ -18,9 +16,13 @@ namespace SchemaDiscovery.Abstractions
 
     public interface IStoredProcedureExtractor
     {
-        Task<IEnumerable<StoredProcedure>> GetStoredProcedures(ExtractionOptions options, CancellationToken cancellationToken);
+        Task<IEnumerable<StoredProcedure>> GetStoredProcedures(ExtractionOptions options,
+            CancellationToken cancellationToken);
     }
 
-    public interface IDatabaseCrawler : 
-            ITableExtractor, IViewExtractor, IStoredProcedureExtractor { }
+    public interface IDatabaseCrawler :
+        ITableExtractor, IViewExtractor, IStoredProcedureExtractor
+    {
+        DatabaseType ProviderType { get; }
+    }
 }
