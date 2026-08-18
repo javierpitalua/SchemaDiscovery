@@ -1,0 +1,45 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <AssemblyName>schema-discovery</AssemblyName>
+    <RootNamespace>SchemaDiscovery.Cli</RootNamespace>
+    <InvariantGlobalization>true</InvariantGlobalization>
+  </PropertyGroup>
+
+  <!-- dotnet tool packaging: enables `dotnet pack` to produce an installable
+       .NET tool, and `dotnet tool install` (globally or with a local
+       add-source pointing at ./nupkg) to install it. -->
+  <PropertyGroup>
+    <PackAsTool>true</PackAsTool>
+    <ToolCommandName>schema-discovery</ToolCommandName>
+    <PackageId>SchemaDiscovery.Tool</PackageId>
+    <Version>1.0.0</Version>
+    <Authors>Your Name or Organization</Authors>
+    <Description>CLI tool that scans a database's schema (SQL Server, with PostgreSQL/MySQL extension points) and exports each table, view, stored procedure, and function as its own JSON file.</Description>
+    <PackageTags>database;schema;sql-server;postgres;mysql;json;dotnet-tool;cli</PackageTags>
+    <PackageOutputPath>./nupkg</PackageOutputPath>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Packed into the .nupkg so it shows up on nuget.org / internal feeds. -->
+    <None Include="../../README.md" Pack="true" PackagePath="/" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="8.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="8.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SchemaDiscovery.Abstractions\SchemaDiscovery.Abstractions.csproj" />
+    <ProjectReference Include="..\SchemaDiscovery.Providers.SqlServer\SchemaDiscovery.Providers.SqlServer.csproj" />
+    <ProjectReference Include="..\SchemaDiscovery.Providers.PostgreSql\SchemaDiscovery.Providers.PostgreSql.csproj" />
+    <ProjectReference Include="..\SchemaDiscovery.Providers.MySql\SchemaDiscovery.Providers.MySql.csproj" />
+  </ItemGroup>
+
+</Project>
