@@ -1,5 +1,0 @@
-<Solution>
-  <Project Path="SchemaDiscovery.Core/SchemaDiscovery.Core.csproj" />
-  <Project Path="SchemaDiscovery.SqlServer/SchemaDiscovery.SqlServer.csproj" />
-  <Project Path="SchemaDiscovery/SchemaDiscovery.csproj" />
-</Solution>
