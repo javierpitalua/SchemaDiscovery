@@ -15,6 +15,46 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
+
+  <!-- NuGet package metadata. Bump <Version> before each release; the CI
+       release workflow (.github/workflows/publish-nuget.yml) overrides it
+       from the pushed git tag, so this value is only what local pack runs
+       produce.
+       This is a non-SDK-style project (targets classic .NET Framework
+       tooling directly), so `dotnet pack` won't work here — the Pack MSBuild
+       target normally comes from the SDK. The NuGet.Build.Tasks.Pack package
+       below adds that target so the project can be packed the same way via
+       `msbuild /t:Pack` (or `dotnet msbuild /t:Pack`) using the exact same
+       properties an SDK-style project would use. -->
+  <PropertyGroup>
+    <PackageId>SchemaDiscovery.Client</PackageId>
+    <Version>1.0.0</Version>
+    <Authors>Javier Pitalua</Authors>
+    <Description>Reads the JSON files produced by the schema-discovery CLI back into typed .NET objects (tables, views, stored procedures, functions), for tools that consume a scanned database schema — code generators, ORM scaffolders, and the like.</Description>
+    <PackageTags>database;schema;sql-server;postgres;mysql;json;codegen</PackageTags>
+    <PackageProjectUrl>https://github.com/javierpitalua/SchemaDiscovery</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/javierpitalua/SchemaDiscovery</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageOutputPath>./nupkg</PackageOutputPath>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <!-- Sparse XML doc comments are intentional (see repo conventions) —
+         don't warn on public members that don't have one. -->
+    <NoWarn>$(NoWarn);CS1591</NoWarn>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="NuGet.Build.Tasks.Pack" Version="6.9.1" PrivateAssets="all" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Packed into the .nupkg so it shows up on nuget.org / internal feeds. -->
+    <None Include="README.md" Pack="true" PackagePath="/" />
+    <None Include="..\LICENSE" Pack="true" PackagePath="/" />
+  </ItemGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>

@@ -40,6 +40,7 @@ namespace SchemaDiscovery.Client
             return project;
         }
 
+        /// <summary>Convenience wrapper around <see cref="Load"/> that doesn't require an instance.</summary>
         public static Project LoadProject(string inputDirectoryPath)
         {
             var loader = new ProjectLoader();

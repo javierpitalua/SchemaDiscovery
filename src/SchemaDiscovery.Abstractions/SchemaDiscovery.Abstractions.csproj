@@ -9,6 +9,36 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <!-- NuGet package metadata. Bump <Version> before each release; the CI
+       release workflow (.github/workflows/publish-nuget.yml) overrides it
+       from the pushed git tag, so this value is only what local `dotnet
+       pack` runs produce. -->
+  <PropertyGroup>
+    <PackageId>SchemaDiscovery.Abstractions</PackageId>
+    <Version>1.0.0</Version>
+    <Authors>Javier Pitalua</Authors>
+    <Description>Shared models and provider contracts for schema-discovery: the schema object types (TableSchema, ViewSchema, RoutineSchema, ...), the IDatabaseSchemaProvider contract implemented by each database engine, and the [Persist] mechanism for carrying hand-edited fields across re-scans.</Description>
+    <PackageTags>database;schema;sql-server;postgres;mysql;json;abstractions</PackageTags>
+    <PackageProjectUrl>https://github.com/javierpitalua/SchemaDiscovery</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/javierpitalua/SchemaDiscovery</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageOutputPath>./nupkg</PackageOutputPath>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <!-- Sparse XML doc comments are intentional (see repo conventions) —
+         don't warn on public members that don't have one. -->
+    <NoWarn>$(NoWarn);CS1591</NoWarn>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Packed into the .nupkg so it shows up on nuget.org / internal feeds. -->
+    <None Include="README.md" Pack="true" PackagePath="/" />
+    <None Include="../../LICENSE" Pack="true" PackagePath="/" />
+  </ItemGroup>
+
   <ItemGroup>
     <!-- netstandard2.0 doesn't ship IAsyncDisposable or System.Text.Json; these
          polyfill them for down-level consumers such as .NET Framework 4.8. -->

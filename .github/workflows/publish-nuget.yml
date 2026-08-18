@@ -1,0 +1,75 @@
+name: Publish NuGet packages
+
+# Pushing a tag like v1.2.0 packs SchemaDiscovery.Abstractions and
+# SchemaDiscovery.Client at that version and publishes both to nuget.org.
+# SchemaDiscovery.Client's package depends on SchemaDiscovery.Abstractions'
+# package (a plain NuGet dependency, not a merged/embedded assembly), so both
+# are published together, in that order, from every release tag.
+on:
+  push:
+    tags:
+      - "v[0-9]+.[0-9]+.[0-9]+"
+      - "v[0-9]+.[0-9]+.[0-9]+-*"
+
+permissions:
+  contents: read
+
+jobs:
+  publish:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Determine package version from tag
+        id: version
+        shell: bash
+        run: |
+          version="${GITHUB_REF_NAME#v}"
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+          echo "Publishing version $version"
+
+      - name: Setup .NET SDK
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "10.0.x"
+
+      - name: Setup MSBuild
+        uses: microsoft/setup-msbuild@v2
+
+      # SchemaDiscovery.Abstractions is SDK-style (netstandard2.0), so
+      # `dotnet pack` packs it directly.
+      - name: Pack SchemaDiscovery.Abstractions
+        shell: bash
+        run: |
+          dotnet pack src/SchemaDiscovery.Abstractions/SchemaDiscovery.Abstractions.csproj \
+            -c Release \
+            -p:Version=${{ steps.version.outputs.version }} \
+            -o ./artifacts
+
+      # SchemaDiscovery.Client is a non-SDK-style .NET Framework project, so
+      # `dotnet pack`/`dotnet build` can't build it — it needs full MSBuild
+      # and the .NET Framework 4.7.2 targeting pack, both present on
+      # windows-latest via the preinstalled Visual Studio Build Tools.
+      - name: Restore SchemaDiscovery.Client
+        run: msbuild SchemaDiscovery.Client/SchemaDiscovery.Client.csproj -t:Restore -p:Configuration=Release -nologo
+
+      - name: Pack SchemaDiscovery.Client
+        run: >-
+          msbuild SchemaDiscovery.Client/SchemaDiscovery.Client.csproj -t:Pack
+          -p:Configuration=Release
+          -p:Version=${{ steps.version.outputs.version }}
+          -p:PackageOutputPath=${{ github.workspace }}\artifacts
+          -nologo
+
+      - name: List packed artifacts
+        shell: bash
+        run: ls -la ./artifacts
+
+      - name: Push packages to nuget.org
+        shell: bash
+        run: |
+          dotnet nuget push "./artifacts/*.nupkg" \
+            --api-key ${{ secrets.NUGET_API_KEY }} \
+            --source https://api.nuget.org/v3/index.json \
+            --skip-duplicate
