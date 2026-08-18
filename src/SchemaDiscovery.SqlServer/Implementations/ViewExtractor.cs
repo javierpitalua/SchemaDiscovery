@@ -7,6 +7,6 @@ public class ViewExtractor : IViewExtractor
 {
     public Task<IEnumerable<View>> GetViews(ExtractionOptions options, CancellationToken cancellationToken)
     {
-        throw new NotImplementedException();
+        return Task.FromResult<IEnumerable<View>>(new List<View>());
     }
 }

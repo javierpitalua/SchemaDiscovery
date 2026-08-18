@@ -7,6 +7,6 @@ public class StoredProcedureExtractor : IStoredProcedureExtractor
 {
     public Task<IEnumerable<StoredProcedure>> GetStoredProcedures(ExtractionOptions options, CancellationToken cancellationToken)
     {
-        throw new NotImplementedException();
+        return Task.FromResult<IEnumerable<StoredProcedure>>(new List<StoredProcedure>());
     }
 }
