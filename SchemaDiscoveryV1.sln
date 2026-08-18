@@ -1,7 +1,6 @@
-
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.0.31903.59
+# Visual Studio Version 18
+VisualStudioVersion = 18.9.12105.275
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchemaDiscovery.Abstractions", "src\SchemaDiscovery.Abstractions\SchemaDiscovery.Abstractions.csproj", "{A1000000-0000-0000-0000-000000000001}"
 EndProject
@@ -12,6 +11,16 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchemaDiscovery.Providers.MySql", "src\SchemaDiscovery.Providers.MySql\SchemaDiscovery.Providers.MySql.csproj", "{A1000000-0000-0000-0000-000000000004}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchemaDiscovery.Cli", "src\SchemaDiscovery.Cli\SchemaDiscovery.Cli.csproj", "{A1000000-0000-0000-0000-000000000005}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01 - cli", "01 - cli", "{9E359A79-7EF5-4E07-BEF2-EE1A38BDF9AE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02 - core", "02 - core", "{C4084CF7-BDE1-4EA4-B596-E904C462CBC7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03 - implementations", "03 - implementations", "{0E8B9DBD-F2DF-499E-BB61-E0A8AFED4CCE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04 - client", "04 - client", "{05E12C76-DC91-4C60-B7C1-BD3E52D883E1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchemaDiscovery.Client", "SchemaDiscovery.Client\SchemaDiscovery.Client.csproj", "{D635177F-073C-456A-A5E4-7567528AC658}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,8 +48,20 @@ Global
 		{A1000000-0000-0000-0000-000000000005}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A1000000-0000-0000-0000-000000000005}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A1000000-0000-0000-0000-000000000005}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D635177F-073C-456A-A5E4-7567528AC658}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D635177F-073C-456A-A5E4-7567528AC658}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D635177F-073C-456A-A5E4-7567528AC658}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D635177F-073C-456A-A5E4-7567528AC658}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A1000000-0000-0000-0000-000000000001} = {C4084CF7-BDE1-4EA4-B596-E904C462CBC7}
+		{A1000000-0000-0000-0000-000000000002} = {0E8B9DBD-F2DF-499E-BB61-E0A8AFED4CCE}
+		{A1000000-0000-0000-0000-000000000003} = {0E8B9DBD-F2DF-499E-BB61-E0A8AFED4CCE}
+		{A1000000-0000-0000-0000-000000000004} = {0E8B9DBD-F2DF-499E-BB61-E0A8AFED4CCE}
+		{A1000000-0000-0000-0000-000000000005} = {9E359A79-7EF5-4E07-BEF2-EE1A38BDF9AE}
+		{D635177F-073C-456A-A5E4-7567528AC658} = {05E12C76-DC91-4C60-B7C1-BD3E52D883E1}
 	EndGlobalSection
 EndGlobal

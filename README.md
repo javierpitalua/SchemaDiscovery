@@ -102,6 +102,44 @@ dotnet tool update --global SchemaDiscovery.Tool
 dotnet tool uninstall --global SchemaDiscovery.Tool
 ```
 
+## SchemaDiscovery.Client (reading the JSON output from code)
+
+`SchemaDiscovery.Client` (in `SchemaDiscovery.Client/`, .NET Framework 4.7.2)
+reads the JSON files `schema-discovery` writes back into typed `TableSchema`
+/ `ViewSchema` / `RoutineSchema` objects, for tools — code generators, ORM
+scaffolders — that want to consume a scanned schema without parsing JSON
+themselves:
+
+```bash
+dotnet add package SchemaDiscovery.Client
+```
+
+```csharp
+var project = SchemaDiscovery.Client.ProjectLoader.LoadProject(@".\schema-output");
+```
+
+It depends on the `SchemaDiscovery.Abstractions` package (also published from
+this repo) for the schema model types, published as a separate NuGet
+dependency rather than embedded, so both packages share one set of model
+types. See `SchemaDiscovery.Client/README.md` for the full API.
+
+### Releasing SchemaDiscovery.Client / SchemaDiscovery.Abstractions
+
+Pushing a tag matching `v<major>.<minor>.<patch>` (e.g. `v1.2.0`, optionally
+with a `-prerelease` suffix) runs
+[`.github/workflows/publish-nuget.yml`](.github/workflows/publish-nuget.yml),
+which packs both projects at that version and pushes them to nuget.org:
+
+```bash
+git tag v1.2.0
+git push origin v1.2.0
+```
+
+The workflow needs a `NUGET_API_KEY` repository secret (an nuget.org API key
+scoped to the `SchemaDiscovery.Client` and `SchemaDiscovery.Abstractions`
+package IDs). This is separate from packing `SchemaDiscovery.Tool` above,
+which is still manual.
+
 Bump `<Version>` in `SchemaDiscovery.Cli.csproj` before each release; the
 `PackageId` (`SchemaDiscovery.Tool`), `ToolCommandName` (`schema-discovery`),
 and package metadata (author, description, tags) also live there.
