@@ -12,7 +12,7 @@ public static class Mappings
     public static Table MapFromExisting(Table existing, Table target) =>
         DatabaseObjectWithColumnsMapper.MapFromExisting(existing, target);
 
-    public static StoredProcedure MapFromExisting(StoredProcedure existing, StoredProcedure target)
+    public static Routine MapFromExisting(Routine existing, Routine target)
     {
         PersistedPropertyCopier.CopyPersistedProperties(existing, target);
 

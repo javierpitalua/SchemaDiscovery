@@ -16,7 +16,7 @@ namespace SchemaDiscovery.Core.Abstractions
 
     public interface IStoredProcedureExtractor
     {
-        Task<IEnumerable<StoredProcedure>> GetStoredProcedures(ExtractionOptions options,
+        Task<IEnumerable<Routine>> GetStoredProcedures(ExtractionOptions options,
             CancellationToken cancellationToken);
     }
 

@@ -8,7 +8,7 @@ public interface IEntityPersister
 {
     void Persist(Table table, string outputFolder, CancellationToken cancellationToken);
     void Persist(View view, string outputFolder, CancellationToken cancellationToken);
-    void Persist(StoredProcedure sp, string outputFolder, CancellationToken cancellationToken);
+    void Persist(Routine sp, string outputFolder, CancellationToken cancellationToken);
 }
 
 public class EntityPersister : IEntityPersister
@@ -47,14 +47,14 @@ public class EntityPersister : IEntityPersister
         File.WriteAllText(targetFileName, JsonConvert.SerializeObject(view, Formatting.Indented));
     }
 
-    public void Persist(StoredProcedure sp, string outputFolder, CancellationToken cancellationToken)
+    public void Persist(Routine sp, string outputFolder, CancellationToken cancellationToken)
     {
         var entityFileName = $"{sp.Schema}.{sp.Name}.json";
         var targetFileName = Path.Combine(outputFolder, "/stored-procedures", entityFileName);
 
         if (System.IO.File.Exists(targetFileName))
         {
-            var existing = JsonConvert.DeserializeObject<StoredProcedure>(System.IO.File.ReadAllText(targetFileName));
+            var existing = JsonConvert.DeserializeObject<Routine>(System.IO.File.ReadAllText(targetFileName));
             if (existing == null) return;
             
             var toSave = Mappings.MapFromExisting(existing, sp);

@@ -33,7 +33,7 @@ namespace SchemaDiscovery.SqlServer
             return await _tableExtractor.GetTables(options, cancellationToken);
         }
 
-        async Task<IEnumerable<StoredProcedure>> IStoredProcedureExtractor.GetStoredProcedures(
+        async Task<IEnumerable<Routine>> IStoredProcedureExtractor.GetStoredProcedures(
             ExtractionOptions options, CancellationToken cancellationToken)
         {
             return await _storedProcedureExtractor.GetStoredProcedures(options, cancellationToken);
