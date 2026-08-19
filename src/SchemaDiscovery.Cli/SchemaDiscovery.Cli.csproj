@@ -18,16 +18,25 @@
     <ToolCommandName>schema-discovery</ToolCommandName>
     <PackageId>SchemaDiscovery.Tool</PackageId>
     <Version>1.0.0</Version>
-    <Authors>Your Name or Organization</Authors>
+    <Authors>javierpitalua</Authors>
     <Description>CLI tool that scans a database's schema (SQL Server, with PostgreSQL/MySQL extension points) and exports each table, view, stored procedure, and function as its own JSON file.</Description>
     <PackageTags>database;schema;sql-server;postgres;mysql;json;dotnet-tool;cli</PackageTags>
     <PackageOutputPath>./nupkg</PackageOutputPath>
     <PackageReadmeFile>README.md</PackageReadmeFile>
+    <Title>A cli that scans a database and produces json files with schema metadata so AI tools can look and infer your project schema changes. </Title>
+    <PackageProjectUrl>https://github.com/javierpitalua/SchemaDiscovery</PackageProjectUrl>
+    <PackageIcon>logo01.png</PackageIcon>
+    <RepositoryUrl>https://github.com/javierpitalua/SchemaDiscovery</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
   </PropertyGroup>
 
   <ItemGroup>
     <!-- Packed into the .nupkg so it shows up on nuget.org / internal feeds. -->
     <None Include="../../README.md" Pack="true" PackagePath="/" />
+    <None Include="..\CommonAssets\img\logo01.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
 
   <ItemGroup>
