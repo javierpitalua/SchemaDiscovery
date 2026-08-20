@@ -48,6 +48,7 @@
 
   <ItemGroup>
     <PackageReference Include="NuGet.Build.Tasks.Pack" Version="6.9.1" PrivateAssets="all" />
+    <PackageReference Include="System.Text.Json" Version="8.0.5" />
   </ItemGroup>
 
   <ItemGroup>
