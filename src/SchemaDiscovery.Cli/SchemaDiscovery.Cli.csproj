@@ -7,7 +7,7 @@
     <Nullable>enable</Nullable>
     <AssemblyName>schema-discovery</AssemblyName>
     <RootNamespace>SchemaDiscovery.Cli</RootNamespace>
-    <InvariantGlobalization>true</InvariantGlobalization>
+    <InvariantGlobalization>false</InvariantGlobalization>
   </PropertyGroup>
 
   <!-- dotnet tool packaging: enables `dotnet pack` to produce an installable
