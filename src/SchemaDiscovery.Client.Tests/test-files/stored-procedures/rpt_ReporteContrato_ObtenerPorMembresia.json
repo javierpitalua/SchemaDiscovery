@@ -1,0 +1,18 @@
+{
+  "Parameters": [
+    {
+      "OrdinalPosition": 1,
+      "Name": "@Membresia_Id",
+      "DataType": "int",
+      "Mode": "IN",
+      "MaxLength": 4
+    }
+  ],
+  "Definition": "\r\n\r\nCREATE PROCEDURE [dbo].[rpt_ReporteContrato_ObtenerPorMembresia]\r\n@Membresia_Id INT\r\nAS\r\nBEGIN\r\n\t\r\n\tSELECT \r\n\t    [Membresia].[Id],\r\n\t\t[Membresia].[ClaveMembresia],\r\n\t\t[InformacionFacturacion].[RazonSocial],\r\n\t\t[InformacionFacturacion].[NombreFiscal] as RepresentanteLegal,\r\n\t\t[InformacionFacturacion].[RFC],\r\n\t\t[Comunidad].[Direccion] as MembresiaDireccion,\r\n\t\t[InformacionFacturacion].[Calle] \u002B \u0027 \u0027 \u002B [InformacionFacturacion].[NumeroInterior] \u002B \u0027, \u0027 \u002B [InformacionFacturacion].[Colonia] \u002B \u0027, \u0027  \u002B [InformacionFacturacion].[Municipio] \u002B \u0027, \u0027 \u002B [InformacionFacturacion].[Estado] \u002B \u0027, \u0027 \u002B [InformacionFacturacion].[CP] as Direccion,\r\n\t\t[Giro].[Nombre] as GiroNombre,\r\n\t\t[Membresia].[FechaInicio] as FechaInicioContrato,\r\n\t\t[Comunidad].[Direccion] as ComunidadDireccion,\r\n\t\t[TipoMembresia].[Nombre] as TipoOficina,\r\n\t\t[Espacio].[Capacidad] as EspacioCapacidad,\r\n\t\t[Membresia].[PrecioMensual] as PrecioMensual,\r\n\t\t[MetodoDePago].[Nombre] as MetodoPago,\r\n\t\t[Membresia].[Vigencia] as DuracionContrato,\r\n\t\t[TipoMembresia].[PrecioMensual] - [Membresia].[PrecioMensual] as Descuento,\r\n\t\t[Membresia].[Observaciones] as Observaciones\r\n\r\n\t    FROM Membresia \r\n\t\tLEFT JOIN  [InformacionFacturacion] on [Membresia].[InformacionFacturacion_Id] = [InformacionFacturacion].[Id] \r\n\t\tLEFT JOIN [Giro] on [InformacionFacturacion].[Giro_Id] = [Giro].[Id]\r\n\t\tLEFT JOIN [Comunidad] on [Comunidad].[Id] = [Membresia].[Comunidad_Id]\r\n\t\tLEFT JOIN [TipoMembresia] on [Membresia].[TipoMembresia_Id] = [TipoMembresia].[Id]\r\n\t\tLEFT JOIN [Espacio]  on [Espacio].[Id] = [Membresia].[Espacio_Id]\r\n\t\tLEFT JOIN [MetodoDePago] on [MetodoDePago].[Id] = [Membresia].[MetodoDePago_Id]\r\n\t\t\r\n\t\tWHERE \r\n\r\n\t\t[Membresia].[Id] = @Membresia_Id\r\n\r\nEND",
+  "Schema": "dbo",
+  "Name": "rpt_ReporteContrato_ObtenerPorMembresia",
+  "ObjectType": "StoredProcedure",
+  "DatabaseProvider": "sqlserver",
+  "ScannedAtUtc": "2026-08-21T18:10:57.4617619+00:00",
+  "QualifiedName": "dbo.rpt_ReporteContrato_ObtenerPorMembresia"
+}

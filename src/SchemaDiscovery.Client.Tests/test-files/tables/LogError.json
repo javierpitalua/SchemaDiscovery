@@ -1,0 +1,71 @@
+{
+  "Schema": "dbo",
+  "Name": "LogError",
+  "ClassName": "LogError",
+  "PluralClassName": "LogError",
+  "QualifiedName": "dbo.LogError",
+  "ObjectType": "Table",
+  "DatabaseProvider": "sqlserver",
+  "Columns": [
+    {
+      "OrdinalPosition": 1,
+      "Name": "Id",
+      "DataType": "int",
+      "IsNullable": false,
+      "MaxLength": 4,
+      "IsIdentity": true,
+      "IsComputed": false,
+      "IsPrimaryKey": true,
+      "PropertyName": "Id"
+    },
+    {
+      "OrdinalPosition": 2,
+      "Name": "Fecha",
+      "DataType": "smalldatetime",
+      "IsNullable": true,
+      "MaxLength": 4,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "Fecha"
+    },
+    {
+      "OrdinalPosition": 3,
+      "Name": "Error",
+      "DataType": "varchar",
+      "IsNullable": true,
+      "MaxLength": 500,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "Error"
+    },
+    {
+      "OrdinalPosition": 4,
+      "Name": "DetallesExcepcion",
+      "DataType": "varchar",
+      "IsNullable": true,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "DetallesExcepcion"
+    }
+  ],
+  "PrimaryKeyColumns": [
+    "Id"
+  ],
+  "ForeignKeys": [],
+  "Indexes": [
+    {
+      "Name": "PK_LogError",
+      "IsUnique": true,
+      "IsPrimaryKey": true,
+      "IndexType": "CLUSTERED",
+      "Columns": [
+        "Id"
+      ]
+    }
+  ],
+  "ScannedAtUtc": "2026-08-21T18:10:55.9174806+00:00",
+  "RowCountEstimate": 739
+}

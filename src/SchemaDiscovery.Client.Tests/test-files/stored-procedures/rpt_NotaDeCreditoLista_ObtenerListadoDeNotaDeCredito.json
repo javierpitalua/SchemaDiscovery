@@ -1,0 +1,18 @@
+{
+  "Parameters": [
+    {
+      "OrdinalPosition": 1,
+      "Name": "@DocumentoId",
+      "DataType": "int",
+      "Mode": "IN",
+      "MaxLength": 4
+    }
+  ],
+  "Definition": "CREATE PROCEDURE [dbo].[rpt_NotaDeCreditoLista_ObtenerListadoDeNotaDeCredito]\r\n@DocumentoId INT\r\nAS\r\nBEGIN\r\n\r\nSELECT\r\n    A1.Id,\r\n    A4.Id AS [NotaId],\r\n    A4.Folio,\r\n    A2.NombreFiscal,\r\n    A4.FechaEmision,\r\n    A4.MontoTotal\r\nFROM Documento A1\r\n    JOIN InformacionFacturacion A2\r\n        ON A1.InformacionFacturacion_Id = A2.Id\r\n    JOIN NotaDeCredito A3\r\n        ON A1.Id = A3.Documento_Id\r\n    JOIN Documento A4\r\n        ON A3.DocumentoNotaDeCredito_Id = A4.Id\r\nWHERE A1.Id = @DocumentoId\r\nORDER BY A4.FechaCreacion ASC\r\n\r\nEND",
+  "Schema": "dbo",
+  "Name": "rpt_NotaDeCreditoLista_ObtenerListadoDeNotaDeCredito",
+  "ObjectType": "StoredProcedure",
+  "DatabaseProvider": "sqlserver",
+  "ScannedAtUtc": "2026-08-21T18:10:57.4588498+00:00",
+  "QualifiedName": "dbo.rpt_NotaDeCreditoLista_ObtenerListadoDeNotaDeCredito"
+}

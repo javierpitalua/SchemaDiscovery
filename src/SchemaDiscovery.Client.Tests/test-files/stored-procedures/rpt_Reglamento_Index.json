@@ -1,0 +1,25 @@
+{
+  "Parameters": [
+    {
+      "OrdinalPosition": 1,
+      "Name": "@EntityId",
+      "DataType": "int",
+      "Mode": "IN",
+      "MaxLength": 4
+    },
+    {
+      "OrdinalPosition": 2,
+      "Name": "@Comunidad_Id",
+      "DataType": "int",
+      "Mode": "IN",
+      "MaxLength": 4
+    }
+  ],
+  "Definition": "-- =================================================================\n-- Description:\tThis gets a basic report for [Reglamento] table\n-- =================================================================\nCREATE PROCEDURE [dbo].[rpt_Reglamento_Index]\n@EntityId AS INT = 0, \n@Comunidad_Id AS INT = 0\nAS\nBEGIN\n\t\n\t-- IMPORTANT:\n\t-- This is a computer generated procedure.  DO NOT ADD CUSTOM CODE TO THIS PROCEDURE.\n\n\t-- SET NOCOUNT ON added to prevent extra result sets from\n\t-- interfering with SELECT statements.\n\tSET NOCOUNT ON;\n\t\n\t-- 1) CREATE FILTER TABLE:\n\tDECLARE @ReglamentoFilter TABLE (\n\t\tId INT IDENTITY (1,1),\n\t\tReglamento_Id INT\t\t\n\t)\n\n\n    -- IF A GIVEN ID HAS BEEN SPECIFIED, THEN RETRIEVE THAT RECORD ONLY\n\tIF @EntityId \u003C\u003E 0\n\tBEGIN\n\n\t\tINSERT INTO @ReglamentoFilter (Reglamento_Id)\n\t\tSELECT \n\t\t\t[Reglamento].Id\n\t\tFROM [dbo].[Reglamento]\n\t\tWHERE\n\t\t\t [dbo].[Reglamento].[Id] = @EntityId\n\n\tEND\n\tELSE\n\tBEGIN\n\n\t\t-- 2) FILTER BY FOREIGN RELATIONSHIPS WHEN APLICABLE:\n\t\tINSERT INTO @ReglamentoFilter (Reglamento_Id)\n\t\tSELECT \n\t\t\t[Reglamento].Id\n\t\tFROM [dbo].[Reglamento]\n\t\tWHERE\n\t\t\t [Reglamento].[Activo] = 1 AND\n         (([Reglamento].[Comunidad_Id] = @Comunidad_Id) OR (@Comunidad_Id = 0))\n\n \tEND\n\n \n\t-- 4) DELIVER THE FILTERED RESULTS:\n\tSELECT \n\t\t[Reglamento].[Id],\n\t\t[Reglamento].[Nombre],\n\t\t[Comunidad].[Nombre] AS [Comunidad],\n\t\t[Reglamento].[Archivo_Id],\n\t\t[Archivo].[NombreArchivo] AS [ArchivoNombreArchivo],\n\t\t[Reglamento].[FechaCreacion],\n\t\t[Reglamento].[CreadoPor],\n\t\t[Reglamento].[FechaModificacion],\n\t\t[Reglamento].[ModificadoPor]\n\tFROM @ReglamentoFilter filter\n\t\tJOIN [dbo].[Reglamento] \n\t\t\tON [Reglamento].[Id] = filter.[Reglamento_Id] \n\t\t\t\n\n\t\tLEFT JOIN [dbo].[Comunidad]\n\t\tON [dbo].[Reglamento].[Comunidad_Id] = [dbo].[Comunidad].[Id] \n\n \t\tLEFT JOIN [dbo].[Archivo]\n\t\tON [dbo].[Reglamento].[Archivo_Id] = [dbo].[Archivo].[Id] \n\n \nEND\n-- END OF [dbo].[cgp_Reglamento_Index]",
+  "Schema": "dbo",
+  "Name": "rpt_Reglamento_Index",
+  "ObjectType": "StoredProcedure",
+  "DatabaseProvider": "sqlserver",
+  "ScannedAtUtc": "2026-08-21T18:10:57.4615132+00:00",
+  "QualifiedName": "dbo.rpt_Reglamento_Index"
+}

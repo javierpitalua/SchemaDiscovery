@@ -1,0 +1,50 @@
+{
+  "Schema": "dbo",
+  "Name": "UsuarioChatAI",
+  "ClassName": "UsuarioChatAI",
+  "PluralClassName": "UsuarioChatAI",
+  "QualifiedName": "dbo.UsuarioChatAI",
+  "ObjectType": "Table",
+  "DatabaseProvider": "sqlserver",
+  "Columns": [
+    {
+      "OrdinalPosition": 1,
+      "Name": "Id",
+      "DataType": "int",
+      "IsNullable": false,
+      "MaxLength": 4,
+      "IsIdentity": true,
+      "IsComputed": false,
+      "IsPrimaryKey": true,
+      "PropertyName": "Id"
+    },
+    {
+      "OrdinalPosition": 2,
+      "Name": "NombreUsuario",
+      "DataType": "varchar",
+      "IsNullable": true,
+      "MaxLength": 50,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "NombreUsuario"
+    }
+  ],
+  "PrimaryKeyColumns": [
+    "Id"
+  ],
+  "ForeignKeys": [],
+  "Indexes": [
+    {
+      "Name": "PK_UsuariosChatAI",
+      "IsUnique": true,
+      "IsPrimaryKey": true,
+      "IndexType": "CLUSTERED",
+      "Columns": [
+        "Id"
+      ]
+    }
+  ],
+  "ScannedAtUtc": "2026-08-21T18:10:55.9751081+00:00",
+  "RowCountEstimate": 5
+}

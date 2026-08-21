@@ -1,0 +1,18 @@
+{
+  "Parameters": [
+    {
+      "OrdinalPosition": 1,
+      "Name": "@Suscriptor_Id",
+      "DataType": "int",
+      "Mode": "IN",
+      "MaxLength": 4
+    }
+  ],
+  "Definition": "CREATE PROCEDURE [dbo].[rpt_EstacionDeTrabajo_TieneEstacionDeTrabajo]\r\n@Suscriptor_Id int = 0\r\nAS\r\nBEGIN\r\n\r\n\tselect mem.Id, mem.ClaveMembresia from Suscripcion sus\r\n\tLEFT JOIN Membresia mem ON sus.Membresia_Id = mem.Id\r\n\tLEFT JOIN Espacio esp ON mem.Espacio_Id = esp.Id\r\n\tWHERE esp.AdministrarEstacionesDeTrabajo = 1\r\n\tAND sus.Activo = 1\r\n\tAND sus.Suscriptor_Id = @Suscriptor_Id\r\nEND",
+  "Schema": "dbo",
+  "Name": "rpt_EstacionDeTrabajo_TieneEstacionDeTrabajo",
+  "ObjectType": "StoredProcedure",
+  "DatabaseProvider": "sqlserver",
+  "ScannedAtUtc": "2026-08-21T18:10:57.4544153+00:00",
+  "QualifiedName": "dbo.rpt_EstacionDeTrabajo_TieneEstacionDeTrabajo"
+}

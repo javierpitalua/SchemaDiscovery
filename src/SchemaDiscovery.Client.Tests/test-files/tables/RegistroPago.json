@@ -1,0 +1,219 @@
+{
+  "Schema": "dbo",
+  "Name": "RegistroPago",
+  "ClassName": "RegistroPago",
+  "PluralClassName": "RegistroPago",
+  "QualifiedName": "dbo.RegistroPago",
+  "ObjectType": "Table",
+  "DatabaseProvider": "sqlserver",
+  "Columns": [
+    {
+      "OrdinalPosition": 1,
+      "Name": "Id",
+      "DataType": "int",
+      "IsNullable": false,
+      "MaxLength": 4,
+      "IsIdentity": true,
+      "IsComputed": false,
+      "IsPrimaryKey": true,
+      "PropertyName": "Id"
+    },
+    {
+      "OrdinalPosition": 2,
+      "Name": "Folio",
+      "DataType": "varchar",
+      "IsNullable": true,
+      "MaxLength": 50,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "Folio"
+    },
+    {
+      "OrdinalPosition": 3,
+      "Name": "Serie",
+      "DataType": "varchar",
+      "IsNullable": true,
+      "MaxLength": 50,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "Serie"
+    },
+    {
+      "OrdinalPosition": 4,
+      "Name": "Documento_Id",
+      "DataType": "int",
+      "IsNullable": false,
+      "MaxLength": 4,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "Documento_Id"
+    },
+    {
+      "OrdinalPosition": 5,
+      "Name": "ImportePagado",
+      "DataType": "decimal",
+      "IsNullable": true,
+      "MaxLength": 9,
+      "NumericPrecision": 18,
+      "NumericScale": 2,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "ImportePagado"
+    },
+    {
+      "OrdinalPosition": 6,
+      "Name": "SaldoAnterior",
+      "DataType": "decimal",
+      "IsNullable": true,
+      "MaxLength": 9,
+      "NumericPrecision": 18,
+      "NumericScale": 2,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "SaldoAnterior"
+    },
+    {
+      "OrdinalPosition": 7,
+      "Name": "SaldoInsoluto",
+      "DataType": "decimal",
+      "IsNullable": true,
+      "MaxLength": 9,
+      "NumericPrecision": 18,
+      "NumericScale": 2,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "SaldoInsoluto"
+    },
+    {
+      "OrdinalPosition": 8,
+      "Name": "CuentaReceptora_Id",
+      "DataType": "int",
+      "IsNullable": false,
+      "MaxLength": 4,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "CuentaReceptora_Id"
+    },
+    {
+      "OrdinalPosition": 9,
+      "Name": "Timbrado",
+      "DataType": "bit",
+      "IsNullable": false,
+      "MaxLength": 1,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "Timbrado"
+    },
+    {
+      "OrdinalPosition": 10,
+      "Name": "Fecha",
+      "DataType": "smalldatetime",
+      "IsNullable": false,
+      "MaxLength": 4,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "Fecha"
+    },
+    {
+      "OrdinalPosition": 11,
+      "Name": "SolicitudTimbrado",
+      "DataType": "varchar",
+      "IsNullable": true,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "SolicitudTimbrado"
+    },
+    {
+      "OrdinalPosition": 12,
+      "Name": "RespuestaTimbrado",
+      "DataType": "varchar",
+      "IsNullable": true,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "RespuestaTimbrado"
+    },
+    {
+      "OrdinalPosition": 13,
+      "Name": "PagoAplicado",
+      "DataType": "bit",
+      "IsNullable": false,
+      "MaxLength": 1,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "PagoAplicado"
+    },
+    {
+      "OrdinalPosition": 14,
+      "Name": "Usuario_Id",
+      "DataType": "int",
+      "IsNullable": false,
+      "MaxLength": 4,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "Usuario_Id"
+    },
+    {
+      "OrdinalPosition": 15,
+      "Name": "NumeroParcialidad",
+      "DataType": "int",
+      "IsNullable": false,
+      "MaxLength": 4,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "NumeroParcialidad"
+    },
+    {
+      "OrdinalPosition": 16,
+      "Name": "ComprobantePDF_Id",
+      "DataType": "int",
+      "IsNullable": true,
+      "MaxLength": 4,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "ComprobantePDF_Id"
+    },
+    {
+      "OrdinalPosition": 17,
+      "Name": "ComprobanteXML_Id",
+      "DataType": "int",
+      "IsNullable": true,
+      "MaxLength": 4,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "ComprobanteXML_Id"
+    }
+  ],
+  "PrimaryKeyColumns": [
+    "Id"
+  ],
+  "ForeignKeys": [],
+  "Indexes": [
+    {
+      "Name": "PK_RegistroPago",
+      "IsUnique": true,
+      "IsPrimaryKey": true,
+      "IndexType": "CLUSTERED",
+      "Columns": [
+        "Id"
+      ]
+    }
+  ],
+  "ScannedAtUtc": "2026-08-21T18:10:55.9492726+00:00",
+  "RowCountEstimate": 5149
+}

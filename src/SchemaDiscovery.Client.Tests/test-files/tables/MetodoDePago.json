@@ -1,0 +1,61 @@
+{
+  "Schema": "dbo",
+  "Name": "MetodoDePago",
+  "ClassName": "MetodoDePago",
+  "PluralClassName": "MetodoDePago",
+  "QualifiedName": "dbo.MetodoDePago",
+  "ObjectType": "Table",
+  "DatabaseProvider": "sqlserver",
+  "Columns": [
+    {
+      "OrdinalPosition": 1,
+      "Name": "Id",
+      "DataType": "int",
+      "IsNullable": false,
+      "MaxLength": 4,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": true,
+      "PropertyName": "Id"
+    },
+    {
+      "OrdinalPosition": 2,
+      "Name": "Nombre",
+      "DataType": "varchar",
+      "IsNullable": true,
+      "MaxLength": 50,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "Nombre"
+    },
+    {
+      "OrdinalPosition": 3,
+      "Name": "ClaveSat",
+      "DataType": "varchar",
+      "IsNullable": true,
+      "MaxLength": 10,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "ClaveSat"
+    }
+  ],
+  "PrimaryKeyColumns": [
+    "Id"
+  ],
+  "ForeignKeys": [],
+  "Indexes": [
+    {
+      "Name": "PK_MetodoDePago",
+      "IsUnique": true,
+      "IsPrimaryKey": true,
+      "IndexType": "CLUSTERED",
+      "Columns": [
+        "Id"
+      ]
+    }
+  ],
+  "ScannedAtUtc": "2026-08-21T18:10:55.9191636+00:00",
+  "RowCountEstimate": 6
+}

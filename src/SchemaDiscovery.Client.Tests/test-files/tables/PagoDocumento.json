@@ -1,0 +1,118 @@
+{
+  "Schema": "dbo",
+  "Name": "PagoDocumento",
+  "ClassName": "PagoDocumento",
+  "PluralClassName": "PagoDocumento",
+  "QualifiedName": "dbo.PagoDocumento",
+  "ObjectType": "Table",
+  "DatabaseProvider": "sqlserver",
+  "Columns": [
+    {
+      "OrdinalPosition": 1,
+      "Name": "Id",
+      "DataType": "int",
+      "IsNullable": false,
+      "MaxLength": 4,
+      "IsIdentity": true,
+      "IsComputed": false,
+      "IsPrimaryKey": true,
+      "PropertyName": "Id"
+    },
+    {
+      "OrdinalPosition": 2,
+      "Name": "Documento_Id",
+      "DataType": "int",
+      "IsNullable": true,
+      "MaxLength": 4,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "Documento_Id"
+    },
+    {
+      "OrdinalPosition": 3,
+      "Name": "Monto",
+      "DataType": "decimal",
+      "IsNullable": false,
+      "MaxLength": 9,
+      "NumericPrecision": 18,
+      "NumericScale": 2,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "Monto"
+    },
+    {
+      "OrdinalPosition": 4,
+      "Name": "FechaDePago",
+      "DataType": "smalldatetime",
+      "IsNullable": false,
+      "MaxLength": 4,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "FechaDePago"
+    },
+    {
+      "OrdinalPosition": 5,
+      "Name": "FechaRegistro",
+      "DataType": "smalldatetime",
+      "IsNullable": true,
+      "MaxLength": 4,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "FechaRegistro"
+    },
+    {
+      "OrdinalPosition": 6,
+      "Name": "Usuario_Id",
+      "DataType": "int",
+      "IsNullable": false,
+      "MaxLength": 4,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "Usuario_Id"
+    },
+    {
+      "OrdinalPosition": 7,
+      "Name": "MetodoPago_Id",
+      "DataType": "int",
+      "IsNullable": true,
+      "MaxLength": 4,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "MetodoPago_Id"
+    },
+    {
+      "OrdinalPosition": 8,
+      "Name": "Referencia",
+      "DataType": "varchar",
+      "IsNullable": true,
+      "MaxLength": 100,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "Referencia"
+    }
+  ],
+  "PrimaryKeyColumns": [
+    "Id"
+  ],
+  "ForeignKeys": [],
+  "Indexes": [
+    {
+      "Name": "PK_PagoDocumento",
+      "IsUnique": true,
+      "IsPrimaryKey": true,
+      "IndexType": "CLUSTERED",
+      "Columns": [
+        "Id"
+      ]
+    }
+  ],
+  "ScannedAtUtc": "2026-08-21T18:10:55.9284969+00:00",
+  "RowCountEstimate": 0
+}

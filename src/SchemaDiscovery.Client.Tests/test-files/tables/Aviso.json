@@ -1,0 +1,204 @@
+{
+  "Schema": "dbo",
+  "Name": "Aviso",
+  "ClassName": "Aviso",
+  "PluralClassName": "Aviso",
+  "QualifiedName": "dbo.Aviso",
+  "ObjectType": "Table",
+  "DatabaseProvider": "sqlserver",
+  "Columns": [
+    {
+      "OrdinalPosition": 1,
+      "Name": "Id",
+      "DataType": "int",
+      "IsNullable": false,
+      "MaxLength": 4,
+      "IsIdentity": true,
+      "IsComputed": false,
+      "IsPrimaryKey": true,
+      "PropertyName": "Id"
+    },
+    {
+      "OrdinalPosition": 2,
+      "Name": "Comunidad_Id",
+      "DataType": "int",
+      "IsNullable": true,
+      "MaxLength": 4,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "Comunidad_Id"
+    },
+    {
+      "OrdinalPosition": 3,
+      "Name": "Membresia_Id",
+      "DataType": "int",
+      "IsNullable": true,
+      "MaxLength": 4,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "Membresia_Id"
+    },
+    {
+      "OrdinalPosition": 4,
+      "Name": "Titulo",
+      "DataType": "varchar",
+      "IsNullable": false,
+      "MaxLength": 100,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "Titulo"
+    },
+    {
+      "OrdinalPosition": 5,
+      "Name": "Mensaje",
+      "DataType": "varchar",
+      "IsNullable": false,
+      "MaxLength": 1000,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "Mensaje"
+    },
+    {
+      "OrdinalPosition": 6,
+      "Name": "Liga",
+      "DataType": "varchar",
+      "IsNullable": true,
+      "MaxLength": 100,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "Liga"
+    },
+    {
+      "OrdinalPosition": 7,
+      "Name": "FechaInicio",
+      "DataType": "smalldatetime",
+      "IsNullable": false,
+      "MaxLength": 4,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "FechaInicio"
+    },
+    {
+      "OrdinalPosition": 8,
+      "Name": "FechaFin",
+      "DataType": "smalldatetime",
+      "IsNullable": true,
+      "MaxLength": 4,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "FechaFin"
+    },
+    {
+      "OrdinalPosition": 9,
+      "Name": "FechaCreacion",
+      "DataType": "smalldatetime",
+      "IsNullable": false,
+      "MaxLength": 4,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "FechaCreacion"
+    },
+    {
+      "OrdinalPosition": 10,
+      "Name": "CreadoPor",
+      "DataType": "varchar",
+      "IsNullable": false,
+      "MaxLength": 50,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "CreadoPor"
+    },
+    {
+      "OrdinalPosition": 11,
+      "Name": "FechaModificacion",
+      "DataType": "smalldatetime",
+      "IsNullable": true,
+      "MaxLength": 4,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "FechaModificacion"
+    },
+    {
+      "OrdinalPosition": 12,
+      "Name": "ModificadoPor",
+      "DataType": "varchar",
+      "IsNullable": true,
+      "MaxLength": 50,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "ModificadoPor"
+    },
+    {
+      "OrdinalPosition": 13,
+      "Name": "Activo",
+      "DataType": "bit",
+      "IsNullable": false,
+      "MaxLength": 1,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "Activo"
+    },
+    {
+      "OrdinalPosition": 14,
+      "Name": "FechaDesactivacion",
+      "DataType": "smalldatetime",
+      "IsNullable": true,
+      "MaxLength": 4,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "FechaDesactivacion"
+    },
+    {
+      "OrdinalPosition": 15,
+      "Name": "DesactivadoPor",
+      "DataType": "varchar",
+      "IsNullable": true,
+      "MaxLength": 50,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "DesactivadoPor"
+    },
+    {
+      "OrdinalPosition": 16,
+      "Name": "CategoriaDeAviso_Id",
+      "DataType": "int",
+      "IsNullable": true,
+      "MaxLength": 4,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "CategoriaDeAviso_Id"
+    }
+  ],
+  "PrimaryKeyColumns": [
+    "Id"
+  ],
+  "ForeignKeys": [],
+  "Indexes": [
+    {
+      "Name": "PK__Aviso__3214EC076C7D9955",
+      "IsUnique": true,
+      "IsPrimaryKey": true,
+      "IndexType": "CLUSTERED",
+      "Columns": [
+        "Id"
+      ]
+    }
+  ],
+  "ScannedAtUtc": "2026-08-21T18:10:55.8623832+00:00",
+  "RowCountEstimate": 14
+}

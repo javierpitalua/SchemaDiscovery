@@ -1,0 +1,32 @@
+{
+  "Parameters": [
+    {
+      "OrdinalPosition": 1,
+      "Name": "@EntityId",
+      "DataType": "int",
+      "Mode": "IN",
+      "MaxLength": 4
+    },
+    {
+      "OrdinalPosition": 2,
+      "Name": "@Reservacion_Id",
+      "DataType": "int",
+      "Mode": "IN",
+      "MaxLength": 4
+    },
+    {
+      "OrdinalPosition": 3,
+      "Name": "@ConceptoFacturable_Id",
+      "DataType": "int",
+      "Mode": "IN",
+      "MaxLength": 4
+    }
+  ],
+  "Definition": "-- =================================================================\r\n-- Description:\tThis gets a basic report for [ReservacionExtra] table\r\n-- =================================================================\r\nCREATE PROCEDURE [dbo].[rpt_ReservacionExtra_Index]\r\n@EntityId AS INT = 0, \r\n@Reservacion_Id AS INT = 0, \r\n@ConceptoFacturable_Id AS INT = 0\r\nAS\r\nBEGIN\r\n\t\r\n\t-- IMPORTANT:\r\n\t-- This is a computer generated procedure.  DO NOT ADD CUSTOM CODE TO THIS PROCEDURE.\r\n\r\n\t-- SET NOCOUNT ON added to prevent extra result sets from\r\n\t-- interfering with SELECT statements.\r\n\tSET NOCOUNT ON;\r\n\t\r\n\t-- 1) CREATE FILTER TABLE:\r\n\tDECLARE @ReservacionExtraFilter TABLE (\r\n\t\tId INT IDENTITY (1,1),\r\n\t\tReservacionExtra_Id INT\t\t\r\n\t)\r\n\r\n\r\n    -- IF A GIVEN ID HAS BEEN SPECIFIED, THEN RETRIEVE THAT RECORD ONLY\r\n\tIF @EntityId \u003C\u003E 0\r\n\tBEGIN\r\n\r\n\t\tINSERT INTO @ReservacionExtraFilter (ReservacionExtra_Id)\r\n\t\tSELECT \r\n\t\t\t[ReservacionExtra].Id\r\n\t\tFROM [dbo].[ReservacionExtra]\r\n\t\tWHERE\r\n\t\t\t [dbo].[ReservacionExtra].[Id] = @EntityId\r\n\r\n\tEND\r\n\tELSE\r\n\tBEGIN\r\n\r\n\t\t-- 2) FILTER BY FOREIGN RELATIONSHIPS WHEN APLICABLE:\r\n\t\tINSERT INTO @ReservacionExtraFilter (ReservacionExtra_Id)\r\n\t\tSELECT \r\n\t\t\t[ReservacionExtra].Id\r\n\t\tFROM [dbo].[ReservacionExtra]\r\n\t\tWHERE\r\n\t\t\t [ReservacionExtra].[Activo] = 1 AND\r\n         (([ReservacionExtra].[Reservacion_Id] = @Reservacion_Id) OR (@Reservacion_Id = 0)) AND\r\n         (([ReservacionExtra].[ConceptoFacturable_Id] = @ConceptoFacturable_Id) OR (@ConceptoFacturable_Id = 0))\r\n\r\n \tEND\r\n\r\n \r\n\t-- 4) DELIVER THE FILTERED RESULTS:\r\n\tSELECT \r\n\t\t[ReservacionExtra].[Id],\r\n\t\t[ReservacionExtra].[Reservacion_Id],\r\n\t\t[ReservacionExtra].[ConceptoFacturable_Id],\r\n\t\t[ReservacionExtra].[Cantidad],\r\n\t\t[ReservacionExtra].[Activo],\r\n\t\t[ReservacionExtra].[FechaDesactivacion],\r\n\t\t[ReservacionExtra].[DesactivadoPor],\r\n\t\t[Reservacion].[Titulo] AS [ReservacionTitulo],\r\n\t\t[Reservacion].[Descripcion] AS [ReservacionDescripcion],\r\n\t\t[ConceptoFacturable].[Concepto] AS [ConceptoFacturableConcepto],\r\n\t\t[ConceptoFacturable].[Descripcion] AS [ConceptoFacturableDescripcion],\r\n\t\t[ReservacionExtra].[FechaCreacion],\r\n\t\t[ReservacionExtra].[CreadoPor],\r\n\t\t[ReservacionExtra].[FechaModificacion],\r\n\t\t[ReservacionExtra].[ModificadoPor]\r\n\tFROM @ReservacionExtraFilter filter\r\n\t\tJOIN [dbo].[ReservacionExtra] \r\n\t\t\tON [ReservacionExtra].[Id] = filter.[ReservacionExtra_Id] \r\n\t\t\t\r\n\r\n\t\tLEFT JOIN [dbo].[Reservacion]\r\n\t\tON [dbo].[ReservacionExtra].[Reservacion_Id] = [dbo].[Reservacion].[Id] \r\n\r\n \t\tLEFT JOIN [dbo].[ConceptoFacturable]\r\n\t\tON [dbo].[ReservacionExtra].[ConceptoFacturable_Id] = [dbo].[ConceptoFacturable].[Id] \r\n\r\n \r\nEND\r\n-- END OF [dbo].[cgp_ReservacionExtra_Index]",
+  "Schema": "dbo",
+  "Name": "rpt_ReservacionExtra_Index",
+  "ObjectType": "StoredProcedure",
+  "DatabaseProvider": "sqlserver",
+  "ScannedAtUtc": "2026-08-21T18:10:57.4643583+00:00",
+  "QualifiedName": "dbo.rpt_ReservacionExtra_Index"
+}

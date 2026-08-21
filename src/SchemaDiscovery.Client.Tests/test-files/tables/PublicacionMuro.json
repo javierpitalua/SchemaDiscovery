@@ -1,0 +1,83 @@
+{
+  "Schema": "dbo",
+  "Name": "PublicacionMuro",
+  "ClassName": "PublicacionMuro",
+  "PluralClassName": "PublicacionMuro",
+  "QualifiedName": "dbo.PublicacionMuro",
+  "ObjectType": "Table",
+  "DatabaseProvider": "sqlserver",
+  "Columns": [
+    {
+      "OrdinalPosition": 1,
+      "Name": "Id",
+      "DataType": "int",
+      "IsNullable": false,
+      "MaxLength": 4,
+      "IsIdentity": true,
+      "IsComputed": false,
+      "IsPrimaryKey": true,
+      "PropertyName": "Id"
+    },
+    {
+      "OrdinalPosition": 2,
+      "Name": "Texto",
+      "DataType": "varchar",
+      "IsNullable": true,
+      "MaxLength": 1000,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "Texto"
+    },
+    {
+      "OrdinalPosition": 3,
+      "Name": "FechaPublicacion",
+      "DataType": "datetime",
+      "IsNullable": false,
+      "MaxLength": 8,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "FechaPublicacion"
+    },
+    {
+      "OrdinalPosition": 4,
+      "Name": "Suscriptor_Id",
+      "DataType": "int",
+      "IsNullable": false,
+      "MaxLength": 4,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "Suscriptor_Id"
+    },
+    {
+      "OrdinalPosition": 5,
+      "Name": "Deshabilitado",
+      "DataType": "bit",
+      "IsNullable": false,
+      "MaxLength": 1,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "Deshabilitado"
+    }
+  ],
+  "PrimaryKeyColumns": [
+    "Id"
+  ],
+  "ForeignKeys": [],
+  "Indexes": [
+    {
+      "Name": "PK_PublicacionMuro",
+      "IsUnique": true,
+      "IsPrimaryKey": true,
+      "IndexType": "CLUSTERED",
+      "Columns": [
+        "Id"
+      ]
+    }
+  ],
+  "ScannedAtUtc": "2026-08-21T18:10:55.9434305+00:00",
+  "RowCountEstimate": 549
+}

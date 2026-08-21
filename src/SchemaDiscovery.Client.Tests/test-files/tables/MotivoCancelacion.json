@@ -1,0 +1,61 @@
+{
+  "Schema": "dbo",
+  "Name": "MotivoCancelacion",
+  "ClassName": "MotivoCancelacion",
+  "PluralClassName": "MotivoCancelacion",
+  "QualifiedName": "dbo.MotivoCancelacion",
+  "ObjectType": "Table",
+  "DatabaseProvider": "sqlserver",
+  "Columns": [
+    {
+      "OrdinalPosition": 1,
+      "Name": "Id",
+      "DataType": "int",
+      "IsNullable": false,
+      "MaxLength": 4,
+      "IsIdentity": true,
+      "IsComputed": false,
+      "IsPrimaryKey": true,
+      "PropertyName": "Id"
+    },
+    {
+      "OrdinalPosition": 2,
+      "Name": "Nombre",
+      "DataType": "varchar",
+      "IsNullable": true,
+      "MaxLength": 255,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "Nombre"
+    },
+    {
+      "OrdinalPosition": 3,
+      "Name": "ClaveSAT",
+      "DataType": "varchar",
+      "IsNullable": true,
+      "MaxLength": 50,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "ClaveSAT"
+    }
+  ],
+  "PrimaryKeyColumns": [
+    "Id"
+  ],
+  "ForeignKeys": [],
+  "Indexes": [
+    {
+      "Name": "PK_MotivoCancelacion",
+      "IsUnique": true,
+      "IsPrimaryKey": true,
+      "IndexType": "CLUSTERED",
+      "Columns": [
+        "Id"
+      ]
+    }
+  ],
+  "ScannedAtUtc": "2026-08-21T18:10:55.9204522+00:00",
+  "RowCountEstimate": 4
+}

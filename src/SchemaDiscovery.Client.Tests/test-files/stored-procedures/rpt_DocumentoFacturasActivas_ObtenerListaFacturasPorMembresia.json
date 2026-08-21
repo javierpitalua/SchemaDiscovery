@@ -1,0 +1,18 @@
+{
+  "Parameters": [
+    {
+      "OrdinalPosition": 1,
+      "Name": "@MembresiaId",
+      "DataType": "int",
+      "Mode": "IN",
+      "MaxLength": 4
+    }
+  ],
+  "Definition": "CREATE PROCEDURE [dbo].[rpt_DocumentoFacturasActivas_ObtenerListaFacturasPorMembresia] \n@MembresiaId INT\nAS\nBEGIN\n\n\tDECLARE @Documentos TABLE(\n\t\tId INT IDENTITY(1,1),\n\t\tDocumento_Id INT,\n\t\tIncluirEnResultados BIT\n\t)\t\n\n\tINSERT INTO @Documentos (Documento_Id, IncluirEnResultados)\n\tSELECT Id, 1 FROM Documento doc \n\tWHERE \n\t\tdoc.Activo = 1 \t\n\tAND doc.CategoriaDocumento_Id IN (3, 8) -- Solo facturas y remisiones\n\tAND doc.Membresia_Id = @MembresiaId\n\n\tSELECT \n\t\tdoc.Id,\n\t\tdoc.Folio,\n\t\tdoc.CicloDeFacturacion_Id,\n\t\tdoc.Membresia_Id,\n\t\tmem.ClaveMembresia,\n\t\tdbo.fnObtenerDescripcionMes(ciclo.Mes) \u002B \u0027 \u0027 \u002B CONVERT(VARCHAR(100), ciclo.Anio) AS CicloDeFacturacion,\n\t\tdoc.FechaEmision,\n\t\tdoc.FechaCreacion,\n\t\tdoc.MontoTotal,\n\t\tdoc.IVA,\n\t\tdoc.MontoTotal \u002B doc.IVA AS MontoTotalMasIVA,\n\t\tCASE ISNULL(doc.Pagado, 0) WHEN 0 THEN \u0027No\u0027 WHEN 1 THEN \u0027S\u00ED\u0027 END AS Pagado,\n\t\tcat.Nombre AS Categoria,\n\t\tdoc.CategoriaDocumento_Id,\n\t\tdoc.EstatusDocumento_Id,\n\t\test.Nombre AS Estatus,\n\t\ttdc.Abreviacion AS [TipoDeCambio]\n\tFROM @Documentos tmp\n\t\tJOIN Documento doc ON tmp.Documento_Id = doc.Id\n\t\tJOIN Membresia mem ON doc.Membresia_Id = mem.Id\n\t\tLEFT JOIN CicloDeFacturacion ciclo ON doc.CicloDeFacturacion_Id = ciclo.Id\n\t\tLEFT JOIN CategoriaDocumento cat ON doc.CategoriaDocumento_Id = cat.Id\n\t\tLEFT JOIN EstatusDocumento est ON doc.EstatusDocumento_Id = est.Id\n\t\tLEFT JOIN TipoDeCambio tdc ON doc.TipoDeCambio_Id = tdc.Id\n\tWHERE doc.Activo = 1\n\tAND tmp.IncluirEnResultados = 1\n\tORDER BY doc.FechaCreacion DESC\n\t\nEND",
+  "Schema": "dbo",
+  "Name": "rpt_DocumentoFacturasActivas_ObtenerListaFacturasPorMembresia",
+  "ObjectType": "StoredProcedure",
+  "DatabaseProvider": "sqlserver",
+  "ScannedAtUtc": "2026-08-21T18:10:57.4525905+00:00",
+  "QualifiedName": "dbo.rpt_DocumentoFacturasActivas_ObtenerListaFacturasPorMembresia"
+}

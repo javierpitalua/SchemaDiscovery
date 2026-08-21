@@ -1,0 +1,104 @@
+{
+  "Schema": "dbo",
+  "Name": "DetalleEjecucion",
+  "ClassName": "DetalleEjecucion",
+  "PluralClassName": "DetalleEjecucion",
+  "QualifiedName": "dbo.DetalleEjecucion",
+  "ObjectType": "Table",
+  "DatabaseProvider": "sqlserver",
+  "Columns": [
+    {
+      "OrdinalPosition": 1,
+      "Name": "Id",
+      "DataType": "int",
+      "IsNullable": false,
+      "MaxLength": 4,
+      "IsIdentity": true,
+      "IsComputed": false,
+      "IsPrimaryKey": true,
+      "PropertyName": "Id"
+    },
+    {
+      "OrdinalPosition": 2,
+      "Name": "Ejecucion_Id",
+      "DataType": "int",
+      "IsNullable": false,
+      "MaxLength": 4,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "Ejecucion_Id"
+    },
+    {
+      "OrdinalPosition": 3,
+      "Name": "DescripcionDocumento",
+      "DataType": "varchar",
+      "IsNullable": true,
+      "MaxLength": 500,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "DescripcionDocumento"
+    },
+    {
+      "OrdinalPosition": 4,
+      "Name": "Detalles",
+      "DataType": "varchar",
+      "IsNullable": true,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "Detalles"
+    },
+    {
+      "OrdinalPosition": 5,
+      "Name": "FechaInicio",
+      "DataType": "smalldatetime",
+      "IsNullable": false,
+      "MaxLength": 4,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "FechaInicio"
+    },
+    {
+      "OrdinalPosition": 6,
+      "Name": "CompletadoEn",
+      "DataType": "smalldatetime",
+      "IsNullable": true,
+      "MaxLength": 4,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "CompletadoEn"
+    },
+    {
+      "OrdinalPosition": 7,
+      "Name": "ProcesoCompletado",
+      "DataType": "bit",
+      "IsNullable": true,
+      "MaxLength": 1,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "ProcesoCompletado"
+    }
+  ],
+  "PrimaryKeyColumns": [
+    "Id"
+  ],
+  "ForeignKeys": [],
+  "Indexes": [
+    {
+      "Name": "PK_DetalleEjecucion",
+      "IsUnique": true,
+      "IsPrimaryKey": true,
+      "IndexType": "CLUSTERED",
+      "Columns": [
+        "Id"
+      ]
+    }
+  ],
+  "ScannedAtUtc": "2026-08-21T18:10:55.8859548+00:00",
+  "RowCountEstimate": 62286
+}

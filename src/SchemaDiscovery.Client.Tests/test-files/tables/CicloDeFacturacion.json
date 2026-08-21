@@ -1,0 +1,94 @@
+{
+  "Schema": "dbo",
+  "Name": "CicloDeFacturacion",
+  "ClassName": "CicloDeFacturacion",
+  "PluralClassName": "CicloDeFacturacion",
+  "QualifiedName": "dbo.CicloDeFacturacion",
+  "ObjectType": "Table",
+  "DatabaseProvider": "sqlserver",
+  "Columns": [
+    {
+      "OrdinalPosition": 1,
+      "Name": "Id",
+      "DataType": "int",
+      "IsNullable": false,
+      "MaxLength": 4,
+      "IsIdentity": true,
+      "IsComputed": false,
+      "IsPrimaryKey": true,
+      "PropertyName": "Id"
+    },
+    {
+      "OrdinalPosition": 2,
+      "Name": "Mes",
+      "DataType": "int",
+      "IsNullable": true,
+      "MaxLength": 4,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "Mes"
+    },
+    {
+      "OrdinalPosition": 3,
+      "Name": "Anio",
+      "DataType": "int",
+      "IsNullable": true,
+      "MaxLength": 4,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "Anio"
+    },
+    {
+      "OrdinalPosition": 4,
+      "Name": "FechaDeGeneracion",
+      "DataType": "smalldatetime",
+      "IsNullable": true,
+      "MaxLength": 4,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "FechaDeGeneracion"
+    },
+    {
+      "OrdinalPosition": 5,
+      "Name": "UltimaEjecucion_Id",
+      "DataType": "int",
+      "IsNullable": true,
+      "MaxLength": 4,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "UltimaEjecucion_Id"
+    },
+    {
+      "OrdinalPosition": 6,
+      "Name": "Vigente",
+      "DataType": "bit",
+      "IsNullable": true,
+      "MaxLength": 1,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "Vigente"
+    }
+  ],
+  "PrimaryKeyColumns": [
+    "Id"
+  ],
+  "ForeignKeys": [],
+  "Indexes": [
+    {
+      "Name": "PK_CicloDeFacturacion",
+      "IsUnique": true,
+      "IsPrimaryKey": true,
+      "IndexType": "CLUSTERED",
+      "Columns": [
+        "Id"
+      ]
+    }
+  ],
+  "ScannedAtUtc": "2026-08-21T18:10:55.8710368+00:00",
+  "RowCountEstimate": 108
+}

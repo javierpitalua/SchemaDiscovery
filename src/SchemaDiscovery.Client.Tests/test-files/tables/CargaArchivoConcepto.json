@@ -1,0 +1,72 @@
+{
+  "Schema": "dbo",
+  "Name": "CargaArchivoConcepto",
+  "ClassName": "CargaArchivoConcepto",
+  "PluralClassName": "CargaArchivoConcepto",
+  "QualifiedName": "dbo.CargaArchivoConcepto",
+  "ObjectType": "Table",
+  "DatabaseProvider": "sqlserver",
+  "Columns": [
+    {
+      "OrdinalPosition": 1,
+      "Name": "Id",
+      "DataType": "int",
+      "IsNullable": false,
+      "MaxLength": 4,
+      "IsIdentity": true,
+      "IsComputed": false,
+      "IsPrimaryKey": true,
+      "PropertyName": "Id"
+    },
+    {
+      "OrdinalPosition": 2,
+      "Name": "ClaveArchivo",
+      "DataType": "varchar",
+      "IsNullable": false,
+      "MaxLength": 50,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "ClaveArchivo"
+    },
+    {
+      "OrdinalPosition": 3,
+      "Name": "FechaCarga",
+      "DataType": "smalldatetime",
+      "IsNullable": false,
+      "MaxLength": 4,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "FechaCarga"
+    },
+    {
+      "OrdinalPosition": 4,
+      "Name": "Usuario_Id",
+      "DataType": "int",
+      "IsNullable": false,
+      "MaxLength": 4,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "Usuario_Id"
+    }
+  ],
+  "PrimaryKeyColumns": [
+    "Id"
+  ],
+  "ForeignKeys": [],
+  "Indexes": [
+    {
+      "Name": "PK_CargaArchivoConcepto",
+      "IsUnique": true,
+      "IsPrimaryKey": true,
+      "IndexType": "CLUSTERED",
+      "Columns": [
+        "Id"
+      ]
+    }
+  ],
+  "ScannedAtUtc": "2026-08-21T18:10:55.8652015+00:00",
+  "RowCountEstimate": 16
+}

@@ -1,0 +1,132 @@
+{
+  "Schema": "dbo",
+  "Name": "DetalleDocumento",
+  "ClassName": "DetalleDocumento",
+  "PluralClassName": "DetalleDocumento",
+  "QualifiedName": "dbo.DetalleDocumento",
+  "ObjectType": "Table",
+  "DatabaseProvider": "sqlserver",
+  "Columns": [
+    {
+      "OrdinalPosition": 1,
+      "Name": "Id",
+      "DataType": "int",
+      "IsNullable": false,
+      "MaxLength": 4,
+      "IsIdentity": true,
+      "IsComputed": false,
+      "IsPrimaryKey": true,
+      "PropertyName": "Id"
+    },
+    {
+      "OrdinalPosition": 2,
+      "Name": "Documento_Id",
+      "DataType": "int",
+      "IsNullable": false,
+      "MaxLength": 4,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "Documento_Id"
+    },
+    {
+      "OrdinalPosition": 3,
+      "Name": "ConceptoFacturable_Id",
+      "DataType": "int",
+      "IsNullable": true,
+      "MaxLength": 4,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "ConceptoFacturable_Id"
+    },
+    {
+      "OrdinalPosition": 4,
+      "Name": "Unidades",
+      "DataType": "decimal",
+      "IsNullable": false,
+      "MaxLength": 9,
+      "NumericPrecision": 10,
+      "NumericScale": 2,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "Unidades"
+    },
+    {
+      "OrdinalPosition": 5,
+      "Name": "PrecioUnitario",
+      "DataType": "decimal",
+      "IsNullable": true,
+      "MaxLength": 9,
+      "NumericPrecision": 10,
+      "NumericScale": 2,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "PrecioUnitario"
+    },
+    {
+      "OrdinalPosition": 6,
+      "Name": "Total",
+      "DataType": "decimal",
+      "IsNullable": true,
+      "MaxLength": 9,
+      "NumericPrecision": 10,
+      "NumericScale": 2,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "Total"
+    },
+    {
+      "OrdinalPosition": 7,
+      "Name": "Descripcion",
+      "DataType": "varchar",
+      "IsNullable": true,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "Descripcion"
+    },
+    {
+      "OrdinalPosition": 8,
+      "Name": "Unidad",
+      "DataType": "varchar",
+      "IsNullable": true,
+      "MaxLength": 150,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "Unidad"
+    },
+    {
+      "OrdinalPosition": 9,
+      "Name": "DescripcionAdicional",
+      "DataType": "varchar",
+      "IsNullable": true,
+      "MaxLength": 250,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "DescripcionAdicional"
+    }
+  ],
+  "PrimaryKeyColumns": [
+    "Id"
+  ],
+  "ForeignKeys": [],
+  "Indexes": [
+    {
+      "Name": "PK_DetalleDocumento",
+      "IsUnique": true,
+      "IsPrimaryKey": true,
+      "IndexType": "CLUSTERED",
+      "Columns": [
+        "Id"
+      ]
+    }
+  ],
+  "ScannedAtUtc": "2026-08-21T18:10:55.8852883+00:00",
+  "RowCountEstimate": 58508
+}

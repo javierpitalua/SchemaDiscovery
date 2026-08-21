@@ -1,0 +1,46 @@
+{
+  "Parameters": [
+    {
+      "OrdinalPosition": 1,
+      "Name": "@EntityId",
+      "DataType": "int",
+      "Mode": "IN",
+      "MaxLength": 4
+    },
+    {
+      "OrdinalPosition": 2,
+      "Name": "@Comunidad_Id",
+      "DataType": "int",
+      "Mode": "IN",
+      "MaxLength": 4
+    },
+    {
+      "OrdinalPosition": 3,
+      "Name": "@TipoMembresia_Id",
+      "DataType": "int",
+      "Mode": "IN",
+      "MaxLength": 4
+    },
+    {
+      "OrdinalPosition": 4,
+      "Name": "@EstatusMembresia_Id",
+      "DataType": "int",
+      "Mode": "IN",
+      "MaxLength": 4
+    },
+    {
+      "OrdinalPosition": 5,
+      "Name": "@Vendedor_Id",
+      "DataType": "int",
+      "Mode": "IN",
+      "MaxLength": 4
+    }
+  ],
+  "Definition": "-- =================================================================\r\n-- Description:\tThis gets a basic report for [Membresia] table\r\n-- =================================================================\r\nCREATE PROCEDURE [dbo].[rpt_Membresia_Index]\r\n@EntityId AS INT = 0, \r\n@Comunidad_Id AS INT = 0, \r\n@TipoMembresia_Id AS INT = 0, \r\n@EstatusMembresia_Id AS INT = 0,\r\n@Vendedor_Id AS INT = 0 \r\nAS\r\nBEGIN\r\n\t\r\n\t-- IMPORTANT:\r\n\t-- This is a computer generated procedure.  DO NOT ADD CUSTOM CODE TO THIS PROCEDURE.\r\n\r\n\t-- SET NOCOUNT ON added to prevent extra result sets from\r\n\t-- interfering with SELECT statements.\r\n\tSET NOCOUNT ON;\r\n\t\r\n\t-- 1) CREATE FILTER TABLE:\r\n\tDECLARE @MembresiaFilter TABLE (\r\n\t\tId INT IDENTITY (1,1),\r\n\t\tMembresia_Id INT,\r\n\t\tEstatusVigencia INT NULL\t\t\r\n\t)\r\n\r\n    -- IF A GIVEN ID HAS BEEN SPECIFIED, THEN RETRIEVE THAT RECORD ONLY\r\n\tIF @EntityId \u003C\u003E 0\r\n\tBEGIN\r\n\r\n\t\tINSERT INTO @MembresiaFilter (Membresia_Id)\r\n\t\tSELECT \r\n\t\t\t[Membresia].Id\r\n\t\tFROM [dbo].[Membresia]\r\n\t\tWHERE\r\n\t\t\t [dbo].[Membresia].[Id] = @EntityId\r\n\r\n\tEND\r\n\tELSE\r\n\tBEGIN\r\n\r\n\t\t-- 2) FILTER BY FOREIGN RELATIONSHIPS WHEN APLICABLE:\r\n\t\tINSERT INTO @MembresiaFilter (Membresia_Id)\r\n\t\tSELECT \r\n\t\t\t[Membresia].Id\r\n\t\tFROM [dbo].[Membresia]\r\n\t\tWHERE\r\n\t\t\t (([Membresia].[Comunidad_Id] = @Comunidad_Id) OR (@Comunidad_Id = 0)) AND\r\n         (([Membresia].[TipoMembresia_Id] = @TipoMembresia_Id) OR (@TipoMembresia_Id = 0)) AND\r\n\t\t (([Membresia].[Vendedor_Id] = @Vendedor_Id) OR (@Vendedor_Id = 0)) AND\r\n         (([Membresia].[EstatusMembresia_Id] = @EstatusMembresia_Id) OR (@EstatusMembresia_Id = 0))\r\n\r\n \tEND\r\n\r\n\t-- ESTATUS DE VIGENCIAS\r\n\t\t-- 0) VIGENTE\r\n\t\t-- 1) PROXIMA A RENOVAR - 3 meses\r\n\t\t-- 2) EN RENOVACION - 1 mes\r\n\t\t-- 3) VENCIDA\r\n\r\n\tUPDATE @MembresiaFilter SET EstatusVigencia = 0\r\n\r\n\tDECLARE @TresMesesAdelante SMALLDATETIME\r\n\tSELECT @TresMesesAdelante = DATEADD(day, -1, DATEADD(month, 3, GETDATE()))\r\n\t\r\n\tDECLARE @UnMesAdelante SMALLDATETIME\r\n\tSELECT @UnMesAdelante = DATEADD(day, -1, DATEADD(month, 1, GETDATE()))\t\r\n\r\n\tDECLARE @AlDiaDeHoy SMALLDATETIME\r\n\tSELECT @AlDiaDeHoy = GETDATE()\r\n\r\n\tPRINT \u0027Tres meses adelante: \u0027 \u002B CONVERT(VARCHAR(100), @TresMesesAdelante)\r\n\tPRINT \u0027Un mes adelante: \u0027 \u002B CONVERT(VARCHAR(100), @UnMesAdelante)\r\n\tPRINT \u0027Al d\u00EDa de hoy: \u0027 \u002B CONVERT(VARCHAR(100), @AlDiaDeHoy)\r\n\t\r\n\tUPDATE @MembresiaFilter SET EstatusVigencia = 1\r\n\tFROM @MembresiaFilter tmp\r\n\tJOIN Membresia mem ON tmp.Membresia_Id = mem.Id\r\n\tWHERE @TresMesesAdelante \u003E mem.Vigencia\r\n\r\n\tUPDATE @MembresiaFilter SET EstatusVigencia = 2\r\n\tFROM @MembresiaFilter tmp\r\n\tJOIN Membresia mem ON tmp.Membresia_Id = mem.Id\r\n\tWHERE @UnMesAdelante \u003E mem.Vigencia\r\n\r\n\tUPDATE @MembresiaFilter SET EstatusVigencia = 3\r\n\tFROM @MembresiaFilter tmp\r\n\tJOIN Membresia mem ON tmp.Membresia_Id = mem.Id\r\n\tWHERE mem.Vigencia \u003C @AlDiaDeHoy\r\n\r\n\tDECLARE @DepositosEnGarantia TABLE (\r\n\t\tId INT IDENTITY(1, 1),\r\n\t\tMembresia_Id INT,\r\n\t\tMonto DECIMAL (18, 2)\r\n\t)\r\n\r\n\tINSERT INTO @DepositosEnGarantia (Membresia_Id, Monto)\r\n\tSELECT dep.Membresia_Id, SUM(dep.Monto) AS Monto \r\n\tFROM DepositoEnGarantia dep\r\n\tJOIN @MembresiaFilter flt ON flt.Membresia_Id = dep.Membresia_Id\r\n\tGROUP BY dep.Membresia_Id\r\n\r\n\r\n\t-- 4) DELIVER THE FILTERED RESULTS:\r\n\tSELECT \r\n\t\t[Membresia].[Id],\r\n\t\t[Membresia].[Comunidad_Id],\r\n\t\t[Membresia].[ClaveMembresia],\r\n\t\t[InformacionFacturacion].[RazonSocial],\r\n\t\t[InformacionFacturacion].[RFC],\r\n\t\t[InformacionFacturacion].[CP],\r\n\t\t[RegimenFiscal].[Nombre] AS [RegimenFiscal],\r\n\t\t[TipoMembresia].[Nombre] AS [TipoMembresiaNombre],\r\n\t\t[EstatusMembresia].[Nombre] AS [EstatusMembresiaNombre],\r\n\t\t[Membresia].[FechaInicio] AS [FechaInicio],\r\n\t\t[Membresia].[Vigencia],\r\n\t\t[Membresia].[PrecioMensual],\r\n\t\t[Membresia].[TipoMembresia_Id],\r\n\t\t[Membresia].[EstatusMembresia_Id],\r\n\t\t[Comunidad].[Nombre] AS [ComunidadNombre],\r\n\t\t[Comunidad].[Prefijo] as [Prefijo],\r\n\t\t[Membresia].[FechaCreacion] as [FechaCreacion],\r\n\t\t[Membresia].[CreadoPor] as [CreadoPor],\r\n\t\tfilter.[EstatusVigencia],\r\n\t\t[Usuario].[CorreoElectronico] AS [Vendedor],\r\n\t\tCASE filter.[EstatusVigencia]\r\n\t\t\tWHEN 0 THEN \u0027Vigente\u0027\r\n\t\t\tWHEN 1 THEN \u0027Pr\u00F3xima a renovar\u0027\r\n\t\t\tWHEN 2 THEN \u0027En Renovaci\u00F3n\u0027\r\n\t\t\tWHEN 3 THEN \u0027Vencida\u0027\r\n\t\tEND AS [DescripcionVigencia],\r\n\t\tCASE [Membresia].[RequiereFactura]\r\n\t\t\tWHEN 1 THEN \u0027S\u00ED\u0027\r\n\t\t\tELSE \u0027No\u0027\r\n\t\tEND AS [RequiereFactura],\r\n\t\tCASE DeshabilitarFacturacionAutomatica \r\n\t\t\tWHEN 1 THEN \u0027No\u0027\r\n\t\t\tELSE \u0027S\u00ED\u0027\r\n\t\tEND AS [GeneraFacturaMensual],\r\n\t\tCASE EsPagoDomiciliado \r\n\t\t\tWHEN 1 THEN \u0027Si\u0027\r\n\t\t\tELSE \u0027No\u0027\r\n\t\tEND AS [EsPagoDomiciliado],\r\n\t\tCASE \r\n\t\t\tWHEN dep1.Membresia_Id IS NULL THEN \u0027No\u0027\r\n\t\t\tELSE \u0027Si\u0027\r\n\t\tEND AS [TieneDepositosEnGarantia],\r\n\t\tdep1.Monto AS [MontoDepositosEnGarantia]\r\n\tFROM @MembresiaFilter filter\r\n\t\tJOIN [dbo].[Membresia] \r\n\t\t\tON [Membresia].[Id] = filter.[Membresia_Id] \t\t\t\r\n\r\n\t\tLEFT JOIN [dbo].[Comunidad]\r\n\t\tON [dbo].[Membresia].[Comunidad_Id] = [dbo].[Comunidad].[Id] \r\n\r\n \t\tLEFT JOIN [dbo].[TipoMembresia]\r\n\t\tON [dbo].[Membresia].[TipoMembresia_Id] = [dbo].[TipoMembresia].[Id] \r\n\r\n \t\tLEFT JOIN [dbo].[EstatusMembresia]\r\n\t\tON [dbo].[Membresia].[EstatusMembresia_Id] = [dbo].[EstatusMembresia].[Id] \r\n\r\n\t\tLEFT JOIN [dbo].[InformacionFacturacion]\r\n\t\tON [dbo].[Membresia].[InformacionFacturacion_Id] = [dbo].[InformacionFacturacion].[Id] \r\n\r\n\t\tLEFT JOIN [dbo].[RegimenFiscal]\r\n\t\tON [dbo].[InformacionFacturacion].[RegimenFiscal_Id] = [dbo].[RegimenFiscal].[Id]\r\n\r\n\t\tLEFT JOIN [dbo].[Usuario]\r\n\t\tON [dbo].[Membresia].[Vendedor_Id] = [dbo].[Usuario].[Id]\t\t\r\n\r\n\t\tLEFT JOIN @DepositosEnGarantia dep1 ON filter.Membresia_Id = dep1.Membresia_Id\r\n\r\n\t\tWHERE [Membresia].[Activo]= 1 \t\t\r\n\r\n\tORDER BY [Membresia].[Id] DESC\r\n \r\nEND",
+  "Schema": "dbo",
+  "Name": "rpt_Membresia_Index",
+  "ObjectType": "StoredProcedure",
+  "DatabaseProvider": "sqlserver",
+  "ScannedAtUtc": "2026-08-21T18:10:57.4574868+00:00",
+  "QualifiedName": "dbo.rpt_Membresia_Index"
+}

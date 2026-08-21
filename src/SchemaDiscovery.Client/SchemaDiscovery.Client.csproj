@@ -15,7 +15,6 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
-
   <!-- NuGet package metadata. Bump <Version> before each release; the CI
        release workflow (.github/workflows/publish-nuget.yml) overrides it
        from the pushed git tag, so this value is only what local pack runs
@@ -45,16 +44,14 @@
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>
-
   <ItemGroup>
     <PackageReference Include="NuGet.Build.Tasks.Pack" Version="6.9.1" PrivateAssets="all" />
     <PackageReference Include="System.Text.Json" Version="8.0.5" />
   </ItemGroup>
-
   <ItemGroup>
     <!-- Packed into the .nupkg so it shows up on nuget.org / internal feeds. -->
+    <None Include="LICENSE" />
     <None Include="README.md" Pack="true" PackagePath="/" />
-    <None Include="..\LICENSE" Pack="true" PackagePath="/" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -76,9 +73,6 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Text.Json">
-      <HintPath>..\..\..\Users\javie\.nuget\packages\system.text.json\8.0.5\lib\netstandard2.0\System.Text.Json.dll</HintPath>
-    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -92,7 +86,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\src\SchemaDiscovery.Abstractions\SchemaDiscovery.Abstractions.csproj">
+    <ProjectReference Include="..\SchemaDiscovery.Abstractions\SchemaDiscovery.Abstractions.csproj">
       <Project>{a1000000-0000-0000-0000-000000000001}</Project>
       <Name>SchemaDiscovery.Abstractions</Name>
     </ProjectReference>

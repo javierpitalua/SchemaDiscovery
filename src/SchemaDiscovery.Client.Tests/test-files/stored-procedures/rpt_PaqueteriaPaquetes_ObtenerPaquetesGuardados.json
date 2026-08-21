@@ -1,0 +1,18 @@
+{
+  "Parameters": [
+    {
+      "OrdinalPosition": 1,
+      "Name": "@Membresia_Id",
+      "DataType": "int",
+      "Mode": "IN",
+      "MaxLength": 4
+    }
+  ],
+  "Definition": "CREATE PROCEDURE [dbo].[rpt_PaqueteriaPaquetes_ObtenerPaquetesGuardados]\r\n@Membresia_Id INT\r\nAS\r\nBEGIN\r\n\r\nSELECT \r\n\t[Paqueteria].[Id],\r\n\t[Paqueteria].[Fecha],\r\n\t[Paqueteria].[Guia],\r\n\t[Membresia].[Id] AS [Membresia_Id],\r\n\t[Membresia].[ClaveMembresia],\r\n\t[TipoPaquete].[Nombre] AS [TipoPaquete],\r\n\t[EstatusPaqueteria].[Nombre] AS [Estatus],\r\n\t[Paqueteria].[Activo],\r\n\t[InformacionFacturacion].[RazonSocial]\r\nFROM [Paqueteria]\r\n\tJOIN [TipoPaquete]\r\n\t\tON [Paqueteria].[TipoPaquete_Id] = [TipoPaquete].[Id]\r\n\tJOIN [Membresia]\r\n\t\tON [Paqueteria].[Membresia_Id] = [Membresia].[Id]\r\n\tJOIN [EstatusPaqueteria]\r\n\t\tON [Paqueteria].[EstatusPaqueteria_Id] = [EstatusPaqueteria].[Id]\r\n\tJOIN [InformacionFacturacion]\r\n\t\t\tON [Membresia].[InformacionFacturacion_Id] = [InformacionFacturacion].[Id]\r\nWHERE [Paqueteria].[Activo] = 1\r\nAND [Paqueteria].[EstatusPaqueteria_Id] = 1\r\nAND [Membresia].[Id] = @Membresia_Id\r\nORDER BY [Paqueteria].[Fecha] DESC\r\n\r\nEND",
+  "Schema": "dbo",
+  "Name": "rpt_PaqueteriaPaquetes_ObtenerPaquetesGuardados",
+  "ObjectType": "StoredProcedure",
+  "DatabaseProvider": "sqlserver",
+  "ScannedAtUtc": "2026-08-21T18:10:57.4597011+00:00",
+  "QualifiedName": "dbo.rpt_PaqueteriaPaquetes_ObtenerPaquetesGuardados"
+}

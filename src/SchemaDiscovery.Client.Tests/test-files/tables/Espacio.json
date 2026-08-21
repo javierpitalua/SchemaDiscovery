@@ -1,0 +1,174 @@
+{
+  "Schema": "dbo",
+  "Name": "Espacio",
+  "ClassName": "Espacio",
+  "PluralClassName": "Espacio",
+  "QualifiedName": "dbo.Espacio",
+  "ObjectType": "Table",
+  "DatabaseProvider": "sqlserver",
+  "Columns": [
+    {
+      "OrdinalPosition": 1,
+      "Name": "Id",
+      "DataType": "int",
+      "IsNullable": false,
+      "MaxLength": 4,
+      "IsIdentity": true,
+      "IsComputed": false,
+      "IsPrimaryKey": true,
+      "PropertyName": "Id"
+    },
+    {
+      "OrdinalPosition": 2,
+      "Name": "Nombre",
+      "DataType": "varchar",
+      "IsNullable": false,
+      "MaxLength": 50,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "Nombre"
+    },
+    {
+      "OrdinalPosition": 3,
+      "Name": "Descripcion",
+      "DataType": "varchar",
+      "IsNullable": false,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "Descripcion"
+    },
+    {
+      "OrdinalPosition": 4,
+      "Name": "Capacidad",
+      "DataType": "int",
+      "IsNullable": true,
+      "MaxLength": 4,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "Capacidad"
+    },
+    {
+      "OrdinalPosition": 5,
+      "Name": "NumeroOficina",
+      "DataType": "varchar",
+      "IsNullable": true,
+      "MaxLength": 50,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "NumeroOficina"
+    },
+    {
+      "OrdinalPosition": 6,
+      "Name": "Ubicacion_Id",
+      "DataType": "int",
+      "IsNullable": true,
+      "MaxLength": 4,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "Ubicacion_Id"
+    },
+    {
+      "OrdinalPosition": 7,
+      "Name": "TipoDeEspacio_Id",
+      "DataType": "int",
+      "IsNullable": false,
+      "MaxLength": 4,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "TipoDeEspacio_Id"
+    },
+    {
+      "OrdinalPosition": 8,
+      "Name": "ConceptoFacturable_Id",
+      "DataType": "int",
+      "IsNullable": false,
+      "MaxLength": 4,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "ConceptoFacturable_Id"
+    },
+    {
+      "OrdinalPosition": 9,
+      "Name": "Comunidad_Id",
+      "DataType": "int",
+      "IsNullable": false,
+      "MaxLength": 4,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "Comunidad_Id"
+    },
+    {
+      "OrdinalPosition": 10,
+      "Name": "AdministrarEstacionesDeTrabajo",
+      "DataType": "bit",
+      "IsNullable": true,
+      "MaxLength": 1,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "AdministrarEstacionesDeTrabajo"
+    },
+    {
+      "OrdinalPosition": 11,
+      "Name": "MapaId",
+      "DataType": "varchar",
+      "IsNullable": true,
+      "MaxLength": 50,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "MapaId"
+    },
+    {
+      "OrdinalPosition": 12,
+      "Name": "MetrosCuadrados",
+      "DataType": "decimal",
+      "IsNullable": true,
+      "MaxLength": 9,
+      "NumericPrecision": 18,
+      "NumericScale": 2,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "MetrosCuadrados"
+    },
+    {
+      "OrdinalPosition": 13,
+      "Name": "PrecioPorMetroCuadrado",
+      "DataType": "decimal",
+      "IsNullable": true,
+      "MaxLength": 9,
+      "NumericPrecision": 18,
+      "NumericScale": 2,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "PrecioPorMetroCuadrado"
+    }
+  ],
+  "PrimaryKeyColumns": [
+    "Id"
+  ],
+  "ForeignKeys": [],
+  "Indexes": [
+    {
+      "Name": "PK_Espacio1",
+      "IsUnique": true,
+      "IsPrimaryKey": true,
+      "IndexType": "CLUSTERED",
+      "Columns": [
+        "Id"
+      ]
+    }
+  ],
+  "ScannedAtUtc": "2026-08-21T18:10:55.8895318+00:00",
+  "RowCountEstimate": 191
+}

@@ -1,0 +1,18 @@
+{
+  "Parameters": [
+    {
+      "OrdinalPosition": 1,
+      "Name": "@Membresia_Id",
+      "DataType": "int",
+      "Mode": "IN",
+      "MaxLength": 4
+    }
+  ],
+  "Definition": "CREATE PROCEDURE [rpt_DocumentoUltimaFactura_ObtenerUltimaFactura] \r\n@Membresia_Id INT\r\nAS\r\nBEGIN\r\n\r\nSELECT TOP 10\r\n\tdoc.Id, \r\n\tdoc.Folio, \r\n\t(doc.MontoTotal \u002B doc.IVA) AS [MontoTotal], \r\n\tdoc.MontoPagado, \r\n\tdoc.Membresia_Id, \r\n\tdoc.FechaCreacion,\r\n\tst.Nombre AS [Estatus],\r\n\tdoc.EstatusDocumento_Id\r\nFROM Documento doc\r\nLEFT JOIN EstatusDocumento st ON doc.EstatusDocumento_Id = st.Id\r\nWHERE doc.Membresia_Id = @Membresia_Id\r\nAND doc.Activo = 1\r\nORDER BY doc.FechaCreacion DESC\r\n\r\nEND",
+  "Schema": "dbo",
+  "Name": "rpt_DocumentoUltimaFactura_ObtenerUltimaFactura",
+  "ObjectType": "StoredProcedure",
+  "DatabaseProvider": "sqlserver",
+  "ScannedAtUtc": "2026-08-21T18:10:57.4528614+00:00",
+  "QualifiedName": "dbo.rpt_DocumentoUltimaFactura_ObtenerUltimaFactura"
+}

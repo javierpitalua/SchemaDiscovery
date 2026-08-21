@@ -1,0 +1,71 @@
+{
+  "Schema": "dbo",
+  "Name": "PlantillaCorreo",
+  "ClassName": "PlantillaCorreo",
+  "PluralClassName": "PlantillaCorreo",
+  "QualifiedName": "dbo.PlantillaCorreo",
+  "ObjectType": "Table",
+  "DatabaseProvider": "sqlserver",
+  "Columns": [
+    {
+      "OrdinalPosition": 1,
+      "Name": "Id",
+      "DataType": "int",
+      "IsNullable": false,
+      "MaxLength": 4,
+      "IsIdentity": true,
+      "IsComputed": false,
+      "IsPrimaryKey": true,
+      "PropertyName": "Id"
+    },
+    {
+      "OrdinalPosition": 2,
+      "Name": "ClavePlantilla",
+      "DataType": "varchar",
+      "IsNullable": false,
+      "MaxLength": 50,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "ClavePlantilla"
+    },
+    {
+      "OrdinalPosition": 3,
+      "Name": "Subject",
+      "DataType": "varchar",
+      "IsNullable": false,
+      "MaxLength": 200,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "Subject"
+    },
+    {
+      "OrdinalPosition": 4,
+      "Name": "ContenidoHTML",
+      "DataType": "varchar",
+      "IsNullable": false,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "ContenidoHTML"
+    }
+  ],
+  "PrimaryKeyColumns": [
+    "Id"
+  ],
+  "ForeignKeys": [],
+  "Indexes": [
+    {
+      "Name": "PK_PlantillaCorreo",
+      "IsUnique": true,
+      "IsPrimaryKey": true,
+      "IndexType": "CLUSTERED",
+      "Columns": [
+        "Id"
+      ]
+    }
+  ],
+  "ScannedAtUtc": "2026-08-21T18:10:55.9397151+00:00",
+  "RowCountEstimate": 23
+}

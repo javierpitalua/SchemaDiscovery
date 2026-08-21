@@ -1,0 +1,19 @@
+{
+  "Parameters": [
+    {
+      "OrdinalPosition": 1,
+      "Name": "@mes",
+      "DataType": "int",
+      "Mode": "IN",
+      "MaxLength": 4
+    }
+  ],
+  "ReturnType": "varchar",
+  "Definition": "CREATE FUNCTION [dbo].[fnObtenerDescripcionMes](@mes int)  \r\nRETURNS VARCHAR(50)\r\nAS   \r\n-- Returns the stock level for the product.  \r\nBEGIN  \r\n    DECLARE @ret VARCHAR(50)\r\n\r\n\tSELECT @ret = \r\n\tCASE @mes \r\n\t\tWHEN 1 THEN \u0027ENERO\u0027\r\n\t\tWHEN 2 THEN \u0027FEBRERO\u0027\r\n\t\tWHEN 3 THEN \u0027MARZO\u0027\r\n\t\tWHEN 4 THEN \u0027ABRIL\u0027\r\n\t\tWHEN 5 THEN \u0027MAYO\u0027\r\n\t\tWHEN 6 THEN \u0027JUNIO\u0027\r\n\t\tWHEN 7 THEN \u0027JULIO\u0027\r\n\t\tWHEN 8 THEN \u0027AGOSTO\u0027\r\n\t\tWHEN 9 THEN \u0027SEPTIEMBRE\u0027\r\n\t\tWHEN 10 THEN \u0027OCTUBRE\u0027\r\n\t\tWHEN 11 THEN \u0027NOVIEMBRE\u0027\r\n\t\tWHEN 12 THEN \u0027DICIEMBRE\u0027\r\n\t\tELSE \u0027SIN DETERMINAR\u0027\r\n\tEND\r\n\r\n    RETURN @ret;  \r\nEND;",
+  "Schema": "dbo",
+  "Name": "fnObtenerDescripcionMes",
+  "ObjectType": "Function",
+  "DatabaseProvider": "sqlserver",
+  "ScannedAtUtc": "2026-08-21T18:10:58.9911163+00:00",
+  "QualifiedName": "dbo.fnObtenerDescripcionMes"
+}

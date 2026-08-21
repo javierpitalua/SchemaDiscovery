@@ -1,0 +1,10 @@
+{
+  "Parameters": [],
+  "Definition": "CREATE PROCEDURE [dbo].[rpt_PaqueteriaMembresia_ObtenerListadoPaqueteria]\r\nAS\r\nBEGIN\r\n\r\n\tSELECT\r\n\t\tp.Id,\r\n\t\tm.ClaveMembresia, \r\n\t\tm.Id AS [Membresia_Id],\r\n\t\ttm.Nombre AS [TipoMembresia],\r\n\t\tc.Nombre AS [Sucursal],\r\n\t\ttp.Id AS [tipoPaquete_Id],\r\n\t\ttp.Nombre AS [TipoDePaquete],\r\n\t\tp.Fecha AS [FechaRecepcion],\r\n\t\tDATEDIFF(DAY, p.Fecha, GETDATE()) AS [DiasEnRecepcion]\r\n\tFROM dbo.Paqueteria p\r\n\tINNER JOIN dbo.Membresia m\r\n\t\t   ON p.Membresia_Id = m.Id\r\n\tINNER JOIN dbo.TipoMembresia tm\r\n\t\t   ON m.TipoMembresia_Id = tm.Id\r\n\tINNER JOIN dbo.Comunidad c\r\n\t\t   ON m.Comunidad_Id = c.Id\r\n\tINNER JOIN dbo.TipoPaquete tp\r\n\t\t   ON p.TipoPaquete_Id = tp.Id\r\n\tINNER JOIN dbo.EstatusPaqueteria epq\r\n\t\t   ON p.EstatusPaqueteria_Id = epq.Id\r\n\tLEFT JOIN dbo.EntregaPaqueteria e\r\n\t\t   ON p.Id = e.Paqueteria_Id\r\n\tWHERE e.Paqueteria_Id IS NULL\r\n\t  AND epq.Nombre \u003C\u003E \u0027Entregado\u0027 AND p.Activo = 1\r\n\tORDER BY \r\n\tDATEDIFF(DAY, p.Fecha, GETDATE()),\r\n\tm.ClaveMembresia, tm.Nombre, c.Nombre, p.Fecha;\r\n\r\nEND",
+  "Schema": "dbo",
+  "Name": "rpt_PaqueteriaMembresia_ObtenerListadoPaqueteria",
+  "ObjectType": "StoredProcedure",
+  "DatabaseProvider": "sqlserver",
+  "ScannedAtUtc": "2026-08-21T18:10:57.459576+00:00",
+  "QualifiedName": "dbo.rpt_PaqueteriaMembresia_ObtenerListadoPaqueteria"
+}

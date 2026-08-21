@@ -1,0 +1,192 @@
+{
+  "Schema": "dbo",
+  "Name": "Ticket",
+  "ClassName": "Ticket",
+  "PluralClassName": "Ticket",
+  "QualifiedName": "dbo.Ticket",
+  "ObjectType": "Table",
+  "DatabaseProvider": "sqlserver",
+  "Columns": [
+    {
+      "OrdinalPosition": 1,
+      "Name": "Id",
+      "DataType": "int",
+      "IsNullable": false,
+      "MaxLength": 4,
+      "IsIdentity": true,
+      "IsComputed": false,
+      "IsPrimaryKey": true,
+      "PropertyName": "Id"
+    },
+    {
+      "OrdinalPosition": 2,
+      "Name": "Titulo",
+      "DataType": "varchar",
+      "IsNullable": false,
+      "MaxLength": 100,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "Titulo"
+    },
+    {
+      "OrdinalPosition": 3,
+      "Name": "Descripcion",
+      "DataType": "varchar",
+      "IsNullable": true,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "Descripcion"
+    },
+    {
+      "OrdinalPosition": 4,
+      "Name": "Comunidad_Id",
+      "DataType": "int",
+      "IsNullable": false,
+      "MaxLength": 4,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "Comunidad_Id"
+    },
+    {
+      "OrdinalPosition": 5,
+      "Name": "Suscriptor_Id",
+      "DataType": "int",
+      "IsNullable": false,
+      "MaxLength": 4,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "Suscriptor_Id"
+    },
+    {
+      "OrdinalPosition": 6,
+      "Name": "Membresia_Id",
+      "DataType": "int",
+      "IsNullable": false,
+      "MaxLength": 4,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "Membresia_Id"
+    },
+    {
+      "OrdinalPosition": 7,
+      "Name": "FechaCreacion",
+      "DataType": "smalldatetime",
+      "IsNullable": false,
+      "MaxLength": 4,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "FechaCreacion"
+    },
+    {
+      "OrdinalPosition": 8,
+      "Name": "CreadoPor",
+      "DataType": "varchar",
+      "IsNullable": false,
+      "MaxLength": 50,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "CreadoPor"
+    },
+    {
+      "OrdinalPosition": 9,
+      "Name": "FechaModificacion",
+      "DataType": "smalldatetime",
+      "IsNullable": true,
+      "MaxLength": 4,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "FechaModificacion"
+    },
+    {
+      "OrdinalPosition": 10,
+      "Name": "ModificadoPor",
+      "DataType": "varchar",
+      "IsNullable": true,
+      "MaxLength": 50,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "ModificadoPor"
+    },
+    {
+      "OrdinalPosition": 11,
+      "Name": "EstatusTicket_Id",
+      "DataType": "int",
+      "IsNullable": false,
+      "MaxLength": 4,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "EstatusTicket_Id"
+    },
+    {
+      "OrdinalPosition": 12,
+      "Name": "CategoriaTicket_Id",
+      "DataType": "int",
+      "IsNullable": false,
+      "MaxLength": 4,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "CategoriaTicket_Id"
+    },
+    {
+      "OrdinalPosition": 13,
+      "Name": "Activo",
+      "DataType": "bit",
+      "IsNullable": true,
+      "MaxLength": 1,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "Activo"
+    },
+    {
+      "OrdinalPosition": 14,
+      "Name": "FechaDesactivacion",
+      "DataType": "smalldatetime",
+      "IsNullable": true,
+      "MaxLength": 4,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "FechaDesactivacion"
+    },
+    {
+      "OrdinalPosition": 15,
+      "Name": "DesactivadoPor",
+      "DataType": "varchar",
+      "IsNullable": true,
+      "MaxLength": 50,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "DesactivadoPor"
+    }
+  ],
+  "PrimaryKeyColumns": [
+    "Id"
+  ],
+  "ForeignKeys": [],
+  "Indexes": [
+    {
+      "Name": "PK_Ticket",
+      "IsUnique": true,
+      "IsPrimaryKey": true,
+      "IndexType": "CLUSTERED",
+      "Columns": [
+        "Id"
+      ]
+    }
+  ],
+  "ScannedAtUtc": "2026-08-21T18:10:55.9637579+00:00",
+  "RowCountEstimate": 1512
+}

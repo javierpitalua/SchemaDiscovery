@@ -1,0 +1,18 @@
+{
+  "Parameters": [
+    {
+      "OrdinalPosition": 1,
+      "Name": "@Membresia_Id",
+      "DataType": "int",
+      "Mode": "IN",
+      "MaxLength": 4
+    }
+  ],
+  "Definition": "CREATE PROCEDURE [dbo].[rpt_SuscriptorSalas_ObtenerDatosSuscriptor]\r\n@Membresia_Id INT\r\nAS\r\nBEGIN\r\n\r\n\r\nSELECT\r\n\t[Membresia].[Id],\r\n\t[Membresia].[ClaveMembresia],\r\n\t[Suscriptor].[Id] AS [suscriptor_Id],\r\n\t[Suscriptor].[Nombre] \u002B \u0027 \u0027 \u002B [Suscriptor].[ApellidoPaterno] \u002B \u0027 \u0027 \u002B [Suscriptor].[ApellidoMaterno] AS [nombreCompletoSuscriptor],\r\n\t[Suscriptor].[CorreoElectronico],\r\n\t[Suscriptor].[Telefono]\r\nFROM [Membresia]\r\n\tJOIN [Suscripcion]\r\n\t\tON [Membresia].[Id] = [Suscripcion].[Membresia_Id]\r\n\tJOIN [Suscriptor]\r\n\t\tON [Suscripcion].[Suscriptor_Id] = [Suscriptor].[Id]\r\nWHERE [Membresia].[Id] = @Membresia_Id\r\nAND [Suscriptor].[Activo] = 1\r\n\r\nEND",
+  "Schema": "dbo",
+  "Name": "rpt_SuscriptorSalas_ObtenerDatosSuscriptor",
+  "ObjectType": "StoredProcedure",
+  "DatabaseProvider": "sqlserver",
+  "ScannedAtUtc": "2026-08-21T18:10:57.4658298+00:00",
+  "QualifiedName": "dbo.rpt_SuscriptorSalas_ObtenerDatosSuscriptor"
+}

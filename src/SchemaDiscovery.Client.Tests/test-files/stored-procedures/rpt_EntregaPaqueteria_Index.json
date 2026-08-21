@@ -1,0 +1,39 @@
+{
+  "Parameters": [
+    {
+      "OrdinalPosition": 1,
+      "Name": "@EntityId",
+      "DataType": "int",
+      "Mode": "IN",
+      "MaxLength": 4
+    },
+    {
+      "OrdinalPosition": 2,
+      "Name": "@Paqueteria_Id",
+      "DataType": "int",
+      "Mode": "IN",
+      "MaxLength": 4
+    },
+    {
+      "OrdinalPosition": 3,
+      "Name": "@Suscriptor_Id",
+      "DataType": "int",
+      "Mode": "IN",
+      "MaxLength": 4
+    },
+    {
+      "OrdinalPosition": 4,
+      "Name": "@Usuario_Id",
+      "DataType": "int",
+      "Mode": "IN",
+      "MaxLength": 4
+    }
+  ],
+  "Definition": "-- =================================================================\r\n-- Description:\tThis gets a basic report for [EntregaPaqueteria] table\r\n-- =================================================================\r\nCREATE PROCEDURE [dbo].[rpt_EntregaPaqueteria_Index]\r\n@EntityId AS INT = 0, \r\n@Paqueteria_Id AS INT = 0, \r\n@Suscriptor_Id AS INT = 0, \r\n@Usuario_Id AS INT = 0\r\nAS\r\nBEGIN\r\n\t\r\n\t-- IMPORTANT:\r\n\t-- This is a computer generated procedure.  DO NOT ADD CUSTOM CODE TO THIS PROCEDURE.\r\n\r\n\t-- SET NOCOUNT ON added to prevent extra result sets from\r\n\t-- interfering with SELECT statements.\r\n\tSET NOCOUNT ON;\r\n\t\r\n\t-- 1) CREATE FILTER TABLE:\r\n\tDECLARE @EntregaPaqueteriaFilter TABLE (\r\n\t\tId INT IDENTITY (1,1),\r\n\t\tEntregaPaqueteria_Id INT\t\t\r\n\t)\r\n\r\n\r\n    -- IF A GIVEN ID HAS BEEN SPECIFIED, THEN RETRIEVE THAT RECORD ONLY\r\n\tIF @EntityId \u003C\u003E 0\r\n\tBEGIN\r\n\r\n\t\tINSERT INTO @EntregaPaqueteriaFilter (EntregaPaqueteria_Id)\r\n\t\tSELECT \r\n\t\t\t[EntregaPaqueteria].Id\r\n\t\tFROM [dbo].[EntregaPaqueteria]\r\n\t\tWHERE\r\n\t\t\t [dbo].[EntregaPaqueteria].[Id] = @EntityId\r\n\r\n\tEND\r\n\tELSE\r\n\tBEGIN\r\n\r\n\t\t-- 2) FILTER BY FOREIGN RELATIONSHIPS WHEN APLICABLE:\r\n\t\tINSERT INTO @EntregaPaqueteriaFilter (EntregaPaqueteria_Id)\r\n\t\tSELECT \r\n\t\t\t[EntregaPaqueteria].Id\r\n\t\tFROM [dbo].[EntregaPaqueteria]\r\n\t\tWHERE\r\n\t\t\t (([EntregaPaqueteria].[Paqueteria_Id] = @Paqueteria_Id) OR (@Paqueteria_Id = 0)) AND\r\n         (([EntregaPaqueteria].[Suscriptor_Id] = @Suscriptor_Id) OR (@Suscriptor_Id = 0)) AND\r\n         (([EntregaPaqueteria].[Usuario_Id] = @Usuario_Id) OR (@Usuario_Id = 0))\r\n\r\n \tEND\r\n\r\n \r\n\t-- 4) DELIVER THE FILTERED RESULTS:\r\n\tSELECT \r\n\t\t[EntregaPaqueteria].[Id],\r\n\t\t[EntregaPaqueteria].[Paqueteria_Id],\r\n\t\t[EntregaPaqueteria].[Suscriptor_Id],\r\n\t\t[EntregaPaqueteria].[Usuario_Id],\r\n\t\t[EntregaPaqueteria].[FechaEntrega],\r\n\t\t[Suscriptor].[Nombre] \u002B \u0027 \u0027 \u002B [Suscriptor].[ApellidoPaterno] \u002B \u0027 \u0027 \u002B [Suscriptor].[ApellidoMaterno] \u002B \u0027 (\u0027 \u002B [Suscriptor].[CorreoElectronico] \u002B \u0027)\u0027 AS [QuienRecibe],\r\n\t\t[Usuario].[Nombre] \u002B \u0027 \u0027 \u002B [Usuario].[ApellidoPaterno] \u002B \u0027 \u0027 \u002B [Usuario].[ApellidoMaterno] \u002B \u0027 (\u0027 \u002B  [Usuario].[CorreoElectronico] \u002B \u0027)\u0027 AS [QuienEntrega]\r\n\tFROM @EntregaPaqueteriaFilter filter\r\n\t\tJOIN [dbo].[EntregaPaqueteria] \r\n\t\t\tON [EntregaPaqueteria].[Id] = filter.[EntregaPaqueteria_Id] \r\n\t\t\t\r\n\r\n\t\tLEFT JOIN [dbo].[Paqueteria]\r\n\t\tON [dbo].[EntregaPaqueteria].[Paqueteria_Id] = [dbo].[Paqueteria].[Id] \r\n\r\n \t\tLEFT JOIN [dbo].[Suscriptor]\r\n\t\tON [dbo].[EntregaPaqueteria].[Suscriptor_Id] = [dbo].[Suscriptor].[Id] \r\n\r\n \t\tLEFT JOIN [dbo].[Usuario]\r\n\t\tON [dbo].[EntregaPaqueteria].[Usuario_Id] = [dbo].[Usuario].[Id] \r\n\r\n \r\nEND\r\n-- END OF [dbo].[cgp_EntregaPaqueteria_Index]",
+  "Schema": "dbo",
+  "Name": "rpt_EntregaPaqueteria_Index",
+  "ObjectType": "StoredProcedure",
+  "DatabaseProvider": "sqlserver",
+  "ScannedAtUtc": "2026-08-21T18:10:57.4534154+00:00",
+  "QualifiedName": "dbo.rpt_EntregaPaqueteria_Index"
+}

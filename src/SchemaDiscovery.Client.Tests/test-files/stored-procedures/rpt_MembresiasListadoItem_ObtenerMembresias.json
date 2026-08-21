@@ -1,0 +1,18 @@
+{
+  "Parameters": [
+    {
+      "OrdinalPosition": 1,
+      "Name": "@SearchText",
+      "DataType": "varchar",
+      "Mode": "IN",
+      "MaxLength": 100
+    }
+  ],
+  "Definition": "CREATE PROCEDURE [dbo].[rpt_MembresiasListadoItem_ObtenerMembresias]\r\n@SearchText AS VARCHAR(100) = NULL\r\nAS\r\nBEGIN\r\n\t--OBTIENE LAS MEMBRESIAS VIGENTES\r\n\r\n\tIF(@SearchText IS NULL)\r\n\tBEGIN\r\n\t\tSET @SearchText = \u0027\u0027\r\n\tEND\r\n\r\n\tSELECT \r\n\t\tmem.Id,\r\n\t\tmem.ClaveMembresia,\r\n\t\tinfo.NombreFiscal,\r\n\t\tinfo.RazonSocial\r\n\tFROM [dbo].[Membresia] mem\r\n\tLEFT JOIN [dbo].[InformacionFacturacion] info\r\n\t\tON mem.InformacionFacturacion_Id = info.Id\t\t\r\n\tWHERE \r\n\t\tmem.Activo = 1\r\n\t\tAND mem.EstatusMembresia_Id = 1\r\n\t\tAND ((info.RazonSocial like \u0027%\u0027\u002B@SearchText\u002B\u0027%\u0027) OR\r\n\t\t\t(info.NombreFiscal like \u0027%\u0027\u002B@SearchText\u002B\u0027%\u0027) OR\r\n\t\t\t(mem.ClaveMembresia like \u0027%\u0027\u002B@SearchText\u002B\u0027%\u0027) OR\r\n\t\t\t(@SearchText=\u0027\u0027))\r\n\t\r\n\tORDER BY info.RazonSocial ASC\r\n\r\nEND",
+  "Schema": "dbo",
+  "Name": "rpt_MembresiasListadoItem_ObtenerMembresias",
+  "ObjectType": "StoredProcedure",
+  "DatabaseProvider": "sqlserver",
+  "ScannedAtUtc": "2026-08-21T18:10:57.4585741+00:00",
+  "QualifiedName": "dbo.rpt_MembresiasListadoItem_ObtenerMembresias"
+}

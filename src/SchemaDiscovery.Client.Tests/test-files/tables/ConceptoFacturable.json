@@ -1,0 +1,194 @@
+{
+  "Schema": "dbo",
+  "Name": "ConceptoFacturable",
+  "ClassName": "ConceptoFacturable",
+  "PluralClassName": "ConceptoFacturable",
+  "QualifiedName": "dbo.ConceptoFacturable",
+  "ObjectType": "Table",
+  "DatabaseProvider": "sqlserver",
+  "Columns": [
+    {
+      "OrdinalPosition": 1,
+      "Name": "Id",
+      "DataType": "int",
+      "IsNullable": false,
+      "MaxLength": 4,
+      "IsIdentity": true,
+      "IsComputed": false,
+      "IsPrimaryKey": true,
+      "PropertyName": "Id"
+    },
+    {
+      "OrdinalPosition": 2,
+      "Name": "Concepto",
+      "DataType": "varchar",
+      "IsNullable": false,
+      "MaxLength": 100,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "Concepto"
+    },
+    {
+      "OrdinalPosition": 3,
+      "Name": "Descripcion",
+      "DataType": "varchar",
+      "IsNullable": true,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "Descripcion"
+    },
+    {
+      "OrdinalPosition": 4,
+      "Name": "Unidad",
+      "DataType": "varchar",
+      "IsNullable": false,
+      "MaxLength": 150,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "Unidad"
+    },
+    {
+      "OrdinalPosition": 5,
+      "Name": "PrecioUnitario",
+      "DataType": "decimal",
+      "IsNullable": false,
+      "MaxLength": 9,
+      "NumericPrecision": 18,
+      "NumericScale": 2,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "PrecioUnitario"
+    },
+    {
+      "OrdinalPosition": 6,
+      "Name": "ClaveSAT",
+      "DataType": "varchar",
+      "IsNullable": true,
+      "MaxLength": 50,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "ClaveSAT"
+    },
+    {
+      "OrdinalPosition": 7,
+      "Name": "ClaveUnidadSAT",
+      "DataType": "varchar",
+      "IsNullable": false,
+      "MaxLength": 50,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "ClaveUnidadSAT"
+    },
+    {
+      "OrdinalPosition": 8,
+      "Name": "FechaCreacion",
+      "DataType": "smalldatetime",
+      "IsNullable": false,
+      "MaxLength": 4,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "FechaCreacion"
+    },
+    {
+      "OrdinalPosition": 9,
+      "Name": "CreadoPor",
+      "DataType": "varchar",
+      "IsNullable": false,
+      "MaxLength": 50,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "CreadoPor"
+    },
+    {
+      "OrdinalPosition": 10,
+      "Name": "FechaModificacion",
+      "DataType": "smalldatetime",
+      "IsNullable": true,
+      "MaxLength": 4,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "FechaModificacion"
+    },
+    {
+      "OrdinalPosition": 11,
+      "Name": "ModificadoPor",
+      "DataType": "varchar",
+      "IsNullable": true,
+      "MaxLength": 50,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "ModificadoPor"
+    },
+    {
+      "OrdinalPosition": 12,
+      "Name": "Activo",
+      "DataType": "bit",
+      "IsNullable": false,
+      "MaxLength": 1,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "Activo"
+    },
+    {
+      "OrdinalPosition": 13,
+      "Name": "FechaDesactivacion",
+      "DataType": "smalldatetime",
+      "IsNullable": true,
+      "MaxLength": 4,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "FechaDesactivacion"
+    },
+    {
+      "OrdinalPosition": 14,
+      "Name": "DesactivadoPor",
+      "DataType": "varchar",
+      "IsNullable": true,
+      "MaxLength": 50,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "DesactivadoPor"
+    },
+    {
+      "OrdinalPosition": 15,
+      "Name": "CategoriaConcepto_Id",
+      "DataType": "int",
+      "IsNullable": true,
+      "MaxLength": 4,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "CategoriaConcepto_Id"
+    }
+  ],
+  "PrimaryKeyColumns": [
+    "Id"
+  ],
+  "ForeignKeys": [],
+  "Indexes": [
+    {
+      "Name": "PK_ConceptoFacturable",
+      "IsUnique": true,
+      "IsPrimaryKey": true,
+      "IndexType": "CLUSTERED",
+      "Columns": [
+        "Id"
+      ]
+    }
+  ],
+  "ScannedAtUtc": "2026-08-21T18:10:55.8791508+00:00",
+  "RowCountEstimate": 158
+}

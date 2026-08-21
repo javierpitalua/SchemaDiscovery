@@ -1,0 +1,18 @@
+{
+  "Parameters": [
+    {
+      "OrdinalPosition": 1,
+      "Name": "@UsuarioID",
+      "DataType": "int",
+      "Mode": "IN",
+      "MaxLength": 4
+    }
+  ],
+  "Definition": "CREATE PROCEDURE [dbo].[rpt_SuscriptorHistorico_ObtenerHistoricoSuscriptor]\r\n@UsuarioID INT\r\nAS\r\nBEGIN\r\nSELECT \r\n\tSuscriptor.Id,\r\n\tSuscripcion.TipoSuscripcion_Id,\r\n\tTipoSuscripcion.Nombre AS [TipoSuscripcion],\r\n\tSuscripcion.Membresia_Id,\r\n\tMembresia.ClaveMembresia,\r\n\tMembresia.EstatusMembresia_Id,\r\n\tEstatusMembresia.Nombre AS [EstatusMembresia],\r\n\tSuscripcion.Suscriptor_Id,\r\n\t(Suscriptor.Nombre \u002B \u0027 \u0027 \u002B Suscriptor.ApellidoPaterno \u002B \u0027 \u0027 \u002B Suscriptor.ApellidoMaterno) AS [NombreSuscriptor],\r\n\tSuscriptor.FechaNacimiento,\r\n\tSuscriptor.CorreoElectronico,\r\n\tSuscriptor.Telefono,\r\n\tSuscriptor.FechaCreacion,\r\n\tSuscriptor.UltimaAutenticacion\r\nFROM Suscripcion\r\n\tJOIN TipoSuscripcion\r\n\t\tON Suscripcion.TipoSuscripcion_Id = TipoSuscripcion.Id\r\n\tJOIN Membresia\r\n\t\tON Suscripcion.Membresia_Id = Membresia.Id\r\n\tJOIN Suscriptor\r\n\t\tON Suscripcion.Suscriptor_Id = Suscriptor.Id\r\n\tJOIN EstatusMembresia\r\n\t\tON Membresia.EstatusMembresia_Id = EstatusMembresia.Id\r\nWHERE Membresia.Activo = 1\r\nAND Suscripcion.Activo = 1\r\nAND Suscriptor.Activo = 1\r\nAND Membresia.EstatusMembresia_Id = 1\r\nAND Suscriptor.Id = @UsuarioID\r\nEND",
+  "Schema": "dbo",
+  "Name": "rpt_SuscriptorHistorico_ObtenerHistoricoSuscriptor",
+  "ObjectType": "StoredProcedure",
+  "DatabaseProvider": "sqlserver",
+  "ScannedAtUtc": "2026-08-21T18:10:57.465457+00:00",
+  "QualifiedName": "dbo.rpt_SuscriptorHistorico_ObtenerHistoricoSuscriptor"
+}

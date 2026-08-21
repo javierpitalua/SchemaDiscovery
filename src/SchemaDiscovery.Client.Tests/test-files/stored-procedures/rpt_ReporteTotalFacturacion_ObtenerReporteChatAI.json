@@ -1,0 +1,39 @@
+{
+  "Parameters": [
+    {
+      "OrdinalPosition": 1,
+      "Name": "@FechaInicio_FechaEmision",
+      "DataType": "smalldatetime",
+      "Mode": "IN",
+      "MaxLength": 4
+    },
+    {
+      "OrdinalPosition": 2,
+      "Name": "@FechaFin_FechaEmision",
+      "DataType": "smalldatetime",
+      "Mode": "IN",
+      "MaxLength": 4
+    },
+    {
+      "OrdinalPosition": 3,
+      "Name": "@Comunidad_Id",
+      "DataType": "int",
+      "Mode": "IN",
+      "MaxLength": 4
+    },
+    {
+      "OrdinalPosition": 4,
+      "Name": "@BaseUrl",
+      "DataType": "varchar",
+      "Mode": "IN",
+      "MaxLength": 200
+    }
+  ],
+  "Definition": "CREATE PROCEDURE [dbo].[rpt_ReporteTotalFacturacion_ObtenerReporteChatAI]\r\n\u00A0\u00A0\u00A0\u00A0@FechaInicio_FechaEmision AS SMALLDATETIME = NULL,\r\n\u00A0\u00A0\u00A0\u00A0@FechaFin_FechaEmision AS SMALLDATETIME = NULL,\r\n\u00A0\u00A0\u00A0\u00A0@Comunidad_Id AS INT = 0,\r\n\t@BaseUrl AS VARCHAR(200) = NULL\r\nAS\r\nBEGIN\t\r\n\r\n\tDECLARE @FECHA_ACTUAL SMALLDATETIME\r\n\tSET @FECHA_ACTUAL = CONVERT(DATE, GETDATE(), 101)\r\n\r\n\tIF @FechaInicio_FechaEmision IS NULL\r\n\tBEGIN\r\n\t\tSET @FechaInicio_FechaEmision = DATEADD(yy, DATEDIFF(yy, 0, @FECHA_ACTUAL), 0)\r\n\tEND\r\n\r\n\tIF @FechaFin_FechaEmision IS NULL\r\n\tBEGIN\r\n\t\tSET @FechaFin_FechaEmision = DATEADD(MINUTE, -1, DATEADD(DAY, 1, @FECHA_ACTUAL))\r\n\tEND\r\n\tELSE\r\n\tBEGIN\r\n\t\tSET @FechaFin_FechaEmision = DATEADD(MINUTE, -1, DATEADD(DAY, 1, @FechaFin_FechaEmision))\r\n\tEND\r\n\r\n\tPRINT @FechaFin_FechaEmision\r\n\r\n\tDECLARE @Pagos TABLE (\r\n\t\tId INT IDENTITY(1,1),\r\n\t\tRegistroPago_Id INT,\r\n\t\tDocumento_Id INT NULL,\r\n\t\tFecha SMALLDATETIME NULL\r\n\t)\r\n\r\n\tINSERT INTO @Pagos (RegistroPago_Id, Documento_Id, Fecha)\r\n\tSELECT Id AS [RegistroPago_Id], Documento_Id, Fecha FROM (\r\n\tSELECT Id, Documento_Id, PagoAplicado, Fecha, ROW_NUMBER() OVER(PARTITION BY Documento_Id ORDER BY Fecha DESC) AS rownum FROM RegistroPago\r\n\t) A1\r\n\tWHERE rownum = 1 AND PagoAplicado = 1\r\n\tORDER BY Documento_Id\r\n\r\n\r\n\r\n\r\n\r\n\tSELECT\r\n\t\tdoc.Id as Id,\r\n\t\tdbo.fnObtenerDescripcionMes(ciclo.Mes) as Mes,\r\n\t\tmem.id as MembresiaId,\r\n\t\tciclo.Anio,\r\n\t\tdoc.Folio as FolioFactura,\r\n\t\tcatd.Nombre as [TipoDocumento],\r\n\t\tCASE ISNULL(doc.Pagado, 0) WHEN 1 THEN \u0027S\u00ED\u0027 ELSE \u0027No\u0027 END AS [Pagado],\t\t\r\n\t\tdoc.MontoPagado,\r\n\t\tmem.ClaveMembresia,\r\n\t\tinfo.RFC,\r\n\t\tinfo.RazonSocial,\r\n\t\tinfo.NombreFiscal,\r\n\t\ttdc.Nombre AS Moneda,\r\n\t\tcom.Nombre AS Comunidad,\r\n\t\tdoc.MontoTotal AS [MontoFactura],\r\n\t\tdoc.IVA AS [IVA],\r\n\t\tCASE\r\n\t\t\tWHEN doc.CategoriaDocumento_Id = 2 THEN ((doc.MontoTotal \u002B doc.IVA) * -1)\r\n\t\t\tELSE (doc.MontoTotal \u002B doc.IVA)\r\n\t\tEND AS [Total],\r\n\t\test.Nombre AS [EstatusDocumento],\r\n\t\tdoc.FechaCreacion,\r\n\t\tdoc.FechaDeTimbrado AS [FechaEmision],\r\n\t\tDATEDIFF(DAY, doc.FechaDeTimbrado, @FECHA_ACTUAL) AS [DiasTranscurridosDesdeEmision],\t\t\r\n\t\tISNULL(pago.Fecha, doc.FechaPago) AS [FechaDePago],\r\n\t\tCASE ISNULL(mem.EsPagoDomiciliado, 0) WHEN 1 THEN \u0027Si\u0027 ELSE \u0027\u0027 END AS [PagoDomiciliado] ,\r\n\t\t(doc.MontoTotal \u002B doc.IVA) - ISNULL(doc.MontoPagado, 0) AS [PendientePago]\r\n\r\n\tFROM Documento doc\r\n\t\tjoin Membresia mem on doc.Membresia_Id = mem.Id\r\n\t\tleft join Comunidad com on mem.Comunidad_Id = com.Id\r\n\t\tjoin InformacionFacturacion info on doc.InformacionFacturacion_Id = info.Id\r\n\t\tjoin TipoDeCambio tdc on doc.TipoDeCambio_Id = tdc.Id\r\n\t\tjoin CategoriaDocumento catd ON doc.CategoriaDocumento_Id = catd.Id\r\n\t\tleft join CicloDeFacturacion ciclo on doc.CicloDeFacturacion_Id = ciclo.Id\r\n\t\tleft join EstatusDocumento est ON doc.EstatusDocumento_Id = est.Id\r\n\t\tLEFT JOIN @Pagos pago ON pago.Documento_Id = doc.Id\r\n\tWHERE\r\n\t\tdoc.Activo = 1\r\n\tAND doc.CategoriaDocumento_Id IN (2, 3, 8) -- Notas de Credito, facturas y recibos\t\r\n\tAND NOT ((doc.EstatusDocumento_Id = 8) OR (doc.EstatusDocumento_Id = 9))-- eliminar las cancelaciones fiscales o documentos cancelados\r\n\tAND (@FechaInicio_FechaEmision \u003C= doc.FechaDeTimbrado AND doc.FechaDeTimbrado \u003C= @FechaFin_FechaEmision)\r\n\tAND (doc.Comunidad_Id = @Comunidad_Id OR @Comunidad_Id = 0)\r\n\tORDER BY\r\n\t\tcatd.Nombre,\r\n\t\tdoc.FechaCreacion DESC,\r\n\t\tdoc.Folio,\r\n\t\tmem.ClaveMembresia\r\n\r\nEND",
+  "Schema": "dbo",
+  "Name": "rpt_ReporteTotalFacturacion_ObtenerReporteChatAI",
+  "ObjectType": "StoredProcedure",
+  "DatabaseProvider": "sqlserver",
+  "ScannedAtUtc": "2026-08-21T18:10:57.4625633+00:00",
+  "QualifiedName": "dbo.rpt_ReporteTotalFacturacion_ObtenerReporteChatAI"
+}

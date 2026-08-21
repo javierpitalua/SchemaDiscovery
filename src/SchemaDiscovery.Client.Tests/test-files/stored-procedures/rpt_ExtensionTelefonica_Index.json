@@ -1,0 +1,32 @@
+{
+  "Parameters": [
+    {
+      "OrdinalPosition": 1,
+      "Name": "@EntityId",
+      "DataType": "int",
+      "Mode": "IN",
+      "MaxLength": 4
+    },
+    {
+      "OrdinalPosition": 2,
+      "Name": "@Membresia_Id",
+      "DataType": "int",
+      "Mode": "IN",
+      "MaxLength": 4
+    },
+    {
+      "OrdinalPosition": 3,
+      "Name": "@NumeroDeExtension",
+      "DataType": "varchar",
+      "Mode": "IN",
+      "MaxLength": 50
+    }
+  ],
+  "Definition": "-- =================================================================\n-- Description:\tThis gets a basic report for [ExtensionTelefonica] table\n-- =================================================================\nCREATE PROCEDURE [dbo].[rpt_ExtensionTelefonica_Index]\n@EntityId AS INT = 0, \n@Membresia_Id AS INT = 0,\n@NumeroDeExtension AS VARCHAR(50) = NULL\nAS\nBEGIN\n\t\n\t-- IMPORTANT:\n\t-- This is a computer generated procedure.  DO NOT ADD CUSTOM CODE TO THIS PROCEDURE.\n\n\t-- SET NOCOUNT ON added to prevent extra result sets from\n\t-- interfering with SELECT statements.\n\tSET NOCOUNT ON;\n\t\n\t-- 1) CREATE FILTER TABLE:\n\tDECLARE @ExtensionTelefonicaFilter TABLE (\n\t\tId INT IDENTITY (1,1),\n\t\tExtensionTelefonica_Id INT\t\t\n\t)\n\n\n    -- IF A GIVEN ID HAS BEEN SPECIFIED, THEN RETRIEVE THAT RECORD ONLY\n\tIF(@NumeroDeExtension IS NULL)\n    BEGIN\n        SET @NumeroDeExtension = \u0027\u0027\n    END\n\n\tIF @EntityId \u003C\u003E 0\n\tBEGIN\n\n\t\tINSERT INTO @ExtensionTelefonicaFilter (ExtensionTelefonica_Id)\n\t\tSELECT \n\t\t\t[ExtensionTelefonica].Id\n\t\tFROM [dbo].[ExtensionTelefonica]\n\t\tWHERE\n\t\t\t [dbo].[ExtensionTelefonica].[Id] = @EntityId\n\n\tEND\n\tELSE\n\tBEGIN\n\n\t\t-- 2) FILTER BY FOREIGN RELATIONSHIPS WHEN APLICABLE:\n\t\tINSERT INTO @ExtensionTelefonicaFilter (ExtensionTelefonica_Id)\n\t\tSELECT \n\t\t\t[ExtensionTelefonica].Id\n\t\tFROM [dbo].[ExtensionTelefonica]\n\t\tWHERE\n\t\t\t [ExtensionTelefonica].[Activo] = 1 AND\n         (([ExtensionTelefonica].[Membresia_Id] = @Membresia_Id) OR (@Membresia_Id = 0)) AND\n\t\t (([ExtensionTelefonica].[NumeroDeExtension] = @NumeroDeExtension) OR (@NumeroDeExtension = \u0027\u0027))\n\n \tEND\n\n \n\t-- 4) DELIVER THE FILTERED RESULTS:\n\tSELECT \n\t\t[ExtensionTelefonica].[Id],\t\t\n\t\t[ExtensionTelefonica].[NumeroDeExtension],\n\t\t[Membresia].[ClaveMembresia],\n\t\t[InformacionFacturacion].[RazonSocial],\n\t\t[ExtensionTelefonica].[Activo],\n\t\t[ExtensionTelefonica].[FechaDesactivacion],\n\t\t[ExtensionTelefonica].[DesactivadoPor],\t\t\n\t\t[ExtensionTelefonica].[FechaCreacion],\n\t\t[ExtensionTelefonica].[CreadoPor],\n\t\t[ExtensionTelefonica].[FechaModificacion],\n\t\t[ExtensionTelefonica].[ModificadoPor]\n\tFROM @ExtensionTelefonicaFilter filter\n\t\tJOIN [dbo].[ExtensionTelefonica] \n\t\t\tON [ExtensionTelefonica].[Id] = filter.[ExtensionTelefonica_Id] \n\t\t\t\n\t\tLEFT JOIN [dbo].[Membresia]\n\t\tON [dbo].[ExtensionTelefonica].[Membresia_Id] = [dbo].[Membresia].[Id] \n\n\t\tLEFT JOIN [dbo].[InformacionFacturacion]\n\t\tON [Membresia].[InformacionFacturacion_Id] = [InformacionFacturacion].[Id]\n \nEND\n-- END OF [dbo].[cgp_ExtensionTelefonica_Index]",
+  "Schema": "dbo",
+  "Name": "rpt_ExtensionTelefonica_Index",
+  "ObjectType": "StoredProcedure",
+  "DatabaseProvider": "sqlserver",
+  "ScannedAtUtc": "2026-08-21T18:10:57.4550854+00:00",
+  "QualifiedName": "dbo.rpt_ExtensionTelefonica_Index"
+}

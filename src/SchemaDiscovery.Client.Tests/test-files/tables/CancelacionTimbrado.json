@@ -1,0 +1,180 @@
+{
+  "Schema": "dbo",
+  "Name": "CancelacionTimbrado",
+  "ClassName": "CancelacionTimbrado",
+  "PluralClassName": "CancelacionTimbrado",
+  "QualifiedName": "dbo.CancelacionTimbrado",
+  "ObjectType": "Table",
+  "DatabaseProvider": "sqlserver",
+  "Columns": [
+    {
+      "OrdinalPosition": 1,
+      "Name": "Id",
+      "DataType": "int",
+      "IsNullable": false,
+      "MaxLength": 4,
+      "IsIdentity": true,
+      "IsComputed": false,
+      "IsPrimaryKey": true,
+      "PropertyName": "Id"
+    },
+    {
+      "OrdinalPosition": 2,
+      "Name": "Documento_Id",
+      "DataType": "int",
+      "IsNullable": false,
+      "MaxLength": 4,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "Documento_Id"
+    },
+    {
+      "OrdinalPosition": 3,
+      "Name": "FolioSustitucion",
+      "DataType": "varchar",
+      "IsNullable": true,
+      "MaxLength": 100,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "FolioSustitucion"
+    },
+    {
+      "OrdinalPosition": 4,
+      "Name": "MotivoCancelacion_Id",
+      "DataType": "int",
+      "IsNullable": false,
+      "MaxLength": 4,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "MotivoCancelacion_Id"
+    },
+    {
+      "OrdinalPosition": 5,
+      "Name": "FechaCreacion",
+      "DataType": "smalldatetime",
+      "IsNullable": false,
+      "MaxLength": 4,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "FechaCreacion"
+    },
+    {
+      "OrdinalPosition": 6,
+      "Name": "CreadoPor",
+      "DataType": "varchar",
+      "IsNullable": false,
+      "MaxLength": 50,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "CreadoPor"
+    },
+    {
+      "OrdinalPosition": 7,
+      "Name": "FechaModificacion",
+      "DataType": "smalldatetime",
+      "IsNullable": true,
+      "MaxLength": 4,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "FechaModificacion"
+    },
+    {
+      "OrdinalPosition": 8,
+      "Name": "ModificadoPor",
+      "DataType": "varchar",
+      "IsNullable": true,
+      "MaxLength": 50,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "ModificadoPor"
+    },
+    {
+      "OrdinalPosition": 9,
+      "Name": "Activo",
+      "DataType": "bit",
+      "IsNullable": false,
+      "MaxLength": 1,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "Activo"
+    },
+    {
+      "OrdinalPosition": 10,
+      "Name": "DesactivadoPor",
+      "DataType": "varchar",
+      "IsNullable": true,
+      "MaxLength": 50,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "DesactivadoPor"
+    },
+    {
+      "OrdinalPosition": 11,
+      "Name": "FechaDesactivacion",
+      "DataType": "smalldatetime",
+      "IsNullable": true,
+      "MaxLength": 4,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "FechaDesactivacion"
+    },
+    {
+      "OrdinalPosition": 12,
+      "Name": "Code",
+      "DataType": "varchar",
+      "IsNullable": true,
+      "MaxLength": 50,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "Code"
+    },
+    {
+      "OrdinalPosition": 13,
+      "Name": "Message",
+      "DataType": "varchar",
+      "IsNullable": true,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "Message"
+    },
+    {
+      "OrdinalPosition": 14,
+      "Name": "Acuse",
+      "DataType": "varchar",
+      "IsNullable": true,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "Acuse"
+    }
+  ],
+  "PrimaryKeyColumns": [
+    "Id"
+  ],
+  "ForeignKeys": [],
+  "Indexes": [
+    {
+      "Name": "PK_CancelacionTimbrado",
+      "IsUnique": true,
+      "IsPrimaryKey": true,
+      "IndexType": "CLUSTERED",
+      "Columns": [
+        "Id"
+      ]
+    }
+  ],
+  "ScannedAtUtc": "2026-08-21T18:10:55.864513+00:00",
+  "RowCountEstimate": 356
+}

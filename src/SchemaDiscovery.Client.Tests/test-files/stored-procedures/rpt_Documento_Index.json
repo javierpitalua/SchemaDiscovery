@@ -1,0 +1,67 @@
+{
+  "Parameters": [
+    {
+      "OrdinalPosition": 1,
+      "Name": "@EntityId",
+      "DataType": "int",
+      "Mode": "IN",
+      "MaxLength": 4
+    },
+    {
+      "OrdinalPosition": 2,
+      "Name": "@Membresia_Id",
+      "DataType": "int",
+      "Mode": "IN",
+      "MaxLength": 4
+    },
+    {
+      "OrdinalPosition": 3,
+      "Name": "@CicloDeFacturacion_Id",
+      "DataType": "int",
+      "Mode": "IN",
+      "MaxLength": 4
+    },
+    {
+      "OrdinalPosition": 4,
+      "Name": "@TipoDocumento_Id",
+      "DataType": "int",
+      "Mode": "IN",
+      "MaxLength": 4
+    },
+    {
+      "OrdinalPosition": 5,
+      "Name": "@CategoriaDocumento_Id",
+      "DataType": "int",
+      "Mode": "IN",
+      "MaxLength": 4
+    },
+    {
+      "OrdinalPosition": 6,
+      "Name": "@EstatusDocumento_Id",
+      "DataType": "int",
+      "Mode": "IN",
+      "MaxLength": 4
+    },
+    {
+      "OrdinalPosition": 7,
+      "Name": "@Comunidad_Id",
+      "DataType": "int",
+      "Mode": "IN",
+      "MaxLength": 4
+    },
+    {
+      "OrdinalPosition": 8,
+      "Name": "@TipoDeCambio_Id",
+      "DataType": "int",
+      "Mode": "IN",
+      "MaxLength": 4
+    }
+  ],
+  "Definition": "-- =================================================================\r\n-- Description:\tThis gets a basic report for [Documento] table\r\n-- =================================================================\r\nCREATE PROCEDURE [dbo].[rpt_Documento_Index]\r\n@EntityId AS INT = 0, \r\n@Membresia_Id AS INT = 0, \r\n@CicloDeFacturacion_Id AS INT = 0, \r\n@TipoDocumento_Id AS INT = 0, \r\n@CategoriaDocumento_Id AS INT = 0, \r\n@EstatusDocumento_Id AS INT = 0, \r\n@Comunidad_Id AS INT = 0, \r\n@TipoDeCambio_Id AS INT = 0\r\nAS\r\nBEGIN\r\n\t\r\n\t-- IMPORTANT:\r\n\t-- This is a computer generated procedure.  DO NOT ADD CUSTOM CODE TO THIS PROCEDURE.\r\n\r\n\t-- SET NOCOUNT ON added to prevent extra result sets from\r\n\t-- interfering with SELECT statements.\r\n\tSET NOCOUNT ON;\r\n\t\r\n\t-- 1) CREATE FILTER TABLE:\r\n\tDECLARE @DocumentoFilter TABLE (\r\n\t\tId INT IDENTITY (1,1),\r\n\t\tDocumento_Id INT\t\t\r\n\t)\r\n\r\n\r\n    -- IF A GIVEN ID HAS BEEN SPECIFIED, THEN RETRIEVE THAT RECORD ONLY\r\n\tIF @EntityId \u003C\u003E 0\r\n\tBEGIN\r\n\r\n\t\tINSERT INTO @DocumentoFilter (Documento_Id)\r\n\t\tSELECT \r\n\t\t\t[Documento].Id\r\n\t\tFROM [dbo].[Documento]\r\n\t\tWHERE\r\n\t\t\t [dbo].[Documento].[Id] = @EntityId\r\n\r\n\tEND\r\n\tELSE\r\n\tBEGIN\r\n\r\n\t\t-- 2) FILTER BY FOREIGN RELATIONSHIPS WHEN APLICABLE:\r\n\t\tINSERT INTO @DocumentoFilter (Documento_Id)\r\n\t\tSELECT \r\n\t\t\t[Documento].Id\r\n\t\tFROM [dbo].[Documento]\r\n\t\tWHERE\r\n\t\t\t (([Documento].[Membresia_Id] = @Membresia_Id) OR (@Membresia_Id = 0)) AND\r\n         (([Documento].[CicloDeFacturacion_Id] = @CicloDeFacturacion_Id) OR (@CicloDeFacturacion_Id = 0)) AND\r\n         (([Documento].[TipoDocumento_Id] = @TipoDocumento_Id) OR (@TipoDocumento_Id = 0)) AND\r\n         (([Documento].[CategoriaDocumento_Id] = @CategoriaDocumento_Id) OR (@CategoriaDocumento_Id = 0)) AND\r\n         (([Documento].[EstatusDocumento_Id] = @EstatusDocumento_Id) OR (@EstatusDocumento_Id = 0)) AND\r\n         (([Documento].[Comunidad_Id] = @Comunidad_Id) OR (@Comunidad_Id = 0)) AND\r\n         (([Documento].[TipoDeCambio_Id] = @TipoDeCambio_Id) OR (@TipoDeCambio_Id = 0)) AND ACtivo= 1\r\n\r\n \tEND\r\n\r\n \r\n\t-- 4) DELIVER THE FILTERED RESULTS:\r\n\tSELECT \r\n\t\t[Documento].[Id],\r\n\t\t[Documento].[Folio],\t\t\r\n\t\t[InformacionFacturacion].[NombreFiscal] \u002B \u0027 (\u0027 \u002B [InformacionFacturacion].[RFC] \u002B \u0027)\u0027 AS NombreFiscal,\t\t\t\t\r\n\t\t([Documento].[MontoTotal] \u002B [Documento].[IVA]) as MontoConIVA_C,\t\t\r\n\t\t[TipoDocumento].[Nombre] AS [Tipo],\t\t\r\n\t\t[CategoriaDocumento].[Nombre] AS [Categoria],\t\t\r\n\t\t[Documento].[FechaEmision],\t\t\t\t\r\n\t\t[Documento].[Pagado],\t\t\t\t\r\n\t\t[Documento].[Timbrado],\r\n\t\t[Documento].[FechaDeTimbrado] as FechaTimbrado_UTCT,\t\t\r\n\t\tdbo.fnObtenerDescripcionMes([CicloDeFacturacion].[Mes]) \u002B \u0027 \u0027 \u002B CONVERT(VARCHAR(50), [CicloDeFacturacion].[Anio]) AS [CicloDeFacturacion],\t\t\r\n\t\t[EstatusDocumento].[Nombre] AS [EstatusDocumentoNombre],\r\n\t\t[MetodoDePago].[Nombre] AS [MetodoDePagoNombre]\t\t\t\t\t\t\t\t\r\n\tFROM @DocumentoFilter filter\r\n\t\tJOIN [dbo].[Documento] \r\n\t\t\tON [Documento].[Id] = filter.[Documento_Id] \r\n\r\n\r\n\t\tLEFT JOIN [dbo].[Membresia]\r\n\t\tON [dbo].[Documento].[Membresia_Id] = [dbo].[Membresia].[Id] \r\n\r\n \t\tLEFT JOIN [dbo].[CicloDeFacturacion]\r\n\t\tON [dbo].[Documento].[CicloDeFacturacion_Id] = [dbo].[CicloDeFacturacion].[Id] \r\n\r\n \t\tLEFT JOIN [dbo].[TipoDocumento]\r\n\t\tON [dbo].[Documento].[TipoDocumento_Id] = [dbo].[TipoDocumento].[Id] \r\n\r\n \t\tLEFT JOIN [dbo].[CategoriaDocumento]\r\n\t\tON [dbo].[Documento].[CategoriaDocumento_Id] = [dbo].[CategoriaDocumento].[Id] \r\n\r\n \t\tLEFT JOIN [dbo].[EstatusDocumento]\r\n\t\tON [dbo].[Documento].[EstatusDocumento_Id] = [dbo].[EstatusDocumento].[Id] \r\n\r\n \t\tLEFT JOIN [dbo].[Comunidad]\r\n\t\tON [dbo].[Documento].[Comunidad_Id] = [dbo].[Comunidad].[Id] \r\n\r\n \t\tLEFT JOIN [dbo].[TipoDeCambio]\r\n\t\tON [dbo].[Documento].[TipoDeCambio_Id] = [dbo].[TipoDeCambio].[Id] \r\n\r\n\t\tLEFT JOIN [dbo].[InformacionFacturacion]\r\n\t\tON  [dbo].[Membresia].[InformacionFacturacion_Id] = [dbo].[InformacionFacturacion].[Id]\r\n\r\n\t\tLEFT JOIN [dbo].[MetodoDePago]\r\n\t\tON [dbo].[Documento].[MetodoDePago_Id] = [dbo].[MetodoDePago].[Id] \r\n\r\n \r\nEND",
+  "Schema": "dbo",
+  "Name": "rpt_Documento_Index",
+  "ObjectType": "StoredProcedure",
+  "DatabaseProvider": "sqlserver",
+  "ScannedAtUtc": "2026-08-21T18:10:57.4521503+00:00",
+  "QualifiedName": "dbo.rpt_Documento_Index"
+}

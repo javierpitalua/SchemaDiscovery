@@ -1,0 +1,248 @@
+{
+  "Schema": "dbo",
+  "Name": "Reservacion",
+  "ClassName": "Reservacion",
+  "PluralClassName": "Reservacion",
+  "QualifiedName": "dbo.Reservacion",
+  "ObjectType": "Table",
+  "DatabaseProvider": "sqlserver",
+  "Columns": [
+    {
+      "OrdinalPosition": 1,
+      "Name": "Id",
+      "DataType": "int",
+      "IsNullable": false,
+      "MaxLength": 4,
+      "IsIdentity": true,
+      "IsComputed": false,
+      "IsPrimaryKey": true,
+      "PropertyName": "Id"
+    },
+    {
+      "OrdinalPosition": 2,
+      "Name": "Titulo",
+      "DataType": "varchar",
+      "IsNullable": false,
+      "MaxLength": 200,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "Titulo"
+    },
+    {
+      "OrdinalPosition": 3,
+      "Name": "Descripcion",
+      "DataType": "varchar",
+      "IsNullable": true,
+      "MaxLength": 100,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "Descripcion"
+    },
+    {
+      "OrdinalPosition": 4,
+      "Name": "Espacio_Id",
+      "DataType": "int",
+      "IsNullable": false,
+      "MaxLength": 4,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "Espacio_Id"
+    },
+    {
+      "OrdinalPosition": 5,
+      "Name": "Membresia_Id",
+      "DataType": "int",
+      "IsNullable": false,
+      "MaxLength": 4,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "Membresia_Id"
+    },
+    {
+      "OrdinalPosition": 6,
+      "Name": "FechaHoraInicial",
+      "DataType": "smalldatetime",
+      "IsNullable": true,
+      "MaxLength": 4,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "FechaHoraInicial"
+    },
+    {
+      "OrdinalPosition": 7,
+      "Name": "Duracion",
+      "DataType": "int",
+      "IsNullable": true,
+      "MaxLength": 4,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "Duracion"
+    },
+    {
+      "OrdinalPosition": 8,
+      "Name": "Suscriptor_Id",
+      "DataType": "int",
+      "IsNullable": false,
+      "MaxLength": 4,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "Suscriptor_Id"
+    },
+    {
+      "OrdinalPosition": 9,
+      "Name": "FechaReservacion",
+      "DataType": "smalldatetime",
+      "IsNullable": false,
+      "MaxLength": 4,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "FechaReservacion"
+    },
+    {
+      "OrdinalPosition": 10,
+      "Name": "Cancelado",
+      "DataType": "bit",
+      "IsNullable": false,
+      "MaxLength": 1,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "Cancelado"
+    },
+    {
+      "OrdinalPosition": 11,
+      "Name": "FechaCancelacion",
+      "DataType": "smalldatetime",
+      "IsNullable": true,
+      "MaxLength": 4,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "FechaCancelacion"
+    },
+    {
+      "OrdinalPosition": 12,
+      "Name": "CanceladoPor",
+      "DataType": "varchar",
+      "IsNullable": true,
+      "MaxLength": 50,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "CanceladoPor"
+    },
+    {
+      "OrdinalPosition": 13,
+      "Name": "FechaCreacion",
+      "DataType": "smalldatetime",
+      "IsNullable": false,
+      "MaxLength": 4,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "FechaCreacion"
+    },
+    {
+      "OrdinalPosition": 14,
+      "Name": "CreadoPor",
+      "DataType": "varchar",
+      "IsNullable": false,
+      "MaxLength": 50,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "CreadoPor"
+    },
+    {
+      "OrdinalPosition": 15,
+      "Name": "FechaModificacion",
+      "DataType": "smalldatetime",
+      "IsNullable": true,
+      "MaxLength": 4,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "FechaModificacion"
+    },
+    {
+      "OrdinalPosition": 16,
+      "Name": "ModificadoPor",
+      "DataType": "varchar",
+      "IsNullable": true,
+      "MaxLength": 50,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "ModificadoPor"
+    },
+    {
+      "OrdinalPosition": 17,
+      "Name": "Activo",
+      "DataType": "bit",
+      "IsNullable": false,
+      "MaxLength": 1,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "Activo"
+    },
+    {
+      "OrdinalPosition": 18,
+      "Name": "FechaDesactivacion",
+      "DataType": "smalldatetime",
+      "IsNullable": true,
+      "MaxLength": 4,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "FechaDesactivacion"
+    },
+    {
+      "OrdinalPosition": 19,
+      "Name": "DesactivadoPor",
+      "DataType": "varchar",
+      "IsNullable": true,
+      "MaxLength": 50,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "DesactivadoPor"
+    },
+    {
+      "OrdinalPosition": 20,
+      "Name": "Documento_Id",
+      "DataType": "int",
+      "IsNullable": true,
+      "MaxLength": 4,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "Documento_Id"
+    }
+  ],
+  "PrimaryKeyColumns": [
+    "Id"
+  ],
+  "ForeignKeys": [],
+  "Indexes": [
+    {
+      "Name": "PK_Reservacion",
+      "IsUnique": true,
+      "IsPrimaryKey": true,
+      "IndexType": "CLUSTERED",
+      "Columns": [
+        "Id"
+      ]
+    }
+  ],
+  "ScannedAtUtc": "2026-08-21T18:10:55.9518165+00:00",
+  "RowCountEstimate": 77603
+}

@@ -1,0 +1,32 @@
+{
+  "Parameters": [
+    {
+      "OrdinalPosition": 1,
+      "Name": "@ComunidadID",
+      "DataType": "int",
+      "Mode": "IN",
+      "MaxLength": 4
+    },
+    {
+      "OrdinalPosition": 2,
+      "Name": "@MembresiaID",
+      "DataType": "int",
+      "Mode": "IN",
+      "MaxLength": 4
+    },
+    {
+      "OrdinalPosition": 3,
+      "Name": "@FechaSeleccionada",
+      "DataType": "datetime",
+      "Mode": "IN",
+      "MaxLength": 8
+    }
+  ],
+  "Definition": "CREATE PROCEDURE [dbo].[rpt_AvisosLista_ObtenerListaAvisosPorComunidad]\n@ComunidadID INT, @MembresiaID INT , @FechaSeleccionada DATETIME\nAS\nBEGIN\n\nSELECT\n\tAviso.Id,\n\tISNULL(Aviso.Comunidad_Id, 0) AS [ComunidadId],\n\tISNULL(Comunidad.Nombre, \u0027Todas las Comunidades\u0027) AS [NombreComunidad],\n\tISNULL(Aviso.Membresia_Id, 0) AS [MembresiaId],\n\tISNULL(Membresia.ClaveMembresia, \u0027Todas las Membresias\u0027) AS [ClaveMembresia],\n\tAviso.Titulo,\n\tCategoriaDeAviso.Nombre AS [Categoria],\n\tAviso.Mensaje,\n\tAviso.Liga,\n\tAviso.FechaInicio,\n\tAviso.FechaFin,\n\tAviso.FechaCreacion,\n\tAviso.CreadoPor,\n\tAviso.FechaModificacion,\n\tAviso.ModificadoPor,\n\tAviso.FechaDesactivacion,\n\tAviso.DesactivadoPor\nFROM Aviso\n\tLEFT JOIN Comunidad\n\t\tON Aviso.Comunidad_Id = Comunidad.Id\n\tLEFT JOIN Membresia\n\t\tON Aviso.Membresia_Id = Membresia.Id\n\tLEFT JOIN CategoriaDeAviso\n\t\tON Aviso.CategoriaDeAviso_Id = CategoriaDeAviso.Id \nWHERE (Aviso.Comunidad_Id IS NULL OR Aviso.Comunidad_Id = @ComunidadID)\nAND (Aviso.Membresia_Id IS NULL OR Aviso.Membresia_Id = @MembresiaID)\nAND Aviso.FechaInicio \u003C= @FechaSeleccionada\nAND Aviso.FechaFin \u003E= @FechaSeleccionada OR Aviso.FechaFin IS NULL\nAND Aviso.Activo = 1\nORDER BY Aviso.FechaCreacion ASC\n\nEND",
+  "Schema": "dbo",
+  "Name": "rpt_AvisosLista_ObtenerListaAvisosPorComunidad",
+  "ObjectType": "StoredProcedure",
+  "DatabaseProvider": "sqlserver",
+  "ScannedAtUtc": "2026-08-21T18:10:57.4485795+00:00",
+  "QualifiedName": "dbo.rpt_AvisosLista_ObtenerListaAvisosPorComunidad"
+}

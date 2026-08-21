@@ -1,0 +1,25 @@
+{
+  "Parameters": [
+    {
+      "OrdinalPosition": 1,
+      "Name": "@Espacio_Id",
+      "DataType": "int",
+      "Mode": "IN",
+      "MaxLength": 4
+    },
+    {
+      "OrdinalPosition": 2,
+      "Name": "@FechaHora",
+      "DataType": "datetime",
+      "Mode": "IN",
+      "MaxLength": 8
+    }
+  ],
+  "Definition": "CREATE PROCEDURE [dbo].[rpt_ReservacionesEspacios_ObtenerReservacionesDelDia]\r\n@Espacio_Id INT, @FechaHora DateTime\r\nAS\r\nBEGIN\r\n\r\nDECLARE @FechaFinal DateTime\r\n\r\nSELECT @FechaFinal = DATEADD(day, 1, @FechaHora)\r\n\r\nSELECT\r\n\t[Espacio].[Id],\r\n\t[Reservacion].[Id] AS [Reservacion_Id],\r\n\t[Reservacion].[Titulo],\r\n\t[Reservacion].[FechaHoraInicial],\r\n\t[Reservacion].[Duracion] AS [DuracionMinutos],\r\n\t[Reservacion].[Activo],\r\n\t[Reservacion].[Cancelado],\r\n\tDATEADD(MINUTE, [Reservacion].[Duracion], [Reservacion].[FechaHoraInicial]) AS [FechaHoraFin]\r\nFROM [Espacio]\r\n\tJOIN [Reservacion]\r\n\t\tON [Espacio].[Id] = [Reservacion].[Espacio_Id]\r\nWHERE [Espacio].[Id] = @Espacio_Id\r\nAND [Reservacion].[Activo] = 1\r\nAND [Reservacion].[Cancelado] = 0\r\nAND [Reservacion].[FechaHoraInicial] \u003E= @FechaHora AND [Reservacion].[FechaHoraInicial] \u003C @FechaFinal\r\nORDER BY [Reservacion].[FechaHoraInicial] ASC\r\n\r\nEND",
+  "Schema": "dbo",
+  "Name": "rpt_ReservacionesEspacios_ObtenerReservacionesDelDia",
+  "ObjectType": "StoredProcedure",
+  "DatabaseProvider": "sqlserver",
+  "ScannedAtUtc": "2026-08-21T18:10:57.4637985+00:00",
+  "QualifiedName": "dbo.rpt_ReservacionesEspacios_ObtenerReservacionesDelDia"
+}

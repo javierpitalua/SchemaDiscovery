@@ -1,0 +1,25 @@
+{
+  "Parameters": [
+    {
+      "OrdinalPosition": 1,
+      "Name": "@EntityId",
+      "DataType": "int",
+      "Mode": "IN",
+      "MaxLength": 4
+    },
+    {
+      "OrdinalPosition": 2,
+      "Name": "@Suscriptor_Id",
+      "DataType": "int",
+      "Mode": "IN",
+      "MaxLength": 4
+    }
+  ],
+  "Definition": "CREATE PROCEDURE [dbo].[rpt_Suscriptor_Index]\r\n@EntityId AS INT = 0,\r\n@Suscriptor_Id AS INT = 0\r\n\r\nAS\r\nBEGIN\r\n\t\r\n\t-- IMPORTANT:\r\n\t-- This is a computer generated procedure.  DO NOT ADD CUSTOM CODE TO THIS PROCEDURE.\r\n\r\n\t-- SET NOCOUNT ON added to prevent extra result sets from\r\n\t-- interfering with SELECT statements.\r\n\tSET NOCOUNT ON;\r\n\t\r\n\t-- 1) CREATE FILTER TABLE:\r\n\tDECLARE @SuscriptorFilter TABLE (\r\n\t\tId INT IDENTITY (1,1),\r\n\t\tSuscriptor_Id INT\t\t\r\n\t)\r\n\r\n\r\n    -- IF A GIVEN ID HAS BEEN SPECIFIED, THEN RETRIEVE THAT RECORD ONLY\r\n\tIF @EntityId \u003C\u003E 0\r\n\tBEGIN\r\n\r\n\t\tINSERT INTO @SuscriptorFilter (Suscriptor_Id)\r\n\t\tSELECT \r\n\t\t\t[Suscriptor].Id\r\n\t\tFROM [dbo].[Suscriptor]\r\n\t\tWHERE\r\n\t\t\t [dbo].[Suscriptor].[Id] = @EntityId\r\n\r\n\tEND\r\n\tELSE\r\n\tBEGIN\r\n\r\n\t\t-- 2) FILTER BY FOREIGN RELATIONSHIPS WHEN APLICABLE:\r\n\t\tINSERT INTO @SuscriptorFilter (Suscriptor_Id)\r\n\t\tSELECT DISTINCT(susc.Suscriptor_Id)\r\n\t\t\tFROM Suscripcion susc \r\n\t\t\t\tJOIN Membresia memb ON susc.Membresia_Id = memb.Id\r\n\t\t\t\tJOIN Suscriptor sus ON susc.Suscriptor_Id = sus.Id\r\n\t\t\tWHERE \r\n\t\t\t\tmemb.Activo = 1\r\n\t\t\tAND memb.EstatusMembresia_Id = 1\r\n\t\t\tAND sus.Activo = 1\t\r\n\t\t\tAND LTRIM(RTRIM(sus.CorreoElectronico)) \u003C\u003E \u0027\u0027\r\n \tEND\r\n\r\n \r\n\t-- 4) DELIVER THE FILTERED RESULTS:\r\n\tSELECT \r\n\t\t[Suscriptor].[Id],\r\n\t\t[Suscriptor].[Nombre] \u002B \u0027 \u0027 \u002B [Suscriptor].[ApellidoPaterno] \u002B \u0027 \u0027 \u002B [Suscriptor].[ApellidoMaterno]  as NombreCompleto,\r\n\t\t[Suscriptor].[Nombre],\r\n\t\t[Suscriptor].[ApellidoPaterno],\r\n\t\t[Suscriptor].[ApellidoMaterno],\r\n\t\t[Suscriptor].[CorreoElectronico],\r\n\t\t[Membresia].[ClaveMembresia],\r\n\t\t[Comunidad].[Nombre] AS [Comunidad],\r\n\t\t[TipoMembresia].[Nombre] AS [Membresia],\r\n\t\t[TipoSuscripcion].[Nombre] AS [TipoSuscripcion],\r\n\t\t[Suscriptor].[UltimaAutenticacion],\r\n\t\tCASE ISNULL([Suscriptor].CuentaConfirmada, 0) WHEN 1 THEN \u0027S\u00ED\u0027 ELSE \u0027No\u0027 END AS [CuentaConfirmada],\r\n\t\t[Suscriptor].[FechaConfirmacion],\r\n\t\tCASE ISNULL([Suscriptor].[Habilitado], 0) WHEN 1 THEN \u0027S\u00ED\u0027 ELSE \u0027No\u0027 END AS [Habilitado],\t\t\r\n\t\t[Suscriptor].[FechaCreacion],\r\n\t\t[Suscriptor].[CreadoPor],\r\n\t\t[Suscripcion].[FechaModificacion],\r\n\t\t[Suscripcion].[ModificadoPor]\r\n\tFROM @SuscriptorFilter filter\r\n\t\tJOIN [dbo].[Suscriptor] ON [Suscriptor].[Id] = filter.[Suscriptor_Id] \r\n        JOIN [Suscripcion] ON [Suscripcion].[Suscriptor_Id] = [Suscriptor].[Id]\r\n        JOIN [Membresia] ON [Membresia].[Id] = [Suscripcion].[Membresia_Id]\r\n        LEFT JOIN [Comunidad] ON [Comunidad].[Id] = [Membresia].[Comunidad_Id]\r\n        LEFT JOIN [TipoMembresia] ON [TipoMembresia].[Id] = [Membresia].[TipoMembresia_Id]\r\n        LEFT JOIN [TipoSuscripcion] ON [TipoSuscripcion].[Id] = [Suscripcion].[TipoSuscripcion_Id]\r\n\tWHERE [Suscriptor].[Activo]= 1\t\r\n\tAND [Membresia].[Activo] = 1\r\n\tAND [Membresia].[EstatusMembresia_Id] = 1\r\n\tAND [Suscripcion].[Activo] = 1\r\n      \r\nEND",
+  "Schema": "dbo",
+  "Name": "rpt_Suscriptor_Index",
+  "ObjectType": "StoredProcedure",
+  "DatabaseProvider": "sqlserver",
+  "ScannedAtUtc": "2026-08-21T18:10:57.4650664+00:00",
+  "QualifiedName": "dbo.rpt_Suscriptor_Index"
+}

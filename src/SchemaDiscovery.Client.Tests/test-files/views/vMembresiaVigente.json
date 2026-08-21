@@ -1,0 +1,189 @@
+{
+  "Columns": [
+    {
+      "OrdinalPosition": 1,
+      "Name": "Id",
+      "DataType": "int",
+      "IsNullable": false,
+      "MaxLength": 4,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "Id"
+    },
+    {
+      "OrdinalPosition": 2,
+      "Name": "ClaveMembresia",
+      "DataType": "varchar",
+      "IsNullable": true,
+      "MaxLength": 50,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "ClaveMembresia"
+    },
+    {
+      "OrdinalPosition": 3,
+      "Name": "NombreFiscal",
+      "DataType": "varchar",
+      "IsNullable": true,
+      "MaxLength": 200,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "NombreFiscal"
+    },
+    {
+      "OrdinalPosition": 4,
+      "Name": "RazonSocial",
+      "DataType": "varchar",
+      "IsNullable": true,
+      "MaxLength": 200,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "RazonSocial"
+    },
+    {
+      "OrdinalPosition": 5,
+      "Name": "RFC",
+      "DataType": "varchar",
+      "IsNullable": true,
+      "MaxLength": 50,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "RFC"
+    },
+    {
+      "OrdinalPosition": 6,
+      "Name": "TipoMembresia",
+      "DataType": "varchar",
+      "IsNullable": true,
+      "MaxLength": 100,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "TipoMembresia"
+    },
+    {
+      "OrdinalPosition": 7,
+      "Name": "Estatus",
+      "DataType": "varchar",
+      "IsNullable": true,
+      "MaxLength": 50,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "Estatus"
+    },
+    {
+      "OrdinalPosition": 8,
+      "Name": "FacturarAPartirDe",
+      "DataType": "smalldatetime",
+      "IsNullable": true,
+      "MaxLength": 4,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "FacturarAPartirDe"
+    },
+    {
+      "OrdinalPosition": 9,
+      "Name": "FechaInicio",
+      "DataType": "smalldatetime",
+      "IsNullable": true,
+      "MaxLength": 4,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "FechaInicio"
+    },
+    {
+      "OrdinalPosition": 10,
+      "Name": "Vigencia",
+      "DataType": "smalldatetime",
+      "IsNullable": true,
+      "MaxLength": 4,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "Vigencia"
+    },
+    {
+      "OrdinalPosition": 11,
+      "Name": "DeshabilitarFacturacionAutomatica",
+      "DataType": "varchar",
+      "IsNullable": false,
+      "MaxLength": 2,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "DeshabilitarFacturacionAutomatica"
+    },
+    {
+      "OrdinalPosition": 12,
+      "Name": "FechaCreacion",
+      "DataType": "smalldatetime",
+      "IsNullable": true,
+      "MaxLength": 4,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "FechaCreacion"
+    },
+    {
+      "OrdinalPosition": 13,
+      "Name": "CreadoPor",
+      "DataType": "varchar",
+      "IsNullable": false,
+      "MaxLength": 50,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "CreadoPor"
+    },
+    {
+      "OrdinalPosition": 14,
+      "Name": "DeshabilitarFacturacion",
+      "DataType": "varchar",
+      "IsNullable": false,
+      "MaxLength": 2,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "DeshabilitarFacturacion"
+    },
+    {
+      "OrdinalPosition": 15,
+      "Name": "PrecioMensual",
+      "DataType": "decimal",
+      "IsNullable": true,
+      "MaxLength": 9,
+      "NumericPrecision": 18,
+      "NumericScale": 2,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "PrecioMensual"
+    },
+    {
+      "OrdinalPosition": 16,
+      "Name": "TipoDeCambio",
+      "DataType": "varchar",
+      "IsNullable": true,
+      "MaxLength": 100,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "TipoDeCambio"
+    }
+  ],
+  "Definition": "CREATE VIEW [dbo].[vMembresiaVigente]\r\nAS\r\n\r\n\tSELECT \r\n\t\t[Membresia].[Id],\t\t\r\n\t\t[Membresia].[ClaveMembresia],\r\n\t\t[InformacionFacturacion].[NombreFiscal],\r\n\t\t[InformacionFacturacion].[RazonSocial],\r\n\t\t[InformacionFacturacion].[RFC],\r\n\t\t[TipoMembresia].[Nombre] AS [TipoMembresia],\r\n\t\t[EstatusMembresia].[Nombre] AS [Estatus],\t\t\r\n\t\t[Membresia].[FacturarAPartirDe],\r\n\t\t[Membresia].[FechaInicio] AS [FechaInicio],\r\n\t\t[Membresia].[Vigencia],\t\t\t\t\t\t\r\n\t\tCASE [Membresia].[DeshabilitarFacturacionAutomatica] WHEN 1 THEN \u0027S\u00ED\u0027 ELSE \u0027No\u0027 END AS [DeshabilitarFacturacionAutomatica],\r\n\t\t[Membresia].[FechaCreacion] as [FechaCreacion],\r\n\t\t[Membresia].[CreadoPor] as [CreadoPor],\r\n\t\tCASE ISNULL([Membresia].[DeshabilitarFacturacionAutomatica], 0) WHEN 0 THEN \u0027No\u0027 ELSE \u0027S\u00ED\u0027 END AS [DeshabilitarFacturacion],\t\t\r\n\t\t[Membresia].[PrecioMensual],\t\t\r\n\t\t[TipoDeCambio].[Nombre] AS [TipoDeCambio]\r\n\tFROM [dbo].[Membresia] \r\n\r\n\t\tLEFT JOIN [dbo].[Comunidad]\r\n\t\tON [dbo].[Membresia].[Comunidad_Id] = [dbo].[Comunidad].[Id] \r\n\r\n \t\tLEFT JOIN [dbo].[TipoMembresia]\r\n\t\tON [dbo].[Membresia].[TipoMembresia_Id] = [dbo].[TipoMembresia].[Id] \r\n\r\n \t\tLEFT JOIN [dbo].[EstatusMembresia]\r\n\t\tON [dbo].[Membresia].[EstatusMembresia_Id] = [dbo].[EstatusMembresia].[Id] \r\n\r\n\t\tLEFT JOIN [dbo].[InformacionFacturacion]\r\n\t\tON [dbo].[Membresia].[InformacionFacturacion_Id] = [dbo].[InformacionFacturacion].[Id] \r\n\r\n\t\tLEFT JOIN [dbo].[TipoDeCambio]\r\n\t\tON [dbo].[Membresia].[TipoDeCambio_Id] = [dbo].[TipoDeCambio].[Id] \r\n\t\t\r\n\t\tWHERE [Membresia].[Activo] = 1",
+  "Schema": "dbo",
+  "Name": "vMembresiaVigente",
+  "ObjectType": "View",
+  "DatabaseProvider": "sqlserver",
+  "ScannedAtUtc": "2026-08-21T18:10:57.3905429+00:00",
+  "QualifiedName": "dbo.vMembresiaVigente"
+}

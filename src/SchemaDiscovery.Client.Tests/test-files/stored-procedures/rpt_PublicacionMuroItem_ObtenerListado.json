@@ -1,0 +1,18 @@
+{
+  "Parameters": [
+    {
+      "OrdinalPosition": 1,
+      "Name": "@EntityId",
+      "DataType": "int",
+      "Mode": "IN",
+      "MaxLength": 4
+    }
+  ],
+  "Definition": "CREATE PROCEDURE [dbo].[rpt_PublicacionMuroItem_ObtenerListado]\r\n@EntityId INT = 0\r\nAS\r\nBEGIN\r\n\r\n\tDECLARE @tmp TABLE(\r\n\t\tId INT IDENTITY(1,1),\r\n\t\tPublicacionMuro_Id INT\r\n\t)\r\n\r\n\tIF @EntityId \u003C\u003E 0\r\n\tBEGIN\r\n\r\n\t\tPRINT (\u0027Obtener publicacion por id:\u0027);\r\n\t\tINSERT INTO @tmp (PublicacionMuro_Id)\r\n\t\tSELECT \r\n\t\t\tpmu.Id\r\n\t\tFROM PublicacionMuro pmu \t\t\r\n\t\tWHERE pmu.Id = @EntityId\r\n\t\t\r\n\tEND\r\n\tELSE\r\n\tBEGIN\r\n\r\n\t\tPRINT (\u0027Obtener publicaciones...\u0027);\r\n\t\tINSERT INTO @tmp (PublicacionMuro_Id)\r\n\t\tSELECT \r\n\t\t\tpmu.Id\r\n\t\tFROM PublicacionMuro pmu \t\t\r\n\t\tWHERE ISNULL(pmu.Deshabilitado, 0) = 0\r\n\t\tORDER BY pmu.FechaPublicacion DESC\r\n\r\n\tEND\r\n\r\n\tSELECT \r\n\t\tpmu.Id,\r\n\t\tpmu.Texto,\r\n\t\tpmu.FechaPublicacion,\r\n\t\tpmu.Suscriptor_Id,\t\t\r\n\t\tsus.Nombre,\r\n\t\tsus.ApellidoPaterno,\r\n\t\tsus.ApellidoMaterno,\r\n\t\tsus.CorreoElectronico,\r\n\t\tISNULL(dbo.fnObtenerLikesPublicacion(pmu.Id), 0) AS Likes,\r\n\t\tISNULL(adj.Archivo_Id, 0) AS [ImagenId]\r\n\tFROM @tmp tmp\t\t\r\n\t\tJOIN PublicacionMuro pmu \r\n\t\t\tON tmp.PublicacionMuro_Id = pmu.Id\r\n\t\tLEFT JOIN Suscriptor sus \r\n\t\t\tON pmu.Suscriptor_Id = sus.Id\t\t\t\r\n\t\tLEFT JOIN AdjuntoPublicacionMuro adj \r\n\t\t\tON adj.Id = (\r\n\t\t\t\tSELECT TOP 1 Id \r\n\t\t\t\tFROM AdjuntoPublicacionMuro \r\n\t\t\t\tWHERE AdjuntoPublicacionMuro.PublicacionMuro_Id = pmu.Id)\r\n\tWHERE ISNULL(pmu.Deshabilitado, 0) = 0\r\n\tORDER BY pmu.FechaPublicacion DESC\r\n\r\nEND",
+  "Schema": "dbo",
+  "Name": "rpt_PublicacionMuroItem_ObtenerListado",
+  "ObjectType": "StoredProcedure",
+  "DatabaseProvider": "sqlserver",
+  "ScannedAtUtc": "2026-08-21T18:10:57.4608357+00:00",
+  "QualifiedName": "dbo.rpt_PublicacionMuroItem_ObtenerListado"
+}

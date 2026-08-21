@@ -1,0 +1,10 @@
+{
+  "Parameters": [],
+  "Definition": "CREATE PROCEDURE [dbo].[rpt_MembresiaSuscriptores_ObtenerUsuariosPorMembresiaActiva] \nAS\nBEGIN\n\nDECLARE @SuscriptoresActivos TABLE (\n\tId INT IDENTITY(1,1),\n\tSuscriptor_Id INT \n)\n\nINSERT INTO @SuscriptoresActivos (Suscriptor_Id)\nSELECT sus.Suscriptor_Id FROM Suscripcion sus\nJOIN Membresia mem ON sus.Membresia_Id = mem.Id\nJOIN Suscriptor susc ON sus.Suscriptor_Id = susc.Id\nJOIN InformacionDeContacto info ON info.Suscriptor_Id = susc.Id\nWHERE\n\tsus.Activo = 1\nAND mem.Activo = 1\nAND mem.EstatusMembresia_Id = 1 -- Solo membresias activas\nAND susc.Activo = 1\nAND info.DeseaSerContactado = 1\nGROUP BY sus.Suscriptor_Id\n\nSELECT \n\tsus.Id,\n\t(sus.Nombre \u002B \u0027 \u0027 \u002B sus.ApellidoPaterno \u002B \u0027 \u0027 \u002B sus.ApellidoMaterno) AS [NombreCompleto],\n\tsus.CorreoElectronico,\n\tsus.FechaCreacion,\n\tsus.Telefono AS [TelefonoUsuario],\n\tinfo.CuentaLinkedIn,\n\tinfo.CuentaTwitter,\n\tinfo.CuentaFacebook,\n\tinfo.CuentaInstagram,\n\tinfo.SitioWebEmpresa,\n\tinfo.TelefonoTrabajo AS [TelefonoTrabajo],\n\tinfo.DeseaSerContactado,\n\tinfo.UltimaActualizacion AS [UltimaActualizacionInformacionDeContacto],\n\tISNULL(info.AvatarId, 0) AS [AvatarId]\nFROM @SuscriptoresActivos tmp\nJOIN Suscriptor sus ON tmp.Suscriptor_Id = sus.Id\nJOIN InformacionDeContacto info ON info.Suscriptor_Id = sus.Id\n\nEND",
+  "Schema": "dbo",
+  "Name": "rpt_MembresiaSuscriptores_ObtenerUsuariosPorMembresiaActiva",
+  "ObjectType": "StoredProcedure",
+  "DatabaseProvider": "sqlserver",
+  "ScannedAtUtc": "2026-08-21T18:10:57.4587074+00:00",
+  "QualifiedName": "dbo.rpt_MembresiaSuscriptores_ObtenerUsuariosPorMembresiaActiva"
+}

@@ -1,0 +1,18 @@
+{
+  "Parameters": [
+    {
+      "OrdinalPosition": 1,
+      "Name": "@Suscriptor_Id",
+      "DataType": "int",
+      "Mode": "IN",
+      "MaxLength": 4
+    }
+  ],
+  "Definition": "-- TEST: [dbo].[rpt_ReservacionEstacionDeTrabajo_ObtenerPorSubscriptor] 48\r\nCREATE PROCEDURE [dbo].[rpt_ReservacionEstacionDeTrabajo_ObtenerPorSubscriptor]\r\n@Suscriptor_Id INT = 0\r\nAS \r\nBEGIN\r\n\r\n    SELECT\r\n    res.Id,\r\n    res.Descripcion,\r\n    est.Nombre AS [EstacionDeTrabajo],\r\n    esp.Nombre AS [Espacio],\r\n    res.FechaHoraInicial,\r\n    res.Duracion,\r\n    res.FechaCreacion,\r\n    mem.ClaveMembresia,\r\n    info.NombreFiscal,\r\n    info.RazonSocial\r\n    FROM ReservacionEstacionDeTrabajo res\r\n    LEFT JOIN EstacionDeTrabajo est ON res.EstacionDeTrabajo_Id = est.Id\r\n    LEFT JOIN Espacio esp ON est.Espacio_Id = esp.Id\r\n    LEFT JOIN Membresia mem ON res.Membresia_Id = mem.Id\r\n    LEFT JOIN InformacionFacturacion info ON mem.InformacionFacturacion_Id = info.Id    \r\n    WHERE res.Suscriptor_Id = @Suscriptor_Id\r\n    AND res.FechaHoraInicial \u003E GETDATE()\r\n    AND res.Cancelado = 0\r\n    AND res.Activo = 1\r\n    ORDER BY FechaHoraInicial ASC\r\n\r\nEND",
+  "Schema": "dbo",
+  "Name": "rpt_ReservacionEstacionDeTrabajo_ObtenerPorSubscriptor",
+  "ObjectType": "StoredProcedure",
+  "DatabaseProvider": "sqlserver",
+  "ScannedAtUtc": "2026-08-21T18:10:57.4639466+00:00",
+  "QualifiedName": "dbo.rpt_ReservacionEstacionDeTrabajo_ObtenerPorSubscriptor"
+}

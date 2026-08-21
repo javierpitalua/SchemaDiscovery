@@ -1,0 +1,18 @@
+{
+  "Parameters": [
+    {
+      "OrdinalPosition": 1,
+      "Name": "@SearchText",
+      "DataType": "varchar",
+      "Mode": "IN",
+      "MaxLength": 100
+    }
+  ],
+  "Definition": "CREATE PROCEDURE [dbo].[rpt_ItemEspacio_ObtenerEspacioDisponible]\r\n@SearchText VARCHAR(100) = \u0027\u0027\r\nAS\r\nBEGIN\r\n\r\n\tDECLARE @EspaciosEncontrados TABLE(\t\r\n\t\tId INT IDENTITY(1,1),\r\n\t\tEspacio_Id INT\r\n\t)\r\n\r\n\tINSERT INTO @EspaciosEncontrados (Espacio_Id)\r\n\tSELECT Id FROM Espacio WHERE Nombre LIKE @SearchText AND (TipoDeEspacio_Id= 3 or TipoDeEspacio_Id= 2 or TipoDeEspacio_Id= 7)\t\r\n\tand Id not in (SELECT distinct(Espacio.Id) FROM Espacio \t\t\r\n\t    inner Join Membresia on Membresia.Espacio_Id = Espacio.Id\r\n\t\tWHERE TipoDeEspacio_Id= 3 and Membresia.Activo=1)\t\r\n\t\r\n\tIF(@SearchText = \u0027\u0027)\r\n\tBEGIN\r\n\t\tINSERT INTO @EspaciosEncontrados (Espacio_Id)\r\n\t\tSELECT Id FROM Espacio WHERE (TipoDeEspacio_Id= 3 or TipoDeEspacio_Id= 2)\t\t\r\n\t    and Id not in (SELECT distinct(Espacio.Id) FROM Espacio \t\t\r\n\t    inner Join Membresia on Membresia.Espacio_Id = Espacio.Id\r\n\t\tWHERE TipoDeEspacio_Id= 3 and Membresia.Activo=1)\t\r\n\t\r\n\tEND\r\n\r\n\tSELECT \r\n\t\t[Espacio].[Id],\r\n\t\tISNULL([Espacio].[Nombre], \u0027\u0027)  \u002B \u0027 (\u0027  \u002B [TipoDeEspacio].[Nombre] \u002B \u0027)\u0027   AS NombreEspacio\r\n\tFROM Espacio \r\n\t    INNER JOIN TipoDeEspacio ON [Espacio].[TipoDeEspacio_Id] = [TipoDeEspacio].[Id]\t\r\n\t\tJOIN (\r\n\t\t\tSELECT Espacio_Id FROM @EspaciosEncontrados GROUP BY Espacio_Id\r\n\t\t) AS [EspaciosEncontrados] ON Espacio.Id = [EspaciosEncontrados].Espacio_Id\r\n\tORDER BY ISNULL([Espacio].[Nombre], \u0027\u0027)   \r\n\t\r\n\t\r\nEND",
+  "Schema": "dbo",
+  "Name": "rpt_ItemEspacio_ObtenerEspacioDisponible",
+  "ObjectType": "StoredProcedure",
+  "DatabaseProvider": "sqlserver",
+  "ScannedAtUtc": "2026-08-21T18:10:57.456785+00:00",
+  "QualifiedName": "dbo.rpt_ItemEspacio_ObtenerEspacioDisponible"
+}

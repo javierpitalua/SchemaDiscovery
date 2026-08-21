@@ -1,0 +1,98 @@
+{
+  "Schema": "dbo",
+  "Name": "RegistroCargaMasivaConcepto",
+  "ClassName": "RegistroCargaMasivaConcepto",
+  "PluralClassName": "RegistroCargaMasivaConcepto",
+  "QualifiedName": "dbo.RegistroCargaMasivaConcepto",
+  "ObjectType": "Table",
+  "DatabaseProvider": "sqlserver",
+  "Columns": [
+    {
+      "OrdinalPosition": 1,
+      "Name": "Id",
+      "DataType": "int",
+      "IsNullable": false,
+      "MaxLength": 4,
+      "IsIdentity": true,
+      "IsComputed": false,
+      "IsPrimaryKey": true,
+      "PropertyName": "Id"
+    },
+    {
+      "OrdinalPosition": 2,
+      "Name": "CargaArchivoConcepto_Id",
+      "DataType": "int",
+      "IsNullable": false,
+      "MaxLength": 4,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "CargaArchivoConcepto_Id"
+    },
+    {
+      "OrdinalPosition": 3,
+      "Name": "ClaveMembresia",
+      "DataType": "varchar",
+      "IsNullable": true,
+      "MaxLength": 50,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "ClaveMembresia"
+    },
+    {
+      "OrdinalPosition": 4,
+      "Name": "Cantidad",
+      "DataType": "decimal",
+      "IsNullable": true,
+      "MaxLength": 9,
+      "NumericPrecision": 18,
+      "NumericScale": 2,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "Cantidad"
+    },
+    {
+      "OrdinalPosition": 5,
+      "Name": "Concepto",
+      "DataType": "varchar",
+      "IsNullable": true,
+      "MaxLength": 100,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "Concepto"
+    },
+    {
+      "OrdinalPosition": 6,
+      "Name": "PrecioUnitario",
+      "DataType": "decimal",
+      "IsNullable": true,
+      "MaxLength": 9,
+      "NumericPrecision": 18,
+      "NumericScale": 2,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "PrecioUnitario"
+    }
+  ],
+  "PrimaryKeyColumns": [
+    "Id"
+  ],
+  "ForeignKeys": [],
+  "Indexes": [
+    {
+      "Name": "PK_RegistroCargaMasivaConcepto",
+      "IsUnique": true,
+      "IsPrimaryKey": true,
+      "IndexType": "CLUSTERED",
+      "Columns": [
+        "Id"
+      ]
+    }
+  ],
+  "ScannedAtUtc": "2026-08-21T18:10:55.9465301+00:00",
+  "RowCountEstimate": 815
+}

@@ -1,0 +1,126 @@
+{
+  "Schema": "dbo",
+  "Name": "Archivo",
+  "ClassName": "Archivo",
+  "PluralClassName": "Archivo",
+  "QualifiedName": "dbo.Archivo",
+  "ObjectType": "Table",
+  "DatabaseProvider": "sqlserver",
+  "Columns": [
+    {
+      "OrdinalPosition": 1,
+      "Name": "Id",
+      "DataType": "int",
+      "IsNullable": false,
+      "MaxLength": 4,
+      "IsIdentity": true,
+      "IsComputed": false,
+      "IsPrimaryKey": true,
+      "PropertyName": "Id"
+    },
+    {
+      "OrdinalPosition": 2,
+      "Name": "NombreArchivo",
+      "DataType": "varchar",
+      "IsNullable": false,
+      "MaxLength": 200,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "NombreArchivo"
+    },
+    {
+      "OrdinalPosition": 3,
+      "Name": "Descripcion",
+      "DataType": "varchar",
+      "IsNullable": true,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "Descripcion"
+    },
+    {
+      "OrdinalPosition": 4,
+      "Name": "FechaCarga",
+      "DataType": "smalldatetime",
+      "IsNullable": false,
+      "MaxLength": 4,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "FechaCarga"
+    },
+    {
+      "OrdinalPosition": 5,
+      "Name": "Usuario_Id",
+      "DataType": "int",
+      "IsNullable": false,
+      "MaxLength": 4,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "Usuario_Id"
+    },
+    {
+      "OrdinalPosition": 6,
+      "Name": "ClaveServicioPersistencia",
+      "DataType": "varchar",
+      "IsNullable": false,
+      "MaxLength": 50,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "ClaveServicioPersistencia"
+    },
+    {
+      "OrdinalPosition": 7,
+      "Name": "MimeType",
+      "DataType": "varchar",
+      "IsNullable": true,
+      "MaxLength": 100,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "MimeType"
+    },
+    {
+      "OrdinalPosition": 8,
+      "Name": "Url",
+      "DataType": "varchar",
+      "IsNullable": true,
+      "MaxLength": 500,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "Url"
+    },
+    {
+      "OrdinalPosition": 9,
+      "Name": "Suscriptor_Id",
+      "DataType": "int",
+      "IsNullable": true,
+      "MaxLength": 4,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "Suscriptor_Id"
+    }
+  ],
+  "PrimaryKeyColumns": [
+    "Id"
+  ],
+  "ForeignKeys": [],
+  "Indexes": [
+    {
+      "Name": "PK_Archivo",
+      "IsUnique": true,
+      "IsPrimaryKey": true,
+      "IndexType": "CLUSTERED",
+      "Columns": [
+        "Id"
+      ]
+    }
+  ],
+  "ScannedAtUtc": "2026-08-21T18:10:55.8616832+00:00",
+  "RowCountEstimate": 59466
+}

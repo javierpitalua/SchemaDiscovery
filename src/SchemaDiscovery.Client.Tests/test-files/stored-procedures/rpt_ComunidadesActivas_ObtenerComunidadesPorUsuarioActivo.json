@@ -1,0 +1,18 @@
+{
+  "Parameters": [
+    {
+      "OrdinalPosition": 1,
+      "Name": "@SuscriptorId",
+      "DataType": "int",
+      "Mode": "IN",
+      "MaxLength": 4
+    }
+  ],
+  "Definition": "CREATE PROCEDURE [dbo].[rpt_ComunidadesActivas_ObtenerComunidadesPorUsuarioActivo]\n@SuscriptorId INT\nAS\nBEGIN\n\nSELECT \n\tc1.Id,\n\tc1.Nombre,\n\tc1.Telefono\nFROM Comunidad c1 JOIN (\nSELECT mem.Comunidad_Id FROM Suscripcion sus\nJOIN Membresia mem ON sus.Membresia_Id = mem.Id\nWHERE Suscriptor_Id = @SuscriptorId\nAND sus.Activo = 1\nGROUP BY mem.Comunidad_Id\n) AS c2 ON c2.Comunidad_Id = c1.Id\n\nEND",
+  "Schema": "dbo",
+  "Name": "rpt_ComunidadesActivas_ObtenerComunidadesPorUsuarioActivo",
+  "ObjectType": "StoredProcedure",
+  "DatabaseProvider": "sqlserver",
+  "ScannedAtUtc": "2026-08-21T18:10:57.4503746+00:00",
+  "QualifiedName": "dbo.rpt_ComunidadesActivas_ObtenerComunidadesPorUsuarioActivo"
+}

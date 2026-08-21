@@ -1,0 +1,18 @@
+{
+  "Parameters": [
+    {
+      "OrdinalPosition": 1,
+      "Name": "@Documento_Id",
+      "DataType": "int",
+      "Mode": "IN",
+      "MaxLength": 4
+    }
+  ],
+  "Definition": "CREATE PROCEDURE [dbo].[rpt_AdjuntoDocumento_ObtenerAdjuntosPorDocumento]\r\n@Documento_Id INT = 0\r\nAS\r\nBEGIN\r\n\r\n\tSELECT \r\n\t\t[Archivo].[Id],\r\n\t\t[Archivo].[NombreArchivo],\r\n\t\t[Archivo].[Descripcion],\r\n\t\t[Archivo].[FechaCarga] as FechaCarga_UTCT,\r\n\t\t[Archivo].[Usuario_Id],\r\n\t\t[Archivo].[ClaveServicioPersistencia],\r\n\t\t[Archivo].[MimeType],\r\n\t\t[Archivo].[Url],\r\n\t\t[Usuario].[Nombre] \u002B \u0027 \u0027 \u002B [Usuario].[ApellidoPaterno] \u002B \u0027 \u0027 \u002B [Usuario].[ApellidoMaterno] as Usuario,\r\n\t\t[Usuario].[CorreoElectronico],\r\n\t\t[AdjuntoDocumento].[Id] as Adjunto_Id\r\n\tFROM [AdjuntoDocumento]\r\n\t\tJOIN [Archivo]\r\n\t\t\tON [AdjuntoDocumento].[Archivo_Id] = [Archivo].[Id]\r\n\t\tJOIN [Usuario]\r\n\t\t\tON [Archivo].[Usuario_Id] = [Usuario].[Id]\r\n\r\n\tWHERE [AdjuntoDocumento].[Documento_Id] = @Documento_Id\r\n\tORDER BY [Archivo].[Id] DESC\r\n\r\nEND",
+  "Schema": "dbo",
+  "Name": "rpt_AdjuntoDocumento_ObtenerAdjuntosPorDocumento",
+  "ObjectType": "StoredProcedure",
+  "DatabaseProvider": "sqlserver",
+  "ScannedAtUtc": "2026-08-21T18:10:57.4468107+00:00",
+  "QualifiedName": "dbo.rpt_AdjuntoDocumento_ObtenerAdjuntosPorDocumento"
+}

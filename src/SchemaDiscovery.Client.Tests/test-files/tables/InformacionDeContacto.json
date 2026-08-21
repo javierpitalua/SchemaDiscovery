@@ -1,0 +1,159 @@
+{
+  "Schema": "dbo",
+  "Name": "InformacionDeContacto",
+  "ClassName": "InformacionDeContacto",
+  "PluralClassName": "InformacionDeContacto",
+  "QualifiedName": "dbo.InformacionDeContacto",
+  "ObjectType": "Table",
+  "DatabaseProvider": "sqlserver",
+  "Columns": [
+    {
+      "OrdinalPosition": 1,
+      "Name": "Id",
+      "DataType": "int",
+      "IsNullable": false,
+      "MaxLength": 4,
+      "IsIdentity": true,
+      "IsComputed": false,
+      "IsPrimaryKey": true,
+      "PropertyName": "Id"
+    },
+    {
+      "OrdinalPosition": 2,
+      "Name": "Suscriptor_Id",
+      "DataType": "int",
+      "IsNullable": false,
+      "MaxLength": 4,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "Suscriptor_Id"
+    },
+    {
+      "OrdinalPosition": 3,
+      "Name": "Descripcion",
+      "DataType": "varchar",
+      "IsNullable": true,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "Descripcion"
+    },
+    {
+      "OrdinalPosition": 4,
+      "Name": "TelefonoTrabajo",
+      "DataType": "varchar",
+      "IsNullable": true,
+      "MaxLength": 50,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "TelefonoTrabajo"
+    },
+    {
+      "OrdinalPosition": 5,
+      "Name": "CuentaLinkedIn",
+      "DataType": "varchar",
+      "IsNullable": true,
+      "MaxLength": 500,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "CuentaLinkedIn"
+    },
+    {
+      "OrdinalPosition": 6,
+      "Name": "CuentaTwitter",
+      "DataType": "varchar",
+      "IsNullable": true,
+      "MaxLength": 500,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "CuentaTwitter"
+    },
+    {
+      "OrdinalPosition": 7,
+      "Name": "CuentaFacebook",
+      "DataType": "varchar",
+      "IsNullable": true,
+      "MaxLength": 500,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "CuentaFacebook"
+    },
+    {
+      "OrdinalPosition": 8,
+      "Name": "CuentaInstagram",
+      "DataType": "varchar",
+      "IsNullable": true,
+      "MaxLength": 500,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "CuentaInstagram"
+    },
+    {
+      "OrdinalPosition": 9,
+      "Name": "SitioWebEmpresa",
+      "DataType": "varchar",
+      "IsNullable": true,
+      "MaxLength": 500,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "SitioWebEmpresa"
+    },
+    {
+      "OrdinalPosition": 10,
+      "Name": "DeseaSerContactado",
+      "DataType": "bit",
+      "IsNullable": false,
+      "MaxLength": 1,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "DeseaSerContactado"
+    },
+    {
+      "OrdinalPosition": 11,
+      "Name": "UltimaActualizacion",
+      "DataType": "smalldatetime",
+      "IsNullable": true,
+      "MaxLength": 4,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "UltimaActualizacion"
+    },
+    {
+      "OrdinalPosition": 12,
+      "Name": "AvatarId",
+      "DataType": "int",
+      "IsNullable": true,
+      "MaxLength": 4,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "AvatarId"
+    }
+  ],
+  "PrimaryKeyColumns": [
+    "Id"
+  ],
+  "ForeignKeys": [],
+  "Indexes": [
+    {
+      "Name": "PK_InformacionDeContacto",
+      "IsUnique": true,
+      "IsPrimaryKey": true,
+      "IndexType": "CLUSTERED",
+      "Columns": [
+        "Id"
+      ]
+    }
+  ],
+  "ScannedAtUtc": "2026-08-21T18:10:55.913414+00:00",
+  "RowCountEstimate": 902
+}

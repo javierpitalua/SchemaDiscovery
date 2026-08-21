@@ -1,0 +1,18 @@
+{
+  "Parameters": [
+    {
+      "OrdinalPosition": 1,
+      "Name": "@Membresia_Id",
+      "DataType": "int",
+      "Mode": "IN",
+      "MaxLength": 4
+    }
+  ],
+  "Definition": "CREATE PROCEDURE [rpt_DocumentoDepositoGarantia_ObtenerDepositoGarantia]\r\n@Membresia_Id INT\r\nAS\r\nBEGIN\r\nSELECT TOP 1\r\n\tdep.Id,\r\n\tdep.Folio,\r\n\tdep.MontoTotal,\r\n\tdep.Membresia_Id,\r\n\tdep.Activo\r\nFROM Documento dep\r\nWHERE dep.Membresia_Id = @Membresia_Id\r\nAND dep.Activo = 1\r\nAND dep.CategoriaDocumento_Id = 4\r\nORDER BY dep.FechaCreacion DESC\r\nEND",
+  "Schema": "dbo",
+  "Name": "rpt_DocumentoDepositoGarantia_ObtenerDepositoGarantia",
+  "ObjectType": "StoredProcedure",
+  "DatabaseProvider": "sqlserver",
+  "ScannedAtUtc": "2026-08-21T18:10:57.4523114+00:00",
+  "QualifiedName": "dbo.rpt_DocumentoDepositoGarantia_ObtenerDepositoGarantia"
+}

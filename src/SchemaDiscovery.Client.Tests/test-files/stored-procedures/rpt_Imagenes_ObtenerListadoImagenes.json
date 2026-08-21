@@ -1,0 +1,18 @@
+{
+  "Parameters": [
+    {
+      "OrdinalPosition": 1,
+      "Name": "@Espacio_Id",
+      "DataType": "int",
+      "Mode": "IN",
+      "MaxLength": 4
+    }
+  ],
+  "Definition": "CREATE PROCEDURE [dbo].[rpt_Imagenes_ObtenerListadoImagenes]\r\n@Espacio_Id INT\r\nAS\r\nBEGIN\r\n\r\nSELECT\r\n\tA1.Id,\r\n\tA1.Espacio_Id,\r\n\tA2.Nombre,\r\n\tA2.Descripcion AS [DescripcionEspacio],\r\n\tA1.Archivo_Id,\r\n\tA3.NombreArchivo,\r\n\tA3.Descripcion AS [DescripcionArchivo],\r\n\tA1.Orden,\r\n\tA1.Usuario_Id,\r\n\t(A4.Nombre \u002B \u0027 \u0027 \u002B A4.ApellidoPaterno \u002B \u0027 \u0027 \u002B A4.ApellidoPaterno) AS [NombreCompleto],\r\n\tA1.Fecha,\r\n\tA3.ClaveServicioPersistencia\r\nFROM EspacioArchivo A1\r\n\tJOIN Espacio A2\r\n\t\tON A1.Espacio_Id = A2.Id\r\n\tJOIN Archivo A3\r\n\t\tON A1.Archivo_Id = A3.Id\r\n\tJOIN Usuario A4\r\n\t\tON A1.Usuario_Id = A4.Id\r\nWHERE A1.Espacio_Id = @Espacio_Id\r\nORDER BY A1.Orden\r\n\r\nEND",
+  "Schema": "dbo",
+  "Name": "rpt_Imagenes_ObtenerListadoImagenes",
+  "ObjectType": "StoredProcedure",
+  "DatabaseProvider": "sqlserver",
+  "ScannedAtUtc": "2026-08-21T18:10:57.4561923+00:00",
+  "QualifiedName": "dbo.rpt_Imagenes_ObtenerListadoImagenes"
+}

@@ -1,0 +1,32 @@
+{
+  "Parameters": [
+    {
+      "OrdinalPosition": 1,
+      "Name": "@FechaInicial",
+      "DataType": "smalldatetime",
+      "Mode": "IN",
+      "MaxLength": 4
+    },
+    {
+      "OrdinalPosition": 2,
+      "Name": "@FechaFinal",
+      "DataType": "smalldatetime",
+      "Mode": "IN",
+      "MaxLength": 4
+    },
+    {
+      "OrdinalPosition": 3,
+      "Name": "@Membresia_Id",
+      "DataType": "int",
+      "Mode": "IN",
+      "MaxLength": 4
+    }
+  ],
+  "Definition": "CREATE PROCEDURE [dbo].[get_RegistroLlamada_ObtenerRegistrosPorFacturar]\r\n@FechaInicial SMALLDATETIME,\r\n@FechaFinal SMALLDATETIME,\r\n@Membresia_Id INT\r\nAS\r\nBEGIN\r\n\r\n\tSELECT \r\n\t\trma.Id,\r\n\t\trma.ClaveCarga,\r\n\t\trma.Fecha,\r\n\t\trma.Fuente,\r\n\t\trma.Destino,\r\n\t\trma.CanalDestino,\r\n\t\trma.Estado,\r\n\t\trma.Duracion,\r\n\t\trma.Tipo,\r\n\t\trma.ConceptoAdicional_Id,\r\n\t\trma.Membresia_Id\t\t\t\r\n\tFROM RegistroLlamada rma\r\n\tWHERE rma.Membresia_Id = @Membresia_Id\r\n\tAND rma.Fecha \u003E= @FechaInicial\r\n\tAND rma.Fecha \u003C= @FechaFinal\r\n\tAND ISNULL(rma.ConceptoAdicional_Id, 0) = 0\r\n\r\nEND",
+  "Schema": "dbo",
+  "Name": "get_RegistroLlamada_ObtenerRegistrosPorFacturar",
+  "ObjectType": "StoredProcedure",
+  "DatabaseProvider": "sqlserver",
+  "ScannedAtUtc": "2026-08-21T18:10:57.4463207+00:00",
+  "QualifiedName": "dbo.get_RegistroLlamada_ObtenerRegistrosPorFacturar"
+}

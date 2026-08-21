@@ -1,0 +1,18 @@
+{
+  "Parameters": [
+    {
+      "OrdinalPosition": 1,
+      "Name": "@CicloDeFacturacion_Id",
+      "DataType": "int",
+      "Mode": "IN",
+      "MaxLength": 4
+    }
+  ],
+  "Definition": "CREATE PROCEDURE [dbo].[rpt_ItemReservacionMembresia_ObtenerReporteDeHoras] \r\n@CicloDeFacturacion_Id INT = 0\r\nAS\r\nBEGIN\r\n\r\n\tSELECT \r\n\t\tmv.Id, \r\n\t\tmv.ClaveMembresia, \r\n\t\tmv.NombreFiscal, \r\n\t\tmv.RazonSocial, \r\n\t\tmv.RFC, \r\n\t\tmv.TipoMembresia, \r\n\t\tmv.[Estatus], \r\n\t\tmv.PrecioMensual, \r\n\t\tmv.TipoDeCambio,\r\n\t\tmv.DeshabilitarFacturacionAutomatica AS [DeshabilitarFacturacion],\r\n\t\tISNULL(dbo.[fnObtenerConteoHorasSalaDeJuntas](mv.Id, @CicloDeFacturacion_Id), 0) AS [HorasUtilizadasEnElMes],\r\n\t\tISNULL([dbo].[fnObtenerHorasDisponibles] (mv.Id), 0) AS [HorasIncluidasEnLaMembresia],\r\n\t\tCASE \r\n\t\t\tWHEN (ISNULL(dbo.[fnObtenerConteoHorasSalaDeJuntas](mv.Id, @CicloDeFacturacion_Id), 0) - ISNULL([dbo].[fnObtenerHorasDisponibles](mv.Id), 0)) \u003C 0 THEN 0\r\n\t\t\tELSE (ISNULL(dbo.[fnObtenerConteoHorasSalaDeJuntas](mv.Id, @CicloDeFacturacion_Id), 0) - ISNULL([dbo].[fnObtenerHorasDisponibles](mv.Id), 0))\r\n\t\tEND AS [HorasPorFacturar]\t\t\r\n\tFROM vMembresiaVigente mv\r\n\r\nEND",
+  "Schema": "dbo",
+  "Name": "rpt_ItemReservacionMembresia_ObtenerReporteDeHoras",
+  "ObjectType": "StoredProcedure",
+  "DatabaseProvider": "sqlserver",
+  "ScannedAtUtc": "2026-08-21T18:10:57.4572034+00:00",
+  "QualifiedName": "dbo.rpt_ItemReservacionMembresia_ObtenerReporteDeHoras"
+}

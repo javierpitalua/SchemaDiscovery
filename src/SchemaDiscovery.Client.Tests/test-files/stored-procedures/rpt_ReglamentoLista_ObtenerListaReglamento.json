@@ -1,0 +1,18 @@
+{
+  "Parameters": [
+    {
+      "OrdinalPosition": 1,
+      "Name": "@ComunidadID",
+      "DataType": "int",
+      "Mode": "IN",
+      "MaxLength": 4
+    }
+  ],
+  "Definition": "CREATE PROCEDURE [dbo].[rpt_ReglamentoLista_ObtenerListaReglamento]\n@ComunidadID INT\nAS\nBEGIN\n\nSELECT\n\tReglamento.Id,\n\tISNULL(Reglamento.Comunidad_Id, 0) AS [ComunidadID],\n\tISNULL(Comunidad.Nombre, \u0027Todas las Comunidades\u0027) AS [NombreComunidad],\n\tReglamento.Nombre AS [NombreReglamento],\n\tArchivo.NombreArchivo,\n\tArchivo.Url AS [ArchivoUrl],\n\tArchivo.ClaveServicioPersistencia,\n\tReglamento.FechaCreacion,\n\tReglamento.CreadoPor\nFROM Reglamento\n\tLEFT JOIN Comunidad\n\t\tON Reglamento.Comunidad_Id = Comunidad.Id\n\tLEFT JOIN Archivo\n\t\tON Reglamento.Archivo_Id = Archivo.Id\nWHERE Reglamento.Activo = 1\n\tAND ( Reglamento.Comunidad_Id IS NULL OR Reglamento.Comunidad_Id = 0 OR Reglamento.Comunidad_Id = @ComunidadID );\n\nEND",
+  "Schema": "dbo",
+  "Name": "rpt_ReglamentoLista_ObtenerListaReglamento",
+  "ObjectType": "StoredProcedure",
+  "DatabaseProvider": "sqlserver",
+  "ScannedAtUtc": "2026-08-21T18:10:57.4616343+00:00",
+  "QualifiedName": "dbo.rpt_ReglamentoLista_ObtenerListaReglamento"
+}

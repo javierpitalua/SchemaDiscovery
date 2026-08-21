@@ -1,0 +1,89 @@
+{
+  "Schema": "dbo",
+  "Name": "BalancePorHoras",
+  "ClassName": "BalancePorHoras",
+  "PluralClassName": "BalancePorHoras",
+  "QualifiedName": "dbo.BalancePorHoras",
+  "ObjectType": "Table",
+  "DatabaseProvider": "sqlserver",
+  "Columns": [
+    {
+      "OrdinalPosition": 1,
+      "Name": "Id",
+      "DataType": "int",
+      "IsNullable": false,
+      "MaxLength": 4,
+      "IsIdentity": true,
+      "IsComputed": false,
+      "IsPrimaryKey": true,
+      "PropertyName": "Id"
+    },
+    {
+      "OrdinalPosition": 2,
+      "Name": "Membresia_Id",
+      "DataType": "int",
+      "IsNullable": false,
+      "MaxLength": 4,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "Membresia_Id"
+    },
+    {
+      "OrdinalPosition": 3,
+      "Name": "MontoUtilizado",
+      "DataType": "decimal",
+      "IsNullable": false,
+      "MaxLength": 9,
+      "NumericPrecision": 18,
+      "NumericScale": 2,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "MontoUtilizado"
+    },
+    {
+      "OrdinalPosition": 4,
+      "Name": "MontoMaximo",
+      "DataType": "decimal",
+      "IsNullable": false,
+      "MaxLength": 9,
+      "NumericPrecision": 18,
+      "NumericScale": 2,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "MontoMaximo"
+    },
+    {
+      "OrdinalPosition": 5,
+      "Name": "BalanceActual",
+      "DataType": "decimal",
+      "IsNullable": false,
+      "MaxLength": 9,
+      "NumericPrecision": 18,
+      "NumericScale": 2,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "BalanceActual"
+    }
+  ],
+  "PrimaryKeyColumns": [
+    "Id"
+  ],
+  "ForeignKeys": [],
+  "Indexes": [
+    {
+      "Name": "PK_BalancePorHoras",
+      "IsUnique": true,
+      "IsPrimaryKey": true,
+      "IndexType": "CLUSTERED",
+      "Columns": [
+        "Id"
+      ]
+    }
+  ],
+  "ScannedAtUtc": "2026-08-21T18:10:55.8636619+00:00",
+  "RowCountEstimate": 331
+}

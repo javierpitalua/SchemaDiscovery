@@ -1,0 +1,18 @@
+{
+  "Parameters": [
+    {
+      "OrdinalPosition": 1,
+      "Name": "@MembresiaID",
+      "DataType": "int",
+      "Mode": "IN",
+      "MaxLength": 4
+    }
+  ],
+  "Definition": "CREATE PROCEDURE [dbo].[rpt_TicketsMembresia_ObtenerTicketsPorMembresia]\r\n@MembresiaID INT\r\nAS\r\nBEGIN\r\n\r\nSELECT\r\n\tTicket.Id,\r\n\tTicket.Titulo AS [TituloTicket],\r\n\tTicket.Descripcion AS [DescripcionTicket],\r\n\tTicket.Comunidad_Id,\r\n\tComunidad.Nombre AS [Comunidad],\r\n\tSuscriptor.Id AS [SuscriptorID],\r\n\t(Suscriptor.Nombre \u002B \u0027 \u0027 \u002B Suscriptor.ApellidoPaterno \u002B \u0027 \u0027 \u002B Suscriptor.ApellidoMaterno) AS [NombreUsuario],\r\n\tSuscriptor.CorreoElectronico,\r\n\tTicket.Membresia_Id,\r\n\tMembresia.ClaveMembresia,\r\n\tTicket.FechaCreacion AS [FechaCreacionTicket],\r\n\tTicket.FechaModificacion AS [FechaModificacionTicket],\r\n\tTicket.EstatusTicket_Id,\r\n\tEstatusTicket.Nombre AS [EstatusTicket],\r\n\tTicket.CategoriaTicket_Id,\r\n\tCategoriaTicket.Nombre AS [CategoriaTicket],\r\n\tCategoriaTicket.Descripcion AS [DescripcionCategoriaTicket]\r\nFROM Suscriptor\r\n\tLEFT JOIN Ticket\r\n\t\tON Suscriptor.Id = Ticket.Suscriptor_Id\r\n\tLEFT JOIN Comunidad\r\n\t\tON Ticket.Comunidad_Id = Comunidad.Id\r\n\tLEFT JOIN Membresia\r\n\t\tON Ticket.Membresia_Id = Membresia.Id\r\n\tLEFT JOIN EstatusTicket\r\n\t\tON Ticket.EstatusTicket_Id = EstatusTicket.Id\r\n\tLEFT JOIN CategoriaTicket\r\n\t\tON Ticket.CategoriaTicket_Id = CategoriaTicket.Id\r\nWHERE Membresia.Id = @MembresiaID\r\nAND Ticket.Activo = 1\r\nORDER BY Ticket.FechaCreacion DESC\r\n\r\nEND",
+  "Schema": "dbo",
+  "Name": "rpt_TicketsMembresia_ObtenerTicketsPorMembresia",
+  "ObjectType": "StoredProcedure",
+  "DatabaseProvider": "sqlserver",
+  "ScannedAtUtc": "2026-08-21T18:10:57.466407+00:00",
+  "QualifiedName": "dbo.rpt_TicketsMembresia_ObtenerTicketsPorMembresia"
+}

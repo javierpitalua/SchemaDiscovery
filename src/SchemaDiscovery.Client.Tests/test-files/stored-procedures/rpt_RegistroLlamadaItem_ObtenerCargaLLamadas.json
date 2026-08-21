@@ -1,0 +1,18 @@
+{
+  "Parameters": [
+    {
+      "OrdinalPosition": 1,
+      "Name": "@ClaveCarga",
+      "DataType": "varchar",
+      "Mode": "IN",
+      "MaxLength": 100
+    }
+  ],
+  "Definition": "\r\n--prueba: [rpt_RegistroLlamadaItem_ObtenerCargaLLamadas] \u002724d5be3c-cbca-4cb5-bc5a-9744d3447c5b\u0027\r\nCREATE PROCEDURE [rpt_RegistroLlamadaItem_ObtenerCargaLLamadas]\r\n@ClaveCarga VARCHAR(100) = \u0027\u0027\r\nAS\r\nBEGIN\r\n\r\n\tSELECT \r\n\t\t0 AS [Id],\r\n\t\tmem.Id AS [Membresia_Id],\r\n\t\tmem.ClaveMembresia,\r\n\t\tinfo.RazonSocial,\r\n\t\tinfo.NombreFiscal,\r\n\t\tregl.Fecha,\r\n\t\tregl.Fuente, \r\n\t\tregl.CanalDestino,\r\n\t\tregl.Destino,\r\n\t\tregl.Tipo,\r\n\t\tregl.Duracion\t\t\t\t\r\n\tFROM RegistroLLamada regl\r\n\tLEFT JOIN Membresia mem \r\n\t\tON regl.Membresia_Id = mem.Id\r\n\tLEFT JOIN InformacionFacturacion info\r\n\t\tON mem.InformacionFacturacion_Id = info.Id\r\n\tWHERE ClaveCarga = @ClaveCarga\r\n\tORDER BY mem.ClaveMembresia DESC\r\n\t\r\nEND",
+  "Schema": "dbo",
+  "Name": "rpt_RegistroLlamadaItem_ObtenerCargaLLamadas",
+  "ObjectType": "StoredProcedure",
+  "DatabaseProvider": "sqlserver",
+  "ScannedAtUtc": "2026-08-21T18:10:57.4610955+00:00",
+  "QualifiedName": "dbo.rpt_RegistroLlamadaItem_ObtenerCargaLLamadas"
+}

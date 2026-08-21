@@ -1,0 +1,18 @@
+{
+  "Parameters": [
+    {
+      "OrdinalPosition": 1,
+      "Name": "@Membresia_Id",
+      "DataType": "int",
+      "Mode": "IN",
+      "MaxLength": 4
+    }
+  ],
+  "Definition": "CREATE PROCEDURE [dbo].[rpt_EdoCta_ObtenerEstadoDeCuenta]\r\n@Membresia_Id INT = 0\r\nAS\r\nBEGIN\r\n\tDECLARE @FECHA_ACTUAL SMALLDATETIME \r\n\t\r\n\tDECLARE @Pagos TABLE (\r\n\t\tId INT IDENTITY(1,1),\r\n\t\tDocumento_Id INT,\r\n\t\tImportePagado DECIMAL(18,2)\r\n\t)\r\n\r\n\tINSERT INTO @Pagos (Documento_Id, ImportePagado)\r\n\tSELECT Documento_Id, SUM(ImportePagado) AS ImportePagado \r\n\tFROM RegistroPago pago \r\n\tJOIN Documento doc ON pago.Documento_Id = doc.Id\r\n\tWHERE\r\n\tdoc.Activo = 1\r\n\tAND doc.CategoriaDocumento_Id IN (3, 8)\r\n\tAND doc.Membresia_Id = @Membresia_Id\r\n\tAND doc.EstatusDocumento_Id NOT IN (4, 8) \r\n\tGROUP BY Documento_Id\r\n\r\n\tSET @FECHA_ACTUAL = GETDATE()\t\r\n\t\t\r\n\tSELECT\r\n\t\tdoc.Id,\r\n\t\tdbo.fnObtenerDescripcionMes(MONTH(ISNULL(doc.FechaDeTimbrado, doc.FechaCreacion))) \u002B \u0027 \u0027 \u002B CONVERT(VARCHAR(50), YEAR(ISNULL(doc.FechaDeTimbrado, doc.FechaCreacion))) AS Fecha, \r\n\t\tdoc.Folio, mem.ClaveMembresia,\r\n\t\tinfo.NombreFiscal,\r\n\t\t((doc.MontoTotal \u002B doc.IVA) - ISNULL(pago.ImportePagado, 0)) AS [MontoTotal],\r\n\t\tcom.Nombre AS [Comunidad],\r\n\t\test.Id AS [EstatusDocumento_Id],\r\n\t\test.Nombre AS [EstatusDocumento],\r\n\t\tISNULL(doc.FechaDeTimbrado, doc.FechaCreacion) AS [FechaFactura],\r\n\t\tDATEDIFF(DAY, ISNULL(doc.FechaDeTimbrado, doc.FechaCreacion), @FECHA_ACTUAL) AS [DiasTranscurridosDesdeEmision],\r\n\t\tcat.Nombre AS [TipoDocumento],\r\n\t\tISNULL(pago.ImportePagado, 0) AS [ImportePagado],\r\n\t\t(doc.MontoTotal \u002B doc.IVA) AS [MontoTotalSinPago]\r\n\tFROM Documento doc\r\n\tLEFT JOIN Membresia mem ON doc.Membresia_Id = mem.Id\r\n\tLEFT JOIN InformacionFacturacion info ON doc.InformacionFacturacion_Id = info.Id\r\n\tLEFT JOIN Comunidad com ON mem.Comunidad_Id = com.Id\r\n\tLEFT JOIN EstatusDocumento est ON doc.EstatusDocumento_Id = est.Id\r\n\tLEFT JOIN CategoriaDocumento cat ON doc.CategoriaDocumento_Id = cat.Id\r\n\tLEFT JOIN CicloDeFacturacion ciclo ON doc.CicloDeFacturacion_Id = ciclo.Id\r\n\tLEFT JOIN @Pagos pago ON doc.Id = pago.Documento_Id\r\n\tWHERE doc.Activo = 1\r\n\tAND doc.CategoriaDocumento_Id IN (3, 8)\r\n\tAND doc.Membresia_Id = @Membresia_Id\r\n\tAND doc.EstatusDocumento_Id NOT IN (4, 8, 11) \r\n\tORDER BY ISNULL(doc.FechaDeTimbrado, doc.FechaCreacion) ASC\r\n\t\r\nEND",
+  "Schema": "dbo",
+  "Name": "rpt_EdoCta_ObtenerEstadoDeCuenta",
+  "ObjectType": "StoredProcedure",
+  "DatabaseProvider": "sqlserver",
+  "ScannedAtUtc": "2026-08-21T18:10:57.4529922+00:00",
+  "QualifiedName": "dbo.rpt_EdoCta_ObtenerEstadoDeCuenta"
+}

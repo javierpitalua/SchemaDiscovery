@@ -1,0 +1,10 @@
+{
+  "Parameters": [],
+  "Definition": "CREATE PROCEDURE [dbo].[rpt_MembresiaParaReservaciones_ObtenerListadoParaReservaciones]\r\nAS\r\nBEGIN\r\n\r\nSELECT\r\n\tMembresia.Id,\r\n\tMembresia.ClaveMembresia \u002B \u0027 \u0027 \u002B \u0027-\u0027 \u002B \u0027 \u0027 \u002B InformacionFacturacion.RazonSocial AS [Nombre]\r\nFROM Membresia\r\n\tLEFT JOIN InformacionFacturacion\r\n\t\tON InformacionFacturacion.Id = Membresia.InformacionFacturacion_Id\r\nWHERE Membresia.EstatusMembresia_Id = 1\r\nAND Membresia.DeshabilitarReservaciones = 0 OR Membresia.DeshabilitarReservaciones IS NULL\r\n\r\nEND",
+  "Schema": "dbo",
+  "Name": "rpt_MembresiaParaReservaciones_ObtenerListadoParaReservaciones",
+  "ObjectType": "StoredProcedure",
+  "DatabaseProvider": "sqlserver",
+  "ScannedAtUtc": "2026-08-21T18:10:57.4579656+00:00",
+  "QualifiedName": "dbo.rpt_MembresiaParaReservaciones_ObtenerListadoParaReservaciones"
+}

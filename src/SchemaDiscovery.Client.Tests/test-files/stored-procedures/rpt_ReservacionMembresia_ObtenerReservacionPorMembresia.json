@@ -1,0 +1,32 @@
+{
+  "Parameters": [
+    {
+      "OrdinalPosition": 1,
+      "Name": "@RangoInicial",
+      "DataType": "smalldatetime",
+      "Mode": "IN",
+      "MaxLength": 4
+    },
+    {
+      "OrdinalPosition": 2,
+      "Name": "@RangoFinal",
+      "DataType": "smalldatetime",
+      "Mode": "IN",
+      "MaxLength": 4
+    },
+    {
+      "OrdinalPosition": 3,
+      "Name": "@Membresia_Id",
+      "DataType": "int",
+      "Mode": "IN",
+      "MaxLength": 4
+    }
+  ],
+  "Definition": "--PRUEBA [dbo].[rpt_ReservacionMembresia_ObtenerReservacionPorMembresia] \u002720171001\u0027, \u002720171031 11:59pm\u0027, 58\r\nCREATE PROCEDURE [dbo].[rpt_ReservacionMembresia_ObtenerReservacionPorMembresia]\r\n@RangoInicial SMALLDATETIME,\r\n@RangoFinal SMALLDATETIME,\r\n@Membresia_Id INT = 0\r\nAS\r\nBEGIN\r\n\t\r\n\tSELECT \r\n\t\tres1.Id, \r\n\t\tres1.Duracion,\r\n\t\tCONVERT(DECIMAL(18,2), res1.Duracion) / 60 AS DuracionEnHoras, \r\n\t\tres1.FechaHoraInicial,\r\n\t\t[dbo].[fnObtenerDescripcionCicloFacturacion](res1.FechaHoraInicial) AS [CicloDeFacturacion],\r\n\t\tres1.Titulo,\r\n\t\tesp.Nombre AS [Espacio],\r\n\t\tesp.Capacidad,\r\n\t\tesp.ConceptoFacturable_Id,\r\n\t\tcfac.Concepto AS [Concepto],\r\n\t\tISNULL(cfac.PrecioUnitario, 0) AS [PrecioUnitario],\r\n\t\t(CONVERT(DECIMAL(18,2), res1.Duracion) / 60) * ISNULL(cfac.PrecioUnitario, 0) AS [MontoTotal],\r\n\t\tres1.Membresia_Id,\r\n\t\tsusc.CorreoElectronico AS CorreoSuscriptor,\r\n\t\tISNULL(susc.Nombre, \u0027\u0027) \u002B \u0027 \u0027 \u002B ISNULL(susc.ApellidoPaterno, \u0027\u0027) \u002B \u0027 \u0027 \u002B ISNULL(susc.ApellidoMaterno, \u0027\u0027) AS NombreSuscriptor,\r\n\t\tubi.Nombre AS [Ubicacion]\r\n\tFROM Reservacion res1 \r\n\tLEFT JOIN Espacio esp ON res1.Espacio_Id = esp.Id\r\n\tLEFT JOIN ConceptoFacturable cfac ON esp.ConceptoFacturable_Id = cfac.Id\r\n\tLEFT JOIN Suscriptor susc ON res1.Suscriptor_Id = susc.Id\r\n\tLEFT JOIN Ubicacion ubi ON esp.Ubicacion_Id = ubi.Id\r\n\t\tWHERE res1.Membresia_Id = @Membresia_Id \r\n\tAND @RangoInicial \u003C= res1.FechaHoraInicial\r\n\tAND res1.FechaHoraInicial \u003C= @RangoFinal\r\n\tAND res1.Cancelado = 0\r\n\tAND res1.Activo = 1\t\r\n\r\nEND",
+  "Schema": "dbo",
+  "Name": "rpt_ReservacionMembresia_ObtenerReservacionPorMembresia",
+  "ObjectType": "StoredProcedure",
+  "DatabaseProvider": "sqlserver",
+  "ScannedAtUtc": "2026-08-21T18:10:57.4647845+00:00",
+  "QualifiedName": "dbo.rpt_ReservacionMembresia_ObtenerReservacionPorMembresia"
+}

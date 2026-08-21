@@ -1,0 +1,149 @@
+{
+  "Schema": "dbo",
+  "Name": "ProveedorDeTimbrado",
+  "ClassName": "ProveedorDeTimbrado",
+  "PluralClassName": "ProveedorDeTimbrado",
+  "QualifiedName": "dbo.ProveedorDeTimbrado",
+  "ObjectType": "Table",
+  "DatabaseProvider": "sqlserver",
+  "Columns": [
+    {
+      "OrdinalPosition": 1,
+      "Name": "Id",
+      "DataType": "int",
+      "IsNullable": false,
+      "MaxLength": 4,
+      "IsIdentity": true,
+      "IsComputed": false,
+      "IsPrimaryKey": true,
+      "PropertyName": "Id"
+    },
+    {
+      "OrdinalPosition": 2,
+      "Name": "Nombre",
+      "DataType": "varchar",
+      "IsNullable": false,
+      "MaxLength": 100,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "Nombre"
+    },
+    {
+      "OrdinalPosition": 3,
+      "Name": "RFCEmisor",
+      "DataType": "varchar",
+      "IsNullable": false,
+      "MaxLength": 20,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "RFCEmisor"
+    },
+    {
+      "OrdinalPosition": 4,
+      "Name": "NombreUsuario",
+      "DataType": "varchar",
+      "IsNullable": false,
+      "MaxLength": 100,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "NombreUsuario"
+    },
+    {
+      "OrdinalPosition": 5,
+      "Name": "Password",
+      "DataType": "varchar",
+      "IsNullable": false,
+      "MaxLength": 100,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "Password"
+    },
+    {
+      "OrdinalPosition": 6,
+      "Name": "ClaveRegimenEmisor",
+      "DataType": "varchar",
+      "IsNullable": false,
+      "MaxLength": 100,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "ClaveRegimenEmisor"
+    },
+    {
+      "OrdinalPosition": 7,
+      "Name": "SerieEmisor",
+      "DataType": "varchar",
+      "IsNullable": false,
+      "MaxLength": 20,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "SerieEmisor"
+    },
+    {
+      "OrdinalPosition": 8,
+      "Name": "CpEmisor",
+      "DataType": "varchar",
+      "IsNullable": false,
+      "MaxLength": 20,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "CpEmisor"
+    },
+    {
+      "OrdinalPosition": 9,
+      "Name": "RazonSocialEmisor",
+      "DataType": "varchar",
+      "IsNullable": true,
+      "MaxLength": 100,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "RazonSocialEmisor"
+    },
+    {
+      "OrdinalPosition": 10,
+      "Name": "ClavePlantillaCorreoFactura",
+      "DataType": "varchar",
+      "IsNullable": true,
+      "MaxLength": 50,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "ClavePlantillaCorreoFactura"
+    },
+    {
+      "OrdinalPosition": 11,
+      "Name": "XApiKey",
+      "DataType": "varchar",
+      "IsNullable": true,
+      "MaxLength": 500,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "XApiKey"
+    }
+  ],
+  "PrimaryKeyColumns": [
+    "Id"
+  ],
+  "ForeignKeys": [],
+  "Indexes": [
+    {
+      "Name": "PK_ProveedorDeTimbrado",
+      "IsUnique": true,
+      "IsPrimaryKey": true,
+      "IndexType": "CLUSTERED",
+      "Columns": [
+        "Id"
+      ]
+    }
+  ],
+  "ScannedAtUtc": "2026-08-21T18:10:55.940457+00:00",
+  "RowCountEstimate": 2
+}

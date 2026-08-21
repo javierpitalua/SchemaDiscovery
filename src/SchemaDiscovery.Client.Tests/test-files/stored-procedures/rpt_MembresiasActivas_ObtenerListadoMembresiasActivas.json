@@ -1,0 +1,18 @@
+{
+  "Parameters": [
+    {
+      "OrdinalPosition": 1,
+      "Name": "@Suscriptor_Id",
+      "DataType": "int",
+      "Mode": "IN",
+      "MaxLength": 4
+    }
+  ],
+  "Definition": "CREATE PROCEDURE [dbo].[rpt_MembresiasActivas_ObtenerListadoMembresiasActivas]\n@Suscriptor_Id INT = 0\nAS\nBEGIN\n\nSELECT\n\tMembresia.Id,\n\tMembresia.ClaveMembresia,\n\tMembresia.Comunidad_Id,\n\tComunidad.Nombre AS [NombreComunidad],\n\tComunidad.Telefono AS [TelefonoComunidad],\n\tMembresia.TipoMembresia_Id,\n\tTipoMembresia.Nombre as [NombreTipoMembresia],\n\tMembresia.PrecioMensual,\n\tMembresia.EstatusMembresia_Id,\n\tEstatusMembresia.Nombre AS [NombreEstatusMembresia],\n\tMembresia.FechaInicio,\n\tMembresia.Vigencia,\n\tMembresia.InformacionFacturacion_Id,\n\tInformacionFacturacion.RazonSocial,\n\tInformacionFacturacion.NombreFiscal,\n\tInformacionFacturacion.RFC,\n\tInformacionFacturacion.CP,\n\tInformacionFacturacion.UsoDelCfdi_Id,\n\tUsoDelCfdi.Nombre AS [NombreUsoDelCfdi],\n\tUsoDelCfdi.ClaveSAT AS [ClaveSATUsoDelCfdi],\n\tInformacionFacturacion.RegimenFiscal_Id,\n\tRegimenFiscal.Nombre AS [NombreRegimenFiscal],\n\tRegimenFiscal.ClaveSAT,\n\tMembresia.TipoDeCambio_Id,\n\tMembresia.FechaCreacion,\n\tMembresia.CreadoPor,\n\tMembresia.FechaModificacion,\n\tMembresia.ModificadoPor,\n\tMembresia.FechaDesactivacion,\n\tMembresia.DesactivadoPor,\n\tMembresia.MetodoDePago_Id,\n\tMetodoDePago.Nombre AS [NombreMetodoDePago],\n\tMetodoDePago.ClaveSat AS [ClaveSATMetodoDePago],\n\tMembresia.Observaciones,\n\tMembresia.FacturarAPartirDe,\n\tMembresia.Vendedor_Id,\n\t(Usuario.Nombre \u002B \u0027 \u0027 \u002B Usuario.ApellidoPaterno \u002B \u0027 \u0027 \u002B Usuario.ApellidoMaterno) AS [NombreVendedor],\n\tUsuario.CorreoElectronico AS [CorreoElectronicoVendedor],\n\tCASE WHEN ISNULL(Membresia.Activo, 0) = 1 THEN \u0027True\u0027 ELSE \u0027False\u0027 END AS [Activo],\n\tCASE WHEN ISNULL(Membresia.RequiereFactura, 0) = 1 THEN \u0027True\u0027 ELSE \u0027False\u0027 END AS [RequiereFactura],\n\tCASE WHEN ISNULL(Membresia.EsPagoDomiciliado, 0) = 1 THEN \u0027True\u0027 ELSE \u0027False\u0027 END AS [PagoDomiciliado]\nFROM\n\tSuscripcion \n\tJOIN Membresia ON Suscripcion.Membresia_Id = Membresia.Id\n\tLEFT JOIN Comunidad\n\t\tON Membresia.Comunidad_Id =\tComunidad.Id\n\tLEFT JOIN TipoMembresia\n\t\tON Membresia.TipoMembresia_Id = TipoMembresia.Id\n\tLEFT JOIN EstatusMembresia\n\t\tON Membresia.EstatusMembresia_Id = EstatusMembresia.Id\n\tLEFT JOIN InformacionFacturacion\n\t\tON Membresia.InformacionFacturacion_Id = InformacionFacturacion.Id\n\tLEFT JOIN TipoDeCambio\n\t\tON Membresia.TipoDeCambio_Id = TipoDeCambio.Id\n\tLEFT JOIN MetodoDePago\n\t\tON Membresia.MetodoDePago_Id = MetodoDePago.Id\n\tLEFT JOIN Usuario\n\t\tON Membresia.Vendedor_Id = Usuario.Id\n\tLEFT JOIN RegimenFiscal\n\t\tON InformacionFacturacion.RegimenFiscal_Id = RegimenFiscal.Id\n\tLEFT JOIN UsoDelCfdi\n\t\tON InformacionFacturacion.UsoDelCfdi_Id = UsoDelCfdi.Id\nWHERE \n\tSuscripcion.Suscriptor_Id = @Suscriptor_Id\n\tAND Membresia.Activo = 1\n\tAND Membresia.EstatusMembresia_Id = 1 -- SOLO MEMBRESIAS ACTIVAS\n\nEND",
+  "Schema": "dbo",
+  "Name": "rpt_MembresiasActivas_ObtenerListadoMembresiasActivas",
+  "ObjectType": "StoredProcedure",
+  "DatabaseProvider": "sqlserver",
+  "ScannedAtUtc": "2026-08-21T18:10:57.4582621+00:00",
+  "QualifiedName": "dbo.rpt_MembresiasActivas_ObtenerListadoMembresiasActivas"
+}

@@ -1,0 +1,25 @@
+{
+  "Parameters": [
+    {
+      "OrdinalPosition": 1,
+      "Name": "@CicloFacturacion_Id",
+      "DataType": "int",
+      "Mode": "IN",
+      "MaxLength": 4
+    },
+    {
+      "OrdinalPosition": 2,
+      "Name": "@Comunidad_Id",
+      "DataType": "int",
+      "Mode": "IN",
+      "MaxLength": 4
+    }
+  ],
+  "Definition": "CREATE PROCEDURE [dbo].[rpt_CicloFacturacionReporte_ObtenerReporteTabular]\r\n@CicloFacturacion_Id INT = 0, @Comunidad_Id INT = 0\r\nAS\r\nBEGIN\r\n\r\n\tSELECT  \r\n\t\tdoc.Id,\r\n\t\tdbo.fnObtenerDescripcionMes(ciclo.Mes) \u002B \u0027 \u0027 \u002B CONVERT(VARCHAR(50), ciclo.Anio) as CicloFacturacion, \t\t\r\n\t\tdoc.Folio as FolioFactura, \t\t\r\n\t\tmem.ClaveMembresia, \r\n\t\tinfo.RFC, \r\n\t\tinfo.RazonSocial, \r\n\t\tinfo.NombreFiscal,\r\n\t\ttdc.Nombre AS Moneda, \r\n\t\tdoc.MontoTotal,\r\n\t\tdoc.IVA,\r\n\t\t(doc.MontoTotal \u002B doc.IVA) AS MontoTotalMasIVA,\r\n\t\tCASE ISNULL(doc.Pagado, 0) WHEN 1 THEN \u0027S\u00ED\u0027 ELSE \u0027No\u0027 END AS [Pagado],\r\n\t\tISNULL(doc.Pagado, 0) AS [MontoCubierto],\r\n\t\tdoc.FechaEmision,\r\n\t\tdoc.FechaPago,\r\n\t\testd.Nombre AS [Estatus],\r\n\t\tcatd.Nombre AS [Categoria],\r\n\t\tcom.Nombre AS Comunidad\r\n\tFROM Documento doc\t\t\r\n\t\tjoin Membresia mem on doc.Membresia_Id = mem.Id\r\n\t\tjoin Comunidad com on mem.Comunidad_Id = com.Id\r\n\t\tjoin InformacionFacturacion info on doc.InformacionFacturacion_Id = info.Id\r\n\t\tjoin TipoDeCambio tdc on doc.TipoDeCambio_Id = tdc.Id\r\n\t\tleft join CicloDeFacturacion ciclo on doc.CicloDeFacturacion_Id = ciclo.Id\r\n\t\tleft join EstatusDocumento estd ON doc.EstatusDocumento_Id = estd.Id\r\n\t\tleft join CategoriaDocumento catd ON doc.CategoriaDocumento_Id = catd.Id\r\n\tWHERE \r\n\t\tdoc.Activo = 1 \r\n\tAND doc.CategoriaDocumento_Id IN(3, 8) -- Solo facturas y recibos)\r\n\tAND doc.CicloDeFacturacion_Id = @CicloFacturacion_Id\r\n\tAND NOT (doc.EstatusDocumento_Id = 8) -- eliminar las cancelaciones fiscales\r\n\tAND ((mem.Comunidad_Id = @Comunidad_Id) OR (@Comunidad_Id = 0))\r\n\tORDER BY\r\n\t\tdoc.Folio, mem.ClaveMembresia\r\n\r\nEND",
+  "Schema": "dbo",
+  "Name": "rpt_CicloFacturacionReporte_ObtenerReporteTabular",
+  "ObjectType": "StoredProcedure",
+  "DatabaseProvider": "sqlserver",
+  "ScannedAtUtc": "2026-08-21T18:10:57.4497961+00:00",
+  "QualifiedName": "dbo.rpt_CicloFacturacionReporte_ObtenerReporteTabular"
+}

@@ -1,0 +1,32 @@
+{
+  "Parameters": [
+    {
+      "OrdinalPosition": 1,
+      "Name": "@PublicacionMuro_Id",
+      "DataType": "int",
+      "Mode": "IN",
+      "MaxLength": 4
+    },
+    {
+      "OrdinalPosition": 2,
+      "Name": "@Suscriptor_Id",
+      "DataType": "int",
+      "Mode": "IN",
+      "MaxLength": 4
+    },
+    {
+      "OrdinalPosition": 3,
+      "Name": "@Fecha",
+      "DataType": "smalldatetime",
+      "Mode": "IN",
+      "MaxLength": 4
+    }
+  ],
+  "Definition": "-- PRUEBA [dbo].[rpt_PublicacionLike_LikePublicacion] 23, 48, \u00272017-11-22 08:48:20.170\u0027\r\nCREATE PROCEDURE [dbo].[rpt_PublicacionLike_LikePublicacion]\r\n@PublicacionMuro_Id INT,\r\n@Suscriptor_Id INT,\r\n@Fecha SMALLDATETIME = NULL\r\nAS \r\nBEGIN\r\n\t\r\n\tDECLARE @PostId INT \r\n\tDECLARE @Likes INT\r\n\r\n\tIF EXISTS (\r\n\t\tSELECT Id FROM PublicacionMuroLike WHERE PublicacionMuro_Id = @PublicacionMuro_Id AND Suscriptor_Id = @Suscriptor_Id\r\n\t)\r\n\tBEGIN\r\n\t\t\r\n\t\tDELETE FROM PublicacionMuroLike WHERE PublicacionMuro_Id = @PublicacionMuro_Id AND Suscriptor_Id = @Suscriptor_Id\r\n\r\n\tEND\r\n\tELSE\r\n\tBEGIN\r\n\r\n\t\tINSERT INTO PublicacionMuroLike (\r\n\t\t\t\tPublicacionMuro_Id, \r\n\t\t\t\tSuscriptor_Id, \r\n\t\t\t\tFecha)\r\n\t\tSELECT @PublicacionMuro_Id, @Suscriptor_Id, @Fecha\r\n\r\n\tEND\r\n\r\n\tSELECT 1 AS [Id], [dbo].[fnObtenerLikesPublicacion](@PublicacionMuro_Id) AS [Likes], @PublicacionMuro_Id AS [PublicacionMuro_Id]\r\n\r\nEND",
+  "Schema": "dbo",
+  "Name": "rpt_PublicacionLike_LikePublicacion",
+  "ObjectType": "StoredProcedure",
+  "DatabaseProvider": "sqlserver",
+  "ScannedAtUtc": "2026-08-21T18:10:57.4606898+00:00",
+  "QualifiedName": "dbo.rpt_PublicacionLike_LikePublicacion"
+}

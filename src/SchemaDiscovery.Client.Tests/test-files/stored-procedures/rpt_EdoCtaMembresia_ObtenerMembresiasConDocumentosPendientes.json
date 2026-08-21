@@ -1,0 +1,32 @@
+{
+  "Parameters": [
+    {
+      "OrdinalPosition": 1,
+      "Name": "@FechaInicio_FechaEmision",
+      "DataType": "smalldatetime",
+      "Mode": "IN",
+      "MaxLength": 4
+    },
+    {
+      "OrdinalPosition": 2,
+      "Name": "@FechaFin_FechaEmision",
+      "DataType": "smalldatetime",
+      "Mode": "IN",
+      "MaxLength": 4
+    },
+    {
+      "OrdinalPosition": 3,
+      "Name": "@Comunidad_Id",
+      "DataType": "int",
+      "Mode": "IN",
+      "MaxLength": 4
+    }
+  ],
+  "Definition": "CREATE PROCEDURE [dbo].[rpt_EdoCtaMembresia_ObtenerMembresiasConDocumentosPendientes]\r\n@FechaInicio_FechaEmision AS SMALLDATETIME = NULL,\r\n@FechaFin_FechaEmision AS SMALLDATETIME = NULL,\r\n@Comunidad_Id AS INT = 0\r\nAS\r\nBEGIN\r\n\t\r\n\tDECLARE @FECHA_ACTUAL SMALLDATETIME\r\n\tSET @FECHA_ACTUAL = CONVERT(DATE, GETDATE(), 101)\r\n\r\n\tIF @FechaInicio_FechaEmision IS NULL \r\n\tBEGIN\r\n\t\tSET @FechaInicio_FechaEmision = DATEADD(yy, DATEDIFF(yy, 0, @FECHA_ACTUAL), 0)\r\n\tEND\r\n\r\n\tIF @FechaFin_FechaEmision IS NULL \r\n\tBEGIN\r\n\t\tSET @FechaFin_FechaEmision = DATEADD(MINUTE, -1, DATEADD(DAY, 1, @FECHA_ACTUAL))\r\n\tEND\r\n\tELSE\r\n\tBEGIN\r\n\t\tSET @FechaFin_FechaEmision = DATEADD(MINUTE, -1, DATEADD(DAY, 1, @FechaFin_FechaEmision))\r\n\tEND\r\n\r\n\tPRINT @FechaFin_FechaEmision\r\n\r\n\tDECLARE @MembresiasConRetardo TABLE (\r\n\t\tId INT IDENTITY (1, 1),\r\n\t\tMembresia_Id INT\r\n\t)\r\n\r\n\tINSERT INTO @MembresiasConRetardo (Membresia_Id)\r\n\tSELECT mem.Id  \r\n\tFROM Membresia mem\r\n\tJOIN Documento doc ON doc.Membresia_Id = mem.Id\r\n\tWHERE doc.Activo = 1\r\n\tAND doc.CategoriaDocumento_Id IN (3, 8)\r\n\t--AND doc.Membresia_Id = @Membresia_Id\r\n\tAND doc.EstatusDocumento_Id NOT IN (4, 8, 11) \r\n\tAND (@FechaInicio_FechaEmision \u003C= doc.FechaDeTimbrado AND doc.FechaDeTimbrado \u003C= @FechaFin_FechaEmision)\r\n\tAND (doc.Comunidad_Id = @Comunidad_Id OR @Comunidad_Id = 0)\r\n\tGROUP BY mem.Id\r\n\r\n\tDECLARE @Pagos TABLE (\r\n\t\tId INT IDENTITY(1,1),\r\n\t\tDocumento_Id INT,\r\n\t\tImportePagado DECIMAL(18,2)\r\n\t)\r\n\r\n\tINSERT INTO @Pagos (Documento_Id, ImportePagado)\r\n\tSELECT Documento_Id, SUM(ImportePagado) AS ImportePagado \r\n\tFROM RegistroPago pago \r\n\tJOIN Documento doc ON pago.Documento_Id = doc.Id\r\n\tJOIN @MembresiasConRetardo mem ON doc.Membresia_Id = mem.Membresia_Id\r\n\tWHERE\r\n\tdoc.Activo = 1\r\n\tAND doc.CategoriaDocumento_Id IN (3, 8)\r\n\tAND doc.EstatusDocumento_Id NOT IN (4, 8, 11) \r\n\tGROUP BY Documento_Id\r\n\r\n\tDECLARE @ResultadoTotalizado TABLE(\r\n\t\tId INT IDENTITY (1, 1),\r\n\t\tMembresia_Id INT, \r\n\t\tTotalDocumentos INT,\r\n\t\tMontoTotal DECIMAL(18,2),\r\n\t\tImportePagado DECIMAL(18,2)\r\n\t) \r\n\t\r\n\tINSERT INTO @ResultadoTotalizado (Membresia_Id, TotalDocumentos, MontoTotal, ImportePagado)\r\n\tSELECT \r\n\t\tdoc.Membresia_Id,\r\n\t\tCOUNT(doc.Id) AS TotalDocumentos,\r\n\t\tSUM((doc.MontoTotal \u002B doc.IVA)) AS MontoTotal,\r\n\t\tSUM(ISNULL(pago.ImportePagado, 0)) AS ImportePagado\r\n\tFROM [Documento] doc\r\n\tJOIN @MembresiasConRetardo mem \r\n\t\tON doc.Membresia_Id = mem.Membresia_Id\r\n\tLEFT JOIN @Pagos pago ON pago.Documento_Id = doc.Id\r\n\tWHERE \r\n\t\tdoc.Activo = 1\r\n\tAND doc.CategoriaDocumento_Id IN (3, 8)\r\n\tAND doc.EstatusDocumento_Id NOT IN (4, 8, 11) \r\n\tGROUP BY doc.Membresia_Id \r\n\r\n\r\n\tSELECT \r\n\t\tinfo.Id, \r\n\t\tinfo.Membresia_Id, \r\n\t\tmem.ClaveMembresia,\r\n\t\tinfof.RazonSocial,\r\n\t\tinfof.RFC,\r\n\t\tinfo.TotalDocumentos, \r\n\t\tinfo.MontoTotal, \r\n\t\tinfo.ImportePagado,\r\n\t\tcom.Nombre AS [Comunidad]\r\n\tFROM @ResultadoTotalizado info\r\n\tJOIN Membresia mem ON info.Membresia_Id = mem.Id\r\n\tJOIN Comunidad com ON mem.Comunidad_Id = com.Id\r\n\tLEFT JOIN InformacionFacturacion infof ON mem.InformacionFacturacion_Id = infof.Id\r\n\tORDER BY info.MontoTotal DESC\r\n\r\nEND",
+  "Schema": "dbo",
+  "Name": "rpt_EdoCtaMembresia_ObtenerMembresiasConDocumentosPendientes",
+  "ObjectType": "StoredProcedure",
+  "DatabaseProvider": "sqlserver",
+  "ScannedAtUtc": "2026-08-21T18:10:57.4531279+00:00",
+  "QualifiedName": "dbo.rpt_EdoCtaMembresia_ObtenerMembresiasConDocumentosPendientes"
+}

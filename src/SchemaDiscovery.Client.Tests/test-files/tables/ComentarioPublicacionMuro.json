@@ -1,0 +1,83 @@
+{
+  "Schema": "dbo",
+  "Name": "ComentarioPublicacionMuro",
+  "ClassName": "ComentarioPublicacionMuro",
+  "PluralClassName": "ComentarioPublicacionMuro",
+  "QualifiedName": "dbo.ComentarioPublicacionMuro",
+  "ObjectType": "Table",
+  "DatabaseProvider": "sqlserver",
+  "Columns": [
+    {
+      "OrdinalPosition": 1,
+      "Name": "Id",
+      "DataType": "int",
+      "IsNullable": false,
+      "MaxLength": 4,
+      "IsIdentity": true,
+      "IsComputed": false,
+      "IsPrimaryKey": true,
+      "PropertyName": "Id"
+    },
+    {
+      "OrdinalPosition": 2,
+      "Name": "PublicacionMuro_Id",
+      "DataType": "int",
+      "IsNullable": false,
+      "MaxLength": 4,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "PublicacionMuro_Id"
+    },
+    {
+      "OrdinalPosition": 3,
+      "Name": "Suscriptor_Id",
+      "DataType": "int",
+      "IsNullable": false,
+      "MaxLength": 4,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "Suscriptor_Id"
+    },
+    {
+      "OrdinalPosition": 4,
+      "Name": "Comentario",
+      "DataType": "varchar",
+      "IsNullable": false,
+      "MaxLength": 256,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "Comentario"
+    },
+    {
+      "OrdinalPosition": 5,
+      "Name": "FechaPublicacion",
+      "DataType": "datetime",
+      "IsNullable": true,
+      "MaxLength": 8,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "FechaPublicacion"
+    }
+  ],
+  "PrimaryKeyColumns": [
+    "Id"
+  ],
+  "ForeignKeys": [],
+  "Indexes": [
+    {
+      "Name": "PK_ComentarioPublicacionMuro",
+      "IsUnique": true,
+      "IsPrimaryKey": true,
+      "IndexType": "CLUSTERED",
+      "Columns": [
+        "Id"
+      ]
+    }
+  ],
+  "ScannedAtUtc": "2026-08-21T18:10:55.873058+00:00",
+  "RowCountEstimate": 246
+}

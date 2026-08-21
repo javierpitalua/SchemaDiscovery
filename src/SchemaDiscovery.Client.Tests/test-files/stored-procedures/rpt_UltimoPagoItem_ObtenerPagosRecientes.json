@@ -1,0 +1,25 @@
+{
+  "Parameters": [
+    {
+      "OrdinalPosition": 1,
+      "Name": "@CicloFacturacion_Id",
+      "DataType": "int",
+      "Mode": "IN",
+      "MaxLength": 4
+    },
+    {
+      "OrdinalPosition": 2,
+      "Name": "@Comunidad_Id",
+      "DataType": "int",
+      "Mode": "IN",
+      "MaxLength": 4
+    }
+  ],
+  "Definition": "\r\n\r\nCREATE PROCEDURE [dbo].[rpt_UltimoPagoItem_ObtenerPagosRecientes]\r\n@CicloFacturacion_Id INT = 0, @Comunidad_Id INT = 0\r\nAS\r\nBEGIN\r\n\r\n\tDECLARE @ResultSet TABLE(\r\n\t\tId INT IDENTITY(1,1),\r\n\t\tDocumento_Id INT\r\n\t)\r\n\r\n\tINSERT INTO @ResultSet (Documento_Id)\t\r\n\tSELECT  \r\n\t\tdoc.Id\r\n\tFROM Documento doc\r\n\t\tjoin Membresia mem on doc.Membresia_Id = mem.Id\r\n\t\tjoin InformacionFacturacion info on doc.InformacionFacturacion_Id = info.Id\r\n\t\tjoin TipoDeCambio tdc on doc.TipoDeCambio_Id = tdc.Id\r\n\t\tjoin CategoriaDocumento catd ON doc.CategoriaDocumento_Id = catd.Id\r\n\t\tleft join CicloDeFacturacion ciclo on doc.CicloDeFacturacion_Id = ciclo.Id\r\n\tWHERE \r\n\t\tdoc.Activo = 1 \r\n\tAND ((mem.Comunidad_Id = @Comunidad_Id) OR (@Comunidad_Id = 0))\r\n\tAND doc.CategoriaDocumento_Id IN (3, 8) -- Solo facturas y recibos\r\n\tAND doc.CicloDeFacturacion_Id = @CicloFacturacion_Id\r\n\tAND NOT ((doc.EstatusDocumento_Id = 8) OR (doc.EstatusDocumento_Id = 9))-- eliminar las cancelaciones fiscales o documentos cancelados\r\n\tORDER BY\r\n\t\tdoc.Folio, mem.ClaveMembresia\r\n\r\n\r\n\tSELECT TOP 5\r\n\t\tdoc.Id,\r\n\t\tdoc.Folio,\r\n\t\tmem.ClaveMembresia,\r\n\t\tmem.Id AS Membresia_Id,\r\n\t\tinfo.RazonSocial,\r\n\t\tinfo.NombreFiscal,\r\n\t\tinfo.RFC,\r\n\t\tdoc.MontoTotal,\t\t\r\n\t\ttipo.Nombre AS TipoDeCambio,\r\n\t\ttipo.Abreviacion,\r\n\t\tdoc.FechaPago,\r\n\t\ttipoMem.Nombre AS TipoMembresia,\r\n\t\tcom.Nombre\r\n\tFROM @ResultSet tmp\r\n\t\tJOIN dbo.Documento doc\r\n\t\t\tON tmp.Documento_Id = doc.Id\r\n\t\tLEFT JOIN dbo.Membresia mem\r\n\t\t\tON doc.Membresia_Id = mem.Id\r\n\t\tLEFT JOIN dbo.Comunidad com\r\n\t\t\tON doc.Comunidad_Id = com.Id\r\n\t\tLEFT JOIN dbo.InformacionFacturacion info\t\r\n\t\t\tON doc.InformacionFacturacion_Id = info.Id\r\n\t\tLEFT JOIN dbo.TipoDeCambio tipo\t\r\n\t\t\tON doc.TipoDeCambio_Id = tipo.Id\r\n\t\tLEFT JOIN TipoMembresia tipoMem\r\n\t\t\tON mem.TipoMembresia_Id = tipoMem.Id\r\n\tWHERE Pagado = 1\r\n\tORDER BY FechaPago DESC\r\n\r\nEND;",
+  "Schema": "dbo",
+  "Name": "rpt_UltimoPagoItem_ObtenerPagosRecientes",
+  "ObjectType": "StoredProcedure",
+  "DatabaseProvider": "sqlserver",
+  "ScannedAtUtc": "2026-08-21T18:10:57.4674667+00:00",
+  "QualifiedName": "dbo.rpt_UltimoPagoItem_ObtenerPagosRecientes"
+}

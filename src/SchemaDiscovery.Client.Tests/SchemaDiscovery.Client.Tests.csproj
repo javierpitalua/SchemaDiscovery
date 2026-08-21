@@ -1,0 +1,359 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\..\packages\MSTest.TestAdapter.2.2.10\build\net46\MSTest.TestAdapter.props" Condition="Exists('..\..\packages\MSTest.TestAdapter.2.2.10\build\net46\MSTest.TestAdapter.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{68763051-29F1-41CB-9C8B-33603700138D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SchemaDiscovery.Client.Tests</RootNamespace>
+    <AssemblyName>SchemaDiscovery.Client.Tests</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">15.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <ReferencePath>$(ProgramFiles)\Common Files\microsoft shared\VSTT\$(VisualStudioVersion)\UITestExtensionPackages</ReferencePath>
+    <IsCodedUITest>False</IsCodedUITest>
+    <TestProjectType>UnitTest</TestProjectType>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualStudio.TestPlatform.TestFramework, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\MSTest.TestFramework.2.2.10\lib\net45\Microsoft.VisualStudio.TestPlatform.TestFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\MSTest.TestFramework.2.2.10\lib\net45\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Text.Json, Version=8.0.0.5, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
+      <HintPath>..\..\packages\System.Text.Json.8.0.5\lib\net462\System.Text.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces">
+      <HintPath>..\..\packages\Microsoft.Bcl.AsyncInterfaces.8.0.0\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Buffers">
+      <HintPath>..\..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory">
+      <HintPath>..\..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics.Vectors">
+      <HintPath>..\..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe">
+      <HintPath>..\..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encodings.Web">
+      <HintPath>..\..\packages\System.Text.Encodings.Web.8.0.0\lib\net462\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions">
+      <HintPath>..\..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple">
+      <HintPath>..\..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ProjectLoaderTests.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SchemaDiscovery.Client\SchemaDiscovery.Client.csproj">
+      <Project>{D635177F-073C-456A-A5E4-7567528AC658}</Project>
+      <Name>SchemaDiscovery.Client</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SchemaDiscovery.Abstractions\SchemaDiscovery.Abstractions.csproj">
+      <Project>{a1000000-0000-0000-0000-000000000001}</Project>
+      <Name>SchemaDiscovery.Abstractions</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="test-files\functions\fnObtenerConteoHorasSalaDeJuntas.json" />
+    <None Include="test-files\functions\fnObtenerDescripcionCicloFacturacion.json" />
+    <None Include="test-files\functions\fnObtenerDescripcionMes.json" />
+    <None Include="test-files\functions\fnObtenerHorasDisponibles.json" />
+    <None Include="test-files\functions\fnObtenerLikesPublicacion.json" />
+    <None Include="test-files\functions\fnObtenerTotalConceptos.json" />
+    <None Include="test-files\stored-procedures\get_Membresia_ObtenerPorSuscriptor.json" />
+    <None Include="test-files\stored-procedures\get_Membresia_ObtenerPorSuscriptorHabilitado.json" />
+    <None Include="test-files\stored-procedures\get_Permiso_ObtenerPermisosDeUsuario.json" />
+    <None Include="test-files\stored-procedures\get_RegistroLlamada_ObtenerRegistrosPorFacturar.json" />
+    <None Include="test-files\stored-procedures\rpt_ActivoInventario_Index.json" />
+    <None Include="test-files\stored-procedures\rpt_ActivoInventario_ObtenerEstacionamiento.json" />
+    <None Include="test-files\stored-procedures\rpt_AdjuntoDocumento_ObtenerAdjuntosPorDocumento.json" />
+    <None Include="test-files\stored-procedures\rpt_AdjuntoMembresia_ObtenerAdjuntosPorMembresia.json" />
+    <None Include="test-files\stored-procedures\rpt_ArchivoComprobante_ObtenerUltimoComprobante.json" />
+    <None Include="test-files\stored-procedures\rpt_ArchivoContrato_ObtenerContrato.json" />
+    <None Include="test-files\stored-procedures\rpt_AvisoFotos_ObtenerListadoImagenes.json" />
+    <None Include="test-files\stored-procedures\rpt_AvisoItem_ObtenerAvisos.json" />
+    <None Include="test-files\stored-procedures\rpt_AvisosLista_ObtenerListaAvisosPorComunidad.json" />
+    <None Include="test-files\stored-procedures\rpt_Aviso_Index.json" />
+    <None Include="test-files\stored-procedures\rpt_CancelacionTimbrado_Index.json" />
+    <None Include="test-files\stored-procedures\rpt_CargaConcepto_ObtenerCargaConcepto.json" />
+    <None Include="test-files\stored-procedures\rpt_Carrier_Index.json" />
+    <None Include="test-files\stored-procedures\rpt_CategoriaConcepto_Index.json" />
+    <None Include="test-files\stored-procedures\rpt_CategoriaTicket_Index.json" />
+    <None Include="test-files\stored-procedures\rpt_CicloDeFacturacion_Index.json" />
+    <None Include="test-files\stored-procedures\rpt_CicloFacturacionItem_ObtenerCiclosVigentes.json" />
+    <None Include="test-files\stored-procedures\rpt_CicloFacturacionReporteItem_ObtenerReporte.json" />
+    <None Include="test-files\stored-procedures\rpt_CicloFacturacionReporte_ObtenerReporteTabular.json" />
+    <None Include="test-files\stored-procedures\rpt_ComentarioPublicacion_Index.json" />
+    <None Include="test-files\stored-procedures\rpt_ComunidadesActivas_ObtenerComunidadesPorUsuarioActivo.json" />
+    <None Include="test-files\stored-procedures\rpt_Comunidad_Index.json" />
+    <None Include="test-files\stored-procedures\rpt_ConceptoAdicional_Index.json" />
+    <None Include="test-files\stored-procedures\rpt_ConceptoAdicional_ObtenerCargosAdicionales.json" />
+    <None Include="test-files\stored-procedures\rpt_ConceptoFacturable_Index.json" />
+    <None Include="test-files\stored-procedures\rpt_ConceptoIncluidoMembresia_Index.json" />
+    <None Include="test-files\stored-procedures\rpt_ConfiguracionTipoMembresia_Index.json" />
+    <None Include="test-files\stored-procedures\rpt_CuentaReceptora_Index.json" />
+    <None Include="test-files\stored-procedures\rpt_DashboardItem_ObtenerDashboard.json" />
+    <None Include="test-files\stored-procedures\rpt_DepositoGarantia_GuardarDepositoGarantia.json" />
+    <None Include="test-files\stored-procedures\rpt_DetalleDocumento_Index.json" />
+    <None Include="test-files\stored-procedures\rpt_DetalleEjecucion_Index.json" />
+    <None Include="test-files\stored-procedures\rpt_DocumentoDepositoGarantia_ObtenerDepositoGarantia.json" />
+    <None Include="test-files\stored-procedures\rpt_DocumentoFacturasActivas_ObtenerListaFacturasPorMembresia.json" />
+    <None Include="test-files\stored-procedures\rpt_DocumentoFacturas_ObtenerFacturasPorMembresia.json" />
+    <None Include="test-files\stored-procedures\rpt_DocumentoItem_ConsultarFacturasPorMembresia.json" />
+    <None Include="test-files\stored-procedures\rpt_DocumentoUltimaFactura_ObtenerUltimaFactura.json" />
+    <None Include="test-files\stored-procedures\rpt_Documento_Index.json" />
+    <None Include="test-files\stored-procedures\rpt_EdoCtaMembresia_ObtenerMembresiasConDocumentosPendientes.json" />
+    <None Include="test-files\stored-procedures\rpt_EdoCta_ObtenerEstadoDeCuenta.json" />
+    <None Include="test-files\stored-procedures\rpt_Ejecucion_Index.json" />
+    <None Include="test-files\stored-procedures\rpt_EntregaPaqueteria_Index.json" />
+    <None Include="test-files\stored-procedures\rpt_EspacioExclusivo_Index.json" />
+    <None Include="test-files\stored-procedures\rpt_EspacioExtra_Index.json" />
+    <None Include="test-files\stored-procedures\rpt_EspacioItem_ObtenerEspacios.json" />
+    <None Include="test-files\stored-procedures\rpt_EspacioMembresiaItem_ObtenerEspaciosPorUbicacion.json" />
+    <None Include="test-files\stored-procedures\rpt_Espacio_Index.json" />
+    <None Include="test-files\stored-procedures\rpt_EstacionDeTrabajo_Index.json" />
+    <None Include="test-files\stored-procedures\rpt_EstacionDeTrabajo_TieneEstacionDeTrabajo.json" />
+    <None Include="test-files\stored-procedures\rpt_EstatusDocumento_Index.json" />
+    <None Include="test-files\stored-procedures\rpt_EstatusMembresia_Index.json" />
+    <None Include="test-files\stored-procedures\rpt_EstatusTicket_Index.json" />
+    <None Include="test-files\stored-procedures\rpt_Evento_Index.json" />
+    <None Include="test-files\stored-procedures\rpt_ExtensionTelefonica_Index.json" />
+    <None Include="test-files\stored-procedures\rpt_FacturacionItem_ObtenerReporteFacturas.json" />
+    <None Include="test-files\stored-procedures\rpt_FacturasCanceladas_ObtenerSustitucion.json" />
+    <None Include="test-files\stored-procedures\rpt_Giro_Index.json" />
+    <None Include="test-files\stored-procedures\rpt_HistorialCreditoPorHora_Index.json" />
+    <None Include="test-files\stored-procedures\rpt_HistorialTicket_ObtenerHistorial.json" />
+    <None Include="test-files\stored-procedures\rpt_HistoricoDocumento_Index.json" />
+    <None Include="test-files\stored-procedures\rpt_HistoricoMembresia_Index.json" />
+    <None Include="test-files\stored-procedures\rpt_Imagenes_ObtenerListadoImagenes.json" />
+    <None Include="test-files\stored-procedures\rpt_InformacionFacturacion_Index.json" />
+    <None Include="test-files\stored-procedures\rpt_InventarioAsignado_Index.json" />
+    <None Include="test-files\stored-procedures\rpt_ItemDocumento_ObtenerDocumentosTimbradoAutomatico.json" />
+    <None Include="test-files\stored-procedures\rpt_ItemEspacio_ObtenerEspacioDisponible.json" />
+    <None Include="test-files\stored-procedures\rpt_ItemInventario_BuscarPorSerieNombre.json" />
+    <None Include="test-files\stored-procedures\rpt_ItemMembresia_ObtenerMembresiasFacturables.json" />
+    <None Include="test-files\stored-procedures\rpt_ItemReservacionMembresia_ObtenerReporteDeHoras.json" />
+    <None Include="test-files\stored-procedures\rpt_ItemSuscriptor_BuscarPorNombre.json" />
+    <None Include="test-files\stored-procedures\rpt_MembresiaFacturacion_ObtenerFacturacion.json" />
+    <None Include="test-files\stored-procedures\rpt_MembresiaParaReservaciones_ObtenerListadoParaReservaciones.json" />
+    <None Include="test-files\stored-procedures\rpt_MembresiaReporteItem_ObtenerMembresiasPorVencer.json" />
+    <None Include="test-files\stored-procedures\rpt_MembresiasActivas_ObtenerListadoMembresiasActivas.json" />
+    <None Include="test-files\stored-procedures\rpt_MembresiasExcel_ObtenerExcelMembresiasPorVencer.json" />
+    <None Include="test-files\stored-procedures\rpt_MembresiasListadoItem_ObtenerMembresias.json" />
+    <None Include="test-files\stored-procedures\rpt_MembresiaSuscriptores_ObtenerUsuariosPorMembresiaActiva.json" />
+    <None Include="test-files\stored-procedures\rpt_Membresia_Index.json" />
+    <None Include="test-files\stored-procedures\rpt_NotaDeCreditoLista_ObtenerListadoDeNotaDeCredito.json" />
+    <None Include="test-files\stored-procedures\rpt_NotificacionTicket_Index.json" />
+    <None Include="test-files\stored-procedures\rpt_PagoDocumento_Index.json" />
+    <None Include="test-files\stored-procedures\rpt_PaqueteriaActivas_ObtenerListadoPorPaqueteria.json" />
+    <None Include="test-files\stored-procedures\rpt_PaqueteriaMembresia_ObtenerListadoPaqueteria.json" />
+    <None Include="test-files\stored-procedures\rpt_PaqueteriaPaquetes_ObtenerPaquetesGuardados.json" />
+    <None Include="test-files\stored-procedures\rpt_Paqueteria_Index.json" />
+    <None Include="test-files\stored-procedures\rpt_PerfilAsociado_Index.json" />
+    <None Include="test-files\stored-procedures\rpt_Perfil_Index.json" />
+    <None Include="test-files\stored-procedures\rpt_PermisoAsociado_Index.json" />
+    <None Include="test-files\stored-procedures\rpt_Permiso_Index.json" />
+    <None Include="test-files\stored-procedures\rpt_PlantillaCorreo_ObtenerPlantilla.json" />
+    <None Include="test-files\stored-procedures\rpt_PublicacionLike_LikePublicacion.json" />
+    <None Include="test-files\stored-procedures\rpt_PublicacionMuroItem_ObtenerListado.json" />
+    <None Include="test-files\stored-procedures\rpt_PublicacionMuroPost_ObtenerListadoPost.json" />
+    <None Include="test-files\stored-procedures\rpt_Publicacion_Index.json" />
+    <None Include="test-files\stored-procedures\rpt_RegistroLlamadaItem_ObtenerCargaLLamadas.json" />
+    <None Include="test-files\stored-procedures\rpt_RegistroPagoItem_ObtenerListadoDePagos.json" />
+    <None Include="test-files\stored-procedures\rpt_RegistroPago_Index.json" />
+    <None Include="test-files\stored-procedures\rpt_ReglamentoLista_ObtenerListaReglamento.json" />
+    <None Include="test-files\stored-procedures\rpt_Reglamento_Index.json" />
+    <None Include="test-files\stored-procedures\rpt_ReporteContrato_ObtenerPorMembresia.json" />
+    <None Include="test-files\stored-procedures\rpt_ReporteDashboard_ObtenerReporteDashboard.json" />
+    <None Include="test-files\stored-procedures\rpt_ReporteTotalFacturacion_ObtenerReporteChatAI.json" />
+    <None Include="test-files\stored-procedures\rpt_ReporteTotalFacturacion_ObtenerReporteTotalizadoPorSucursal.json" />
+    <None Include="test-files\stored-procedures\rpt_ReservacionesEspacios_ObtenerReservacionesDelDia.json" />
+    <None Include="test-files\stored-procedures\rpt_ReservacionEstacionDeTrabajo_ObtenerPorSubscriptor.json" />
+    <None Include="test-files\stored-procedures\rpt_ReservacionEstacionDeTrabajo_ObtenerReservaciones.json" />
+    <None Include="test-files\stored-procedures\rpt_ReservacionesWebApi_ObtenerReservaciones60Dias.json" />
+    <None Include="test-files\stored-procedures\rpt_Reservaciones_ObtenerDisponibilidad.json" />
+    <None Include="test-files\stored-procedures\rpt_ReservacionExtra_Index.json" />
+    <None Include="test-files\stored-procedures\rpt_ReservacionItem_ObtenerReservaciones.json" />
+    <None Include="test-files\stored-procedures\rpt_ReservacionItem_ReporteDeReservaciones.json" />
+    <None Include="test-files\stored-procedures\rpt_ReservacionMembresia_ObtenerReservacionPorMembresia.json" />
+    <None Include="test-files\stored-procedures\rpt_Reservacion_Index.json" />
+    <None Include="test-files\stored-procedures\rpt_Suscripcion_Index.json" />
+    <None Include="test-files\stored-procedures\rpt_SuscriptoresActivos_ObtenerSuscriptoresActivosPorMembresia.json" />
+    <None Include="test-files\stored-procedures\rpt_SuscriptorHistorico_ObtenerHistoricoSuscriptor.json" />
+    <None Include="test-files\stored-procedures\rpt_SuscriptorItem_ObtenerListadoComunidad.json" />
+    <None Include="test-files\stored-procedures\rpt_SuscriptorPaqueteria_ObtenerSuscriptores.json" />
+    <None Include="test-files\stored-procedures\rpt_SuscriptorSalas_ObtenerDatosSuscriptor.json" />
+    <None Include="test-files\stored-procedures\rpt_Suscriptor_Index.json" />
+    <None Include="test-files\stored-procedures\rpt_Suscriptor_ObtenerListadoSuscriptores.json" />
+    <None Include="test-files\stored-procedures\rpt_TicketListado_ObtenerListadoPorSuscriptor.json" />
+    <None Include="test-files\stored-procedures\rpt_TicketsMembresia_ObtenerTicketsPorMembresia.json" />
+    <None Include="test-files\stored-procedures\rpt_TicketsSuscriptor_ObtenerTicketsPorSuscriptor.json" />
+    <None Include="test-files\stored-procedures\rpt_Ticket_Index.json" />
+    <None Include="test-files\stored-procedures\rpt_Ticket_ObtenerPorSuscriptor.json" />
+    <None Include="test-files\stored-procedures\rpt_TipoDeEspacio_Index.json" />
+    <None Include="test-files\stored-procedures\rpt_TipoInventario_Index.json" />
+    <None Include="test-files\stored-procedures\rpt_TipoMembresia_Index.json" />
+    <None Include="test-files\stored-procedures\rpt_TipoPaquete_Index.json" />
+    <None Include="test-files\stored-procedures\rpt_TipoSuscripcion_Index.json" />
+    <None Include="test-files\stored-procedures\rpt_Ubicacion_Index.json" />
+    <None Include="test-files\stored-procedures\rpt_UltimoPagoItem_ObtenerPagosRecientes.json" />
+    <None Include="test-files\stored-procedures\rpt_Usuario_Index.json" />
+    <None Include="test-files\stored-procedures\run_CicloDeFacturacion_ActualizarFormaDePagoSAT.json" />
+    <None Include="test-files\stored-procedures\run_CicloFacturacion_LimparCicloFacturacion.json" />
+    <None Include="test-files\stored-procedures\run_Factura_DestruirFactura.json" />
+    <None Include="test-files\tables\ActivoInventario.json" />
+    <None Include="test-files\tables\AdjuntoDocumento.json" />
+    <None Include="test-files\tables\AdjuntoMembresia.json" />
+    <None Include="test-files\tables\AdjuntoPublicacionMuro.json" />
+    <None Include="test-files\tables\Archivo.json" />
+    <None Include="test-files\tables\Aviso.json" />
+    <None Include="test-files\tables\AvisoArchivo.json" />
+    <None Include="test-files\tables\BalancePorHoras.json" />
+    <None Include="test-files\tables\CancelacionTimbrado.json" />
+    <None Include="test-files\tables\CargaArchivoConcepto.json" />
+    <None Include="test-files\tables\Carrier.json" />
+    <None Include="test-files\tables\CategoriaConcepto.json" />
+    <None Include="test-files\tables\CategoriaDeAviso.json" />
+    <None Include="test-files\tables\CategoriaDocumento.json" />
+    <None Include="test-files\tables\CategoriaTicket.json" />
+    <None Include="test-files\tables\CicloDeFacturacion.json" />
+    <None Include="test-files\tables\ComentarioPublicacion.json" />
+    <None Include="test-files\tables\ComentarioPublicacionMuro.json" />
+    <None Include="test-files\tables\Comunidad.json" />
+    <None Include="test-files\tables\ConceptoAdicional.json" />
+    <None Include="test-files\tables\ConceptoFacturable.json" />
+    <None Include="test-files\tables\ConceptoIncluidoMembresia.json" />
+    <None Include="test-files\tables\ConceptoMembresia.json" />
+    <None Include="test-files\tables\Conexion.json" />
+    <None Include="test-files\tables\ConfiguracionTipoMembresia.json" />
+    <None Include="test-files\tables\CuentaReceptora.json" />
+    <None Include="test-files\tables\DepositoEnGarantia.json" />
+    <None Include="test-files\tables\DetalleDocumento.json" />
+    <None Include="test-files\tables\DetalleEjecucion.json" />
+    <None Include="test-files\tables\Documento.json" />
+    <None Include="test-files\tables\Ejecucion.json" />
+    <None Include="test-files\tables\EntregaPaqueteria.json" />
+    <None Include="test-files\tables\Espacio.json" />
+    <None Include="test-files\tables\EspacioArchivo.json" />
+    <None Include="test-files\tables\EspacioExclusivo.json" />
+    <None Include="test-files\tables\EspacioExtra.json" />
+    <None Include="test-files\tables\EstacionDeTrabajo.json" />
+    <None Include="test-files\tables\EstadoCuenta.json" />
+    <None Include="test-files\tables\EstatusDocumento.json" />
+    <None Include="test-files\tables\EstatusMembresia.json" />
+    <None Include="test-files\tables\EstatusPaqueteria.json" />
+    <None Include="test-files\tables\EstatusTicket.json" />
+    <None Include="test-files\tables\Evento.json" />
+    <None Include="test-files\tables\ExtensionTelefonica.json" />
+    <None Include="test-files\tables\FolioFacturacion.json" />
+    <None Include="test-files\tables\FolioMembresia.json" />
+    <None Include="test-files\tables\FormaDePagoSAT.json" />
+    <None Include="test-files\tables\Giro.json" />
+    <None Include="test-files\tables\HistorialCreditoPorHora.json" />
+    <None Include="test-files\tables\HistoricoDocumento.json" />
+    <None Include="test-files\tables\HistoricoMembresia.json" />
+    <None Include="test-files\tables\HistoricoTicket.json" />
+    <None Include="test-files\tables\InformacionDeContacto.json" />
+    <None Include="test-files\tables\InformacionFacturacion.json" />
+    <None Include="test-files\tables\InventarioAsignado.json" />
+    <None Include="test-files\tables\Invitacion.json" />
+    <None Include="test-files\tables\LogError.json" />
+    <None Include="test-files\tables\Membresia.json" />
+    <None Include="test-files\tables\MetodoDePago.json" />
+    <None Include="test-files\tables\MetodoDePagoSAT.json" />
+    <None Include="test-files\tables\MotivoCancelacion.json" />
+    <None Include="test-files\tables\NotaDeCredito.json" />
+    <None Include="test-files\tables\NotificacionTicket.json" />
+    <None Include="test-files\tables\PagoDocumento.json" />
+    <None Include="test-files\tables\Paqueteria.json" />
+    <None Include="test-files\tables\ParametroAplicacion.json" />
+    <None Include="test-files\tables\Perfil.json" />
+    <None Include="test-files\tables\PerfilAsociado.json" />
+    <None Include="test-files\tables\Permiso.json" />
+    <None Include="test-files\tables\PermisoAsociado.json" />
+    <None Include="test-files\tables\PlantillaCorreo.json" />
+    <None Include="test-files\tables\ProveedorDeTimbrado.json" />
+    <None Include="test-files\tables\Publicacion.json" />
+    <None Include="test-files\tables\PublicacionComunidad.json" />
+    <None Include="test-files\tables\PublicacionMuro.json" />
+    <None Include="test-files\tables\PublicacionMuroLike.json" />
+    <None Include="test-files\tables\ReferenciaBancaria.json" />
+    <None Include="test-files\tables\RegimenFiscal.json" />
+    <None Include="test-files\tables\RegistroCargaMasivaConcepto.json" />
+    <None Include="test-files\tables\RegistroLLamada.json" />
+    <None Include="test-files\tables\RegistroPago.json" />
+    <None Include="test-files\tables\Reglamento.json" />
+    <None Include="test-files\tables\ReporteBanxico.json" />
+    <None Include="test-files\tables\Reservacion.json" />
+    <None Include="test-files\tables\ReservacionEstacionDeTrabajo.json" />
+    <None Include="test-files\tables\ReservacionExtra.json" />
+    <None Include="test-files\tables\Sesion.json" />
+    <None Include="test-files\tables\SesionWeb.json" />
+    <None Include="test-files\tables\SolicitudCancelacionDocumento.json" />
+    <None Include="test-files\tables\Suscripcion.json" />
+    <None Include="test-files\tables\Suscriptor.json" />
+    <None Include="test-files\tables\Ticket.json" />
+    <None Include="test-files\tables\Timbre.json" />
+    <None Include="test-files\tables\TipoArchivo.json" />
+    <None Include="test-files\tables\TipoDeCambio.json" />
+    <None Include="test-files\tables\TipoDeEspacio.json" />
+    <None Include="test-files\tables\TipoDocumento.json" />
+    <None Include="test-files\tables\TipoInventario.json" />
+    <None Include="test-files\tables\TipoMembresia.json" />
+    <None Include="test-files\tables\TipoPaquete.json" />
+    <None Include="test-files\tables\TipoProcesoEjecucion.json" />
+    <None Include="test-files\tables\TipoSuscripcion.json" />
+    <None Include="test-files\tables\Ubicacion.json" />
+    <None Include="test-files\tables\UsoDelCfdi.json" />
+    <None Include="test-files\tables\Usuario.json" />
+    <None Include="test-files\tables\UsuarioChatAI.json" />
+    <None Include="test-files\views\vMembresiaVigente.json" />
+  </ItemGroup>
+  <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\..\packages\MSTest.TestAdapter.2.2.10\build\net46\MSTest.TestAdapter.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\MSTest.TestAdapter.2.2.10\build\net46\MSTest.TestAdapter.props'))" />
+    <Error Condition="!Exists('..\..\packages\MSTest.TestAdapter.2.2.10\build\net46\MSTest.TestAdapter.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\MSTest.TestAdapter.2.2.10\build\net46\MSTest.TestAdapter.targets'))" />
+  </Target>
+  <Import Project="..\..\packages\MSTest.TestAdapter.2.2.10\build\net46\MSTest.TestAdapter.targets" Condition="Exists('..\..\packages\MSTest.TestAdapter.2.2.10\build\net46\MSTest.TestAdapter.targets')" />
+</Project>

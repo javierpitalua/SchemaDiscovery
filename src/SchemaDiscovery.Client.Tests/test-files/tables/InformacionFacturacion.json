@@ -1,0 +1,215 @@
+{
+  "Schema": "dbo",
+  "Name": "InformacionFacturacion",
+  "ClassName": "InformacionFacturacion",
+  "PluralClassName": "InformacionFacturacion",
+  "QualifiedName": "dbo.InformacionFacturacion",
+  "ObjectType": "Table",
+  "DatabaseProvider": "sqlserver",
+  "Columns": [
+    {
+      "OrdinalPosition": 1,
+      "Name": "Id",
+      "DataType": "int",
+      "IsNullable": false,
+      "MaxLength": 4,
+      "IsIdentity": true,
+      "IsComputed": false,
+      "IsPrimaryKey": true,
+      "PropertyName": "Id"
+    },
+    {
+      "OrdinalPosition": 2,
+      "Name": "RazonSocial",
+      "DataType": "varchar",
+      "IsNullable": false,
+      "MaxLength": 200,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "RazonSocial"
+    },
+    {
+      "OrdinalPosition": 3,
+      "Name": "NombreFiscal",
+      "DataType": "varchar",
+      "IsNullable": false,
+      "MaxLength": 200,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "NombreFiscal"
+    },
+    {
+      "OrdinalPosition": 4,
+      "Name": "Giro_Id",
+      "DataType": "int",
+      "IsNullable": false,
+      "MaxLength": 4,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "Giro_Id"
+    },
+    {
+      "OrdinalPosition": 5,
+      "Name": "RFC",
+      "DataType": "varchar",
+      "IsNullable": true,
+      "MaxLength": 50,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "RFC"
+    },
+    {
+      "OrdinalPosition": 6,
+      "Name": "Calle",
+      "DataType": "varchar",
+      "IsNullable": true,
+      "MaxLength": 200,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "Calle"
+    },
+    {
+      "OrdinalPosition": 7,
+      "Name": "NumeroInterior",
+      "DataType": "varchar",
+      "IsNullable": true,
+      "MaxLength": 50,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "NumeroInterior"
+    },
+    {
+      "OrdinalPosition": 8,
+      "Name": "NumeroExterior",
+      "DataType": "varchar",
+      "IsNullable": true,
+      "MaxLength": 50,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "NumeroExterior"
+    },
+    {
+      "OrdinalPosition": 9,
+      "Name": "Colonia",
+      "DataType": "varchar",
+      "IsNullable": true,
+      "MaxLength": 200,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "Colonia"
+    },
+    {
+      "OrdinalPosition": 10,
+      "Name": "Municipio",
+      "DataType": "varchar",
+      "IsNullable": true,
+      "MaxLength": 100,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "Municipio"
+    },
+    {
+      "OrdinalPosition": 11,
+      "Name": "Estado",
+      "DataType": "varchar",
+      "IsNullable": true,
+      "MaxLength": 100,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "Estado"
+    },
+    {
+      "OrdinalPosition": 12,
+      "Name": "CP",
+      "DataType": "varchar",
+      "IsNullable": true,
+      "MaxLength": 50,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "CP"
+    },
+    {
+      "OrdinalPosition": 13,
+      "Name": "Pais",
+      "DataType": "varchar",
+      "IsNullable": true,
+      "MaxLength": 100,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "Pais"
+    },
+    {
+      "OrdinalPosition": 14,
+      "Name": "NumeroTelefono",
+      "DataType": "varchar",
+      "IsNullable": true,
+      "MaxLength": 100,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "NumeroTelefono"
+    },
+    {
+      "OrdinalPosition": 15,
+      "Name": "CorreoElectronico",
+      "DataType": "varchar",
+      "IsNullable": true,
+      "MaxLength": 100,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "CorreoElectronico"
+    },
+    {
+      "OrdinalPosition": 16,
+      "Name": "RegimenFiscal_Id",
+      "DataType": "int",
+      "IsNullable": true,
+      "MaxLength": 4,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "RegimenFiscal_Id"
+    },
+    {
+      "OrdinalPosition": 17,
+      "Name": "UsoDelCfdi_Id",
+      "DataType": "int",
+      "IsNullable": true,
+      "MaxLength": 4,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "UsoDelCfdi_Id"
+    }
+  ],
+  "PrimaryKeyColumns": [
+    "Id"
+  ],
+  "ForeignKeys": [],
+  "Indexes": [
+    {
+      "Name": "PK_DatosFacturacion",
+      "IsUnique": true,
+      "IsPrimaryKey": true,
+      "IndexType": "CLUSTERED",
+      "Columns": [
+        "Id"
+      ]
+    }
+  ],
+  "ScannedAtUtc": "2026-08-21T18:10:55.9152853+00:00",
+  "RowCountEstimate": 2141
+}

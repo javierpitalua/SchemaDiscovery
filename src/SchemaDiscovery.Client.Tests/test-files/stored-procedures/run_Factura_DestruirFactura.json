@@ -1,0 +1,18 @@
+{
+  "Parameters": [
+    {
+      "OrdinalPosition": 1,
+      "Name": "@Documento_Id",
+      "DataType": "int",
+      "Mode": "IN",
+      "MaxLength": 4
+    }
+  ],
+  "Definition": "CREATE PROCEDURE [dbo].[run_Factura_DestruirFactura]\r\n@Documento_Id INT \r\nAS\r\nBEGIN\r\n\t\r\n\tDELETE FROM HistoricoDocumento WHERE Documento_Id = @Documento_Id\r\n\tDELETE FROM PagoDocumento WHERE Documento_Id = @Documento_Id\r\n\tDELETE FROM Timbre WHERE Documento_Id = @Documento_Id\t\r\n\tDELETE FROM AdjuntoDocumento WHERE Documento_Id = @Documento_Id\r\n\tDELETE FROM DetalleDocumento WHERE Documento_Id = @Documento_Id\r\n\tDELETE FROM Documento WHERE Id = @Documento_Id\r\n\r\nEND",
+  "Schema": "dbo",
+  "Name": "run_Factura_DestruirFactura",
+  "ObjectType": "StoredProcedure",
+  "DatabaseProvider": "sqlserver",
+  "ScannedAtUtc": "2026-08-21T18:10:57.4680685+00:00",
+  "QualifiedName": "dbo.run_Factura_DestruirFactura"
+}

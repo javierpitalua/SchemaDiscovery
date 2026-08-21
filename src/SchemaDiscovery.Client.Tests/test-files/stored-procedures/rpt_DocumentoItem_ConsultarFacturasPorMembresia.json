@@ -1,0 +1,32 @@
+{
+  "Parameters": [
+    {
+      "OrdinalPosition": 1,
+      "Name": "@MembresiaId",
+      "DataType": "int",
+      "Mode": "IN",
+      "MaxLength": 4
+    },
+    {
+      "OrdinalPosition": 2,
+      "Name": "@CicloFacturacionId",
+      "DataType": "int",
+      "Mode": "IN",
+      "MaxLength": 4
+    },
+    {
+      "OrdinalPosition": 3,
+      "Name": "@IncluirDocumentosCancelados",
+      "DataType": "bit",
+      "Mode": "IN",
+      "MaxLength": 1
+    }
+  ],
+  "Definition": "CREATE PROCEDURE [dbo].[rpt_DocumentoItem_ConsultarFacturasPorMembresia] \r\n@MembresiaId INT = 0,\r\n@CicloFacturacionId INT = 0,\r\n@IncluirDocumentosCancelados BIT = 0\r\nAS\r\nBEGIN\r\n\r\n\tDECLARE @Documentos TABLE(\r\n\t\tId INT IDENTITY(1,1),\r\n\t\tDocumento_Id INT,\r\n\t\tIncluirEnResultados BIT\r\n\t)\t\r\n\r\n\tINSERT INTO @Documentos (Documento_Id, IncluirEnResultados)\r\n\tSELECT Id, 1 FROM Documento doc \r\n\tWHERE \r\n\t\tdoc.Activo = 1 \t\r\n\tAND ((doc.CicloDeFacturacion_Id = @CicloFacturacionId) OR(@CicloFacturacionId = 0))\r\n\tAND doc.CategoriaDocumento_Id IN (3, 8) -- Solo facturas y remisiones\r\n\tAND doc.Membresia_Id = @MembresiaId\t\r\n\r\n\tIF @IncluirDocumentosCancelados = 0\r\n\tBEGIN\r\n\t\tUPDATE @Documentos SET IncluirEnResultados = 0\r\n\t\tFROM @Documentos tmp\r\n\t\t\tJOIN Documento doc \r\n\t\t\t\tON tmp.Documento_Id = doc.Id\r\n\t\tWHERE \r\n\t\t\tdoc.EstatusDocumento_Id IN (8, 9)\r\n\tEND\t\r\n\r\n\tSELECT \r\n\t\tdoc.Id,\r\n\t\tdoc.Folio,\r\n\t\tdoc.CicloDeFacturacion_Id,\r\n\t\tdoc.Membresia_Id,\r\n\t\tdbo.fnObtenerDescripcionMes(ciclo.Mes) \u002B \u0027 \u0027 \u002B CONVERT(VARCHAR(100), ciclo.Anio) AS CicloDeFacturacion,\r\n\t\tdoc.FechaEmision,\r\n\t\tdoc.MontoTotal,\r\n\t\tdoc.IVA,\r\n\t\tdoc.MontoTotal \u002B doc.IVA AS MontoTotalMasIVA,\r\n\t\tCASE ISNULL(doc.Pagado, 0) WHEN 0 THEN \u0027No\u0027 WHEN 1 THEN \u0027S\u00ED\u0027 END AS Pagado,\r\n\t\tcat.Nombre AS Categoria,\r\n\t\tdoc.CategoriaDocumento_Id,\r\n\t\test.Nombre AS Estatus,\r\n\t\ttdc.Abreviacion AS [TipoDeCambio],\r\n\t\tdoc.EstatusDocumento_Id\r\n\tFROM @Documentos tmp\r\n\t\tJOIN Documento doc ON tmp.Documento_Id = doc.Id\r\n\t\tLEFT JOIN CicloDeFacturacion ciclo ON doc.CicloDeFacturacion_Id = ciclo.Id\r\n\t\tLEFT JOIN CategoriaDocumento cat ON doc.CategoriaDocumento_Id = cat.Id\r\n\t\tLEFT JOIN EstatusDocumento est ON doc.EstatusDocumento_Id = est.Id\r\n\t\tLEFT JOIN TipoDeCambio tdc ON doc.TipoDeCambio_Id = tdc.Id\r\n\tWHERE doc.Activo = 1\r\n\tAND tmp.IncluirEnResultados = 1\r\n\t\r\n\r\nEND",
+  "Schema": "dbo",
+  "Name": "rpt_DocumentoItem_ConsultarFacturasPorMembresia",
+  "ObjectType": "StoredProcedure",
+  "DatabaseProvider": "sqlserver",
+  "ScannedAtUtc": "2026-08-21T18:10:57.4527233+00:00",
+  "QualifiedName": "dbo.rpt_DocumentoItem_ConsultarFacturasPorMembresia"
+}

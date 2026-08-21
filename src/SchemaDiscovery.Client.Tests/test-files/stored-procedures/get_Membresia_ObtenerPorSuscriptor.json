@@ -1,0 +1,18 @@
+{
+  "Parameters": [
+    {
+      "OrdinalPosition": 1,
+      "Name": "@Suscriptor_Id",
+      "DataType": "int",
+      "Mode": "IN",
+      "MaxLength": 4
+    }
+  ],
+  "Definition": "\r\nCREATE PROCEDURE [dbo].[get_Membresia_ObtenerPorSuscriptor]\r\n@Suscriptor_Id INT = 0\r\nAS\r\nBEGIN\r\n\r\nSELECT\r\n    memb.Id\r\n     ,memb.ClaveMembresia\r\n     ,memb.Comunidad_Id\r\n     ,memb.TipoMembresia_Id\r\n     ,memb.PrecioMensual\r\n     ,memb.EstatusMembresia_Id\r\n     ,memb.FechaInicio\r\n     ,memb.Vigencia\r\n     ,memb.InformacionFacturacion_Id\r\n     ,memb.TipoDeCambio_Id\r\n     ,memb.FechaCreacion\r\n     ,memb.CreadoPor\r\n     ,memb.FechaModificacion\r\n     ,memb.ModificadoPor\r\n     ,memb.Activo\r\n     ,memb.FechaDesactivacion\r\n     ,memb.DesactivadoPor\r\n     ,memb.Espacio_Id\r\n     ,memb.MetodoDePago_Id\r\n     ,memb.Observaciones\r\n     ,memb.DeshabilitarFacturacionAutomatica\r\n     ,memb.FacturarAPartirDe\r\n     ,memb.RequiereFactura\r\n     ,memb.Vendedor_Id\r\n     ,memb.EsPagoDomiciliado\r\n\t ,memb.DeshabilitarReservaciones\r\nFROM Suscripcion susp\r\n         JOIN Membresia memb ON susp.Membresia_Id = memb.Id\r\nWHERE\r\n    susp.Suscriptor_Id = @Suscriptor_Id\r\n  AND memb.Activo = 1\r\n  AND memb.EstatusMembresia_Id = 1 -- vigente\r\n  AND susp.Activo = 1 -- suscripcion activa\r\n\r\nEND",
+  "Schema": "dbo",
+  "Name": "get_Membresia_ObtenerPorSuscriptor",
+  "ObjectType": "StoredProcedure",
+  "DatabaseProvider": "sqlserver",
+  "ScannedAtUtc": "2026-08-21T18:10:57.4403486+00:00",
+  "QualifiedName": "dbo.get_Membresia_ObtenerPorSuscriptor"
+}

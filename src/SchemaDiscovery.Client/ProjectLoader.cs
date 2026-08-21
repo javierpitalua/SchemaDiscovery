@@ -16,11 +16,15 @@ namespace SchemaDiscovery.Client
             Converters = { new JsonStringEnumConverter() }
         };
 
+        // Must match the subfolder names SchemaExportService.GetSubfolderName writes to.
+        private static readonly string[] SchemaObjectSubfolders = { "tables", "views", "stored-procedures", "functions" };
+
         /// <summary>
         /// Reads every "*.json" schema file previously exported by schema-discovery
-        /// from <paramref name="inputDirectoryPath"/> and assembles them into a
-        /// <see cref="Project"/>, sorted into tables, views and routines based on
-        /// each file's <see cref="SchemaObjectBase.ObjectType"/>.
+        /// from the <c>tables</c>, <c>views</c>, <c>stored-procedures</c> and
+        /// <c>functions</c> subfolders of <paramref name="inputDirectoryPath"/> and
+        /// assembles them into a <see cref="Project"/>, sorted into tables, views
+        /// and routines based on each file's <see cref="SchemaObjectBase.ObjectType"/>.
         /// </summary>
         public Project Load(string inputDirectoryPath)
         {
@@ -32,9 +36,16 @@ namespace SchemaDiscovery.Client
 
             var project = new Project();
 
-            foreach (var filePath in Directory.EnumerateFiles(inputDirectoryPath, "*.json", SearchOption.TopDirectoryOnly))
+            foreach (var subfolder in SchemaObjectSubfolders)
             {
-                LoadFile(filePath, project);
+                var subfolderPath = Path.Combine(inputDirectoryPath, subfolder);
+                if (!Directory.Exists(subfolderPath))
+                    continue;
+
+                foreach (var filePath in Directory.EnumerateFiles(subfolderPath, "*.json", SearchOption.TopDirectoryOnly))
+                {
+                    LoadFile(filePath, project);
+                }
             }
 
             return project;

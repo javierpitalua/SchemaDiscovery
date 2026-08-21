@@ -1,0 +1,10 @@
+{
+  "Parameters": [],
+  "Definition": "-- Obtiene el listado de membresias que se incluiran en la facturacion\r\nCREATE PROCEDURE [dbo].[rpt_ItemMembresia_ObtenerMembresiasFacturables]\r\nAS\r\nBEGIN\r\n\r\n\tSELECT \r\n\t\tmb.Id,\r\n\t\tmb.ClaveMembresia,\r\n\t\tmb.PrecioMensual,\r\n\t\tmb.DeshabilitarFacturacionAutomatica\r\n\t\tFROM Membresia mb\r\n\tWHERE ISNULL(mb.DeshabilitarFacturacionAutomatica, 0) = 0\r\n\tAND mb.Activo = 1 -- que no esten borradas\r\n\tAND mb.EstatusMembresia_Id = 1 -- solo vigentes\r\n\r\nEND",
+  "Schema": "dbo",
+  "Name": "rpt_ItemMembresia_ObtenerMembresiasFacturables",
+  "ObjectType": "StoredProcedure",
+  "DatabaseProvider": "sqlserver",
+  "ScannedAtUtc": "2026-08-21T18:10:57.4570742+00:00",
+  "QualifiedName": "dbo.rpt_ItemMembresia_ObtenerMembresiasFacturables"
+}

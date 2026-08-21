@@ -1,0 +1,25 @@
+{
+  "Parameters": [
+    {
+      "OrdinalPosition": 1,
+      "Name": "@EntityId",
+      "DataType": "int",
+      "Mode": "IN",
+      "MaxLength": 4
+    },
+    {
+      "OrdinalPosition": 2,
+      "Name": "@Ejecucion_Id",
+      "DataType": "int",
+      "Mode": "IN",
+      "MaxLength": 4
+    }
+  ],
+  "Definition": "\r\n-- =================================================================\r\n-- Description:\tThis gets a basic report for [DetalleEjecucion] table\r\n-- =================================================================\r\nCREATE PROCEDURE [dbo].[rpt_DetalleEjecucion_Index]\r\n@EntityId AS INT = 0, \r\n@Ejecucion_Id AS INT = 0\r\nAS\r\nBEGIN\r\n\t\r\n\t-- IMPORTANT:\r\n\t-- This is a computer generated procedure.  DO NOT ADD CUSTOM CODE TO THIS PROCEDURE.\r\n\r\n\t-- SET NOCOUNT ON added to prevent extra result sets from\r\n\t-- interfering with SELECT statements.\r\n\tSET NOCOUNT ON;\r\n\t\r\n\t-- 1) CREATE FILTER TABLE:\r\n\tDECLARE @DetalleEjecucionFilter TABLE (\r\n\t\tId INT IDENTITY (1,1),\r\n\t\tDetalleEjecucion_Id INT\t\t\r\n\t)\r\n\r\n\r\n    -- IF A GIVEN ID HAS BEEN SPECIFIED, THEN RETRIEVE THAT RECORD ONLY\r\n\tIF @EntityId \u003C\u003E 0\r\n\tBEGIN\r\n\r\n\t\tINSERT INTO @DetalleEjecucionFilter (DetalleEjecucion_Id)\r\n\t\tSELECT \r\n\t\t\t[DetalleEjecucion].Id\r\n\t\tFROM [dbo].[DetalleEjecucion]\r\n\t\tWHERE\r\n\t\t\t [dbo].[DetalleEjecucion].[Id] = @EntityId\r\n\r\n\tEND\r\n\tELSE\r\n\tBEGIN\r\n\r\n\t\t-- 2) FILTER BY FOREIGN RELATIONSHIPS WHEN APLICABLE:\r\n\t\tINSERT INTO @DetalleEjecucionFilter (DetalleEjecucion_Id)\r\n\t\tSELECT \r\n\t\t\t[DetalleEjecucion].Id\r\n\t\tFROM [dbo].[DetalleEjecucion]\r\n\t\tWHERE\r\n\t\t\t (([DetalleEjecucion].[Ejecucion_Id] = @Ejecucion_Id) OR (@Ejecucion_Id = 0))\r\n\r\n \tEND\r\n\r\n \r\n\t-- 4) DELIVER THE FILTERED RESULTS:\r\n\tSELECT \r\n\t\t[DetalleEjecucion].[Id],\t\t\r\n\t\t[DetalleEjecucion].[DescripcionDocumento] AS [Descripcion],\t\t\r\n\t\t[DetalleEjecucion].[FechaInicio],\r\n\t\t[DetalleEjecucion].[CompletadoEn],\r\n\t\t[DetalleEjecucion].[ProcesoCompletado]\r\n\tFROM @DetalleEjecucionFilter filter\r\n\t\tJOIN [dbo].[DetalleEjecucion] \r\n\t\t\tON [DetalleEjecucion].[Id] = filter.[DetalleEjecucion_Id] \t\t\t\r\n\r\n\t\tLEFT JOIN [dbo].[Ejecucion]\r\n\t\tON [dbo].[DetalleEjecucion].[Ejecucion_Id] = [dbo].[Ejecucion].[Id] \r\n\r\nEND\r\n-- END OF [dbo].[cgp_DetalleEjecucion_Index]",
+  "Schema": "dbo",
+  "Name": "rpt_DetalleEjecucion_Index",
+  "ObjectType": "StoredProcedure",
+  "DatabaseProvider": "sqlserver",
+  "ScannedAtUtc": "2026-08-21T18:10:57.4519899+00:00",
+  "QualifiedName": "dbo.rpt_DetalleEjecucion_Index"
+}

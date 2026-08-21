@@ -1,0 +1,18 @@
+{
+  "Parameters": [
+    {
+      "OrdinalPosition": 1,
+      "Name": "@CargaArchivoConceptoId",
+      "DataType": "int",
+      "Mode": "IN",
+      "MaxLength": 4
+    }
+  ],
+  "Definition": "-- [rpt_CargaConcepto_ObtenerCargaConcepto] @CargaArchivoConceptoId = 1\r\nCREATE PROCEDURE [rpt_CargaConcepto_ObtenerCargaConcepto]\r\n@CargaArchivoConceptoId INT \r\nAS\r\nBEGIN\r\n\tSELECT \r\n\t\tc.Id, \r\n\t\tc.ClaveMembresia, \r\n\t\tinfo.RazonSocial, conc.Concepto, c.Cantidad, c.PrecioUnitario, c.Cantidad * c.PrecioUnitario AS [Total] ,\r\n\t\tCASE \r\n\t\t\tWHEN mem.ClaveMembresia IS NULL THEN \u0027No se encontro la clave de la membresia\u0027\r\n\t\t\tELSE \u0027\u0027\r\n\t\tEND AS [Error],\r\n\t\tmem.Id AS [Membresia_Id],\r\n\t\tconc.Id AS [ConceptoFacturable_Id]\r\n\tFROM [RegistroCargaMasivaConcepto] c\r\n\tLEFT JOIN Membresia mem ON c.ClaveMembresia = mem.ClaveMembresia\r\n\tLEFT JOIN InformacionFacturacion info ON mem.InformacionFacturacion_Id = info.Id\r\n\tLEFT JOIN ConceptoFacturable conc ON c.Concepto = conc.Concepto\r\n\tWHERE CargaArchivoConcepto_Id = @CargaArchivoConceptoId\r\n\r\nEND",
+  "Schema": "dbo",
+  "Name": "rpt_CargaConcepto_ObtenerCargaConcepto",
+  "ObjectType": "StoredProcedure",
+  "DatabaseProvider": "sqlserver",
+  "ScannedAtUtc": "2026-08-21T18:10:57.4489757+00:00",
+  "QualifiedName": "dbo.rpt_CargaConcepto_ObtenerCargaConcepto"
+}

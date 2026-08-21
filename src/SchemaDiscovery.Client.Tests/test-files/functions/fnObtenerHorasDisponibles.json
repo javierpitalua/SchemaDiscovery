@@ -1,0 +1,19 @@
+{
+  "Parameters": [
+    {
+      "OrdinalPosition": 1,
+      "Name": "@Membresia_Id",
+      "DataType": "int",
+      "Mode": "IN",
+      "MaxLength": 4
+    }
+  ],
+  "ReturnType": "decimal",
+  "Definition": "CREATE FUNCTION [dbo].[fnObtenerHorasDisponibles] (@Membresia_Id INT)\r\nRETURNS DECIMAL(18,2)  \r\nAS\r\nBEGIN\r\n\r\n\tDECLARE @HorasTotales DECIMAL (18, 2)\r\n\tDECLARE @PrecioUnitario DECIMAL (18, 2)\r\n\tDECLARE @MontoTotal DECIMAL (18, 4)\r\n\r\n\tSELECT @PrecioUnitario = cfac.PrecioUnitario FROM ConceptoFacturable cfac WHERE cfac.Id = 36\r\n\r\n\tSELECT \r\n\t\t@MontoTotal = SUM((cinc.Cantidad * @PrecioUnitario))\r\n\tFROM ConceptoIncluidoMembresia cinc\r\n\t\tJOIN ConceptoFacturable cfac \r\n\t\tON cinc.ConceptoFacturable_Id = cfac.Id\r\n\tWHERE \r\n\t\tcinc.ConceptoFacturable_Id = 36 \r\n\tAND cinc.Activo = 1\r\n\tAND cinc.Membresia_Id = @Membresia_Id\r\n\tGROUP BY cinc.Membresia_Id\r\n\r\n\tSELECT @HorasTotales = (@MontoTotal / @PrecioUnitario)\r\n\r\n\tRETURN @HorasTotales\r\n\r\nEND",
+  "Schema": "dbo",
+  "Name": "fnObtenerHorasDisponibles",
+  "ObjectType": "Function",
+  "DatabaseProvider": "sqlserver",
+  "ScannedAtUtc": "2026-08-21T18:10:58.9914898+00:00",
+  "QualifiedName": "dbo.fnObtenerHorasDisponibles"
+}

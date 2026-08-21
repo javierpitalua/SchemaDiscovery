@@ -1,0 +1,18 @@
+{
+  "Parameters": [
+    {
+      "OrdinalPosition": 1,
+      "Name": "@SearchTerm",
+      "DataType": "varchar",
+      "Mode": "IN",
+      "MaxLength": 100
+    }
+  ],
+  "Definition": "CREATE PROCEDURE rpt_EspacioItem_ObtenerEspacios\r\n@SearchTerm VARCHAR(100) = \u0027\u0027\r\nAS\r\nBEGIN\r\n\r\n\tSELECT TOP 30 esp.Id, esp.Nombre, ubi.Nombre AS [Ubicacion], tipo.Nombre AS [TipoDeEspacio]\r\n\tFROM Espacio esp\r\n\tJOIN Ubicacion ubi ON esp.Ubicacion_Id = ubi.Id\r\n\tJOIN TipoDeEspacio tipo ON esp.TipoDeEspacio_Id = tipo.Id\r\n\tWHERE NOT (esp.TipoDeEspacio_Id = 4)\r\n\tAND (esp.Nombre LIKE @SearchTerm OR @SearchTerm = \u0027\u0027)\r\n\tORDER BY ubi.Nombre, esp.Nombre\r\n\r\nEND",
+  "Schema": "dbo",
+  "Name": "rpt_EspacioItem_ObtenerEspacios",
+  "ObjectType": "StoredProcedure",
+  "DatabaseProvider": "sqlserver",
+  "ScannedAtUtc": "2026-08-21T18:10:57.4540039+00:00",
+  "QualifiedName": "dbo.rpt_EspacioItem_ObtenerEspacios"
+}

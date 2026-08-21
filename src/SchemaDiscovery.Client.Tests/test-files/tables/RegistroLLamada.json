@@ -1,0 +1,160 @@
+{
+  "Schema": "dbo",
+  "Name": "RegistroLLamada",
+  "ClassName": "RegistroLLamada",
+  "PluralClassName": "RegistroLLamada",
+  "QualifiedName": "dbo.RegistroLLamada",
+  "ObjectType": "Table",
+  "DatabaseProvider": "sqlserver",
+  "Columns": [
+    {
+      "OrdinalPosition": 1,
+      "Name": "Id",
+      "DataType": "int",
+      "IsNullable": false,
+      "MaxLength": 4,
+      "IsIdentity": true,
+      "IsComputed": false,
+      "IsPrimaryKey": true,
+      "PropertyName": "Id"
+    },
+    {
+      "OrdinalPosition": 2,
+      "Name": "ClaveCarga",
+      "DataType": "varchar",
+      "IsNullable": false,
+      "MaxLength": 50,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "ClaveCarga"
+    },
+    {
+      "OrdinalPosition": 3,
+      "Name": "Fecha",
+      "DataType": "datetime",
+      "IsNullable": false,
+      "MaxLength": 8,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "Fecha"
+    },
+    {
+      "OrdinalPosition": 4,
+      "Name": "Fuente",
+      "DataType": "varchar",
+      "IsNullable": false,
+      "MaxLength": 100,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "Fuente"
+    },
+    {
+      "OrdinalPosition": 5,
+      "Name": "Destino",
+      "DataType": "varchar",
+      "IsNullable": false,
+      "MaxLength": 100,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "Destino"
+    },
+    {
+      "OrdinalPosition": 6,
+      "Name": "CanalDestino",
+      "DataType": "varchar",
+      "IsNullable": true,
+      "MaxLength": 100,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "CanalDestino"
+    },
+    {
+      "OrdinalPosition": 7,
+      "Name": "Estado",
+      "DataType": "varchar",
+      "IsNullable": true,
+      "MaxLength": 100,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "Estado"
+    },
+    {
+      "OrdinalPosition": 8,
+      "Name": "Duracion",
+      "DataType": "int",
+      "IsNullable": false,
+      "MaxLength": 4,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "Duracion"
+    },
+    {
+      "OrdinalPosition": 9,
+      "Name": "Tipo",
+      "DataType": "varchar",
+      "IsNullable": true,
+      "MaxLength": 50,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "Tipo"
+    },
+    {
+      "OrdinalPosition": 10,
+      "Name": "ConceptoAdicional_Id",
+      "DataType": "int",
+      "IsNullable": true,
+      "MaxLength": 4,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "ConceptoAdicional_Id"
+    },
+    {
+      "OrdinalPosition": 11,
+      "Name": "Membresia_Id",
+      "DataType": "int",
+      "IsNullable": true,
+      "MaxLength": 4,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "PropertyName": "Membresia_Id"
+    }
+  ],
+  "PrimaryKeyColumns": [
+    "Id"
+  ],
+  "ForeignKeys": [],
+  "Indexes": [
+    {
+      "Name": "IX_RegistroLLamada",
+      "IsUnique": true,
+      "IsPrimaryKey": false,
+      "IndexType": "NONCLUSTERED",
+      "Columns": [
+        "Fuente",
+        "Destino",
+        "Fecha"
+      ]
+    },
+    {
+      "Name": "PK_RegistroLLamada",
+      "IsUnique": true,
+      "IsPrimaryKey": true,
+      "IndexType": "CLUSTERED",
+      "Columns": [
+        "Id"
+      ]
+    }
+  ],
+  "ScannedAtUtc": "2026-08-21T18:10:55.9481475+00:00",
+  "RowCountEstimate": 19738
+}

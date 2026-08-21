@@ -1,0 +1,18 @@
+{
+  "Parameters": [
+    {
+      "OrdinalPosition": 1,
+      "Name": "@SearchText",
+      "DataType": "varchar",
+      "Mode": "IN",
+      "MaxLength": 100
+    }
+  ],
+  "Definition": "CREATE PROCEDURE [dbo].[rpt_ItemSuscriptor_BuscarPorNombre]\r\n@SearchText VARCHAR(100) = \u0027\u0027\r\nAS\r\nBEGIN\r\n\r\n\tDECLARE @SuscriptoresEncontrados TABLE(\r\n\t\tId INT IDENTITY(1,1),\r\n\t\tSuscriptor_Id INT\r\n\t)\r\n\r\n\tINSERT INTO @SuscriptoresEncontrados (Suscriptor_Id)\r\n\tSELECT Id FROM Suscriptor WHERE CorreoElectronico LIKE @SearchText AND Activo = 1\r\n\r\n\tINSERT INTO @SuscriptoresEncontrados (Suscriptor_Id)\r\n\tSELECT Id FROM Suscriptor WHERE ISNULL(Nombre, \u0027\u0027) \u002B \u0027 \u0027 \u002B ISNULL(ApellidoPaterno, \u0027\u0027) \u002B \u0027 \u0027 \u002B ISNULL(ApellidoMaterno, \u0027\u0027) LIKE @SearchText AND Activo = 1\r\n\r\n\tIF(@SearchText = \u0027\u0027)\r\n\tBEGIN\r\n\t\tINSERT INTO @SuscriptoresEncontrados (Suscriptor_Id)\r\n\t\tSELECT Id FROM Suscriptor WHERE Activo = 1\r\n\tEND\r\n\r\n\tSELECT \r\n\t\tId,\r\n\t\tISNULL(ApellidoPaterno, \u0027\u0027) \u002B \u0027 \u0027 \u002B ISNULL(ApellidoMaterno, \u0027\u0027) \u002B \u0027, \u0027 \u002B ISNULL(Nombre, \u0027\u0027) \u002B \u0027 (\u0027 \u002B CorreoElectronico \u002B \u0027)\u0027 AS NombreSuscriptor\r\n\tFROM Suscriptor\r\n\t\tJOIN (\r\n\t\t\tSELECT Suscriptor_Id FROM @SuscriptoresEncontrados GROUP BY Suscriptor_Id\r\n\t\t) AS [SuscriptoresEncontrados] ON Suscriptor.Id = [SuscriptoresEncontrados].Suscriptor_Id\r\n\tORDER BY ISNULL(ApellidoPaterno, \u0027\u0027) \u002B \u0027 \u0027 \u002B ISNULL(ApellidoMaterno, \u0027\u0027) \u002B \u0027, \u0027 \u002B ISNULL(Nombre, \u0027\u0027) \u002B \u0027 (\u0027 \u002B CorreoElectronico \u002B \u0027)\u0027  \r\n\t\r\nEND",
+  "Schema": "dbo",
+  "Name": "rpt_ItemSuscriptor_BuscarPorNombre",
+  "ObjectType": "StoredProcedure",
+  "DatabaseProvider": "sqlserver",
+  "ScannedAtUtc": "2026-08-21T18:10:57.4573458+00:00",
+  "QualifiedName": "dbo.rpt_ItemSuscriptor_BuscarPorNombre"
+}

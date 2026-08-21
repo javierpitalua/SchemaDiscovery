@@ -1,0 +1,25 @@
+{
+  "Parameters": [
+    {
+      "OrdinalPosition": 1,
+      "Name": "@CicloDeFacturacion_Id",
+      "DataType": "int",
+      "Mode": "IN",
+      "MaxLength": 4
+    },
+    {
+      "OrdinalPosition": 2,
+      "Name": "@CategoriaDocumento_Id",
+      "DataType": "int",
+      "Mode": "IN",
+      "MaxLength": 4
+    }
+  ],
+  "Definition": "--[dbo].[rpt_ItemDocumento_ObtenerDocumentosTimbradoAutomatico] 2, 3\r\nCREATE PROCEDURE [dbo].[rpt_ItemDocumento_ObtenerDocumentosTimbradoAutomatico]\r\n@CicloDeFacturacion_Id INT = 0,\r\n@CategoriaDocumento_Id INT = 0\r\nAS\r\nBEGIN\r\n\r\n\tSELECT \r\n\t\tdoc.Id, \r\n\t\tdoc.Folio \r\n\tFROM Documento doc \r\n\t\tWHERE \r\n\t\t\tdoc.CicloDeFacturacion_Id = @CicloDeFacturacion_Id\r\n\tAND doc.CategoriaDocumento_Id = @CategoriaDocumento_Id\r\n\tAND doc.GeneracionAutomatica = 1\r\n\tAND ISNULL(doc.Timbrado, 0) = 0\t\r\n\r\nEND",
+  "Schema": "dbo",
+  "Name": "rpt_ItemDocumento_ObtenerDocumentosTimbradoAutomatico",
+  "ObjectType": "StoredProcedure",
+  "DatabaseProvider": "sqlserver",
+  "ScannedAtUtc": "2026-08-21T18:10:57.4566376+00:00",
+  "QualifiedName": "dbo.rpt_ItemDocumento_ObtenerDocumentosTimbradoAutomatico"
+}

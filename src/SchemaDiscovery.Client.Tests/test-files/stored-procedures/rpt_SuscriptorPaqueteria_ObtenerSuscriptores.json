@@ -1,0 +1,18 @@
+{
+  "Parameters": [
+    {
+      "OrdinalPosition": 1,
+      "Name": "@Membresia_Id",
+      "DataType": "int",
+      "Mode": "IN",
+      "MaxLength": 4
+    }
+  ],
+  "Definition": "CREATE PROCEDURE [rpt_SuscriptorPaqueteria_ObtenerSuscriptores]\r\n@Membresia_Id INT\r\nAS\r\nBEGIN\r\n\r\nSELECT\r\n\t[Membresia].[Id],\r\n\t[Membresia].[ClaveMembresia],\r\n\t[Suscriptor].[Id] AS [suscriptor_Id],\r\n\t[Suscriptor].[Nombre],\r\n\t[Suscriptor].[CorreoElectronico]\r\nFROM [Membresia]\r\n\tJOIN [Suscripcion]\r\n\t\tON [Membresia].[Id] = [Suscripcion].[Membresia_Id]\r\n\tJOIN [Suscriptor]\r\n\t\tON [Suscripcion].[Suscriptor_Id] = [Suscriptor].[Id]\r\nWHERE [Membresia].[Id] = @Membresia_Id\r\n\r\nEND",
+  "Schema": "dbo",
+  "Name": "rpt_SuscriptorPaqueteria_ObtenerSuscriptores",
+  "ObjectType": "StoredProcedure",
+  "DatabaseProvider": "sqlserver",
+  "ScannedAtUtc": "2026-08-21T18:10:57.4656991+00:00",
+  "QualifiedName": "dbo.rpt_SuscriptorPaqueteria_ObtenerSuscriptores"
+}

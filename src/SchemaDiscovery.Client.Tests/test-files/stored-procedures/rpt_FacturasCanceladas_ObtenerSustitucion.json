@@ -1,0 +1,18 @@
+{
+  "Parameters": [
+    {
+      "OrdinalPosition": 1,
+      "Name": "@Documento_Id",
+      "DataType": "int",
+      "Mode": "IN",
+      "MaxLength": 4
+    }
+  ],
+  "Definition": "CREATE PROCEDURE [dbo].[rpt_FacturasCanceladas_ObtenerSustitucion]\r\n@Documento_Id INT\r\nAS\r\nBEGIN\r\n\r\nSELECT\r\n\tA1.Id,\r\n\tA1.TimbreUUID AS [TimbreUUIDCancelado],\r\n\tA2.FolioSustitucion AS [TimbreUUIDNuevo],\r\n\tA3.Id AS [IdSustitucion],\r\n\tA3.Folio AS [FolioNuevo],\r\n\tA3.Membresia_Id,\r\n\tA4.ClaveMembresia\r\nFROM Documento A1\r\n\tLEFT JOIN CancelacionTimbrado A2\r\n\t\tON A1.Id = A2.Documento_Id\r\n\tJOIN Documento A3\r\n\t\tON A2.FolioSustitucion = A3.TimbreUUID\r\n\tJOIN Membresia A4\r\n\t\tON A3.Membresia_Id = A4.Id\r\nWHERE A1.Id = @Documento_Id\r\n\r\nEND",
+  "Schema": "dbo",
+  "Name": "rpt_FacturasCanceladas_ObtenerSustitucion",
+  "ObjectType": "StoredProcedure",
+  "DatabaseProvider": "sqlserver",
+  "ScannedAtUtc": "2026-08-21T18:10:57.4553499+00:00",
+  "QualifiedName": "dbo.rpt_FacturasCanceladas_ObtenerSustitucion"
+}

@@ -1,0 +1,25 @@
+{
+  "Parameters": [
+    {
+      "OrdinalPosition": 1,
+      "Name": "@Espacio_Id",
+      "DataType": "int",
+      "Mode": "IN",
+      "MaxLength": 4
+    },
+    {
+      "OrdinalPosition": 2,
+      "Name": "@Fecha",
+      "DataType": "datetime",
+      "Mode": "IN",
+      "MaxLength": 8
+    }
+  ],
+  "Definition": "CREATE PROCEDURE [dbo].[rpt_ReservacionEstacionDeTrabajo_ObtenerReservaciones]\r\n@Espacio_Id INT = 0,\r\n@Fecha DATETIME = NULL\r\nAS\r\nBEGIN\t\r\n\t\r\n\tDECLARE @FechaInicial DATETIME \r\n\tDECLARE @FechaFinal DATETIME \r\n\r\n\tSELECT @FechaInicial = DATEADD(dd, DATEDIFF(dd, 0, @Fecha), 0)\r\n\tSELECT @FechaFinal = DATEADD(minute, -1, DATEADD(day, 1, @FechaInicial))\t\r\n\r\n\tSELECT \r\n\t\tres.Id, \r\n        est.Nombre,\r\n\t\tres.Descripcion, \r\n\t\tres.EstacionDeTrabajo_Id, \r\n\t\tres.Membresia_Id,\r\n\t\tres.Suscriptor_Id,\r\n\t\tres.FechaHoraInicial, \r\n\t\tres.Duracion, \r\n\t\tres.FechaReservacion        \r\n\tFROM ReservacionEstacionDeTrabajo res\r\n\tJOIN EstacionDeTrabajo est \r\n\t\tON res.EstacionDeTrabajo_Id = est.Id\t\r\n\tWHERE est.Espacio_Id = @Espacio_Id\r\n\tAND res.FechaHoraInicial BETWEEN @FechaInicial AND @FechaFinal\r\n\tAND res.Activo = 1 \r\n\tAND res.Cancelado = 0\r\n\r\nEND",
+  "Schema": "dbo",
+  "Name": "rpt_ReservacionEstacionDeTrabajo_ObtenerReservaciones",
+  "ObjectType": "StoredProcedure",
+  "DatabaseProvider": "sqlserver",
+  "ScannedAtUtc": "2026-08-21T18:10:57.4640886+00:00",
+  "QualifiedName": "dbo.rpt_ReservacionEstacionDeTrabajo_ObtenerReservaciones"
+}

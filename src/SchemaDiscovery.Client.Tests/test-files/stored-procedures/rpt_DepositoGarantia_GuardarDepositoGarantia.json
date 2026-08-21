@@ -1,0 +1,18 @@
+{
+  "Parameters": [
+    {
+      "OrdinalPosition": 1,
+      "Name": "@Membresia_Id",
+      "DataType": "int",
+      "Mode": "IN",
+      "MaxLength": 4
+    }
+  ],
+  "Definition": "CREATE PROCEDURE [dbo].[rpt_DepositoGarantia_GuardarDepositoGarantia]\r\n@Membresia_Id INT\r\nAS\r\nBEGIN\r\n\r\nSELECT \r\n\t\t[Archivo].[Id],\r\n\t\t[Archivo].[NombreArchivo],\r\n\t\t[Archivo].[Usuario_Id],\r\n\t\t[Archivo].[ClaveServicioPersistencia],\r\n\t\t[Archivo].[MimeType],\r\n\t\t[Membresia].[Id] AS [Membresia_Id],\r\n\t\t[Membresia].[ClaveMembresia],\r\n\t\t[InformacionFacturacion].[NombreFiscal],\r\n\t\t[TipoMembresia].[Id] AS [TipoMembresia_Id],\r\n\t\t[TipoMembresia].[Nombre] AS [NombreTipoEspacio],\r\n\t\t[Usuario].[Id] AS [UsuarioCreadorId],\r\n\t\t[Usuario].[Nombre] \u002B \u0027 \u0027 \u002B [Usuario].[ApellidoPaterno] \u002B \u0027 \u0027 \u002B [Usuario].[ApellidoMaterno] as Usuario,\r\n\t\t[Usuario].[CorreoElectronico],\r\n\t\t[DepositoEnGarantia].[Id] AS [Deposito_Id],\r\n\t\t[DepositoEnGarantia].[Monto],\r\n\t\t[DepositoEnGarantia].[FechaCarga] AS [FechaCargaDeposito],\r\n\t\t[DepositoEnGarantia].[Comentario],\r\n\t\t[CuentaReceptora].[Id] AS [CuentaReceptora_Id],\r\n\t\t[CuentaReceptora].[Nombre] AS [NombreCuentaReceptora]\r\nFROM [DepositoEnGarantia]\r\n\tJOIN [Archivo]\r\n\t\tON [DepositoEnGarantia].[Archivo_Id] = [Archivo].[Id]\r\n\tJOIN [Membresia]\r\n\t\tON [DepositoEnGarantia].[Membresia_Id] = [Membresia].[Id]\r\n\tJOIN [TipoMembresia]\r\n\t\tON [Membresia].[TipoMembresia_Id] = [TipoMembresia].[Id]\r\n\tJOIN [Usuario]\r\n\t\tON [Archivo].[Usuario_Id] = [Usuario].[Id]\r\n\tJOIN [InformacionFacturacion]\r\n\t\tON [Membresia].[InformacionFacturacion_Id] = [InformacionFacturacion].[Id]\r\n\tLEFT JOIN [CuentaReceptora]\r\n\t\tON [DepositoEnGarantia].[CuentaReceptora_Id] = [CuentaReceptora].[Id]\r\nWHERE [DepositoEnGarantia].[Membresia_Id] = @Membresia_Id\r\nORDER BY [Archivo].[Id] DESC\r\n\r\nEND",
+  "Schema": "dbo",
+  "Name": "rpt_DepositoGarantia_GuardarDepositoGarantia",
+  "ObjectType": "StoredProcedure",
+  "DatabaseProvider": "sqlserver",
+  "ScannedAtUtc": "2026-08-21T18:10:57.4516141+00:00",
+  "QualifiedName": "dbo.rpt_DepositoGarantia_GuardarDepositoGarantia"
+}

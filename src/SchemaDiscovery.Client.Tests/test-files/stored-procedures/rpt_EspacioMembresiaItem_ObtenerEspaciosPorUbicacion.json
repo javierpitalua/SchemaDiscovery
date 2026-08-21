@@ -1,0 +1,18 @@
+{
+  "Parameters": [
+    {
+      "OrdinalPosition": 1,
+      "Name": "@Ubicacion_Id",
+      "DataType": "int",
+      "Mode": "IN",
+      "MaxLength": 4
+    }
+  ],
+  "Definition": "CREATE PROCEDURE [rpt_EspacioMembresiaItem_ObtenerEspaciosPorUbicacion] \r\n@Ubicacion_Id INT\r\nAS\r\nBEGIN\r\n\r\n\tSELECT \r\n\t\te1.Id, \r\n\t\te1.Nombre, \r\n\t\tTipoDeEspacio_Id, \r\n\t\tte.Nombre AS [TipoDeEspacio], \r\n\t\te1.MapaId, \r\n\t\te1.Ubicacion_Id, \r\n\t\tmem.Id AS MembresiaId,\r\n\t\tCASE \r\n\t\t\tWHEN mem.Id IS NULL THEN 0\r\n\t\t\tELSE 1\r\n\t\tEND AS Ocupado\r\n\tFROM Espacio e1\r\n\tJOIN TipoDeEspacio te ON e1.TipoDeEspacio_Id = te.Id\r\n\tLEFT JOIN Membresia mem ON mem.Espacio_Id = e1.Id\r\n\tWHERE e1.Ubicacion_Id = @Ubicacion_Id\r\n\r\nEND",
+  "Schema": "dbo",
+  "Name": "rpt_EspacioMembresiaItem_ObtenerEspaciosPorUbicacion",
+  "ObjectType": "StoredProcedure",
+  "DatabaseProvider": "sqlserver",
+  "ScannedAtUtc": "2026-08-21T18:10:57.4541375+00:00",
+  "QualifiedName": "dbo.rpt_EspacioMembresiaItem_ObtenerEspaciosPorUbicacion"
+}

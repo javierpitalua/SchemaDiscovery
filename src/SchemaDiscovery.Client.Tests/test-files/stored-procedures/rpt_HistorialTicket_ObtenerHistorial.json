@@ -1,0 +1,18 @@
+{
+  "Parameters": [
+    {
+      "OrdinalPosition": 1,
+      "Name": "@Ticket_Id",
+      "DataType": "int",
+      "Mode": "IN",
+      "MaxLength": 4
+    }
+  ],
+  "Definition": "CREATE PROCEDURE [dbo].[rpt_HistorialTicket_ObtenerHistorial]\r\n@Ticket_Id INT = 0\r\nAS\r\nBEGIN\r\n\r\n\tSELECT \r\n\thist.Id,\r\n\thist.Ticket_Id,\r\n\thist.EstatusTicket_Id,\r\n\test.Nombre AS [Estatus],\r\n\thist.Fecha,\r\n\thist.Descripcion,\r\n\thist.EsComentario,\r\n\thist.Suscriptor_Id,\r\n\thist.Usuario_Id,\t\r\n\tCASE \r\n\t\tWHEN usr.CorreoElectronico IS NULL THEN susc.CorreoElectronico\r\n\t\tELSE usr.CorreoElectronico\r\n\tEND AS [CorreoElectronico]\r\n\tFROM HistoricoTicket hist\r\n\tLEFT JOIN EstatusTicket est ON hist.EstatusTicket_Id = est.Id\r\n\tLEFT JOIN Usuario usr ON hist.Usuario_Id = usr.Id\r\n\tLEFT JOIN Suscriptor susc ON hist.Suscriptor_Id = susc.Id\r\n\tWHERE hist.Ticket_Id = @Ticket_Id\r\n\tORDER BY hist.Id DESC\r\n\r\nEND",
+  "Schema": "dbo",
+  "Name": "rpt_HistorialTicket_ObtenerHistorial",
+  "ObjectType": "StoredProcedure",
+  "DatabaseProvider": "sqlserver",
+  "ScannedAtUtc": "2026-08-21T18:10:57.4557535+00:00",
+  "QualifiedName": "dbo.rpt_HistorialTicket_ObtenerHistorial"
+}

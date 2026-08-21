@@ -1,0 +1,18 @@
+{
+  "Parameters": [
+    {
+      "OrdinalPosition": 1,
+      "Name": "@CicloDeFacturacion_Id",
+      "DataType": "int",
+      "Mode": "IN",
+      "MaxLength": 4
+    }
+  ],
+  "Definition": "CREATE PROCEDURE [dbo].[run_CicloDeFacturacion_ActualizarFormaDePagoSAT]\r\n@CicloDeFacturacion_Id INT = 0\r\nAS\r\n\r\nBEGIN\r\n\r\n\tUPDATE Documento SET MetodoDePagoSAT_Id = 2, formadepagosat_id =6\r\n\tFROM\r\n\tDocumento WHERE CicloDeFacturacion_Id = @CicloDeFacturacion_Id\r\n\tAND GeneracionAutomatica = 1\r\n\tAND MetodoDePagoSAT_Id is null\r\n\tAND Activo = 1\r\n\r\nEND",
+  "Schema": "dbo",
+  "Name": "run_CicloDeFacturacion_ActualizarFormaDePagoSAT",
+  "ObjectType": "StoredProcedure",
+  "DatabaseProvider": "sqlserver",
+  "ScannedAtUtc": "2026-08-21T18:10:57.4677966+00:00",
+  "QualifiedName": "dbo.run_CicloDeFacturacion_ActualizarFormaDePagoSAT"
+}

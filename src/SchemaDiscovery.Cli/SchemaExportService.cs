@@ -1,5 +1,6 @@
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using System.Text.Json.Serialization.Metadata;
 using Microsoft.Extensions.Logging;
 using SchemaDiscovery.Abstractions;
 using SchemaDiscovery.Abstractions.Models;
@@ -8,12 +9,47 @@ namespace SchemaDiscovery.Cli;
 
 public sealed class SchemaExportService
 {
+    /// <summary>
+    /// Property order for exported TableSchema JSON, overriding the default
+    /// base-class-then-derived-class order so persisted/computed fields read
+    /// naturally next to the identity fields they relate to.
+    /// </summary>
+    private static readonly string[] TableSchemaPropertyOrder =
+    [
+        nameof(TableSchema.Schema),
+        nameof(TableSchema.Name),
+        nameof(TableSchema.ClassName),
+        nameof(TableSchema.PluralClassName),
+        nameof(TableSchema.QualifiedName),
+        nameof(TableSchema.ObjectType),
+        nameof(TableSchema.DatabaseProvider),
+        nameof(TableSchema.Columns),
+        nameof(TableSchema.PrimaryKeyColumns),
+        nameof(TableSchema.ForeignKeys),
+        nameof(TableSchema.Indexes),
+        nameof(TableSchema.ScannedAtUtc),
+        nameof(TableSchema.RowCountEstimate),
+    ];
+
     private static readonly JsonSerializerOptions JsonOptions = new()
     {
         WriteIndented = true,
         DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull,
-        Converters = { new JsonStringEnumConverter() }
+        Converters = { new JsonStringEnumConverter() },
+        TypeInfoResolver = new DefaultJsonTypeInfoResolver().WithAddedModifier(ApplyTableSchemaPropertyOrder)
     };
+
+    private static void ApplyTableSchemaPropertyOrder(JsonTypeInfo typeInfo)
+    {
+        if (typeInfo.Type != typeof(TableSchema))
+            return;
+
+        for (var i = 0; i < typeInfo.Properties.Count; i++)
+        {
+            var propertyIndex = Array.IndexOf(TableSchemaPropertyOrder, typeInfo.Properties[i].Name);
+            typeInfo.Properties[i].Order = propertyIndex >= 0 ? propertyIndex : TableSchemaPropertyOrder.Length;
+        }
+    }
 
     private readonly ILogger<SchemaExportService> _logger;
 
@@ -80,8 +116,11 @@ public sealed class SchemaExportService
     private async Task WriteObjectAsync(
         string outputDirectory, string kind, SchemaObjectBase schemaObject, CancellationToken cancellationToken)
     {
+        var kindDirectory = Path.Combine(outputDirectory, GetSubfolderName(kind));
+        Directory.CreateDirectory(kindDirectory);
+
         var fileName = BuildFileName(schemaObject);
-        var filePath = Path.Combine(outputDirectory, fileName);
+        var filePath = Path.Combine(kindDirectory, fileName);
 
         await TryRestorePersistedValuesAsync(schemaObject, filePath, cancellationToken);
 
@@ -137,6 +176,15 @@ public sealed class SchemaExportService
 
         return isDefaultSchema ? $"{safeName}.json" : $"{safeSchema}.{safeName}.json";
     }
+
+    private static string GetSubfolderName(string kind) => kind switch
+    {
+        "table" => "tables",
+        "view" => "views",
+        "procedure" => "stored-procedures",
+        "function" => "functions",
+        _ => throw new ArgumentOutOfRangeException(nameof(kind), kind, "Unknown schema object kind.")
+    };
 
     private static string Sanitize(string value)
     {

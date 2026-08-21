@@ -83,6 +83,8 @@ public sealed class SqlServerSchemaProvider : IDatabaseSchemaProvider
             var table = new TableSchema
             {
                 Schema = tableRef.Schema,
+                ClassName = tableRef.Name,
+                PluralClassName = tableRef.Name,
                 Name = tableRef.Name,
                 DatabaseProvider = ProviderName,
                 RowCountEstimate = tableRef.RowCount
@@ -258,6 +260,7 @@ public sealed class SqlServerSchemaProvider : IDatabaseSchemaProvider
             {
                 OrdinalPosition = reader.GetInt32(0),
                 Name = reader.GetString(1),
+                PropertyName = reader.GetString(1),
                 DataType = dataType,
                 IsNullable = reader.GetBoolean(3),
                 MaxLength = maxLength,

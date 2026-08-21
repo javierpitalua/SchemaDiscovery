@@ -1,0 +1,18 @@
+{
+  "Parameters": [
+    {
+      "OrdinalPosition": 1,
+      "Name": "@Membresia_Id",
+      "DataType": "int",
+      "Mode": "IN",
+      "MaxLength": 4
+    }
+  ],
+  "Definition": "CREATE PROCEDURE [dbo].[rpt_ActivoInventario_ObtenerEstacionamiento]\r\n@Membresia_Id INT = 0\r\nAS\r\nBEGIN\r\n\r\n\tSELECT \r\n\t    [InventarioAsignado].[Id],\r\n\t\t[ActivoInventario].[NumeroDeSerie]\r\n\tFROM [ActivoInventario]\r\n\t\tJOIN [InventarioAsignado]\r\n\t\t\tON [InventarioAsignado].[ActivoInventario_Id] = [ActivoInventario].[Id]\r\n\t\tJOIN [TipoInventario]\r\n\t\t\tON [TipoInventario].[Id] = [ActivoInventario].[TipoInventario_Id]\r\n\tWHERE [InventarioAsignado].[Membresia_Id] = @Membresia_Id\r\n\tAND [TipoInventario].[Id] = 10\r\n\r\nEND",
+  "Schema": "dbo",
+  "Name": "rpt_ActivoInventario_ObtenerEstacionamiento",
+  "ObjectType": "StoredProcedure",
+  "DatabaseProvider": "sqlserver",
+  "ScannedAtUtc": "2026-08-21T18:10:57.4466649+00:00",
+  "QualifiedName": "dbo.rpt_ActivoInventario_ObtenerEstacionamiento"
+}

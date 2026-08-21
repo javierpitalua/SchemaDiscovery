@@ -1,0 +1,18 @@
+{
+  "Parameters": [
+    {
+      "OrdinalPosition": 1,
+      "Name": "@Membresia_Id",
+      "DataType": "int",
+      "Mode": "IN",
+      "MaxLength": 4
+    }
+  ],
+  "Definition": "CREATE PROCEDURE [dbo].[rpt_ArchivoComprobante_ObtenerUltimoComprobante]\r\n@Membresia_Id INT\r\nAS\r\nBEGIN\r\n\r\nSELECT TOP 1\r\n\t\t[Archivo].[Id],\r\n\t\t[Archivo].[NombreArchivo],\r\n\t\t[Archivo].[Descripcion],\r\n\t\t[Archivo].[FechaCarga] AS [FechaCarga_UTCT],\r\n\t\t[Archivo].[Usuario_Id],\r\n\t\t[Archivo].[ClaveServicioPersistencia],\r\n\t\t[Archivo].[MimeType],\r\n\t\t[Usuario].[Nombre] \u002B \u0027 \u0027 \u002B [Usuario].[ApellidoPaterno] \u002B \u0027 \u0027 \u002B [Usuario].[ApellidoMaterno] AS [Usuario],\r\n\t\t[Usuario].[CorreoElectronico],\r\n\t\t[AdjuntoMembresia].[Membresia_Id],\r\n\t\t[AdjuntoMembresia].[Id] AS [Adjunto_Id],\r\n\t\t[TipoArchivo].[Nombre] AS [TipoArchivo]\r\n\tFROM [AdjuntoMembresia]\r\n\t\tJOIN [Archivo]\r\n\t\t\tON [AdjuntoMembresia].[Archivo_Id] = [Archivo].[Id]\r\n\t\tJOIN [Usuario]\r\n\t\t\tON [Archivo].[Usuario_Id] = [Usuario].[Id]\r\n\t\tLEFT JOIN [TipoArchivo]\r\n\t\t\tON [AdjuntoMembresia].[TipoArchivo_Id] = [TipoArchivo].[Id]\r\n\tWHERE [AdjuntoMembresia].[Membresia_Id] = @Membresia_Id\r\n\tAND [Archivo].[NombreArchivo] like \u0027%comprobante%\u0027 OR [TipoArchivo].[Id] = 10\r\n\tORDER BY [Archivo].[FechaCarga] DESC\r\n\r\nEND",
+  "Schema": "dbo",
+  "Name": "rpt_ArchivoComprobante_ObtenerUltimoComprobante",
+  "ObjectType": "StoredProcedure",
+  "DatabaseProvider": "sqlserver",
+  "ScannedAtUtc": "2026-08-21T18:10:57.4471008+00:00",
+  "QualifiedName": "dbo.rpt_ArchivoComprobante_ObtenerUltimoComprobante"
+}

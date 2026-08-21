@@ -1,0 +1,18 @@
+{
+  "Parameters": [
+    {
+      "OrdinalPosition": 1,
+      "Name": "@Membresia_Id",
+      "DataType": "int",
+      "Mode": "IN",
+      "MaxLength": 4
+    }
+  ],
+  "Definition": "\r\nCREATE PROCEDURE [dbo].[rpt_ReservacionItem_ReporteDeReservaciones] \r\n@Membresia_Id INT = 0\r\nAS\r\nBEGIN\r\n\tDECLARE @Reservaciones TABLE(\r\n\t\tId INT IDENTITY(1,1),\r\n\t\tReservacion_Id INT\r\n\t)\r\n\r\n\tINSERT INTO @Reservaciones (Reservacion_Id) \r\n\tSELECT Id FROM Reservacion \r\n\tWHERE ((Membresia_Id = @Membresia_Id) OR (@Membresia_Id = 0))\r\n\tAND Reservacion.Activo = 1\r\n\t\r\n\tSELECT \r\n\t\tres1.Id,\r\n\t\tres1.Titulo,\r\n\t\tmemb.ClaveMembresia,\r\n\t\tinfof.RFC,\r\n\t\tesp.Nombre AS [Espacio],\r\n\t\tubi.Nombre AS [Ubicacion],\r\n\t\tres1.FechaReservacion,\r\n\t\tres1.FechaHoraInicial,\r\n\t\tres1.Duracion,\r\n\t\tCONVERT(DECIMAL, ISNULL(res1.Duracion, 0))/60 [DuracionEnHoras],\r\n\t\tsusc.CorreoElectronico AS [ReservadoPor],\r\n\t\tCASE Cancelado WHEN 1 THEN \u0027S\u00ED\u0027 ELSE \u0027No\u0027 END AS [Cancelado],\r\n\t\tFechaCancelacion,\r\n\t\tCanceladoPor\r\n\tFROM @Reservaciones res0\r\n\t\tJOIN Reservacion res1 ON res0.Reservacion_Id = res1.Id\r\n\t\tLEFT JOIN Espacio esp ON res1.Espacio_Id = esp.Id\r\n\t\tLEFT JOIN Suscriptor susc ON res1.Suscriptor_Id = susc.Id\t\t\r\n\t\tLEFT JOIN Membresia memb ON res1.Membresia_Id = memb.Id\r\n\t\tLEFT JOIN InformacionFacturacion infof ON memb.InformacionFacturacion_Id = infof.Id\t\r\n\t\tLEFT JOIN Ubicacion ubi ON esp.Ubicacion_Id = ubi.Id\t\r\n\r\nEND",
+  "Schema": "dbo",
+  "Name": "rpt_ReservacionItem_ReporteDeReservaciones",
+  "ObjectType": "StoredProcedure",
+  "DatabaseProvider": "sqlserver",
+  "ScannedAtUtc": "2026-08-21T18:10:57.4646472+00:00",
+  "QualifiedName": "dbo.rpt_ReservacionItem_ReporteDeReservaciones"
+}

@@ -1,0 +1,18 @@
+{
+  "Parameters": [
+    {
+      "OrdinalPosition": 1,
+      "Name": "@AvisoId",
+      "DataType": "int",
+      "Mode": "IN",
+      "MaxLength": 4
+    }
+  ],
+  "Definition": "CREATE PROCEDURE [dbo].[rpt_AvisoFotos_ObtenerListadoImagenes]\n@AvisoId INT\nAS\nBEGIN\n\nSELECT\n\tA1.Id,\n\tA1.Aviso_Id,\n\tA2.Titulo,\n\tA2.Mensaje AS [MensajeAviso],\n\tA1.Archivo_Id,\n\tA3.NombreArchivo,\n\tA3.Descripcion AS [DescripcionArchivo],\n\tA1.Orden,\n\tA1.Usuario_Id,\n\t(A4.Nombre \u002B \u0027 \u0027 \u002B A4.ApellidoPaterno \u002B \u0027 \u0027 \u002B A4.ApellidoPaterno) AS [NombreCompleto],\n\tA1.Fecha,\n\tA3.ClaveServicioPersistencia\nFROM AvisoArchivo A1\n\tJOIN Aviso A2\n\t\tON A1.Aviso_Id = A2.Id\n\tJOIN Archivo A3\n\t\tON A1.Archivo_Id = A3.Id\n\tJOIN Usuario A4\n\t\tON A1.Usuario_Id = A4.Id\nWHERE A1.Aviso_Id = @AvisoId\nORDER BY A1.Orden\n\nEND",
+  "Schema": "dbo",
+  "Name": "rpt_AvisoFotos_ObtenerListadoImagenes",
+  "ObjectType": "StoredProcedure",
+  "DatabaseProvider": "sqlserver",
+  "ScannedAtUtc": "2026-08-21T18:10:57.4475122+00:00",
+  "QualifiedName": "dbo.rpt_AvisoFotos_ObtenerListadoImagenes"
+}

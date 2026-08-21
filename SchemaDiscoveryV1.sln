@@ -20,7 +20,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03 - implementations", "03 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04 - client", "04 - client", "{05E12C76-DC91-4C60-B7C1-BD3E52D883E1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchemaDiscovery.Client", "SchemaDiscovery.Client\SchemaDiscovery.Client.csproj", "{D635177F-073C-456A-A5E4-7567528AC658}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchemaDiscovery.Client", "src\SchemaDiscovery.Client\SchemaDiscovery.Client.csproj", "{D635177F-073C-456A-A5E4-7567528AC658}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchemaDiscovery.Client.Tests", "src\SchemaDiscovery.Client.Tests\SchemaDiscovery.Client.Tests.csproj", "{68763051-29F1-41CB-9C8B-33603700138D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -52,6 +54,10 @@ Global
 		{D635177F-073C-456A-A5E4-7567528AC658}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D635177F-073C-456A-A5E4-7567528AC658}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D635177F-073C-456A-A5E4-7567528AC658}.Release|Any CPU.Build.0 = Release|Any CPU
+		{68763051-29F1-41CB-9C8B-33603700138D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68763051-29F1-41CB-9C8B-33603700138D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68763051-29F1-41CB-9C8B-33603700138D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68763051-29F1-41CB-9C8B-33603700138D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -63,5 +69,9 @@ Global
 		{A1000000-0000-0000-0000-000000000004} = {0E8B9DBD-F2DF-499E-BB61-E0A8AFED4CCE}
 		{A1000000-0000-0000-0000-000000000005} = {9E359A79-7EF5-4E07-BEF2-EE1A38BDF9AE}
 		{D635177F-073C-456A-A5E4-7567528AC658} = {05E12C76-DC91-4C60-B7C1-BD3E52D883E1}
+		{68763051-29F1-41CB-9C8B-33603700138D} = {05E12C76-DC91-4C60-B7C1-BD3E52D883E1}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1205704C-5EC6-4665-8474-1FB693C0B359}
 	EndGlobalSection
 EndGlobal

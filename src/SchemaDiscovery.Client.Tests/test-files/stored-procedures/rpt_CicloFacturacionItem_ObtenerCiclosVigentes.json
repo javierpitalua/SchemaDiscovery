@@ -1,0 +1,10 @@
+{
+  "Parameters": [],
+  "Definition": "CREATE PROCEDURE [dbo].[rpt_CicloFacturacionItem_ObtenerCiclosVigentes]\r\nAS\r\nBEGIN\r\n\r\n\tSELECT \r\n\t\tcdf.Id, cdf.Mes, cdf.Anio \r\n\tFROM \r\n\t\tCicloDeFacturacion cdf\r\n\tWHERE cdf.Vigente = 1\r\n\tORDER BY cdf.Anio DESC, cdf.Mes DESC\r\n\r\nEND",
+  "Schema": "dbo",
+  "Name": "rpt_CicloFacturacionItem_ObtenerCiclosVigentes",
+  "ObjectType": "StoredProcedure",
+  "DatabaseProvider": "sqlserver",
+  "ScannedAtUtc": "2026-08-21T18:10:57.4496736+00:00",
+  "QualifiedName": "dbo.rpt_CicloFacturacionItem_ObtenerCiclosVigentes"
+}

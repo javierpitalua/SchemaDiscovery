@@ -1,0 +1,18 @@
+{
+  "Parameters": [
+    {
+      "OrdinalPosition": 1,
+      "Name": "@DocumentoId",
+      "DataType": "int",
+      "Mode": "IN",
+      "MaxLength": 4
+    }
+  ],
+  "Definition": "CREATE PROCEDURE [dbo].[rpt_RegistroPagoItem_ObtenerListadoDePagos] \r\n@DocumentoId INT\r\nAS\r\nBEGIN\r\n\r\n\tSELECT \r\n\trp.Id,\r\n\trp.NumeroParcialidad,\r\n\trp.Serie \u002B CONVERT(VARCHAR(20), rp.Folio) AS [Folio], \r\n\trp.Fecha, \r\n\trp.ImportePagado, \r\n\trp.SaldoAnterior, \r\n\trp.SaldoInsoluto, \r\n\tusr.CorreoElectronico AS [RegistradoPor],\r\n\tpdf.[Url] AS [ArchivoUrl]\r\n\tFROM RegistroPago rp\r\n\tLEFT JOIN \r\n\t\tUsuario usr \r\n\t\tON rp.Usuario_Id = usr.Id\r\n\tLEFT JOIN\r\n\t\tArchivo pdf\r\n\t\tON rp.ComprobantePDF_Id = pdf.Id\r\n\t\r\n\tWHERE rp.Documento_Id = @DocumentoId\r\n\tAND rp.PagoAplicado = 1\r\n\tORDER BY rp.Fecha DESC\r\n\r\nEND",
+  "Schema": "dbo",
+  "Name": "rpt_RegistroPagoItem_ObtenerListadoDePagos",
+  "ObjectType": "StoredProcedure",
+  "DatabaseProvider": "sqlserver",
+  "ScannedAtUtc": "2026-08-21T18:10:57.4613954+00:00",
+  "QualifiedName": "dbo.rpt_RegistroPagoItem_ObtenerListadoDePagos"
+}

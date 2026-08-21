@@ -1,0 +1,18 @@
+{
+  "Parameters": [
+    {
+      "OrdinalPosition": 1,
+      "Name": "@CicloDeFacturacion_Id",
+      "DataType": "int",
+      "Mode": "IN",
+      "MaxLength": 4
+    }
+  ],
+  "Definition": "CREATE PROCEDURE [dbo].[run_CicloFacturacion_LimparCicloFacturacion]\r\n@CicloDeFacturacion_Id INT = 0\r\nAS\r\nBEGIN\r\n\r\n\tUPDATE Documento SET Activo = 0, FechaDesactivacion = GETDATE(), DesactivadoPor = \u0027sistema@lobby.com\u0027 \r\n\tWHERE \r\n\t\tMontoTotal = 0\r\n\tAND Activo = 1\t\r\n\tAND CicloDeFacturacion_Id = @CicloDeFacturacion_Id\r\n\r\nEND",
+  "Schema": "dbo",
+  "Name": "run_CicloFacturacion_LimparCicloFacturacion",
+  "ObjectType": "StoredProcedure",
+  "DatabaseProvider": "sqlserver",
+  "ScannedAtUtc": "2026-08-21T18:10:57.4679309+00:00",
+  "QualifiedName": "dbo.run_CicloFacturacion_LimparCicloFacturacion"
+}
