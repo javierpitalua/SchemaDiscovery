@@ -9,6 +9,19 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <!-- SchemaDiscovery.Client embeds this project's DLL into its own package rather than
+       depending on a separately published SchemaDiscovery.Abstractions package (see
+       SchemaDiscovery.Client.csproj), so this project gets rebuilt as a ProjectReference
+       every time Client is packed. /p:Version=<build number> passed to that pack is a
+       global MSBuild property, so it also reaches this project's build - and pins
+       AssemblyVersion/FileVersion here so a non-assembly-version-shaped build number
+       (e.g. Azure DevOps' default "20260821.1", where "20260821" exceeds the
+       ushort.MaxValue an AssemblyVersion component allows) can't break that build. -->
+  <PropertyGroup>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>1.0.0.0</FileVersion>
+  </PropertyGroup>
+
   <!-- NuGet package metadata. Bump <Version> before each release; the CI
        release workflow (.github/workflows/publish-nuget.yml) overrides it
        from the pushed git tag, so this value is only what local `dotnet
