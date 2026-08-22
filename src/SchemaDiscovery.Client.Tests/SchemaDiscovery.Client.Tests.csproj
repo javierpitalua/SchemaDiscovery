@@ -84,9 +84,9 @@
       <Project>{D635177F-073C-456A-A5E4-7567528AC658}</Project>
       <Name>SchemaDiscovery.Client</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SchemaDiscovery.Abstractions\SchemaDiscovery.Abstractions.csproj">
-      <Project>{a1000000-0000-0000-0000-000000000001}</Project>
-      <Name>SchemaDiscovery.Abstractions</Name>
+    <ProjectReference Include="..\SchemaDiscovery.Models\SchemaDiscovery.Models.csproj">
+      <Project>{66f968ea-0919-4881-bb5a-6bb469ee26f5}</Project>
+      <Name>SchemaDiscovery.Models</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

@@ -2,8 +2,7 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Text.Json.Serialization.Metadata;
 using Microsoft.Extensions.Logging;
-using SchemaDiscovery.Abstractions;
-using SchemaDiscovery.Abstractions.Models;
+using SchemaDiscovery.Models;
 
 namespace SchemaDiscovery.Cli;
 

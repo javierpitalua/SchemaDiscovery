@@ -1,6 +1,7 @@
 using Microsoft.Extensions.Logging;
+using SchemaDiscovery.Models;
 
-namespace SchemaDiscovery.Abstractions;
+namespace SchemaDiscovery;
 
 /// <summary>
 /// Creates instances of a specific <see cref="IDatabaseSchemaProvider"/>.

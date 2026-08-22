@@ -1,6 +1,6 @@
-using SchemaDiscovery.Abstractions.Models;
+using SchemaDiscovery.Models;
 
-namespace SchemaDiscovery.Abstractions;
+namespace SchemaDiscovery;
 
 /// <summary>
 /// Implemented by each database engine (SQL Server, PostgreSQL, MySQL, ...).

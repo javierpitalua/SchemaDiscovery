@@ -1,5 +1,5 @@
 using Microsoft.Extensions.Logging;
-using SchemaDiscovery.Abstractions;
+using SchemaDiscovery.Models;
 
 namespace SchemaDiscovery.Providers.PostgreSql;
 

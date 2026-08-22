@@ -1,8 +1,9 @@
+using SchemaDiscovery.Models;
+using SchemaDiscovery.Models.Infrastructure;
 using System.Reflection;
 using System.Text.Json;
-using SchemaDiscovery.Abstractions.Models;
 
-namespace SchemaDiscovery.Abstractions;
+namespace SchemaDiscovery;
 
 /// <summary>
 /// Restores the values of <see cref="PersistAttribute"/>-marked properties
