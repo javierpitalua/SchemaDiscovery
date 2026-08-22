@@ -93,18 +93,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <!-- PrivateAssets="all" keeps this off the NuGet dependency list (see the
-         _PackAbstractionsAssembly target below, which embeds the built DLL into
-         this package's lib folder instead of making consumers install a second
-         package). -->
-    <ProjectReference Include="..\SchemaDiscovery.Abstractions\SchemaDiscovery.Abstractions.csproj">
-      <Project>{a1000000-0000-0000-0000-000000000001}</Project>
-      <Name>SchemaDiscovery.Abstractions</Name>
-      <PrivateAssets>all</PrivateAssets>
+    <ProjectReference Include="..\SchemaDiscovery.Models\SchemaDiscovery.Models.csproj">
+      <Project>{66f968ea-0919-4881-bb5a-6bb469ee26f5}</Project>
+      <Name>SchemaDiscovery.Models</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-
   <!-- SchemaDiscovery.Abstractions is not published as its own NuGet package, so
        rather than let Pack auto-convert the ProjectReference above into a
        dependency on a package that doesn't exist, bundle its built assembly
@@ -114,7 +108,7 @@
   </PropertyGroup>
   <Target Name="_PackAbstractionsAssembly" DependsOnTargets="ResolveReferences">
     <ItemGroup>
-      <TfmSpecificPackageFile Include="@(ReferenceCopyLocalPaths->WithMetadataValue('ReferenceSourceTarget', 'ProjectReference')->WithMetadataValue('Extension', '.dll'))">
+      <TfmSpecificPackageFile Include="@(ReferenceCopyLocalPaths-&gt;WithMetadataValue('ReferenceSourceTarget', 'ProjectReference')-&gt;WithMetadataValue('Extension', '.dll'))">
         <PackagePath>lib\net472\%(FileName)%(Extension)</PackagePath>
       </TfmSpecificPackageFile>
     </ItemGroup>

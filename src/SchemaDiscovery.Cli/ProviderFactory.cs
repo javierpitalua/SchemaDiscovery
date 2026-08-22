@@ -1,5 +1,5 @@
 using Microsoft.Extensions.Logging;
-using SchemaDiscovery.Abstractions;
+using SchemaDiscovery;
 using SchemaDiscovery.Providers.MySql;
 using SchemaDiscovery.Providers.PostgreSql;
 using SchemaDiscovery.Providers.SqlServer;

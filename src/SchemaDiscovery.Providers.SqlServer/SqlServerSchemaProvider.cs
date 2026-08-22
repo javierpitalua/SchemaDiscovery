@@ -1,8 +1,8 @@
 using System.Data;
 using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Logging;
-using SchemaDiscovery.Abstractions;
-using SchemaDiscovery.Abstractions.Models;
+using SchemaDiscovery;
+using SchemaDiscovery.Models;
 
 namespace SchemaDiscovery.Providers.SqlServer;
 
