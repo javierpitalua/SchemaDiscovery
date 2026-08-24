@@ -13,6 +13,6 @@
   "Name": "rpt_SuscriptoresActivos_ObtenerSuscriptoresActivosPorMembresia",
   "ObjectType": "StoredProcedure",
   "DatabaseProvider": "sqlserver",
-  "ScannedAtUtc": "2026-08-21T18:10:57.4653273+00:00",
+  "ScannedAtUtc": "2026-08-24T18:47:44.7100091+00:00",
   "QualifiedName": "dbo.rpt_SuscriptoresActivos_ObtenerSuscriptoresActivosPorMembresia"
 }

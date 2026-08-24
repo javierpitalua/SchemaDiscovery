@@ -7,6 +7,6 @@ public sealed class SqlServerProviderFactory : IDatabaseSchemaProviderFactory
 {
     public string ProviderName => "sqlserver";
 
-    public IDatabaseSchemaProvider Create(string connectionString, ILoggerFactory loggerFactory)
-        => new SqlServerSchemaProvider(connectionString, loggerFactory);
+    public IDatabaseSchemaProvider Create(string connectionString, ILoggerFactory loggerFactory, CultureLanguages culture)
+        => new SqlServerSchemaProvider(connectionString, loggerFactory, culture);
 }

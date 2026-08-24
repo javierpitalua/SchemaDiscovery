@@ -17,15 +17,19 @@ public sealed class SqlServerSchemaProvider : IDatabaseSchemaProvider
 
     private readonly string _connectionString;
     private readonly ILogger<SqlServerSchemaProvider> _logger;
+    private readonly IHumanizer _humanizer;
+    private readonly CultureLanguages _culture;
     private SqlConnection? _connection;
 
-    public SqlServerSchemaProvider(string connectionString, ILoggerFactory loggerFactory)
+    public SqlServerSchemaProvider(string connectionString, ILoggerFactory loggerFactory, CultureLanguages culture)
     {
         if (string.IsNullOrWhiteSpace(connectionString))
             throw new ArgumentException("Connection string must not be empty.", nameof(connectionString));
 
         _connectionString = connectionString;
         _logger = loggerFactory.CreateLogger<SqlServerSchemaProvider>();
+        _humanizer = new Humanizer();
+        _culture = culture;
     }
 
     private async Task<SqlConnection> GetOpenConnectionAsync(CancellationToken cancellationToken)
@@ -84,7 +88,8 @@ public sealed class SqlServerSchemaProvider : IDatabaseSchemaProvider
             {
                 Schema = tableRef.Schema,
                 ClassName = tableRef.Name,
-                PluralClassName = tableRef.Name,
+                PluralClassName = _humanizer.ToPluralCase(tableRef.Name, _culture),
+               
                 Name = tableRef.Name,
                 DatabaseProvider = ProviderName,
                 RowCountEstimate = tableRef.RowCount

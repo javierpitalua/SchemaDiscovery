@@ -41,6 +41,6 @@
   "Name": "rpt_Membresia_Index",
   "ObjectType": "StoredProcedure",
   "DatabaseProvider": "sqlserver",
-  "ScannedAtUtc": "2026-08-21T18:10:57.4574868+00:00",
+  "ScannedAtUtc": "2026-08-24T18:47:44.6858702+00:00",
   "QualifiedName": "dbo.rpt_Membresia_Index"
 }

@@ -13,6 +13,6 @@
   "Name": "rpt_AvisoFotos_ObtenerListadoImagenes",
   "ObjectType": "StoredProcedure",
   "DatabaseProvider": "sqlserver",
-  "ScannedAtUtc": "2026-08-21T18:10:57.4475122+00:00",
+  "ScannedAtUtc": "2026-08-24T18:47:44.6578278+00:00",
   "QualifiedName": "dbo.rpt_AvisoFotos_ObtenerListadoImagenes"
 }

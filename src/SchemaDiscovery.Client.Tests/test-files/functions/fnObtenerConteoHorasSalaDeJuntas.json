@@ -21,6 +21,6 @@
   "Name": "fnObtenerConteoHorasSalaDeJuntas",
   "ObjectType": "Function",
   "DatabaseProvider": "sqlserver",
-  "ScannedAtUtc": "2026-08-21T18:10:58.9902604+00:00",
+  "ScannedAtUtc": "2026-08-24T18:47:46.1548026+00:00",
   "QualifiedName": "dbo.fnObtenerConteoHorasSalaDeJuntas"
 }

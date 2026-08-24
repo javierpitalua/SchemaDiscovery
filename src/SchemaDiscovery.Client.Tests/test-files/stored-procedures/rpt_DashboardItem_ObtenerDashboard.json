@@ -20,6 +20,6 @@
   "Name": "rpt_DashboardItem_ObtenerDashboard",
   "ObjectType": "StoredProcedure",
   "DatabaseProvider": "sqlserver",
-  "ScannedAtUtc": "2026-08-21T18:10:57.4514522+00:00",
+  "ScannedAtUtc": "2026-08-24T18:47:44.6768485+00:00",
   "QualifiedName": "dbo.rpt_DashboardItem_ObtenerDashboard"
 }

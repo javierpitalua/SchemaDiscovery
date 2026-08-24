@@ -16,7 +16,8 @@
       "IsIdentity": true,
       "IsComputed": false,
       "IsPrimaryKey": true,
-      "PropertyName": "Id"
+      "PropertyName": "Id",
+      "Description": ""
     },
     {
       "OrdinalPosition": 2,
@@ -27,7 +28,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Clave"
+      "PropertyName": "Clave",
+      "Description": ""
     },
     {
       "OrdinalPosition": 3,
@@ -38,7 +40,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Archivo_Id"
+      "PropertyName": "Archivo_Id",
+      "Description": ""
     },
     {
       "OrdinalPosition": 4,
@@ -49,7 +52,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Fecha"
+      "PropertyName": "Fecha",
+      "Description": ""
     }
   ],
   "PrimaryKeyColumns": [
@@ -67,6 +71,6 @@
       ]
     }
   ],
-  "ScannedAtUtc": "2026-08-21T18:10:55.8958476+00:00",
+  "ScannedAtUtc": "2026-08-24T18:47:42.5082773+00:00",
   "RowCountEstimate": 841
 }

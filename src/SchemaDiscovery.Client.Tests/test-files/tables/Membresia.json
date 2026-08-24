@@ -16,7 +16,8 @@
       "IsIdentity": true,
       "IsComputed": false,
       "IsPrimaryKey": true,
-      "PropertyName": "Id"
+      "PropertyName": "Id",
+      "Description": ""
     },
     {
       "OrdinalPosition": 2,
@@ -27,7 +28,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "ClaveMembresia"
+      "PropertyName": "ClaveMembresia",
+      "Description": ""
     },
     {
       "OrdinalPosition": 3,
@@ -38,7 +40,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Comunidad_Id"
+      "PropertyName": "Comunidad_Id",
+      "Description": ""
     },
     {
       "OrdinalPosition": 4,
@@ -49,7 +52,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "TipoMembresia_Id"
+      "PropertyName": "TipoMembresia_Id",
+      "Description": ""
     },
     {
       "OrdinalPosition": 5,
@@ -62,7 +66,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "PrecioMensual"
+      "PropertyName": "PrecioMensual",
+      "Description": ""
     },
     {
       "OrdinalPosition": 6,
@@ -73,7 +78,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "EstatusMembresia_Id"
+      "PropertyName": "EstatusMembresia_Id",
+      "Description": ""
     },
     {
       "OrdinalPosition": 7,
@@ -84,7 +90,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "FechaInicio"
+      "PropertyName": "FechaInicio",
+      "Description": ""
     },
     {
       "OrdinalPosition": 8,
@@ -95,7 +102,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Vigencia"
+      "PropertyName": "Vigencia",
+      "Description": ""
     },
     {
       "OrdinalPosition": 9,
@@ -106,7 +114,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "InformacionFacturacion_Id"
+      "PropertyName": "InformacionFacturacion_Id",
+      "Description": ""
     },
     {
       "OrdinalPosition": 10,
@@ -117,7 +126,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "TipoDeCambio_Id"
+      "PropertyName": "TipoDeCambio_Id",
+      "Description": ""
     },
     {
       "OrdinalPosition": 11,
@@ -128,7 +138,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "FechaCreacion"
+      "PropertyName": "FechaCreacion",
+      "Description": ""
     },
     {
       "OrdinalPosition": 12,
@@ -139,7 +150,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "CreadoPor"
+      "PropertyName": "CreadoPor",
+      "Description": ""
     },
     {
       "OrdinalPosition": 13,
@@ -150,7 +162,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "FechaModificacion"
+      "PropertyName": "FechaModificacion",
+      "Description": ""
     },
     {
       "OrdinalPosition": 14,
@@ -161,7 +174,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "ModificadoPor"
+      "PropertyName": "ModificadoPor",
+      "Description": ""
     },
     {
       "OrdinalPosition": 15,
@@ -172,7 +186,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Activo"
+      "PropertyName": "Activo",
+      "Description": ""
     },
     {
       "OrdinalPosition": 16,
@@ -183,7 +198,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "FechaDesactivacion"
+      "PropertyName": "FechaDesactivacion",
+      "Description": ""
     },
     {
       "OrdinalPosition": 17,
@@ -194,7 +210,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "DesactivadoPor"
+      "PropertyName": "DesactivadoPor",
+      "Description": ""
     },
     {
       "OrdinalPosition": 18,
@@ -205,7 +222,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Espacio_Id"
+      "PropertyName": "Espacio_Id",
+      "Description": ""
     },
     {
       "OrdinalPosition": 19,
@@ -216,7 +234,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "MetodoDePago_Id"
+      "PropertyName": "MetodoDePago_Id",
+      "Description": ""
     },
     {
       "OrdinalPosition": 20,
@@ -226,7 +245,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Observaciones"
+      "PropertyName": "Observaciones",
+      "Description": ""
     },
     {
       "OrdinalPosition": 21,
@@ -237,7 +257,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "DeshabilitarFacturacionAutomatica"
+      "PropertyName": "DeshabilitarFacturacionAutomatica",
+      "Description": ""
     },
     {
       "OrdinalPosition": 22,
@@ -248,7 +269,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "FacturarAPartirDe"
+      "PropertyName": "FacturarAPartirDe",
+      "Description": ""
     },
     {
       "OrdinalPosition": 23,
@@ -259,7 +281,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "RequiereFactura"
+      "PropertyName": "RequiereFactura",
+      "Description": ""
     },
     {
       "OrdinalPosition": 24,
@@ -270,7 +293,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Vendedor_Id"
+      "PropertyName": "Vendedor_Id",
+      "Description": ""
     },
     {
       "OrdinalPosition": 25,
@@ -281,7 +305,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "EsPagoDomiciliado"
+      "PropertyName": "EsPagoDomiciliado",
+      "Description": ""
     },
     {
       "OrdinalPosition": 26,
@@ -292,7 +317,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "DeshabilitarReservaciones"
+      "PropertyName": "DeshabilitarReservaciones",
+      "Description": ""
     }
   ],
   "PrimaryKeyColumns": [
@@ -329,6 +355,6 @@
       ]
     }
   ],
-  "ScannedAtUtc": "2026-08-21T18:10:55.9181881+00:00",
+  "ScannedAtUtc": "2026-08-24T18:47:42.5516123+00:00",
   "RowCountEstimate": 2172
 }

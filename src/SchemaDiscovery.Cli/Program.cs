@@ -1,4 +1,5 @@
 using Microsoft.Extensions.Logging;
+using SchemaDiscovery;
 using SchemaDiscovery.Cli;
 
 CommandLineOptions options;
@@ -46,7 +47,14 @@ try
 {
     logger.LogInformation("Starting schema scan using provider '{Provider}'.", options.Provider);
 
-    await using var provider = providerFactory.Create(options.Provider, options.ConnectionString, loggerFactory);
+    var culture = options.Language switch
+    {
+        "en" => CultureLanguages.English,
+        "es" => CultureLanguages.Spanish,
+        _ => throw new NotSupportedException($"Unsupported language '{options.Language}'.")
+    };
+
+    await using var provider = providerFactory.Create(options.Provider, options.ConnectionString, loggerFactory, culture);
 
     var exportService = new SchemaExportService(loggerFactory.CreateLogger<SchemaExportService>());
     var outputPath = Path.GetFullPath(options.OutputDirectory);
@@ -57,6 +65,7 @@ try
         options.SkipViews,
         options.SkipProcedures,
         options.SkipFunctions,
+        options.Language,   
         CancellationToken.None);
 
     logger.LogInformation("Done. Exported {Count} object(s) to '{Output}'.", count, outputPath);

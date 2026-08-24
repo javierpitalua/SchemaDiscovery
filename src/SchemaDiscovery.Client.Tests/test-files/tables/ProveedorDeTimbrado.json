@@ -16,7 +16,8 @@
       "IsIdentity": true,
       "IsComputed": false,
       "IsPrimaryKey": true,
-      "PropertyName": "Id"
+      "PropertyName": "Id",
+      "Description": ""
     },
     {
       "OrdinalPosition": 2,
@@ -27,7 +28,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Nombre"
+      "PropertyName": "Nombre",
+      "Description": ""
     },
     {
       "OrdinalPosition": 3,
@@ -38,7 +40,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "RFCEmisor"
+      "PropertyName": "RFCEmisor",
+      "Description": ""
     },
     {
       "OrdinalPosition": 4,
@@ -49,7 +52,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "NombreUsuario"
+      "PropertyName": "NombreUsuario",
+      "Description": ""
     },
     {
       "OrdinalPosition": 5,
@@ -60,7 +64,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Password"
+      "PropertyName": "Password",
+      "Description": ""
     },
     {
       "OrdinalPosition": 6,
@@ -71,7 +76,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "ClaveRegimenEmisor"
+      "PropertyName": "ClaveRegimenEmisor",
+      "Description": ""
     },
     {
       "OrdinalPosition": 7,
@@ -82,7 +88,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "SerieEmisor"
+      "PropertyName": "SerieEmisor",
+      "Description": ""
     },
     {
       "OrdinalPosition": 8,
@@ -93,7 +100,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "CpEmisor"
+      "PropertyName": "CpEmisor",
+      "Description": ""
     },
     {
       "OrdinalPosition": 9,
@@ -104,7 +112,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "RazonSocialEmisor"
+      "PropertyName": "RazonSocialEmisor",
+      "Description": ""
     },
     {
       "OrdinalPosition": 10,
@@ -115,7 +124,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "ClavePlantillaCorreoFactura"
+      "PropertyName": "ClavePlantillaCorreoFactura",
+      "Description": ""
     },
     {
       "OrdinalPosition": 11,
@@ -126,7 +136,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "XApiKey"
+      "PropertyName": "XApiKey",
+      "Description": ""
     }
   ],
   "PrimaryKeyColumns": [
@@ -144,6 +155,6 @@
       ]
     }
   ],
-  "ScannedAtUtc": "2026-08-21T18:10:55.940457+00:00",
+  "ScannedAtUtc": "2026-08-24T18:47:42.5867088+00:00",
   "RowCountEstimate": 2
 }

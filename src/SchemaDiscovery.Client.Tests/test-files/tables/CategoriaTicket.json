@@ -16,7 +16,8 @@
       "IsIdentity": true,
       "IsComputed": false,
       "IsPrimaryKey": true,
-      "PropertyName": "Id"
+      "PropertyName": "Id",
+      "Description": ""
     },
     {
       "OrdinalPosition": 2,
@@ -27,7 +28,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Nombre"
+      "PropertyName": "Nombre",
+      "Description": ""
     },
     {
       "OrdinalPosition": 3,
@@ -37,7 +39,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Descripcion"
+      "PropertyName": "Descripcion",
+      "Description": ""
     }
   ],
   "PrimaryKeyColumns": [
@@ -55,6 +58,6 @@
       ]
     }
   ],
-  "ScannedAtUtc": "2026-08-21T18:10:55.8701504+00:00",
+  "ScannedAtUtc": "2026-08-24T18:47:42.4562733+00:00",
   "RowCountEstimate": 9
 }

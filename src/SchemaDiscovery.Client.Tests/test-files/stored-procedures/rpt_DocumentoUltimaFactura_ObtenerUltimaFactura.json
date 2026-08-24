@@ -13,6 +13,6 @@
   "Name": "rpt_DocumentoUltimaFactura_ObtenerUltimaFactura",
   "ObjectType": "StoredProcedure",
   "DatabaseProvider": "sqlserver",
-  "ScannedAtUtc": "2026-08-21T18:10:57.4528614+00:00",
+  "ScannedAtUtc": "2026-08-24T18:47:44.6787279+00:00",
   "QualifiedName": "dbo.rpt_DocumentoUltimaFactura_ObtenerUltimaFactura"
 }

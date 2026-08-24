@@ -13,6 +13,6 @@
   "Name": "rpt_ReservacionEstacionDeTrabajo_ObtenerPorSubscriptor",
   "ObjectType": "StoredProcedure",
   "DatabaseProvider": "sqlserver",
-  "ScannedAtUtc": "2026-08-21T18:10:57.4639466+00:00",
+  "ScannedAtUtc": "2026-08-24T18:47:44.70802+00:00",
   "QualifiedName": "dbo.rpt_ReservacionEstacionDeTrabajo_ObtenerPorSubscriptor"
 }

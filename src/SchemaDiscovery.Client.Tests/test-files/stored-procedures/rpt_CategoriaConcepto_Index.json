@@ -13,6 +13,6 @@
   "Name": "rpt_CategoriaConcepto_Index",
   "ObjectType": "StoredProcedure",
   "DatabaseProvider": "sqlserver",
-  "ScannedAtUtc": "2026-08-21T18:10:57.4492679+00:00",
+  "ScannedAtUtc": "2026-08-24T18:47:44.6725024+00:00",
   "QualifiedName": "dbo.rpt_CategoriaConcepto_Index"
 }

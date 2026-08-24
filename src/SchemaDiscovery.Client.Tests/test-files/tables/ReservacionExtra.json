@@ -16,7 +16,8 @@
       "IsIdentity": true,
       "IsComputed": false,
       "IsPrimaryKey": true,
-      "PropertyName": "Id"
+      "PropertyName": "Id",
+      "Description": ""
     },
     {
       "OrdinalPosition": 2,
@@ -27,7 +28,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Reservacion_Id"
+      "PropertyName": "Reservacion_Id",
+      "Description": ""
     },
     {
       "OrdinalPosition": 3,
@@ -38,7 +40,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "ConceptoFacturable_Id"
+      "PropertyName": "ConceptoFacturable_Id",
+      "Description": ""
     },
     {
       "OrdinalPosition": 4,
@@ -50,7 +53,8 @@
       "IsComputed": false,
       "IsPrimaryKey": false,
       "DefaultValue": "((1))",
-      "PropertyName": "Cantidad"
+      "PropertyName": "Cantidad",
+      "Description": ""
     },
     {
       "OrdinalPosition": 5,
@@ -61,7 +65,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "FechaCreacion"
+      "PropertyName": "FechaCreacion",
+      "Description": ""
     },
     {
       "OrdinalPosition": 6,
@@ -72,7 +77,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "CreadoPor"
+      "PropertyName": "CreadoPor",
+      "Description": ""
     },
     {
       "OrdinalPosition": 7,
@@ -83,7 +89,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "FechaModificacion"
+      "PropertyName": "FechaModificacion",
+      "Description": ""
     },
     {
       "OrdinalPosition": 8,
@@ -94,7 +101,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "ModificadoPor"
+      "PropertyName": "ModificadoPor",
+      "Description": ""
     },
     {
       "OrdinalPosition": 9,
@@ -105,7 +113,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Activo"
+      "PropertyName": "Activo",
+      "Description": ""
     },
     {
       "OrdinalPosition": 10,
@@ -116,7 +125,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "FechaDesactivacion"
+      "PropertyName": "FechaDesactivacion",
+      "Description": ""
     },
     {
       "OrdinalPosition": 11,
@@ -127,7 +137,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "DesactivadoPor"
+      "PropertyName": "DesactivadoPor",
+      "Description": ""
     }
   ],
   "PrimaryKeyColumns": [
@@ -164,6 +175,6 @@
       ]
     }
   ],
-  "ScannedAtUtc": "2026-08-21T18:10:55.9568736+00:00",
+  "ScannedAtUtc": "2026-08-24T18:47:42.6269535+00:00",
   "RowCountEstimate": 0
 }

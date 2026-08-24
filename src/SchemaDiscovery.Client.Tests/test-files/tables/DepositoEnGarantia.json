@@ -16,7 +16,8 @@
       "IsIdentity": true,
       "IsComputed": false,
       "IsPrimaryKey": true,
-      "PropertyName": "Id"
+      "PropertyName": "Id",
+      "Description": ""
     },
     {
       "OrdinalPosition": 2,
@@ -27,7 +28,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Membresia_Id"
+      "PropertyName": "Membresia_Id",
+      "Description": ""
     },
     {
       "OrdinalPosition": 3,
@@ -38,7 +40,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "CuentaReceptora_Id"
+      "PropertyName": "CuentaReceptora_Id",
+      "Description": ""
     },
     {
       "OrdinalPosition": 4,
@@ -51,7 +54,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Monto"
+      "PropertyName": "Monto",
+      "Description": ""
     },
     {
       "OrdinalPosition": 5,
@@ -62,7 +66,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "FechaCarga"
+      "PropertyName": "FechaCarga",
+      "Description": ""
     },
     {
       "OrdinalPosition": 6,
@@ -73,7 +78,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Archivo_Id"
+      "PropertyName": "Archivo_Id",
+      "Description": ""
     },
     {
       "OrdinalPosition": 7,
@@ -84,7 +90,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Comentario"
+      "PropertyName": "Comentario",
+      "Description": ""
     },
     {
       "OrdinalPosition": 8,
@@ -95,7 +102,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "FechaCreacion"
+      "PropertyName": "FechaCreacion",
+      "Description": ""
     },
     {
       "OrdinalPosition": 9,
@@ -106,7 +114,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "CreadoPor"
+      "PropertyName": "CreadoPor",
+      "Description": ""
     },
     {
       "OrdinalPosition": 10,
@@ -117,7 +126,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "FechaModificacion"
+      "PropertyName": "FechaModificacion",
+      "Description": ""
     },
     {
       "OrdinalPosition": 11,
@@ -128,7 +138,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "ModificadoPor"
+      "PropertyName": "ModificadoPor",
+      "Description": ""
     },
     {
       "OrdinalPosition": 12,
@@ -139,7 +150,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Activo"
+      "PropertyName": "Activo",
+      "Description": ""
     },
     {
       "OrdinalPosition": 13,
@@ -150,7 +162,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "FechaDesactivacion"
+      "PropertyName": "FechaDesactivacion",
+      "Description": ""
     },
     {
       "OrdinalPosition": 14,
@@ -161,7 +174,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "DesactivadoPor"
+      "PropertyName": "DesactivadoPor",
+      "Description": ""
     }
   ],
   "PrimaryKeyColumns": [
@@ -179,6 +193,6 @@
       ]
     }
   ],
-  "ScannedAtUtc": "2026-08-21T18:10:55.8845798+00:00",
+  "ScannedAtUtc": "2026-08-24T18:47:42.4811167+00:00",
   "RowCountEstimate": 5
 }

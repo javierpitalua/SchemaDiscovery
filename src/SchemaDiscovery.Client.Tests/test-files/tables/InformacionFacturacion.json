@@ -16,7 +16,8 @@
       "IsIdentity": true,
       "IsComputed": false,
       "IsPrimaryKey": true,
-      "PropertyName": "Id"
+      "PropertyName": "Id",
+      "Description": ""
     },
     {
       "OrdinalPosition": 2,
@@ -27,7 +28,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "RazonSocial"
+      "PropertyName": "RazonSocial",
+      "Description": ""
     },
     {
       "OrdinalPosition": 3,
@@ -38,7 +40,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "NombreFiscal"
+      "PropertyName": "NombreFiscal",
+      "Description": ""
     },
     {
       "OrdinalPosition": 4,
@@ -49,7 +52,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Giro_Id"
+      "PropertyName": "Giro_Id",
+      "Description": ""
     },
     {
       "OrdinalPosition": 5,
@@ -60,7 +64,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "RFC"
+      "PropertyName": "RFC",
+      "Description": ""
     },
     {
       "OrdinalPosition": 6,
@@ -71,7 +76,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Calle"
+      "PropertyName": "Calle",
+      "Description": ""
     },
     {
       "OrdinalPosition": 7,
@@ -82,7 +88,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "NumeroInterior"
+      "PropertyName": "NumeroInterior",
+      "Description": ""
     },
     {
       "OrdinalPosition": 8,
@@ -93,7 +100,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "NumeroExterior"
+      "PropertyName": "NumeroExterior",
+      "Description": ""
     },
     {
       "OrdinalPosition": 9,
@@ -104,7 +112,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Colonia"
+      "PropertyName": "Colonia",
+      "Description": ""
     },
     {
       "OrdinalPosition": 10,
@@ -115,7 +124,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Municipio"
+      "PropertyName": "Municipio",
+      "Description": ""
     },
     {
       "OrdinalPosition": 11,
@@ -126,7 +136,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Estado"
+      "PropertyName": "Estado",
+      "Description": ""
     },
     {
       "OrdinalPosition": 12,
@@ -137,7 +148,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "CP"
+      "PropertyName": "CP",
+      "Description": ""
     },
     {
       "OrdinalPosition": 13,
@@ -148,7 +160,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Pais"
+      "PropertyName": "Pais",
+      "Description": ""
     },
     {
       "OrdinalPosition": 14,
@@ -159,7 +172,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "NumeroTelefono"
+      "PropertyName": "NumeroTelefono",
+      "Description": ""
     },
     {
       "OrdinalPosition": 15,
@@ -170,7 +184,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "CorreoElectronico"
+      "PropertyName": "CorreoElectronico",
+      "Description": ""
     },
     {
       "OrdinalPosition": 16,
@@ -181,7 +196,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "RegimenFiscal_Id"
+      "PropertyName": "RegimenFiscal_Id",
+      "Description": ""
     },
     {
       "OrdinalPosition": 17,
@@ -192,7 +208,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "UsoDelCfdi_Id"
+      "PropertyName": "UsoDelCfdi_Id",
+      "Description": ""
     }
   ],
   "PrimaryKeyColumns": [
@@ -210,6 +227,6 @@
       ]
     }
   ],
-  "ScannedAtUtc": "2026-08-21T18:10:55.9152853+00:00",
+  "ScannedAtUtc": "2026-08-24T18:47:42.542183+00:00",
   "RowCountEstimate": 2141
 }

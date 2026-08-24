@@ -30,7 +30,7 @@ public sealed class ProviderFactory
 
     public IReadOnlyCollection<string> SupportedProviders => _factories.Keys;
 
-    public IDatabaseSchemaProvider Create(string providerName, string connectionString, ILoggerFactory loggerFactory)
+    public IDatabaseSchemaProvider Create(string providerName, string connectionString, ILoggerFactory loggerFactory, CultureLanguages culture)
     {
         if (!_factories.TryGetValue(providerName, out var factory))
         {
@@ -38,6 +38,6 @@ public sealed class ProviderFactory
                 $"Provider '{providerName}' is not registered. Supported providers: {string.Join(", ", SupportedProviders)}.");
         }
 
-        return factory.Create(connectionString, loggerFactory);
+        return factory.Create(connectionString, loggerFactory, culture);
     }
 }

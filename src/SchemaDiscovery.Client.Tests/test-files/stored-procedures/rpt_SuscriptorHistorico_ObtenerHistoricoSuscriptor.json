@@ -13,6 +13,6 @@
   "Name": "rpt_SuscriptorHistorico_ObtenerHistoricoSuscriptor",
   "ObjectType": "StoredProcedure",
   "DatabaseProvider": "sqlserver",
-  "ScannedAtUtc": "2026-08-21T18:10:57.465457+00:00",
+  "ScannedAtUtc": "2026-08-24T18:47:44.7101598+00:00",
   "QualifiedName": "dbo.rpt_SuscriptorHistorico_ObtenerHistoricoSuscriptor"
 }

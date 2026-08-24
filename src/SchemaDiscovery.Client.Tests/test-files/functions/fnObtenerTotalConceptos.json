@@ -14,6 +14,6 @@
   "Name": "fnObtenerTotalConceptos",
   "ObjectType": "Function",
   "DatabaseProvider": "sqlserver",
-  "ScannedAtUtc": "2026-08-21T18:10:58.9923015+00:00",
+  "ScannedAtUtc": "2026-08-24T18:47:46.1565018+00:00",
   "QualifiedName": "dbo.fnObtenerTotalConceptos"
 }

@@ -27,6 +27,6 @@
   "Name": "rpt_ReporteDashboard_ObtenerReporteDashboard",
   "ObjectType": "StoredProcedure",
   "DatabaseProvider": "sqlserver",
-  "ScannedAtUtc": "2026-08-21T18:10:57.4619186+00:00",
+  "ScannedAtUtc": "2026-08-24T18:47:44.706586+00:00",
   "QualifiedName": "dbo.rpt_ReporteDashboard_ObtenerReporteDashboard"
 }

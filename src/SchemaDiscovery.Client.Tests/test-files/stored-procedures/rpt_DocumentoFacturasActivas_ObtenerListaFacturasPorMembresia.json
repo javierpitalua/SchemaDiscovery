@@ -13,6 +13,6 @@
   "Name": "rpt_DocumentoFacturasActivas_ObtenerListaFacturasPorMembresia",
   "ObjectType": "StoredProcedure",
   "DatabaseProvider": "sqlserver",
-  "ScannedAtUtc": "2026-08-21T18:10:57.4525905+00:00",
+  "ScannedAtUtc": "2026-08-24T18:47:44.6783208+00:00",
   "QualifiedName": "dbo.rpt_DocumentoFacturasActivas_ObtenerListaFacturasPorMembresia"
 }

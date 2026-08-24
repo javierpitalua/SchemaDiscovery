@@ -16,7 +16,8 @@
       "IsIdentity": true,
       "IsComputed": false,
       "IsPrimaryKey": true,
-      "PropertyName": "Id"
+      "PropertyName": "Id",
+      "Description": ""
     },
     {
       "OrdinalPosition": 2,
@@ -27,7 +28,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Membresia_Id"
+      "PropertyName": "Membresia_Id",
+      "Description": ""
     },
     {
       "OrdinalPosition": 3,
@@ -40,7 +42,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "MontoUtilizado"
+      "PropertyName": "MontoUtilizado",
+      "Description": ""
     },
     {
       "OrdinalPosition": 4,
@@ -53,7 +56,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "MontoMaximo"
+      "PropertyName": "MontoMaximo",
+      "Description": ""
     },
     {
       "OrdinalPosition": 5,
@@ -66,7 +70,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "BalanceActual"
+      "PropertyName": "BalanceActual",
+      "Description": ""
     }
   ],
   "PrimaryKeyColumns": [
@@ -84,6 +89,6 @@
       ]
     }
   ],
-  "ScannedAtUtc": "2026-08-21T18:10:55.8636619+00:00",
+  "ScannedAtUtc": "2026-08-24T18:47:42.4432218+00:00",
   "RowCountEstimate": 331
 }

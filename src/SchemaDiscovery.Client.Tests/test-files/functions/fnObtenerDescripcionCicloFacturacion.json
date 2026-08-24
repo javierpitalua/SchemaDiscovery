@@ -14,6 +14,6 @@
   "Name": "fnObtenerDescripcionCicloFacturacion",
   "ObjectType": "Function",
   "DatabaseProvider": "sqlserver",
-  "ScannedAtUtc": "2026-08-21T18:10:58.9907458+00:00",
+  "ScannedAtUtc": "2026-08-24T18:47:46.1553599+00:00",
   "QualifiedName": "dbo.fnObtenerDescripcionCicloFacturacion"
 }

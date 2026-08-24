@@ -5,6 +5,7 @@ public sealed class CommandLineOptions
     public string ConnectionString { get; private set; } = string.Empty;
     public string Provider { get; private set; } = "sqlserver";
     public string OutputDirectory { get; private set; } = "./schema-output";
+    public string Language { get; private set; } = "en";
     public bool Verbose { get; private set; }
     public bool SkipViews { get; private set; }
     public bool SkipProcedures { get; private set; }
@@ -33,6 +34,14 @@ public sealed class CommandLineOptions
                 case "-o":
                 case "--output":
                     options.OutputDirectory = RequireValue(args, ref i, arg);
+                    break;
+
+                case "-l":
+                case "--language":
+                    var language = RequireValue(args, ref i, arg).ToLowerInvariant();
+                    if (language is not ("en" or "es"))
+                        throw new ArgumentException($"Invalid value '{language}' for argument '{arg}'. Allowed values are 'en' or 'es'.");
+                    options.Language = language;
                     break;
 
                 case "-v":
@@ -86,6 +95,7 @@ public sealed class CommandLineOptions
               -c, --connection-string <value>   Database connection string (required)
               -p, --provider <value>            Database provider. Default: sqlserver
               -o, --output <path>               Output folder for JSON files. Default: ./schema-output
+              -l, --language <en|es>            Output language. Default: en
               -v, --verbose                     Enable verbose (debug) logging
                   --skip-views                  Do not export views
                   --skip-procedures             Do not export stored procedures

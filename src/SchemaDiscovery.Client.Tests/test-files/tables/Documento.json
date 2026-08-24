@@ -16,7 +16,8 @@
       "IsIdentity": true,
       "IsComputed": false,
       "IsPrimaryKey": true,
-      "PropertyName": "Id"
+      "PropertyName": "Id",
+      "Description": ""
     },
     {
       "OrdinalPosition": 2,
@@ -27,7 +28,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Folio"
+      "PropertyName": "Folio",
+      "Description": ""
     },
     {
       "OrdinalPosition": 3,
@@ -38,7 +40,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Membresia_Id"
+      "PropertyName": "Membresia_Id",
+      "Description": ""
     },
     {
       "OrdinalPosition": 4,
@@ -49,7 +52,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "CicloDeFacturacion_Id"
+      "PropertyName": "CicloDeFacturacion_Id",
+      "Description": ""
     },
     {
       "OrdinalPosition": 5,
@@ -60,7 +64,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "InformacionFacturacion_Id"
+      "PropertyName": "InformacionFacturacion_Id",
+      "Description": ""
     },
     {
       "OrdinalPosition": 6,
@@ -71,7 +76,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "TipoDocumento_Id"
+      "PropertyName": "TipoDocumento_Id",
+      "Description": ""
     },
     {
       "OrdinalPosition": 7,
@@ -82,7 +88,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "CategoriaDocumento_Id"
+      "PropertyName": "CategoriaDocumento_Id",
+      "Description": ""
     },
     {
       "OrdinalPosition": 8,
@@ -95,7 +102,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "MontoTotal"
+      "PropertyName": "MontoTotal",
+      "Description": ""
     },
     {
       "OrdinalPosition": 9,
@@ -108,7 +116,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "IVA"
+      "PropertyName": "IVA",
+      "Description": ""
     },
     {
       "OrdinalPosition": 10,
@@ -119,7 +128,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "EstatusDocumento_Id"
+      "PropertyName": "EstatusDocumento_Id",
+      "Description": ""
     },
     {
       "OrdinalPosition": 11,
@@ -130,7 +140,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "FechaEmision"
+      "PropertyName": "FechaEmision",
+      "Description": ""
     },
     {
       "OrdinalPosition": 12,
@@ -141,7 +152,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "FechaPagoProgramado"
+      "PropertyName": "FechaPagoProgramado",
+      "Description": ""
     },
     {
       "OrdinalPosition": 13,
@@ -152,7 +164,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "FechaPago"
+      "PropertyName": "FechaPago",
+      "Description": ""
     },
     {
       "OrdinalPosition": 14,
@@ -163,7 +176,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Pagado"
+      "PropertyName": "Pagado",
+      "Description": ""
     },
     {
       "OrdinalPosition": 15,
@@ -176,7 +190,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "MontoPagado"
+      "PropertyName": "MontoPagado",
+      "Description": ""
     },
     {
       "OrdinalPosition": 16,
@@ -187,7 +202,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Comunidad_Id"
+      "PropertyName": "Comunidad_Id",
+      "Description": ""
     },
     {
       "OrdinalPosition": 17,
@@ -198,7 +214,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "TipoDeCambio_Id"
+      "PropertyName": "TipoDeCambio_Id",
+      "Description": ""
     },
     {
       "OrdinalPosition": 18,
@@ -209,7 +226,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Timbrable"
+      "PropertyName": "Timbrable",
+      "Description": ""
     },
     {
       "OrdinalPosition": 19,
@@ -220,7 +238,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Timbrado"
+      "PropertyName": "Timbrado",
+      "Description": ""
     },
     {
       "OrdinalPosition": 20,
@@ -231,7 +250,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "FechaDeTimbrado"
+      "PropertyName": "FechaDeTimbrado",
+      "Description": ""
     },
     {
       "OrdinalPosition": 21,
@@ -242,7 +262,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "FechaCreacion"
+      "PropertyName": "FechaCreacion",
+      "Description": ""
     },
     {
       "OrdinalPosition": 22,
@@ -253,7 +274,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "CreadoPor"
+      "PropertyName": "CreadoPor",
+      "Description": ""
     },
     {
       "OrdinalPosition": 23,
@@ -264,7 +286,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "FechaModificacion"
+      "PropertyName": "FechaModificacion",
+      "Description": ""
     },
     {
       "OrdinalPosition": 24,
@@ -275,7 +298,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "ModificadoPor"
+      "PropertyName": "ModificadoPor",
+      "Description": ""
     },
     {
       "OrdinalPosition": 25,
@@ -286,7 +310,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Activo"
+      "PropertyName": "Activo",
+      "Description": ""
     },
     {
       "OrdinalPosition": 26,
@@ -297,7 +322,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "FechaDesactivacion"
+      "PropertyName": "FechaDesactivacion",
+      "Description": ""
     },
     {
       "OrdinalPosition": 27,
@@ -308,7 +334,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "DesactivadoPor"
+      "PropertyName": "DesactivadoPor",
+      "Description": ""
     },
     {
       "OrdinalPosition": 28,
@@ -319,7 +346,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "GeneracionAutomatica"
+      "PropertyName": "GeneracionAutomatica",
+      "Description": ""
     },
     {
       "OrdinalPosition": 29,
@@ -330,7 +358,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "TimbreUUID"
+      "PropertyName": "TimbreUUID",
+      "Description": ""
     },
     {
       "OrdinalPosition": 30,
@@ -341,7 +370,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "NotificacionEnviada"
+      "PropertyName": "NotificacionEnviada",
+      "Description": ""
     },
     {
       "OrdinalPosition": 31,
@@ -352,7 +382,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "VersionCFDI"
+      "PropertyName": "VersionCFDI",
+      "Description": ""
     },
     {
       "OrdinalPosition": 32,
@@ -363,7 +394,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "MetodoDePago_Id"
+      "PropertyName": "MetodoDePago_Id",
+      "Description": ""
     },
     {
       "OrdinalPosition": 33,
@@ -374,7 +406,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "MetodoDePagoSAT_Id"
+      "PropertyName": "MetodoDePagoSAT_Id",
+      "Description": ""
     },
     {
       "OrdinalPosition": 34,
@@ -385,7 +418,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "FormaDePagoSAT_Id"
+      "PropertyName": "FormaDePagoSAT_Id",
+      "Description": ""
     },
     {
       "OrdinalPosition": 35,
@@ -396,7 +430,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "UsoDelCfdi_Id"
+      "PropertyName": "UsoDelCfdi_Id",
+      "Description": ""
     },
     {
       "OrdinalPosition": 36,
@@ -407,7 +442,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "ConteoParcialidad"
+      "PropertyName": "ConteoParcialidad",
+      "Description": ""
     }
   ],
   "PrimaryKeyColumns": [
@@ -425,6 +461,6 @@
       ]
     }
   ],
-  "ScannedAtUtc": "2026-08-21T18:10:55.8867086+00:00",
+  "ScannedAtUtc": "2026-08-24T18:47:42.4887058+00:00",
   "RowCountEstimate": 39399
 }

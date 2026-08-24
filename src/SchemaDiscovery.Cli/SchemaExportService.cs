@@ -63,10 +63,18 @@ public sealed class SchemaExportService
         bool skipViews,
         bool skipProcedures,
         bool skipFunctions,
+        string language,
         CancellationToken cancellationToken)
     {
         Directory.CreateDirectory(outputDirectory);
         var exportedCount = 0;
+
+        var lang = language.ToLowerInvariant() switch
+        {
+            "en" => CultureLanguages.English,
+            "es" => CultureLanguages.Spanish,
+            _ => throw new ArgumentOutOfRangeException(nameof(language), language, "Language must be 'en' or 'es'.")
+        };  
 
         var tables = await provider.GetTablesAsync(cancellationToken);
         foreach (var table in tables)

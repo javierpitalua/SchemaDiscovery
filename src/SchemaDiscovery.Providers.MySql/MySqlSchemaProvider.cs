@@ -22,11 +22,13 @@ public sealed class MySqlSchemaProvider : IDatabaseSchemaProvider
     public string ProviderName => "mysql";
 
     private readonly ILogger<MySqlSchemaProvider> _logger;
+    private readonly CultureLanguages _culture;
 
-    public MySqlSchemaProvider(string connectionString, ILoggerFactory loggerFactory)
+    public MySqlSchemaProvider(string connectionString, ILoggerFactory loggerFactory, CultureLanguages culture)
     {
         _ = connectionString; // will be used once MySqlConnector is wired up
         _logger = loggerFactory.CreateLogger<MySqlSchemaProvider>();
+        _culture = culture;
     }
 
     public Task<IReadOnlyList<TableSchema>> GetTablesAsync(CancellationToken cancellationToken = default)

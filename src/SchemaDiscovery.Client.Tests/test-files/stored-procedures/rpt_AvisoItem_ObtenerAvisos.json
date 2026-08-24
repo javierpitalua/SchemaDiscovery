@@ -13,6 +13,6 @@
   "Name": "rpt_AvisoItem_ObtenerAvisos",
   "ObjectType": "StoredProcedure",
   "DatabaseProvider": "sqlserver",
-  "ScannedAtUtc": "2026-08-21T18:10:57.4483325+00:00",
+  "ScannedAtUtc": "2026-08-24T18:47:44.6586017+00:00",
   "QualifiedName": "dbo.rpt_AvisoItem_ObtenerAvisos"
 }

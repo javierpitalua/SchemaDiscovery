@@ -13,6 +13,6 @@
   "Name": "rpt_MembresiasListadoItem_ObtenerMembresias",
   "ObjectType": "StoredProcedure",
   "DatabaseProvider": "sqlserver",
-  "ScannedAtUtc": "2026-08-21T18:10:57.4585741+00:00",
+  "ScannedAtUtc": "2026-08-24T18:47:44.6869491+00:00",
   "QualifiedName": "dbo.rpt_MembresiasListadoItem_ObtenerMembresias"
 }

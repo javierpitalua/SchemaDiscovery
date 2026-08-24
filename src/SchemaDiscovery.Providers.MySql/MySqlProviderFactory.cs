@@ -7,6 +7,6 @@ public sealed class MySqlProviderFactory : IDatabaseSchemaProviderFactory
 {
     public string ProviderName => "mysql";
 
-    public IDatabaseSchemaProvider Create(string connectionString, ILoggerFactory loggerFactory)
-        => new MySqlSchemaProvider(connectionString, loggerFactory);
+    public IDatabaseSchemaProvider Create(string connectionString, ILoggerFactory loggerFactory, CultureLanguages culture)
+        => new MySqlSchemaProvider(connectionString, loggerFactory, culture);
 }

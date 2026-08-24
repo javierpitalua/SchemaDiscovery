@@ -16,7 +16,8 @@
       "IsIdentity": true,
       "IsComputed": false,
       "IsPrimaryKey": true,
-      "PropertyName": "Id"
+      "PropertyName": "Id",
+      "Description": ""
     },
     {
       "OrdinalPosition": 2,
@@ -27,7 +28,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Membresia_Id"
+      "PropertyName": "Membresia_Id",
+      "Description": ""
     },
     {
       "OrdinalPosition": 3,
@@ -38,7 +40,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "ConceptoFacturable_Id"
+      "PropertyName": "ConceptoFacturable_Id",
+      "Description": ""
     },
     {
       "OrdinalPosition": 4,
@@ -51,7 +54,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Cantidad"
+      "PropertyName": "Cantidad",
+      "Description": ""
     },
     {
       "OrdinalPosition": 5,
@@ -64,7 +68,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "PrecioUnitario"
+      "PropertyName": "PrecioUnitario",
+      "Description": ""
     }
   ],
   "PrimaryKeyColumns": [
@@ -82,6 +87,6 @@
       ]
     }
   ],
-  "ScannedAtUtc": "2026-08-21T18:10:55.8817216+00:00",
+  "ScannedAtUtc": "2026-08-24T18:47:42.4731261+00:00",
   "RowCountEstimate": 0
 }
