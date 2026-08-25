@@ -2,10 +2,11 @@
   "Schema": "dbo",
   "Name": "PagoDocumento",
   "ClassName": "PagoDocumento",
-  "PluralClassName": "PagoDocumento",
+  "PluralClassName": "PagoDocumentos",
+  "DisplayName": "Pago Documento",
+  "PluralDisplayName": "Pago Documentos",
   "QualifiedName": "dbo.PagoDocumento",
   "ObjectType": "Table",
-  "DatabaseProvider": "sqlserver",
   "Columns": [
     {
       "OrdinalPosition": 1,
@@ -16,7 +17,8 @@
       "IsIdentity": true,
       "IsComputed": false,
       "IsPrimaryKey": true,
-      "PropertyName": "Id"
+      "PropertyName": "Id",
+      "Description": ""
     },
     {
       "OrdinalPosition": 2,
@@ -27,7 +29,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Documento_Id"
+      "PropertyName": "Documento_Id",
+      "Description": ""
     },
     {
       "OrdinalPosition": 3,
@@ -40,7 +43,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Monto"
+      "PropertyName": "Monto",
+      "Description": ""
     },
     {
       "OrdinalPosition": 4,
@@ -51,7 +55,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "FechaDePago"
+      "PropertyName": "FechaDePago",
+      "Description": ""
     },
     {
       "OrdinalPosition": 5,
@@ -62,7 +67,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "FechaRegistro"
+      "PropertyName": "FechaRegistro",
+      "Description": ""
     },
     {
       "OrdinalPosition": 6,
@@ -73,7 +79,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Usuario_Id"
+      "PropertyName": "Usuario_Id",
+      "Description": ""
     },
     {
       "OrdinalPosition": 7,
@@ -84,7 +91,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "MetodoPago_Id"
+      "PropertyName": "MetodoPago_Id",
+      "Description": ""
     },
     {
       "OrdinalPosition": 8,
@@ -95,7 +103,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Referencia"
+      "PropertyName": "Referencia",
+      "Description": ""
     }
   ],
   "PrimaryKeyColumns": [
@@ -113,6 +122,5 @@
       ]
     }
   ],
-  "ScannedAtUtc": "2026-08-21T18:10:55.9284969+00:00",
   "RowCountEstimate": 0
 }

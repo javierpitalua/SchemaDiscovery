@@ -2,10 +2,11 @@
   "Schema": "dbo",
   "Name": "DetalleDocumento",
   "ClassName": "DetalleDocumento",
-  "PluralClassName": "DetalleDocumento",
+  "PluralClassName": "DetalleDocumentos",
+  "DisplayName": "Detalle Documento",
+  "PluralDisplayName": "Detalle Documentos",
   "QualifiedName": "dbo.DetalleDocumento",
   "ObjectType": "Table",
-  "DatabaseProvider": "sqlserver",
   "Columns": [
     {
       "OrdinalPosition": 1,
@@ -16,7 +17,8 @@
       "IsIdentity": true,
       "IsComputed": false,
       "IsPrimaryKey": true,
-      "PropertyName": "Id"
+      "PropertyName": "Id",
+      "Description": ""
     },
     {
       "OrdinalPosition": 2,
@@ -27,7 +29,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Documento_Id"
+      "PropertyName": "Documento_Id",
+      "Description": ""
     },
     {
       "OrdinalPosition": 3,
@@ -38,7 +41,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "ConceptoFacturable_Id"
+      "PropertyName": "ConceptoFacturable_Id",
+      "Description": ""
     },
     {
       "OrdinalPosition": 4,
@@ -51,7 +55,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Unidades"
+      "PropertyName": "Unidades",
+      "Description": ""
     },
     {
       "OrdinalPosition": 5,
@@ -64,7 +69,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "PrecioUnitario"
+      "PropertyName": "PrecioUnitario",
+      "Description": ""
     },
     {
       "OrdinalPosition": 6,
@@ -77,7 +83,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Total"
+      "PropertyName": "Total",
+      "Description": ""
     },
     {
       "OrdinalPosition": 7,
@@ -87,7 +94,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Descripcion"
+      "PropertyName": "Descripcion",
+      "Description": ""
     },
     {
       "OrdinalPosition": 8,
@@ -98,7 +106,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Unidad"
+      "PropertyName": "Unidad",
+      "Description": ""
     },
     {
       "OrdinalPosition": 9,
@@ -109,7 +118,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "DescripcionAdicional"
+      "PropertyName": "DescripcionAdicional",
+      "Description": ""
     }
   ],
   "PrimaryKeyColumns": [
@@ -127,6 +137,5 @@
       ]
     }
   ],
-  "ScannedAtUtc": "2026-08-21T18:10:55.8852883+00:00",
   "RowCountEstimate": 58508
 }

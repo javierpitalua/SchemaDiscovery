@@ -33,7 +33,5 @@
   "Schema": "dbo",
   "Name": "rpt_ActivoInventario_Index",
   "ObjectType": "StoredProcedure",
-  "DatabaseProvider": "sqlserver",
-  "ScannedAtUtc": "2026-08-21T18:10:57.4464966+00:00",
   "QualifiedName": "dbo.rpt_ActivoInventario_Index"
 }

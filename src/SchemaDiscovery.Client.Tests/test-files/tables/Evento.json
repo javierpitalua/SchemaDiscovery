@@ -2,10 +2,11 @@
   "Schema": "dbo",
   "Name": "Evento",
   "ClassName": "Evento",
-  "PluralClassName": "Evento",
+  "PluralClassName": "Eventos",
+  "DisplayName": "Evento",
+  "PluralDisplayName": "Eventos",
   "QualifiedName": "dbo.Evento",
   "ObjectType": "Table",
-  "DatabaseProvider": "sqlserver",
   "Columns": [
     {
       "OrdinalPosition": 1,
@@ -16,7 +17,8 @@
       "IsIdentity": true,
       "IsComputed": false,
       "IsPrimaryKey": true,
-      "PropertyName": "Id"
+      "PropertyName": "Id",
+      "Description": ""
     },
     {
       "OrdinalPosition": 2,
@@ -27,7 +29,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Comunidad_Id"
+      "PropertyName": "Comunidad_Id",
+      "Description": ""
     },
     {
       "OrdinalPosition": 3,
@@ -38,7 +41,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "FechaInicio"
+      "PropertyName": "FechaInicio",
+      "Description": ""
     },
     {
       "OrdinalPosition": 4,
@@ -49,7 +53,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "FechaFinal"
+      "PropertyName": "FechaFinal",
+      "Description": ""
     },
     {
       "OrdinalPosition": 5,
@@ -60,7 +65,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Titulo"
+      "PropertyName": "Titulo",
+      "Description": ""
     },
     {
       "OrdinalPosition": 6,
@@ -71,7 +77,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Lugar"
+      "PropertyName": "Lugar",
+      "Description": ""
     },
     {
       "OrdinalPosition": 7,
@@ -81,7 +88,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Descripcion"
+      "PropertyName": "Descripcion",
+      "Description": ""
     },
     {
       "OrdinalPosition": 8,
@@ -92,7 +100,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Activo"
+      "PropertyName": "Activo",
+      "Description": ""
     },
     {
       "OrdinalPosition": 9,
@@ -103,7 +112,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "FechaDesactivacion"
+      "PropertyName": "FechaDesactivacion",
+      "Description": ""
     },
     {
       "OrdinalPosition": 10,
@@ -114,7 +124,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "DesactivadoPor"
+      "PropertyName": "DesactivadoPor",
+      "Description": ""
     }
   ],
   "PrimaryKeyColumns": [
@@ -132,6 +143,5 @@
       ]
     }
   ],
-  "ScannedAtUtc": "2026-08-21T18:10:55.8990575+00:00",
   "RowCountEstimate": 1
 }

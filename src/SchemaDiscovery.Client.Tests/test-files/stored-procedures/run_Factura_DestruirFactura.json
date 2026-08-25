@@ -12,7 +12,5 @@
   "Schema": "dbo",
   "Name": "run_Factura_DestruirFactura",
   "ObjectType": "StoredProcedure",
-  "DatabaseProvider": "sqlserver",
-  "ScannedAtUtc": "2026-08-21T18:10:57.4680685+00:00",
   "QualifiedName": "dbo.run_Factura_DestruirFactura"
 }

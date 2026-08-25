@@ -2,10 +2,11 @@
   "Schema": "dbo",
   "Name": "AdjuntoMembresia",
   "ClassName": "AdjuntoMembresia",
-  "PluralClassName": "AdjuntoMembresia",
+  "PluralClassName": "AdjuntoMembresias",
+  "DisplayName": "Adjunto Membresia",
+  "PluralDisplayName": "Adjunto Membresias",
   "QualifiedName": "dbo.AdjuntoMembresia",
   "ObjectType": "Table",
-  "DatabaseProvider": "sqlserver",
   "Columns": [
     {
       "OrdinalPosition": 1,
@@ -16,7 +17,8 @@
       "IsIdentity": true,
       "IsComputed": false,
       "IsPrimaryKey": true,
-      "PropertyName": "Id"
+      "PropertyName": "Id",
+      "Description": ""
     },
     {
       "OrdinalPosition": 2,
@@ -27,7 +29,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Membresia_Id"
+      "PropertyName": "Membresia_Id",
+      "Description": ""
     },
     {
       "OrdinalPosition": 3,
@@ -38,7 +41,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Archivo_Id"
+      "PropertyName": "Archivo_Id",
+      "Description": ""
     },
     {
       "OrdinalPosition": 4,
@@ -49,7 +53,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "TipoArchivo_Id"
+      "PropertyName": "TipoArchivo_Id",
+      "Description": ""
     }
   ],
   "PrimaryKeyColumns": [
@@ -67,6 +72,5 @@
       ]
     }
   ],
-  "ScannedAtUtc": "2026-08-21T18:10:55.8599625+00:00",
   "RowCountEstimate": 3777
 }

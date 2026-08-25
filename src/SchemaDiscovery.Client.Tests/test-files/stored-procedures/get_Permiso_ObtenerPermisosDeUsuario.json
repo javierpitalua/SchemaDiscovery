@@ -12,7 +12,5 @@
   "Schema": "dbo",
   "Name": "get_Permiso_ObtenerPermisosDeUsuario",
   "ObjectType": "StoredProcedure",
-  "DatabaseProvider": "sqlserver",
-  "ScannedAtUtc": "2026-08-21T18:10:57.4461494+00:00",
   "QualifiedName": "dbo.get_Permiso_ObtenerPermisosDeUsuario"
 }

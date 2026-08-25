@@ -2,10 +2,11 @@
   "Schema": "dbo",
   "Name": "MetodoDePago",
   "ClassName": "MetodoDePago",
-  "PluralClassName": "MetodoDePago",
+  "PluralClassName": "MetodoDePagos",
+  "DisplayName": "Metodo De Pago",
+  "PluralDisplayName": "Metodo De Pagos",
   "QualifiedName": "dbo.MetodoDePago",
   "ObjectType": "Table",
-  "DatabaseProvider": "sqlserver",
   "Columns": [
     {
       "OrdinalPosition": 1,
@@ -16,7 +17,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": true,
-      "PropertyName": "Id"
+      "PropertyName": "Id",
+      "Description": ""
     },
     {
       "OrdinalPosition": 2,
@@ -27,7 +29,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Nombre"
+      "PropertyName": "Nombre",
+      "Description": ""
     },
     {
       "OrdinalPosition": 3,
@@ -38,7 +41,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "ClaveSat"
+      "PropertyName": "ClaveSat",
+      "Description": ""
     }
   ],
   "PrimaryKeyColumns": [
@@ -56,6 +60,5 @@
       ]
     }
   ],
-  "ScannedAtUtc": "2026-08-21T18:10:55.9191636+00:00",
   "RowCountEstimate": 6
 }

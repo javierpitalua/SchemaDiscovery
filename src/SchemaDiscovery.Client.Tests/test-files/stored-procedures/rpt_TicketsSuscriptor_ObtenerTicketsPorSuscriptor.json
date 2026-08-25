@@ -12,7 +12,5 @@
   "Schema": "dbo",
   "Name": "rpt_TicketsSuscriptor_ObtenerTicketsPorSuscriptor",
   "ObjectType": "StoredProcedure",
-  "DatabaseProvider": "sqlserver",
-  "ScannedAtUtc": "2026-08-21T18:10:57.4665443+00:00",
   "QualifiedName": "dbo.rpt_TicketsSuscriptor_ObtenerTicketsPorSuscriptor"
 }

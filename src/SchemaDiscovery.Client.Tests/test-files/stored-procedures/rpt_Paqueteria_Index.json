@@ -40,7 +40,5 @@
   "Schema": "dbo",
   "Name": "rpt_Paqueteria_Index",
   "ObjectType": "StoredProcedure",
-  "DatabaseProvider": "sqlserver",
-  "ScannedAtUtc": "2026-08-21T18:10:57.4592918+00:00",
   "QualifiedName": "dbo.rpt_Paqueteria_Index"
 }

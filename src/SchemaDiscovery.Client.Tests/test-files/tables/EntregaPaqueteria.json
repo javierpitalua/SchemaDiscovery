@@ -2,10 +2,11 @@
   "Schema": "dbo",
   "Name": "EntregaPaqueteria",
   "ClassName": "EntregaPaqueteria",
-  "PluralClassName": "EntregaPaqueteria",
+  "PluralClassName": "EntregaPaqueterias",
+  "DisplayName": "Entrega Paqueteria",
+  "PluralDisplayName": "Entrega Paqueterias",
   "QualifiedName": "dbo.EntregaPaqueteria",
   "ObjectType": "Table",
-  "DatabaseProvider": "sqlserver",
   "Columns": [
     {
       "OrdinalPosition": 1,
@@ -16,7 +17,8 @@
       "IsIdentity": true,
       "IsComputed": false,
       "IsPrimaryKey": true,
-      "PropertyName": "Id"
+      "PropertyName": "Id",
+      "Description": ""
     },
     {
       "OrdinalPosition": 2,
@@ -27,7 +29,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Paqueteria_Id"
+      "PropertyName": "Paqueteria_Id",
+      "Description": ""
     },
     {
       "OrdinalPosition": 3,
@@ -38,7 +41,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Suscriptor_Id"
+      "PropertyName": "Suscriptor_Id",
+      "Description": ""
     },
     {
       "OrdinalPosition": 4,
@@ -49,7 +53,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Usuario_Id"
+      "PropertyName": "Usuario_Id",
+      "Description": ""
     },
     {
       "OrdinalPosition": 5,
@@ -60,7 +65,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "FechaEntrega"
+      "PropertyName": "FechaEntrega",
+      "Description": ""
     }
   ],
   "PrimaryKeyColumns": [
@@ -78,6 +84,5 @@
       ]
     }
   ],
-  "ScannedAtUtc": "2026-08-21T18:10:55.8886686+00:00",
   "RowCountEstimate": 9235
 }

@@ -61,7 +61,5 @@
   "Schema": "dbo",
   "Name": "rpt_Documento_Index",
   "ObjectType": "StoredProcedure",
-  "DatabaseProvider": "sqlserver",
-  "ScannedAtUtc": "2026-08-21T18:10:57.4521503+00:00",
   "QualifiedName": "dbo.rpt_Documento_Index"
 }

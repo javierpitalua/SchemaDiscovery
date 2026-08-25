@@ -2,10 +2,11 @@
   "Schema": "dbo",
   "Name": "CategoriaTicket",
   "ClassName": "CategoriaTicket",
-  "PluralClassName": "CategoriaTicket",
+  "PluralClassName": "CategoriaTicketes",
+  "DisplayName": "Categoria Ticket",
+  "PluralDisplayName": "Categoria Ticketes",
   "QualifiedName": "dbo.CategoriaTicket",
   "ObjectType": "Table",
-  "DatabaseProvider": "sqlserver",
   "Columns": [
     {
       "OrdinalPosition": 1,
@@ -16,7 +17,8 @@
       "IsIdentity": true,
       "IsComputed": false,
       "IsPrimaryKey": true,
-      "PropertyName": "Id"
+      "PropertyName": "Id",
+      "Description": ""
     },
     {
       "OrdinalPosition": 2,
@@ -27,7 +29,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Nombre"
+      "PropertyName": "Nombre",
+      "Description": ""
     },
     {
       "OrdinalPosition": 3,
@@ -37,7 +40,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Descripcion"
+      "PropertyName": "Descripcion",
+      "Description": ""
     }
   ],
   "PrimaryKeyColumns": [
@@ -55,6 +59,5 @@
       ]
     }
   ],
-  "ScannedAtUtc": "2026-08-21T18:10:55.8701504+00:00",
   "RowCountEstimate": 9
 }

@@ -2,10 +2,11 @@
   "Schema": "dbo",
   "Name": "CicloDeFacturacion",
   "ClassName": "CicloDeFacturacion",
-  "PluralClassName": "CicloDeFacturacion",
+  "PluralClassName": "CicloDeFacturaciones",
+  "DisplayName": "Ciclo De Facturacion",
+  "PluralDisplayName": "Ciclo De Facturaciones",
   "QualifiedName": "dbo.CicloDeFacturacion",
   "ObjectType": "Table",
-  "DatabaseProvider": "sqlserver",
   "Columns": [
     {
       "OrdinalPosition": 1,
@@ -16,7 +17,8 @@
       "IsIdentity": true,
       "IsComputed": false,
       "IsPrimaryKey": true,
-      "PropertyName": "Id"
+      "PropertyName": "Id",
+      "Description": ""
     },
     {
       "OrdinalPosition": 2,
@@ -27,7 +29,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Mes"
+      "PropertyName": "Mes",
+      "Description": ""
     },
     {
       "OrdinalPosition": 3,
@@ -38,7 +41,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Anio"
+      "PropertyName": "Anio",
+      "Description": ""
     },
     {
       "OrdinalPosition": 4,
@@ -49,7 +53,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "FechaDeGeneracion"
+      "PropertyName": "FechaDeGeneracion",
+      "Description": ""
     },
     {
       "OrdinalPosition": 5,
@@ -60,7 +65,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "UltimaEjecucion_Id"
+      "PropertyName": "UltimaEjecucion_Id",
+      "Description": ""
     },
     {
       "OrdinalPosition": 6,
@@ -71,7 +77,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Vigente"
+      "PropertyName": "Vigente",
+      "Description": ""
     }
   ],
   "PrimaryKeyColumns": [
@@ -89,6 +96,5 @@
       ]
     }
   ],
-  "ScannedAtUtc": "2026-08-21T18:10:55.8710368+00:00",
   "RowCountEstimate": 108
 }

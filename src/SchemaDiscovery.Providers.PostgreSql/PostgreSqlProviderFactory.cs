@@ -7,6 +7,8 @@ public sealed class PostgreSqlProviderFactory : IDatabaseSchemaProviderFactory
 {
     public string ProviderName => "postgres";
 
-    public IDatabaseSchemaProvider Create(string connectionString, ILoggerFactory loggerFactory)
-        => new PostgreSqlSchemaProvider(connectionString, loggerFactory);
+    public IDatabaseSchemaProvider Create(string connectionString, ILoggerFactory loggerFactory, CultureLanguages culture)
+        => new PostgreSqlSchemaProvider(connectionString, loggerFactory, culture);
+
+    
 }

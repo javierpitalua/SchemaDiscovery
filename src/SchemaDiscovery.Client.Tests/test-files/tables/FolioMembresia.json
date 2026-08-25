@@ -2,10 +2,11 @@
   "Schema": "dbo",
   "Name": "FolioMembresia",
   "ClassName": "FolioMembresia",
-  "PluralClassName": "FolioMembresia",
+  "PluralClassName": "FolioMembresias",
+  "DisplayName": "Folio Membresia",
+  "PluralDisplayName": "Folio Membresias",
   "QualifiedName": "dbo.FolioMembresia",
   "ObjectType": "Table",
-  "DatabaseProvider": "sqlserver",
   "Columns": [
     {
       "OrdinalPosition": 1,
@@ -16,7 +17,8 @@
       "IsIdentity": true,
       "IsComputed": false,
       "IsPrimaryKey": true,
-      "PropertyName": "Id"
+      "PropertyName": "Id",
+      "Description": ""
     },
     {
       "OrdinalPosition": 2,
@@ -27,7 +29,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Comunidad_Id"
+      "PropertyName": "Comunidad_Id",
+      "Description": ""
     },
     {
       "OrdinalPosition": 3,
@@ -38,7 +41,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Folio"
+      "PropertyName": "Folio",
+      "Description": ""
     }
   ],
   "PrimaryKeyColumns": [
@@ -56,6 +60,5 @@
       ]
     }
   ],
-  "ScannedAtUtc": "2026-08-21T18:10:55.9011373+00:00",
   "RowCountEstimate": 5
 }

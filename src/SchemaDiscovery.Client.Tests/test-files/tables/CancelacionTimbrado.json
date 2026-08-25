@@ -2,10 +2,11 @@
   "Schema": "dbo",
   "Name": "CancelacionTimbrado",
   "ClassName": "CancelacionTimbrado",
-  "PluralClassName": "CancelacionTimbrado",
+  "PluralClassName": "CancelacionTimbrados",
+  "DisplayName": "Cancelacion Timbrado",
+  "PluralDisplayName": "Cancelacion Timbrados",
   "QualifiedName": "dbo.CancelacionTimbrado",
   "ObjectType": "Table",
-  "DatabaseProvider": "sqlserver",
   "Columns": [
     {
       "OrdinalPosition": 1,
@@ -16,7 +17,8 @@
       "IsIdentity": true,
       "IsComputed": false,
       "IsPrimaryKey": true,
-      "PropertyName": "Id"
+      "PropertyName": "Id",
+      "Description": ""
     },
     {
       "OrdinalPosition": 2,
@@ -27,7 +29,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Documento_Id"
+      "PropertyName": "Documento_Id",
+      "Description": ""
     },
     {
       "OrdinalPosition": 3,
@@ -38,7 +41,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "FolioSustitucion"
+      "PropertyName": "FolioSustitucion",
+      "Description": ""
     },
     {
       "OrdinalPosition": 4,
@@ -49,7 +53,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "MotivoCancelacion_Id"
+      "PropertyName": "MotivoCancelacion_Id",
+      "Description": ""
     },
     {
       "OrdinalPosition": 5,
@@ -60,7 +65,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "FechaCreacion"
+      "PropertyName": "FechaCreacion",
+      "Description": ""
     },
     {
       "OrdinalPosition": 6,
@@ -71,7 +77,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "CreadoPor"
+      "PropertyName": "CreadoPor",
+      "Description": ""
     },
     {
       "OrdinalPosition": 7,
@@ -82,7 +89,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "FechaModificacion"
+      "PropertyName": "FechaModificacion",
+      "Description": ""
     },
     {
       "OrdinalPosition": 8,
@@ -93,7 +101,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "ModificadoPor"
+      "PropertyName": "ModificadoPor",
+      "Description": ""
     },
     {
       "OrdinalPosition": 9,
@@ -104,7 +113,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Activo"
+      "PropertyName": "Activo",
+      "Description": ""
     },
     {
       "OrdinalPosition": 10,
@@ -115,7 +125,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "DesactivadoPor"
+      "PropertyName": "DesactivadoPor",
+      "Description": ""
     },
     {
       "OrdinalPosition": 11,
@@ -126,7 +137,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "FechaDesactivacion"
+      "PropertyName": "FechaDesactivacion",
+      "Description": ""
     },
     {
       "OrdinalPosition": 12,
@@ -137,7 +149,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Code"
+      "PropertyName": "Code",
+      "Description": ""
     },
     {
       "OrdinalPosition": 13,
@@ -147,7 +160,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Message"
+      "PropertyName": "Message",
+      "Description": ""
     },
     {
       "OrdinalPosition": 14,
@@ -157,7 +171,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Acuse"
+      "PropertyName": "Acuse",
+      "Description": ""
     }
   ],
   "PrimaryKeyColumns": [
@@ -175,6 +190,5 @@
       ]
     }
   ],
-  "ScannedAtUtc": "2026-08-21T18:10:55.864513+00:00",
   "RowCountEstimate": 356
 }

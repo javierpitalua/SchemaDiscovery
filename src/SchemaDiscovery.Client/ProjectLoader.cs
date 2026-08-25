@@ -36,6 +36,12 @@ namespace SchemaDiscovery.Client
 
             var project = new Project();
 
+            var projectInfoFilePath = Path.Combine(inputDirectoryPath, "projectInfo.json");
+            if (File.Exists(projectInfoFilePath))
+            {
+                LoadProjectInfo(projectInfoFilePath, project);
+            }
+
             foreach (var subfolder in SchemaObjectSubfolders)
             {
                 var subfolderPath = Path.Combine(inputDirectoryPath, subfolder);
@@ -56,6 +62,31 @@ namespace SchemaDiscovery.Client
         {
             var loader = new ProjectLoader();
             return loader.Load(inputDirectoryPath);
+        }
+
+        /// <summary>
+        /// Reads "projectInfo.json" from the root of the output directory and copies its
+        /// ProviderName, ScannedAtUtc and CultureLanguage values onto <paramref name="project"/>
+        /// (via the inherited <see cref="ProjectInfo"/> properties).
+        /// </summary>
+        private static void LoadProjectInfo(string filePath, Project project)
+        {
+            string json;
+            try
+            {
+                json = File.ReadAllText(filePath);
+            }
+            catch (IOException ex)
+            {
+                throw new IOException($"Could not read project info file '{filePath}'.", ex);
+            }
+
+            using var document = JsonDocument.Parse(json);
+            var projectInfo = Deserialize<ProjectInfo>(document.RootElement, filePath);
+
+            project.ProviderName = projectInfo.ProviderName;
+            project.ScannedAtUtc = projectInfo.ScannedAtUtc;
+            project.CultureLanguage = projectInfo.CultureLanguage;
         }
 
         private static void LoadFile(string filePath, Project project)
@@ -127,16 +158,9 @@ namespace SchemaDiscovery.Client
                 {
                     Schema = GetString(root, nameof(SchemaObjectBase.Schema)) ?? string.Empty,
                     Name = GetString(root, nameof(SchemaObjectBase.Name)) ?? string.Empty,
-                    DatabaseProvider = GetString(root, nameof(SchemaObjectBase.DatabaseProvider)) ?? string.Empty,
                     ReturnType = GetString(root, nameof(RoutineSchema.ReturnType)),
                     Definition = GetString(root, nameof(RoutineSchema.Definition))
                 };
-
-                if (root.TryGetProperty(nameof(SchemaObjectBase.ScannedAtUtc), out var scannedAtElement) &&
-                    scannedAtElement.ValueKind != JsonValueKind.Null)
-                {
-                    routine.ScannedAtUtc = scannedAtElement.GetDateTimeOffset();
-                }
 
                 if (root.TryGetProperty(nameof(RoutineSchema.Parameters), out var parametersElement) &&
                     parametersElement.ValueKind == JsonValueKind.Array)

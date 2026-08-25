@@ -2,10 +2,11 @@
   "Schema": "dbo",
   "Name": "Permiso",
   "ClassName": "Permiso",
-  "PluralClassName": "Permiso",
+  "PluralClassName": "Permisos",
+  "DisplayName": "Permiso",
+  "PluralDisplayName": "Permisos",
   "QualifiedName": "dbo.Permiso",
   "ObjectType": "Table",
-  "DatabaseProvider": "sqlserver",
   "Columns": [
     {
       "OrdinalPosition": 1,
@@ -16,7 +17,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": true,
-      "PropertyName": "Id"
+      "PropertyName": "Id",
+      "Description": ""
     },
     {
       "OrdinalPosition": 2,
@@ -27,7 +29,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Nombre"
+      "PropertyName": "Nombre",
+      "Description": ""
     },
     {
       "OrdinalPosition": 3,
@@ -37,7 +40,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Descripcion"
+      "PropertyName": "Descripcion",
+      "Description": ""
     },
     {
       "OrdinalPosition": 4,
@@ -48,7 +52,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Clave"
+      "PropertyName": "Clave",
+      "Description": ""
     }
   ],
   "PrimaryKeyColumns": [
@@ -66,6 +71,5 @@
       ]
     }
   ],
-  "ScannedAtUtc": "2026-08-21T18:10:55.9377886+00:00",
   "RowCountEstimate": 34
 }

@@ -12,7 +12,5 @@
   "Schema": "dbo",
   "Name": "rpt_AdjuntoDocumento_ObtenerAdjuntosPorDocumento",
   "ObjectType": "StoredProcedure",
-  "DatabaseProvider": "sqlserver",
-  "ScannedAtUtc": "2026-08-21T18:10:57.4468107+00:00",
   "QualifiedName": "dbo.rpt_AdjuntoDocumento_ObtenerAdjuntosPorDocumento"
 }

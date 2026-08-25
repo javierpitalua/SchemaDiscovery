@@ -26,7 +26,5 @@
   "Schema": "dbo",
   "Name": "rpt_PublicacionLike_LikePublicacion",
   "ObjectType": "StoredProcedure",
-  "DatabaseProvider": "sqlserver",
-  "ScannedAtUtc": "2026-08-21T18:10:57.4606898+00:00",
   "QualifiedName": "dbo.rpt_PublicacionLike_LikePublicacion"
 }

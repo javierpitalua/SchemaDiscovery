@@ -26,7 +26,5 @@
   "Schema": "dbo",
   "Name": "rpt_EdoCtaMembresia_ObtenerMembresiasConDocumentosPendientes",
   "ObjectType": "StoredProcedure",
-  "DatabaseProvider": "sqlserver",
-  "ScannedAtUtc": "2026-08-21T18:10:57.4531279+00:00",
   "QualifiedName": "dbo.rpt_EdoCtaMembresia_ObtenerMembresiasConDocumentosPendientes"
 }

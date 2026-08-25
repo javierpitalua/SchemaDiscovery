@@ -13,5 +13,5 @@ public interface IDatabaseSchemaProviderFactory
     /// <summary>Must match the value passed to --provider on the command line.</summary>
     string ProviderName { get; }
 
-    IDatabaseSchemaProvider Create(string connectionString, ILoggerFactory loggerFactory);
+    IDatabaseSchemaProvider Create(string connectionString, ILoggerFactory loggerFactory, CultureLanguages culture);
 }

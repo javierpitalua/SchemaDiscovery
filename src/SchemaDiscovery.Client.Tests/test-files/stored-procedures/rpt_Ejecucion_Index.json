@@ -26,7 +26,5 @@
   "Schema": "dbo",
   "Name": "rpt_Ejecucion_Index",
   "ObjectType": "StoredProcedure",
-  "DatabaseProvider": "sqlserver",
-  "ScannedAtUtc": "2026-08-21T18:10:57.4532733+00:00",
   "QualifiedName": "dbo.rpt_Ejecucion_Index"
 }

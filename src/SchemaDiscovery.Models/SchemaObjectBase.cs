@@ -22,12 +22,6 @@ namespace SchemaDiscovery.Models
         /// <summary>The kind of object this record represents.</summary>
         public SchemaObjectType ObjectType { get; }
 
-        /// <summary>Name of the provider that produced this record (e.g. "sqlserver").</summary>
-        public string DatabaseProvider { get; set; } = string.Empty;
-
-        /// <summary>UTC timestamp of when this object was scanned.</summary>
-        public DateTimeOffset ScannedAtUtc { get; set; } = DateTimeOffset.UtcNow;
-
         /// <summary>Convenience "schema.name" representation, not serialized separately.</summary>
         public string QualifiedName => string.IsNullOrWhiteSpace(Schema) ? Name : $"{Schema}.{Name}";
     }

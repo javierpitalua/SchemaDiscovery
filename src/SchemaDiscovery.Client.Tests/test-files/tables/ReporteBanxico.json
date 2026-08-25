@@ -2,10 +2,11 @@
   "Schema": "dbo",
   "Name": "ReporteBanxico",
   "ClassName": "ReporteBanxico",
-  "PluralClassName": "ReporteBanxico",
+  "PluralClassName": "ReporteBanxicos",
+  "DisplayName": "Reporte Banxico",
+  "PluralDisplayName": "Reporte Banxicos",
   "QualifiedName": "dbo.ReporteBanxico",
   "ObjectType": "Table",
-  "DatabaseProvider": "sqlserver",
   "Columns": [
     {
       "OrdinalPosition": 1,
@@ -16,7 +17,8 @@
       "IsIdentity": true,
       "IsComputed": false,
       "IsPrimaryKey": true,
-      "PropertyName": "Id"
+      "PropertyName": "Id",
+      "Description": ""
     },
     {
       "OrdinalPosition": 2,
@@ -27,7 +29,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Fecha"
+      "PropertyName": "Fecha",
+      "Description": ""
     },
     {
       "OrdinalPosition": 3,
@@ -37,7 +40,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Reporte"
+      "PropertyName": "Reporte",
+      "Description": ""
     }
   ],
   "PrimaryKeyColumns": [
@@ -55,6 +59,5 @@
       ]
     }
   ],
-  "ScannedAtUtc": "2026-08-21T18:10:55.9510386+00:00",
   "RowCountEstimate": 0
 }

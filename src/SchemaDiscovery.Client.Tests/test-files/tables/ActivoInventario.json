@@ -2,10 +2,11 @@
   "Schema": "dbo",
   "Name": "ActivoInventario",
   "ClassName": "ActivoInventario",
-  "PluralClassName": "ActivoInventario",
+  "PluralClassName": "ActivoInventarios",
+  "DisplayName": "Activo Inventario",
+  "PluralDisplayName": "Activo Inventarios",
   "QualifiedName": "dbo.ActivoInventario",
   "ObjectType": "Table",
-  "DatabaseProvider": "sqlserver",
   "Columns": [
     {
       "OrdinalPosition": 1,
@@ -16,7 +17,8 @@
       "IsIdentity": true,
       "IsComputed": false,
       "IsPrimaryKey": true,
-      "PropertyName": "Id"
+      "PropertyName": "Id",
+      "Description": ""
     },
     {
       "OrdinalPosition": 2,
@@ -27,7 +29,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Descripcion"
+      "PropertyName": "Descripcion",
+      "Description": ""
     },
     {
       "OrdinalPosition": 3,
@@ -38,7 +41,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "NumeroDeSerie"
+      "PropertyName": "NumeroDeSerie",
+      "Description": ""
     },
     {
       "OrdinalPosition": 4,
@@ -49,7 +53,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "FechaAdquisicion"
+      "PropertyName": "FechaAdquisicion",
+      "Description": ""
     },
     {
       "OrdinalPosition": 5,
@@ -60,7 +65,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Comunidad_Id"
+      "PropertyName": "Comunidad_Id",
+      "Description": ""
     },
     {
       "OrdinalPosition": 6,
@@ -71,7 +77,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Ubicacion_Id"
+      "PropertyName": "Ubicacion_Id",
+      "Description": ""
     },
     {
       "OrdinalPosition": 7,
@@ -82,7 +89,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "TipoInventario_Id"
+      "PropertyName": "TipoInventario_Id",
+      "Description": ""
     },
     {
       "OrdinalPosition": 8,
@@ -93,7 +101,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "FechaCreacion"
+      "PropertyName": "FechaCreacion",
+      "Description": ""
     },
     {
       "OrdinalPosition": 9,
@@ -104,7 +113,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "CreadoPor"
+      "PropertyName": "CreadoPor",
+      "Description": ""
     },
     {
       "OrdinalPosition": 10,
@@ -115,7 +125,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "FechaModificacion"
+      "PropertyName": "FechaModificacion",
+      "Description": ""
     },
     {
       "OrdinalPosition": 11,
@@ -126,7 +137,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "ModificadoPor"
+      "PropertyName": "ModificadoPor",
+      "Description": ""
     },
     {
       "OrdinalPosition": 12,
@@ -137,7 +149,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Activo"
+      "PropertyName": "Activo",
+      "Description": ""
     },
     {
       "OrdinalPosition": 13,
@@ -148,7 +161,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "FechaDesactivacion"
+      "PropertyName": "FechaDesactivacion",
+      "Description": ""
     },
     {
       "OrdinalPosition": 14,
@@ -159,7 +173,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "DesactivadoPor"
+      "PropertyName": "DesactivadoPor",
+      "Description": ""
     }
   ],
   "PrimaryKeyColumns": [
@@ -177,6 +192,5 @@
       ]
     }
   ],
-  "ScannedAtUtc": "2026-08-21T18:10:55.7559803+00:00",
   "RowCountEstimate": 1
 }

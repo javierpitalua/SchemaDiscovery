@@ -12,7 +12,5 @@
   "Schema": "dbo",
   "Name": "rpt_DocumentoDepositoGarantia_ObtenerDepositoGarantia",
   "ObjectType": "StoredProcedure",
-  "DatabaseProvider": "sqlserver",
-  "ScannedAtUtc": "2026-08-21T18:10:57.4523114+00:00",
   "QualifiedName": "dbo.rpt_DocumentoDepositoGarantia_ObtenerDepositoGarantia"
 }

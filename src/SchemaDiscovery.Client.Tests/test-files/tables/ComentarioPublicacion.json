@@ -2,10 +2,11 @@
   "Schema": "dbo",
   "Name": "ComentarioPublicacion",
   "ClassName": "ComentarioPublicacion",
-  "PluralClassName": "ComentarioPublicacion",
+  "PluralClassName": "ComentarioPublicaciones",
+  "DisplayName": "Comentario Publicacion",
+  "PluralDisplayName": "Comentario Publicaciones",
   "QualifiedName": "dbo.ComentarioPublicacion",
   "ObjectType": "Table",
-  "DatabaseProvider": "sqlserver",
   "Columns": [
     {
       "OrdinalPosition": 1,
@@ -16,7 +17,8 @@
       "IsIdentity": true,
       "IsComputed": false,
       "IsPrimaryKey": true,
-      "PropertyName": "Id"
+      "PropertyName": "Id",
+      "Description": ""
     },
     {
       "OrdinalPosition": 2,
@@ -27,7 +29,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Publicacion_Id"
+      "PropertyName": "Publicacion_Id",
+      "Description": ""
     },
     {
       "OrdinalPosition": 3,
@@ -38,7 +41,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Suscriptor_Id"
+      "PropertyName": "Suscriptor_Id",
+      "Description": ""
     },
     {
       "OrdinalPosition": 4,
@@ -49,7 +53,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Fecha"
+      "PropertyName": "Fecha",
+      "Description": ""
     },
     {
       "OrdinalPosition": 5,
@@ -59,7 +64,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Comentario"
+      "PropertyName": "Comentario",
+      "Description": ""
     }
   ],
   "PrimaryKeyColumns": [
@@ -77,6 +83,5 @@
       ]
     }
   ],
-  "ScannedAtUtc": "2026-08-21T18:10:55.8720559+00:00",
   "RowCountEstimate": 0
 }

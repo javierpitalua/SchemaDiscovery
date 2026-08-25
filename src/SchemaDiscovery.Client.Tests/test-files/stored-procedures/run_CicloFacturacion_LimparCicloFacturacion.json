@@ -12,7 +12,5 @@
   "Schema": "dbo",
   "Name": "run_CicloFacturacion_LimparCicloFacturacion",
   "ObjectType": "StoredProcedure",
-  "DatabaseProvider": "sqlserver",
-  "ScannedAtUtc": "2026-08-21T18:10:57.4679309+00:00",
   "QualifiedName": "dbo.run_CicloFacturacion_LimparCicloFacturacion"
 }

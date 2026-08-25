@@ -12,7 +12,5 @@
   "Schema": "dbo",
   "Name": "rpt_HistorialTicket_ObtenerHistorial",
   "ObjectType": "StoredProcedure",
-  "DatabaseProvider": "sqlserver",
-  "ScannedAtUtc": "2026-08-21T18:10:57.4557535+00:00",
   "QualifiedName": "dbo.rpt_HistorialTicket_ObtenerHistorial"
 }

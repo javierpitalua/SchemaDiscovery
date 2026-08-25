@@ -2,10 +2,11 @@
   "Schema": "dbo",
   "Name": "PublicacionMuro",
   "ClassName": "PublicacionMuro",
-  "PluralClassName": "PublicacionMuro",
+  "PluralClassName": "PublicacionMuros",
+  "DisplayName": "Publicacion Muro",
+  "PluralDisplayName": "Publicacion Muros",
   "QualifiedName": "dbo.PublicacionMuro",
   "ObjectType": "Table",
-  "DatabaseProvider": "sqlserver",
   "Columns": [
     {
       "OrdinalPosition": 1,
@@ -16,7 +17,8 @@
       "IsIdentity": true,
       "IsComputed": false,
       "IsPrimaryKey": true,
-      "PropertyName": "Id"
+      "PropertyName": "Id",
+      "Description": ""
     },
     {
       "OrdinalPosition": 2,
@@ -27,7 +29,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Texto"
+      "PropertyName": "Texto",
+      "Description": ""
     },
     {
       "OrdinalPosition": 3,
@@ -38,7 +41,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "FechaPublicacion"
+      "PropertyName": "FechaPublicacion",
+      "Description": ""
     },
     {
       "OrdinalPosition": 4,
@@ -49,7 +53,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Suscriptor_Id"
+      "PropertyName": "Suscriptor_Id",
+      "Description": ""
     },
     {
       "OrdinalPosition": 5,
@@ -60,7 +65,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Deshabilitado"
+      "PropertyName": "Deshabilitado",
+      "Description": ""
     }
   ],
   "PrimaryKeyColumns": [
@@ -78,6 +84,5 @@
       ]
     }
   ],
-  "ScannedAtUtc": "2026-08-21T18:10:55.9434305+00:00",
   "RowCountEstimate": 549
 }

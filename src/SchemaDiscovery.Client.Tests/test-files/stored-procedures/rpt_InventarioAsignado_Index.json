@@ -33,7 +33,5 @@
   "Schema": "dbo",
   "Name": "rpt_InventarioAsignado_Index",
   "ObjectType": "StoredProcedure",
-  "DatabaseProvider": "sqlserver",
-  "ScannedAtUtc": "2026-08-21T18:10:57.456485+00:00",
   "QualifiedName": "dbo.rpt_InventarioAsignado_Index"
 }

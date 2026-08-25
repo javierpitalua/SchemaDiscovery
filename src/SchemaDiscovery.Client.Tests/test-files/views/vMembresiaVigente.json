@@ -9,7 +9,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Id"
+      "PropertyName": "Id",
+      "Description": ""
     },
     {
       "OrdinalPosition": 2,
@@ -20,7 +21,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "ClaveMembresia"
+      "PropertyName": "ClaveMembresia",
+      "Description": ""
     },
     {
       "OrdinalPosition": 3,
@@ -31,7 +33,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "NombreFiscal"
+      "PropertyName": "NombreFiscal",
+      "Description": ""
     },
     {
       "OrdinalPosition": 4,
@@ -42,7 +45,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "RazonSocial"
+      "PropertyName": "RazonSocial",
+      "Description": ""
     },
     {
       "OrdinalPosition": 5,
@@ -53,7 +57,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "RFC"
+      "PropertyName": "RFC",
+      "Description": ""
     },
     {
       "OrdinalPosition": 6,
@@ -64,7 +69,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "TipoMembresia"
+      "PropertyName": "TipoMembresia",
+      "Description": ""
     },
     {
       "OrdinalPosition": 7,
@@ -75,7 +81,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Estatus"
+      "PropertyName": "Estatus",
+      "Description": ""
     },
     {
       "OrdinalPosition": 8,
@@ -86,7 +93,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "FacturarAPartirDe"
+      "PropertyName": "FacturarAPartirDe",
+      "Description": ""
     },
     {
       "OrdinalPosition": 9,
@@ -97,7 +105,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "FechaInicio"
+      "PropertyName": "FechaInicio",
+      "Description": ""
     },
     {
       "OrdinalPosition": 10,
@@ -108,7 +117,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Vigencia"
+      "PropertyName": "Vigencia",
+      "Description": ""
     },
     {
       "OrdinalPosition": 11,
@@ -119,7 +129,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "DeshabilitarFacturacionAutomatica"
+      "PropertyName": "DeshabilitarFacturacionAutomatica",
+      "Description": ""
     },
     {
       "OrdinalPosition": 12,
@@ -130,7 +141,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "FechaCreacion"
+      "PropertyName": "FechaCreacion",
+      "Description": ""
     },
     {
       "OrdinalPosition": 13,
@@ -141,7 +153,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "CreadoPor"
+      "PropertyName": "CreadoPor",
+      "Description": ""
     },
     {
       "OrdinalPosition": 14,
@@ -152,7 +165,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "DeshabilitarFacturacion"
+      "PropertyName": "DeshabilitarFacturacion",
+      "Description": ""
     },
     {
       "OrdinalPosition": 15,
@@ -165,7 +179,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "PrecioMensual"
+      "PropertyName": "PrecioMensual",
+      "Description": ""
     },
     {
       "OrdinalPosition": 16,
@@ -176,14 +191,13 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "TipoDeCambio"
+      "PropertyName": "TipoDeCambio",
+      "Description": ""
     }
   ],
   "Definition": "CREATE VIEW [dbo].[vMembresiaVigente]\r\nAS\r\n\r\n\tSELECT \r\n\t\t[Membresia].[Id],\t\t\r\n\t\t[Membresia].[ClaveMembresia],\r\n\t\t[InformacionFacturacion].[NombreFiscal],\r\n\t\t[InformacionFacturacion].[RazonSocial],\r\n\t\t[InformacionFacturacion].[RFC],\r\n\t\t[TipoMembresia].[Nombre] AS [TipoMembresia],\r\n\t\t[EstatusMembresia].[Nombre] AS [Estatus],\t\t\r\n\t\t[Membresia].[FacturarAPartirDe],\r\n\t\t[Membresia].[FechaInicio] AS [FechaInicio],\r\n\t\t[Membresia].[Vigencia],\t\t\t\t\t\t\r\n\t\tCASE [Membresia].[DeshabilitarFacturacionAutomatica] WHEN 1 THEN \u0027S\u00ED\u0027 ELSE \u0027No\u0027 END AS [DeshabilitarFacturacionAutomatica],\r\n\t\t[Membresia].[FechaCreacion] as [FechaCreacion],\r\n\t\t[Membresia].[CreadoPor] as [CreadoPor],\r\n\t\tCASE ISNULL([Membresia].[DeshabilitarFacturacionAutomatica], 0) WHEN 0 THEN \u0027No\u0027 ELSE \u0027S\u00ED\u0027 END AS [DeshabilitarFacturacion],\t\t\r\n\t\t[Membresia].[PrecioMensual],\t\t\r\n\t\t[TipoDeCambio].[Nombre] AS [TipoDeCambio]\r\n\tFROM [dbo].[Membresia] \r\n\r\n\t\tLEFT JOIN [dbo].[Comunidad]\r\n\t\tON [dbo].[Membresia].[Comunidad_Id] = [dbo].[Comunidad].[Id] \r\n\r\n \t\tLEFT JOIN [dbo].[TipoMembresia]\r\n\t\tON [dbo].[Membresia].[TipoMembresia_Id] = [dbo].[TipoMembresia].[Id] \r\n\r\n \t\tLEFT JOIN [dbo].[EstatusMembresia]\r\n\t\tON [dbo].[Membresia].[EstatusMembresia_Id] = [dbo].[EstatusMembresia].[Id] \r\n\r\n\t\tLEFT JOIN [dbo].[InformacionFacturacion]\r\n\t\tON [dbo].[Membresia].[InformacionFacturacion_Id] = [dbo].[InformacionFacturacion].[Id] \r\n\r\n\t\tLEFT JOIN [dbo].[TipoDeCambio]\r\n\t\tON [dbo].[Membresia].[TipoDeCambio_Id] = [dbo].[TipoDeCambio].[Id] \r\n\t\t\r\n\t\tWHERE [Membresia].[Activo] = 1",
   "Schema": "dbo",
   "Name": "vMembresiaVigente",
   "ObjectType": "View",
-  "DatabaseProvider": "sqlserver",
-  "ScannedAtUtc": "2026-08-21T18:10:57.3905429+00:00",
   "QualifiedName": "dbo.vMembresiaVigente"
 }

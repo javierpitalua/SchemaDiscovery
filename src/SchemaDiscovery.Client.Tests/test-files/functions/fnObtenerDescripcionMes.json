@@ -13,7 +13,5 @@
   "Schema": "dbo",
   "Name": "fnObtenerDescripcionMes",
   "ObjectType": "Function",
-  "DatabaseProvider": "sqlserver",
-  "ScannedAtUtc": "2026-08-21T18:10:58.9911163+00:00",
   "QualifiedName": "dbo.fnObtenerDescripcionMes"
 }

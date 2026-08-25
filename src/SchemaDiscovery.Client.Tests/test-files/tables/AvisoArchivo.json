@@ -2,10 +2,11 @@
   "Schema": "dbo",
   "Name": "AvisoArchivo",
   "ClassName": "AvisoArchivo",
-  "PluralClassName": "AvisoArchivo",
+  "PluralClassName": "AvisoArchivos",
+  "DisplayName": "Aviso Archivo",
+  "PluralDisplayName": "Aviso Archivos",
   "QualifiedName": "dbo.AvisoArchivo",
   "ObjectType": "Table",
-  "DatabaseProvider": "sqlserver",
   "Columns": [
     {
       "OrdinalPosition": 1,
@@ -16,7 +17,8 @@
       "IsIdentity": true,
       "IsComputed": false,
       "IsPrimaryKey": true,
-      "PropertyName": "Id"
+      "PropertyName": "Id",
+      "Description": ""
     },
     {
       "OrdinalPosition": 2,
@@ -27,7 +29,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Aviso_Id"
+      "PropertyName": "Aviso_Id",
+      "Description": ""
     },
     {
       "OrdinalPosition": 3,
@@ -38,7 +41,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Archivo_Id"
+      "PropertyName": "Archivo_Id",
+      "Description": ""
     },
     {
       "OrdinalPosition": 4,
@@ -49,7 +53,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Orden"
+      "PropertyName": "Orden",
+      "Description": ""
     },
     {
       "OrdinalPosition": 5,
@@ -60,7 +65,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Usuario_Id"
+      "PropertyName": "Usuario_Id",
+      "Description": ""
     },
     {
       "OrdinalPosition": 6,
@@ -71,7 +77,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Fecha"
+      "PropertyName": "Fecha",
+      "Description": ""
     }
   ],
   "PrimaryKeyColumns": [
@@ -89,6 +96,5 @@
       ]
     }
   ],
-  "ScannedAtUtc": "2026-08-21T18:10:55.8630302+00:00",
   "RowCountEstimate": 8
 }

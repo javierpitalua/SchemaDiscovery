@@ -2,10 +2,11 @@
   "Schema": "dbo",
   "Name": "DetalleEjecucion",
   "ClassName": "DetalleEjecucion",
-  "PluralClassName": "DetalleEjecucion",
+  "PluralClassName": "DetalleEjecuciones",
+  "DisplayName": "Detalle Ejecucion",
+  "PluralDisplayName": "Detalle Ejecuciones",
   "QualifiedName": "dbo.DetalleEjecucion",
   "ObjectType": "Table",
-  "DatabaseProvider": "sqlserver",
   "Columns": [
     {
       "OrdinalPosition": 1,
@@ -16,7 +17,8 @@
       "IsIdentity": true,
       "IsComputed": false,
       "IsPrimaryKey": true,
-      "PropertyName": "Id"
+      "PropertyName": "Id",
+      "Description": ""
     },
     {
       "OrdinalPosition": 2,
@@ -27,7 +29,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Ejecucion_Id"
+      "PropertyName": "Ejecucion_Id",
+      "Description": ""
     },
     {
       "OrdinalPosition": 3,
@@ -38,7 +41,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "DescripcionDocumento"
+      "PropertyName": "DescripcionDocumento",
+      "Description": ""
     },
     {
       "OrdinalPosition": 4,
@@ -48,7 +52,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Detalles"
+      "PropertyName": "Detalles",
+      "Description": ""
     },
     {
       "OrdinalPosition": 5,
@@ -59,7 +64,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "FechaInicio"
+      "PropertyName": "FechaInicio",
+      "Description": ""
     },
     {
       "OrdinalPosition": 6,
@@ -70,7 +76,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "CompletadoEn"
+      "PropertyName": "CompletadoEn",
+      "Description": ""
     },
     {
       "OrdinalPosition": 7,
@@ -81,7 +88,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "ProcesoCompletado"
+      "PropertyName": "ProcesoCompletado",
+      "Description": ""
     }
   ],
   "PrimaryKeyColumns": [
@@ -99,6 +107,5 @@
       ]
     }
   ],
-  "ScannedAtUtc": "2026-08-21T18:10:55.8859548+00:00",
   "RowCountEstimate": 62286
 }

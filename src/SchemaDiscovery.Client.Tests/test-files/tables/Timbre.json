@@ -2,10 +2,11 @@
   "Schema": "dbo",
   "Name": "Timbre",
   "ClassName": "Timbre",
-  "PluralClassName": "Timbre",
+  "PluralClassName": "Timbres",
+  "DisplayName": "Timbre",
+  "PluralDisplayName": "Timbres",
   "QualifiedName": "dbo.Timbre",
   "ObjectType": "Table",
-  "DatabaseProvider": "sqlserver",
   "Columns": [
     {
       "OrdinalPosition": 1,
@@ -16,7 +17,8 @@
       "IsIdentity": true,
       "IsComputed": false,
       "IsPrimaryKey": true,
-      "PropertyName": "Id"
+      "PropertyName": "Id",
+      "Description": ""
     },
     {
       "OrdinalPosition": 2,
@@ -27,7 +29,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Documento_Id"
+      "PropertyName": "Documento_Id",
+      "Description": ""
     },
     {
       "OrdinalPosition": 3,
@@ -38,7 +41,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "FechaProceso"
+      "PropertyName": "FechaProceso",
+      "Description": ""
     },
     {
       "OrdinalPosition": 4,
@@ -49,7 +53,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Codigo"
+      "PropertyName": "Codigo",
+      "Description": ""
     },
     {
       "OrdinalPosition": 5,
@@ -59,7 +64,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Respuesta"
+      "PropertyName": "Respuesta",
+      "Description": ""
     },
     {
       "OrdinalPosition": 6,
@@ -69,7 +75,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Solicitud"
+      "PropertyName": "Solicitud",
+      "Description": ""
     },
     {
       "OrdinalPosition": 7,
@@ -79,7 +86,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "MensajeError"
+      "PropertyName": "MensajeError",
+      "Description": ""
     },
     {
       "OrdinalPosition": 8,
@@ -90,7 +98,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Usuario_Id"
+      "PropertyName": "Usuario_Id",
+      "Description": ""
     }
   ],
   "PrimaryKeyColumns": [
@@ -108,6 +117,5 @@
       ]
     }
   ],
-  "ScannedAtUtc": "2026-08-21T18:10:55.9646159+00:00",
   "RowCountEstimate": 1024
 }

@@ -12,7 +12,5 @@
   "Schema": "dbo",
   "Name": "rpt_EspacioMembresiaItem_ObtenerEspaciosPorUbicacion",
   "ObjectType": "StoredProcedure",
-  "DatabaseProvider": "sqlserver",
-  "ScannedAtUtc": "2026-08-21T18:10:57.4541375+00:00",
   "QualifiedName": "dbo.rpt_EspacioMembresiaItem_ObtenerEspaciosPorUbicacion"
 }

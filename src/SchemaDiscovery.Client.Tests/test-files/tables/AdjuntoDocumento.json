@@ -2,10 +2,11 @@
   "Schema": "dbo",
   "Name": "AdjuntoDocumento",
   "ClassName": "AdjuntoDocumento",
-  "PluralClassName": "AdjuntoDocumento",
+  "PluralClassName": "AdjuntoDocumentos",
+  "DisplayName": "Adjunto Documento",
+  "PluralDisplayName": "Adjunto Documentos",
   "QualifiedName": "dbo.AdjuntoDocumento",
   "ObjectType": "Table",
-  "DatabaseProvider": "sqlserver",
   "Columns": [
     {
       "OrdinalPosition": 1,
@@ -16,7 +17,8 @@
       "IsIdentity": true,
       "IsComputed": false,
       "IsPrimaryKey": true,
-      "PropertyName": "Id"
+      "PropertyName": "Id",
+      "Description": ""
     },
     {
       "OrdinalPosition": 2,
@@ -27,7 +29,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Archivo_Id"
+      "PropertyName": "Archivo_Id",
+      "Description": ""
     },
     {
       "OrdinalPosition": 3,
@@ -38,7 +41,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Documento_Id"
+      "PropertyName": "Documento_Id",
+      "Description": ""
     }
   ],
   "PrimaryKeyColumns": [
@@ -56,6 +60,5 @@
       ]
     }
   ],
-  "ScannedAtUtc": "2026-08-21T18:10:55.8587237+00:00",
   "RowCountEstimate": 54332
 }

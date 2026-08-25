@@ -4,7 +4,5 @@
   "Schema": "dbo",
   "Name": "rpt_MembresiaSuscriptores_ObtenerUsuariosPorMembresiaActiva",
   "ObjectType": "StoredProcedure",
-  "DatabaseProvider": "sqlserver",
-  "ScannedAtUtc": "2026-08-21T18:10:57.4587074+00:00",
   "QualifiedName": "dbo.rpt_MembresiaSuscriptores_ObtenerUsuariosPorMembresiaActiva"
 }

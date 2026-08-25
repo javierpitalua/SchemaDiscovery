@@ -91,6 +91,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="test-files\projectInfo.json" />
     <None Include="test-files\functions\fnObtenerConteoHorasSalaDeJuntas.json" />
     <None Include="test-files\functions\fnObtenerDescripcionCicloFacturacion.json" />
     <None Include="test-files\functions\fnObtenerDescripcionMes.json" />

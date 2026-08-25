@@ -2,10 +2,11 @@
   "Schema": "dbo",
   "Name": "RegistroPago",
   "ClassName": "RegistroPago",
-  "PluralClassName": "RegistroPago",
+  "PluralClassName": "RegistroPagos",
+  "DisplayName": "Registro Pago",
+  "PluralDisplayName": "Registro Pagos",
   "QualifiedName": "dbo.RegistroPago",
   "ObjectType": "Table",
-  "DatabaseProvider": "sqlserver",
   "Columns": [
     {
       "OrdinalPosition": 1,
@@ -16,7 +17,8 @@
       "IsIdentity": true,
       "IsComputed": false,
       "IsPrimaryKey": true,
-      "PropertyName": "Id"
+      "PropertyName": "Id",
+      "Description": ""
     },
     {
       "OrdinalPosition": 2,
@@ -27,7 +29,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Folio"
+      "PropertyName": "Folio",
+      "Description": ""
     },
     {
       "OrdinalPosition": 3,
@@ -38,7 +41,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Serie"
+      "PropertyName": "Serie",
+      "Description": ""
     },
     {
       "OrdinalPosition": 4,
@@ -49,7 +53,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Documento_Id"
+      "PropertyName": "Documento_Id",
+      "Description": ""
     },
     {
       "OrdinalPosition": 5,
@@ -62,7 +67,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "ImportePagado"
+      "PropertyName": "ImportePagado",
+      "Description": ""
     },
     {
       "OrdinalPosition": 6,
@@ -75,7 +81,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "SaldoAnterior"
+      "PropertyName": "SaldoAnterior",
+      "Description": ""
     },
     {
       "OrdinalPosition": 7,
@@ -88,7 +95,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "SaldoInsoluto"
+      "PropertyName": "SaldoInsoluto",
+      "Description": ""
     },
     {
       "OrdinalPosition": 8,
@@ -99,7 +107,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "CuentaReceptora_Id"
+      "PropertyName": "CuentaReceptora_Id",
+      "Description": ""
     },
     {
       "OrdinalPosition": 9,
@@ -110,7 +119,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Timbrado"
+      "PropertyName": "Timbrado",
+      "Description": ""
     },
     {
       "OrdinalPosition": 10,
@@ -121,7 +131,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Fecha"
+      "PropertyName": "Fecha",
+      "Description": ""
     },
     {
       "OrdinalPosition": 11,
@@ -131,7 +142,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "SolicitudTimbrado"
+      "PropertyName": "SolicitudTimbrado",
+      "Description": ""
     },
     {
       "OrdinalPosition": 12,
@@ -141,7 +153,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "RespuestaTimbrado"
+      "PropertyName": "RespuestaTimbrado",
+      "Description": ""
     },
     {
       "OrdinalPosition": 13,
@@ -152,7 +165,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "PagoAplicado"
+      "PropertyName": "PagoAplicado",
+      "Description": ""
     },
     {
       "OrdinalPosition": 14,
@@ -163,7 +177,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Usuario_Id"
+      "PropertyName": "Usuario_Id",
+      "Description": ""
     },
     {
       "OrdinalPosition": 15,
@@ -174,7 +189,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "NumeroParcialidad"
+      "PropertyName": "NumeroParcialidad",
+      "Description": ""
     },
     {
       "OrdinalPosition": 16,
@@ -185,7 +201,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "ComprobantePDF_Id"
+      "PropertyName": "ComprobantePDF_Id",
+      "Description": ""
     },
     {
       "OrdinalPosition": 17,
@@ -196,7 +213,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "ComprobanteXML_Id"
+      "PropertyName": "ComprobanteXML_Id",
+      "Description": ""
     }
   ],
   "PrimaryKeyColumns": [
@@ -214,6 +232,5 @@
       ]
     }
   ],
-  "ScannedAtUtc": "2026-08-21T18:10:55.9492726+00:00",
   "RowCountEstimate": 5149
 }

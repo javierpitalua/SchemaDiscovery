@@ -2,10 +2,11 @@
   "Schema": "dbo",
   "Name": "InformacionDeContacto",
   "ClassName": "InformacionDeContacto",
-  "PluralClassName": "InformacionDeContacto",
+  "PluralClassName": "InformacionDeContactos",
+  "DisplayName": "Informacion De Contacto",
+  "PluralDisplayName": "Informacion De Contactos",
   "QualifiedName": "dbo.InformacionDeContacto",
   "ObjectType": "Table",
-  "DatabaseProvider": "sqlserver",
   "Columns": [
     {
       "OrdinalPosition": 1,
@@ -16,7 +17,8 @@
       "IsIdentity": true,
       "IsComputed": false,
       "IsPrimaryKey": true,
-      "PropertyName": "Id"
+      "PropertyName": "Id",
+      "Description": ""
     },
     {
       "OrdinalPosition": 2,
@@ -27,7 +29,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Suscriptor_Id"
+      "PropertyName": "Suscriptor_Id",
+      "Description": ""
     },
     {
       "OrdinalPosition": 3,
@@ -37,7 +40,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Descripcion"
+      "PropertyName": "Descripcion",
+      "Description": ""
     },
     {
       "OrdinalPosition": 4,
@@ -48,7 +52,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "TelefonoTrabajo"
+      "PropertyName": "TelefonoTrabajo",
+      "Description": ""
     },
     {
       "OrdinalPosition": 5,
@@ -59,7 +64,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "CuentaLinkedIn"
+      "PropertyName": "CuentaLinkedIn",
+      "Description": ""
     },
     {
       "OrdinalPosition": 6,
@@ -70,7 +76,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "CuentaTwitter"
+      "PropertyName": "CuentaTwitter",
+      "Description": ""
     },
     {
       "OrdinalPosition": 7,
@@ -81,7 +88,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "CuentaFacebook"
+      "PropertyName": "CuentaFacebook",
+      "Description": ""
     },
     {
       "OrdinalPosition": 8,
@@ -92,7 +100,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "CuentaInstagram"
+      "PropertyName": "CuentaInstagram",
+      "Description": ""
     },
     {
       "OrdinalPosition": 9,
@@ -103,7 +112,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "SitioWebEmpresa"
+      "PropertyName": "SitioWebEmpresa",
+      "Description": ""
     },
     {
       "OrdinalPosition": 10,
@@ -114,7 +124,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "DeseaSerContactado"
+      "PropertyName": "DeseaSerContactado",
+      "Description": ""
     },
     {
       "OrdinalPosition": 11,
@@ -125,7 +136,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "UltimaActualizacion"
+      "PropertyName": "UltimaActualizacion",
+      "Description": ""
     },
     {
       "OrdinalPosition": 12,
@@ -136,7 +148,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "AvatarId"
+      "PropertyName": "AvatarId",
+      "Description": ""
     }
   ],
   "PrimaryKeyColumns": [
@@ -154,6 +167,5 @@
       ]
     }
   ],
-  "ScannedAtUtc": "2026-08-21T18:10:55.913414+00:00",
   "RowCountEstimate": 902
 }

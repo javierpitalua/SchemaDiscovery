@@ -2,10 +2,11 @@
   "Schema": "dbo",
   "Name": "RegistroLLamada",
   "ClassName": "RegistroLLamada",
-  "PluralClassName": "RegistroLLamada",
+  "PluralClassName": "RegistroLLamadas",
+  "DisplayName": "Registro L Lamada",
+  "PluralDisplayName": "Registro L Lamadas",
   "QualifiedName": "dbo.RegistroLLamada",
   "ObjectType": "Table",
-  "DatabaseProvider": "sqlserver",
   "Columns": [
     {
       "OrdinalPosition": 1,
@@ -16,7 +17,8 @@
       "IsIdentity": true,
       "IsComputed": false,
       "IsPrimaryKey": true,
-      "PropertyName": "Id"
+      "PropertyName": "Id",
+      "Description": ""
     },
     {
       "OrdinalPosition": 2,
@@ -27,7 +29,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "ClaveCarga"
+      "PropertyName": "ClaveCarga",
+      "Description": ""
     },
     {
       "OrdinalPosition": 3,
@@ -38,7 +41,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Fecha"
+      "PropertyName": "Fecha",
+      "Description": ""
     },
     {
       "OrdinalPosition": 4,
@@ -49,7 +53,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Fuente"
+      "PropertyName": "Fuente",
+      "Description": ""
     },
     {
       "OrdinalPosition": 5,
@@ -60,7 +65,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Destino"
+      "PropertyName": "Destino",
+      "Description": ""
     },
     {
       "OrdinalPosition": 6,
@@ -71,7 +77,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "CanalDestino"
+      "PropertyName": "CanalDestino",
+      "Description": ""
     },
     {
       "OrdinalPosition": 7,
@@ -82,7 +89,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Estado"
+      "PropertyName": "Estado",
+      "Description": ""
     },
     {
       "OrdinalPosition": 8,
@@ -93,7 +101,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Duracion"
+      "PropertyName": "Duracion",
+      "Description": ""
     },
     {
       "OrdinalPosition": 9,
@@ -104,7 +113,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Tipo"
+      "PropertyName": "Tipo",
+      "Description": ""
     },
     {
       "OrdinalPosition": 10,
@@ -115,7 +125,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "ConceptoAdicional_Id"
+      "PropertyName": "ConceptoAdicional_Id",
+      "Description": ""
     },
     {
       "OrdinalPosition": 11,
@@ -126,7 +137,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Membresia_Id"
+      "PropertyName": "Membresia_Id",
+      "Description": ""
     }
   ],
   "PrimaryKeyColumns": [
@@ -155,6 +167,5 @@
       ]
     }
   ],
-  "ScannedAtUtc": "2026-08-21T18:10:55.9481475+00:00",
   "RowCountEstimate": 19738
 }

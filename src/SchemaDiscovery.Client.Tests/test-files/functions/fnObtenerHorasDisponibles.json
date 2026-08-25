@@ -13,7 +13,5 @@
   "Schema": "dbo",
   "Name": "fnObtenerHorasDisponibles",
   "ObjectType": "Function",
-  "DatabaseProvider": "sqlserver",
-  "ScannedAtUtc": "2026-08-21T18:10:58.9914898+00:00",
   "QualifiedName": "dbo.fnObtenerHorasDisponibles"
 }

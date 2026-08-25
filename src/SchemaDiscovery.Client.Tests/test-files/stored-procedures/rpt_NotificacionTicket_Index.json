@@ -26,7 +26,5 @@
   "Schema": "dbo",
   "Name": "rpt_NotificacionTicket_Index",
   "ObjectType": "StoredProcedure",
-  "DatabaseProvider": "sqlserver",
-  "ScannedAtUtc": "2026-08-21T18:10:57.4589912+00:00",
   "QualifiedName": "dbo.rpt_NotificacionTicket_Index"
 }

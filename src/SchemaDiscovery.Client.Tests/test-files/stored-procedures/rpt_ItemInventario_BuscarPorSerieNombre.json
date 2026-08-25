@@ -12,7 +12,5 @@
   "Schema": "dbo",
   "Name": "rpt_ItemInventario_BuscarPorSerieNombre",
   "ObjectType": "StoredProcedure",
-  "DatabaseProvider": "sqlserver",
-  "ScannedAtUtc": "2026-08-21T18:10:57.4569268+00:00",
   "QualifiedName": "dbo.rpt_ItemInventario_BuscarPorSerieNombre"
 }

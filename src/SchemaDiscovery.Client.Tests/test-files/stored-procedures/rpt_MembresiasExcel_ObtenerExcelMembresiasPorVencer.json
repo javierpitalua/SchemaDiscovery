@@ -4,7 +4,5 @@
   "Schema": "dbo",
   "Name": "rpt_MembresiasExcel_ObtenerExcelMembresiasPorVencer",
   "ObjectType": "StoredProcedure",
-  "DatabaseProvider": "sqlserver",
-  "ScannedAtUtc": "2026-08-21T18:10:57.4584419+00:00",
   "QualifiedName": "dbo.rpt_MembresiasExcel_ObtenerExcelMembresiasPorVencer"
 }

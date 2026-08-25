@@ -23,11 +23,13 @@ public sealed class PostgreSqlSchemaProvider : IDatabaseSchemaProvider
     public string ProviderName => "postgres";
 
     private readonly ILogger<PostgreSqlSchemaProvider> _logger;
+    private readonly CultureLanguages _culture;
 
-    public PostgreSqlSchemaProvider(string connectionString, ILoggerFactory loggerFactory)
+    public PostgreSqlSchemaProvider(string connectionString, ILoggerFactory loggerFactory, CultureLanguages culture)
     {
         _ = connectionString; // will be used once Npgsql is wired up
         _logger = loggerFactory.CreateLogger<PostgreSqlSchemaProvider>();
+        _culture = culture;
     }
 
     public Task<IReadOnlyList<TableSchema>> GetTablesAsync(CancellationToken cancellationToken = default)

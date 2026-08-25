@@ -26,7 +26,5 @@
   "Schema": "dbo",
   "Name": "rpt_ReservacionMembresia_ObtenerReservacionPorMembresia",
   "ObjectType": "StoredProcedure",
-  "DatabaseProvider": "sqlserver",
-  "ScannedAtUtc": "2026-08-21T18:10:57.4647845+00:00",
   "QualifiedName": "dbo.rpt_ReservacionMembresia_ObtenerReservacionPorMembresia"
 }

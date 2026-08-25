@@ -2,10 +2,11 @@
   "Schema": "dbo",
   "Name": "ConfiguracionTipoMembresia",
   "ClassName": "ConfiguracionTipoMembresia",
-  "PluralClassName": "ConfiguracionTipoMembresia",
+  "PluralClassName": "ConfiguracionTipoMembresias",
+  "DisplayName": "Configuracion Tipo Membresia",
+  "PluralDisplayName": "Configuracion Tipo Membresias",
   "QualifiedName": "dbo.ConfiguracionTipoMembresia",
   "ObjectType": "Table",
-  "DatabaseProvider": "sqlserver",
   "Columns": [
     {
       "OrdinalPosition": 1,
@@ -16,7 +17,8 @@
       "IsIdentity": true,
       "IsComputed": false,
       "IsPrimaryKey": true,
-      "PropertyName": "Id"
+      "PropertyName": "Id",
+      "Description": ""
     },
     {
       "OrdinalPosition": 2,
@@ -27,7 +29,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "TipoMembresia_Id"
+      "PropertyName": "TipoMembresia_Id",
+      "Description": ""
     },
     {
       "OrdinalPosition": 3,
@@ -38,7 +41,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "ConceptoFacturable_Id"
+      "PropertyName": "ConceptoFacturable_Id",
+      "Description": ""
     },
     {
       "OrdinalPosition": 4,
@@ -51,7 +55,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Cantidad"
+      "PropertyName": "Cantidad",
+      "Description": ""
     },
     {
       "OrdinalPosition": 5,
@@ -62,7 +67,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "FechaCreacion"
+      "PropertyName": "FechaCreacion",
+      "Description": ""
     },
     {
       "OrdinalPosition": 6,
@@ -73,7 +79,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "CreadoPor"
+      "PropertyName": "CreadoPor",
+      "Description": ""
     },
     {
       "OrdinalPosition": 7,
@@ -84,7 +91,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "FechaModificacion"
+      "PropertyName": "FechaModificacion",
+      "Description": ""
     },
     {
       "OrdinalPosition": 8,
@@ -95,7 +103,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "ModificadoPor"
+      "PropertyName": "ModificadoPor",
+      "Description": ""
     },
     {
       "OrdinalPosition": 9,
@@ -106,7 +115,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "Activo"
+      "PropertyName": "Activo",
+      "Description": ""
     },
     {
       "OrdinalPosition": 10,
@@ -117,7 +127,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "FechaDesactivacion"
+      "PropertyName": "FechaDesactivacion",
+      "Description": ""
     },
     {
       "OrdinalPosition": 11,
@@ -128,7 +139,8 @@
       "IsIdentity": false,
       "IsComputed": false,
       "IsPrimaryKey": false,
-      "PropertyName": "DesactivadoPor"
+      "PropertyName": "DesactivadoPor",
+      "Description": ""
     }
   ],
   "PrimaryKeyColumns": [
@@ -146,6 +158,5 @@
       ]
     }
   ],
-  "ScannedAtUtc": "2026-08-21T18:10:55.883207+00:00",
   "RowCountEstimate": 91
 }

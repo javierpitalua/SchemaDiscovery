@@ -19,14 +19,14 @@ public sealed class SchemaExportService
         nameof(TableSchema.Name),
         nameof(TableSchema.ClassName),
         nameof(TableSchema.PluralClassName),
+        nameof(TableSchema.DisplayName),
+        nameof(TableSchema.PluralDisplayName),
         nameof(TableSchema.QualifiedName),
         nameof(TableSchema.ObjectType),
-        nameof(TableSchema.DatabaseProvider),
         nameof(TableSchema.Columns),
         nameof(TableSchema.PrimaryKeyColumns),
         nameof(TableSchema.ForeignKeys),
         nameof(TableSchema.Indexes),
-        nameof(TableSchema.ScannedAtUtc),
         nameof(TableSchema.RowCountEstimate),
     ];
 
@@ -63,10 +63,28 @@ public sealed class SchemaExportService
         bool skipViews,
         bool skipProcedures,
         bool skipFunctions,
+        string language,
         CancellationToken cancellationToken)
     {
         Directory.CreateDirectory(outputDirectory);
         var exportedCount = 0;
+
+        var lang = language.ToLowerInvariant() switch
+        {
+            "en" => CultureLanguages.English,
+            "es" => CultureLanguages.Spanish,
+            _ => throw new ArgumentOutOfRangeException(nameof(language), language, "Language must be 'en' or 'es'.")
+        };  
+
+       var projectInfo = new ProjectInfo
+       {
+           ProviderName = provider.ProviderName,
+           ScannedAtUtc = DateTimeOffset.UtcNow,
+           CultureLanguage = lang.ToString()
+       };
+
+        var projectInfoFileName = Path.Combine(outputDirectory, "projectInfo.json");
+        await WriteObjectAsync(projectInfoFileName, projectInfo, cancellationToken);
 
         var tables = await provider.GetTablesAsync(cancellationToken);
         foreach (var table in tables)
@@ -127,6 +145,13 @@ public sealed class SchemaExportService
 
         await using var stream = File.Create(filePath);
         await JsonSerializer.SerializeAsync(stream, schemaObject, schemaObject.GetType(), JsonOptions, cancellationToken);
+    }
+
+    private async Task WriteObjectAsync(
+       string outputFileName, object objectInfo, CancellationToken cancellationToken)
+    {   
+        await using var stream = File.Create(outputFileName);
+        await JsonSerializer.SerializeAsync(stream, objectInfo, objectInfo.GetType(), JsonOptions, cancellationToken);
     }
 
     /// <summary>
