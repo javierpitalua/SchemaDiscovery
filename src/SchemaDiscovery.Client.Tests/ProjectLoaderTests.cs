@@ -3,7 +3,7 @@ using System.IO;
 using System.Linq;
 using System.Text.Json;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using SchemaDiscovery.Models;
+using SchemaDiscovery.Client.Models;
 
 namespace SchemaDiscovery.Client.Tests
 {
