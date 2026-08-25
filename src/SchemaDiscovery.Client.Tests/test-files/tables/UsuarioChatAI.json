@@ -2,10 +2,11 @@
   "Schema": "dbo",
   "Name": "UsuarioChatAI",
   "ClassName": "UsuarioChatAI",
-  "PluralClassName": "UsuarioChatAI",
+  "PluralClassName": "UsuarioChatAIs",
+  "DisplayName": "Usuario Chat AI",
+  "PluralDisplayName": "Usuario Chat AIs",
   "QualifiedName": "dbo.UsuarioChatAI",
   "ObjectType": "Table",
-  "DatabaseProvider": "sqlserver",
   "Columns": [
     {
       "OrdinalPosition": 1,
@@ -47,6 +48,5 @@
       ]
     }
   ],
-  "ScannedAtUtc": "2026-08-24T18:47:42.6678609+00:00",
   "RowCountEstimate": 5
 }

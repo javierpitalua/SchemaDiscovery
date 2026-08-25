@@ -2,10 +2,11 @@
   "Schema": "dbo",
   "Name": "HistoricoTicket",
   "ClassName": "HistoricoTicket",
-  "PluralClassName": "HistoricoTicket",
+  "PluralClassName": "HistoricoTicketes",
+  "DisplayName": "Historico Ticket",
+  "PluralDisplayName": "Historico Ticketes",
   "QualifiedName": "dbo.HistoricoTicket",
   "ObjectType": "Table",
-  "DatabaseProvider": "sqlserver",
   "Columns": [
     {
       "OrdinalPosition": 1,
@@ -118,6 +119,5 @@
       ]
     }
   ],
-  "ScannedAtUtc": "2026-08-24T18:47:42.5379258+00:00",
   "RowCountEstimate": 3602
 }

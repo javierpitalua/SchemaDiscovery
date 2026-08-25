@@ -2,10 +2,11 @@
   "Schema": "dbo",
   "Name": "InformacionFacturacion",
   "ClassName": "InformacionFacturacion",
-  "PluralClassName": "InformacionFacturacion",
+  "PluralClassName": "InformacionFacturaciones",
+  "DisplayName": "Informacion Facturacion",
+  "PluralDisplayName": "Informacion Facturaciones",
   "QualifiedName": "dbo.InformacionFacturacion",
   "ObjectType": "Table",
-  "DatabaseProvider": "sqlserver",
   "Columns": [
     {
       "OrdinalPosition": 1,
@@ -227,6 +228,5 @@
       ]
     }
   ],
-  "ScannedAtUtc": "2026-08-24T18:47:42.542183+00:00",
   "RowCountEstimate": 2141
 }

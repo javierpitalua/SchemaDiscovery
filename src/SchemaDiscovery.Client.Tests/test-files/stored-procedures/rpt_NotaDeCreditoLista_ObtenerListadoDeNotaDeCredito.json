@@ -12,7 +12,5 @@
   "Schema": "dbo",
   "Name": "rpt_NotaDeCreditoLista_ObtenerListadoDeNotaDeCredito",
   "ObjectType": "StoredProcedure",
-  "DatabaseProvider": "sqlserver",
-  "ScannedAtUtc": "2026-08-24T18:47:44.6872916+00:00",
   "QualifiedName": "dbo.rpt_NotaDeCreditoLista_ObtenerListadoDeNotaDeCredito"
 }

@@ -12,7 +12,5 @@
   "Schema": "dbo",
   "Name": "rpt_TipoDeEspacio_Index",
   "ObjectType": "StoredProcedure",
-  "DatabaseProvider": "sqlserver",
-  "ScannedAtUtc": "2026-08-24T18:47:44.7116718+00:00",
   "QualifiedName": "dbo.rpt_TipoDeEspacio_Index"
 }

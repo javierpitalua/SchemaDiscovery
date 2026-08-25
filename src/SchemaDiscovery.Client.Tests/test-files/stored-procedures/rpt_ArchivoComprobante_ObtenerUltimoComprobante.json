@@ -12,7 +12,5 @@
   "Schema": "dbo",
   "Name": "rpt_ArchivoComprobante_ObtenerUltimoComprobante",
   "ObjectType": "StoredProcedure",
-  "DatabaseProvider": "sqlserver",
-  "ScannedAtUtc": "2026-08-24T18:47:44.6561188+00:00",
   "QualifiedName": "dbo.rpt_ArchivoComprobante_ObtenerUltimoComprobante"
 }

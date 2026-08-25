@@ -2,10 +2,11 @@
   "Schema": "dbo",
   "Name": "ReferenciaBancaria",
   "ClassName": "ReferenciaBancaria",
-  "PluralClassName": "ReferenciaBancaria",
+  "PluralClassName": "ReferenciaBancarias",
+  "DisplayName": "Referencia Bancaria",
+  "PluralDisplayName": "Referencia Bancarias",
   "QualifiedName": "dbo.ReferenciaBancaria",
   "ObjectType": "Table",
-  "DatabaseProvider": "sqlserver",
   "Columns": [
     {
       "OrdinalPosition": 1,
@@ -59,6 +60,5 @@
       ]
     }
   ],
-  "ScannedAtUtc": "2026-08-24T18:47:42.6051079+00:00",
   "RowCountEstimate": 1985
 }

@@ -2,10 +2,11 @@
   "Schema": "dbo",
   "Name": "ReservacionEstacionDeTrabajo",
   "ClassName": "ReservacionEstacionDeTrabajo",
-  "PluralClassName": "ReservacionEstacionDeTrabajo",
+  "PluralClassName": "ReservacionEstacionDeTrabajos",
+  "DisplayName": "Reservacion Estacion De Trabajo",
+  "PluralDisplayName": "Reservacion Estacion De Trabajos",
   "QualifiedName": "dbo.ReservacionEstacionDeTrabajo",
   "ObjectType": "Table",
-  "DatabaseProvider": "sqlserver",
   "Columns": [
     {
       "OrdinalPosition": 1,
@@ -239,6 +240,5 @@
       ]
     }
   ],
-  "ScannedAtUtc": "2026-08-24T18:47:42.6241011+00:00",
   "RowCountEstimate": 341
 }

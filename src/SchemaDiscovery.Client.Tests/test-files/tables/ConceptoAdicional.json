@@ -2,10 +2,11 @@
   "Schema": "dbo",
   "Name": "ConceptoAdicional",
   "ClassName": "ConceptoAdicional",
-  "PluralClassName": "ConceptoAdicional",
+  "PluralClassName": "ConceptoAdicionales",
+  "DisplayName": "Concepto Adicional",
+  "PluralDisplayName": "Concepto Adicionales",
   "QualifiedName": "dbo.ConceptoAdicional",
   "ObjectType": "Table",
-  "DatabaseProvider": "sqlserver",
   "Columns": [
     {
       "OrdinalPosition": 1,
@@ -219,6 +220,5 @@
       ]
     }
   ],
-  "ScannedAtUtc": "2026-08-24T18:47:42.4665193+00:00",
   "RowCountEstimate": 10682
 }

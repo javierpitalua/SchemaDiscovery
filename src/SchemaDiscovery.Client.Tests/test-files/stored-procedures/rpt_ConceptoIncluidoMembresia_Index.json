@@ -26,7 +26,5 @@
   "Schema": "dbo",
   "Name": "rpt_ConceptoIncluidoMembresia_Index",
   "ObjectType": "StoredProcedure",
-  "DatabaseProvider": "sqlserver",
-  "ScannedAtUtc": "2026-08-24T18:47:44.6762403+00:00",
   "QualifiedName": "dbo.rpt_ConceptoIncluidoMembresia_Index"
 }

@@ -2,10 +2,11 @@
   "Schema": "dbo",
   "Name": "CancelacionTimbrado",
   "ClassName": "CancelacionTimbrado",
-  "PluralClassName": "CancelacionTimbrado",
+  "PluralClassName": "CancelacionTimbrados",
+  "DisplayName": "Cancelacion Timbrado",
+  "PluralDisplayName": "Cancelacion Timbrados",
   "QualifiedName": "dbo.CancelacionTimbrado",
   "ObjectType": "Table",
-  "DatabaseProvider": "sqlserver",
   "Columns": [
     {
       "OrdinalPosition": 1,
@@ -189,6 +190,5 @@
       ]
     }
   ],
-  "ScannedAtUtc": "2026-08-24T18:47:42.4452552+00:00",
   "RowCountEstimate": 356
 }

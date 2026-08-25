@@ -2,10 +2,11 @@
   "Schema": "dbo",
   "Name": "CategoriaDeAviso",
   "ClassName": "CategoriaDeAviso",
-  "PluralClassName": "CategoriaDeAviso",
+  "PluralClassName": "CategoriaDeAvisos",
+  "DisplayName": "Categoria De Aviso",
+  "PluralDisplayName": "Categoria De Avisos",
   "QualifiedName": "dbo.CategoriaDeAviso",
   "ObjectType": "Table",
-  "DatabaseProvider": "sqlserver",
   "Columns": [
     {
       "OrdinalPosition": 1,
@@ -131,6 +132,5 @@
       ]
     }
   ],
-  "ScannedAtUtc": "2026-08-24T18:47:42.4523039+00:00",
   "RowCountEstimate": 2
 }

@@ -12,7 +12,5 @@
   "Schema": "dbo",
   "Name": "rpt_ItemSuscriptor_BuscarPorNombre",
   "ObjectType": "StoredProcedure",
-  "DatabaseProvider": "sqlserver",
-  "ScannedAtUtc": "2026-08-24T18:47:44.68567+00:00",
   "QualifiedName": "dbo.rpt_ItemSuscriptor_BuscarPorNombre"
 }

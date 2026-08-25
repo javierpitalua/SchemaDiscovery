@@ -2,10 +2,11 @@
   "Schema": "dbo",
   "Name": "ReservacionExtra",
   "ClassName": "ReservacionExtra",
-  "PluralClassName": "ReservacionExtra",
+  "PluralClassName": "ReservacionExtras",
+  "DisplayName": "Reservacion Extra",
+  "PluralDisplayName": "Reservacion Extras",
   "QualifiedName": "dbo.ReservacionExtra",
   "ObjectType": "Table",
-  "DatabaseProvider": "sqlserver",
   "Columns": [
     {
       "OrdinalPosition": 1,
@@ -175,6 +176,5 @@
       ]
     }
   ],
-  "ScannedAtUtc": "2026-08-24T18:47:42.6269535+00:00",
   "RowCountEstimate": 0
 }

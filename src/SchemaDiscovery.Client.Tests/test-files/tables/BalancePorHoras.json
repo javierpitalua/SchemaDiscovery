@@ -2,10 +2,11 @@
   "Schema": "dbo",
   "Name": "BalancePorHoras",
   "ClassName": "BalancePorHoras",
-  "PluralClassName": "BalancePorHoras",
+  "PluralClassName": "BalancePorHorases",
+  "DisplayName": "Balance Por Horas",
+  "PluralDisplayName": "Balance Por Horases",
   "QualifiedName": "dbo.BalancePorHoras",
   "ObjectType": "Table",
-  "DatabaseProvider": "sqlserver",
   "Columns": [
     {
       "OrdinalPosition": 1,
@@ -89,6 +90,5 @@
       ]
     }
   ],
-  "ScannedAtUtc": "2026-08-24T18:47:42.4432218+00:00",
   "RowCountEstimate": 331
 }

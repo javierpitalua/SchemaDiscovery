@@ -30,5 +30,12 @@ namespace SchemaDiscovery.Models
         /// <summary>Pluralized class name, e.g. for a DbSet or repository name.</summary>
         [Persist]
         public string PluralClassName { get; set; } = string.Empty;
+
+        [Persist]
+        public string DisplayName { get; set; } = string.Empty;
+
+        [Persist]
+        public string PluralDisplayName { get; set; } = string.Empty;
+
     }
 }

@@ -19,7 +19,5 @@
   "Schema": "dbo",
   "Name": "rpt_ItemDocumento_ObtenerDocumentosTimbradoAutomatico",
   "ObjectType": "StoredProcedure",
-  "DatabaseProvider": "sqlserver",
-  "ScannedAtUtc": "2026-08-24T18:47:44.6846221+00:00",
   "QualifiedName": "dbo.rpt_ItemDocumento_ObtenerDocumentosTimbradoAutomatico"
 }

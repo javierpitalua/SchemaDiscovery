@@ -11,7 +11,7 @@ namespace SchemaDiscovery.Client.Models
     /// A scanned database schema, assembled by <see cref="ProjectLoader"/> from the
     /// per-object JSON files a schema-discovery run wrote to an output directory.
     /// </summary>
-    public class Project
+    public class Project : ProjectInfo
     {
         public List<TableSchema> Tables { get; set; } = new List<TableSchema>();
         public List<ViewSchema> Views { get; set; } = new List<ViewSchema>();

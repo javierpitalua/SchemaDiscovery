@@ -89,9 +89,9 @@ public sealed class SqlServerSchemaProvider : IDatabaseSchemaProvider
                 Schema = tableRef.Schema,
                 ClassName = tableRef.Name,
                 PluralClassName = _humanizer.ToPluralCase(tableRef.Name, _culture),
-               
+                DisplayName = _humanizer.ToHumanReadable(tableRef.Name),
+                PluralDisplayName = _humanizer.ToPluralCase(_humanizer.ToHumanReadable(tableRef.Name), _culture),
                 Name = tableRef.Name,
-                DatabaseProvider = ProviderName,
                 RowCountEstimate = tableRef.RowCount
             };
 
@@ -150,7 +150,6 @@ public sealed class SqlServerSchemaProvider : IDatabaseSchemaProvider
             {
                 Schema = viewRef.Schema,
                 Name = viewRef.Name,
-                DatabaseProvider = ProviderName,
                 Definition = viewRef.Definition
             };
 
@@ -214,7 +213,6 @@ public sealed class SqlServerSchemaProvider : IDatabaseSchemaProvider
             {
                 Schema = routineRef.Schema,
                 Name = routineRef.Name,
-                DatabaseProvider = ProviderName,
                 Definition = routineRef.Definition
             };
 

@@ -13,7 +13,5 @@
   "Schema": "dbo",
   "Name": "fnObtenerDescripcionCicloFacturacion",
   "ObjectType": "Function",
-  "DatabaseProvider": "sqlserver",
-  "ScannedAtUtc": "2026-08-24T18:47:46.1553599+00:00",
   "QualifiedName": "dbo.fnObtenerDescripcionCicloFacturacion"
 }

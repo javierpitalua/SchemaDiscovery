@@ -2,10 +2,11 @@
   "Schema": "dbo",
   "Name": "Evento",
   "ClassName": "Evento",
-  "PluralClassName": "Evento",
+  "PluralClassName": "Eventos",
+  "DisplayName": "Evento",
+  "PluralDisplayName": "Eventos",
   "QualifiedName": "dbo.Evento",
   "ObjectType": "Table",
-  "DatabaseProvider": "sqlserver",
   "Columns": [
     {
       "OrdinalPosition": 1,
@@ -142,6 +143,5 @@
       ]
     }
   ],
-  "ScannedAtUtc": "2026-08-24T18:47:42.5192748+00:00",
   "RowCountEstimate": 1
 }

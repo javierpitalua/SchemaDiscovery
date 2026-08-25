@@ -2,10 +2,11 @@
   "Schema": "dbo",
   "Name": "Perfil",
   "ClassName": "Perfil",
-  "PluralClassName": "Perfil",
+  "PluralClassName": "Perfiles",
+  "DisplayName": "Perfil",
+  "PluralDisplayName": "Perfiles",
   "QualifiedName": "dbo.Perfil",
   "ObjectType": "Table",
-  "DatabaseProvider": "sqlserver",
   "Columns": [
     {
       "OrdinalPosition": 1,
@@ -142,6 +143,5 @@
       ]
     }
   ],
-  "ScannedAtUtc": "2026-08-24T18:47:42.573744+00:00",
   "RowCountEstimate": 3
 }

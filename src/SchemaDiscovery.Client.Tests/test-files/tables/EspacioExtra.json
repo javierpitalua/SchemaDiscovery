@@ -2,10 +2,11 @@
   "Schema": "dbo",
   "Name": "EspacioExtra",
   "ClassName": "EspacioExtra",
-  "PluralClassName": "EspacioExtra",
+  "PluralClassName": "EspacioExtras",
+  "DisplayName": "Espacio Extra",
+  "PluralDisplayName": "Espacio Extras",
   "QualifiedName": "dbo.EspacioExtra",
   "ObjectType": "Table",
-  "DatabaseProvider": "sqlserver",
   "Columns": [
     {
       "OrdinalPosition": 1,
@@ -162,6 +163,5 @@
       ]
     }
   ],
-  "ScannedAtUtc": "2026-08-24T18:47:42.5013145+00:00",
   "RowCountEstimate": 0
 }

@@ -2,10 +2,11 @@
   "Schema": "dbo",
   "Name": "PublicacionComunidad",
   "ClassName": "PublicacionComunidad",
-  "PluralClassName": "PublicacionComunidad",
+  "PluralClassName": "PublicacionComunidades",
+  "DisplayName": "Publicacion Comunidad",
+  "PluralDisplayName": "Publicacion Comunidades",
   "QualifiedName": "dbo.PublicacionComunidad",
   "ObjectType": "Table",
-  "DatabaseProvider": "sqlserver",
   "Columns": [
     {
       "OrdinalPosition": 1,
@@ -71,6 +72,5 @@
       ]
     }
   ],
-  "ScannedAtUtc": "2026-08-24T18:47:42.5974133+00:00",
   "RowCountEstimate": 0
 }

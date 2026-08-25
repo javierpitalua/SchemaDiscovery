@@ -2,10 +2,11 @@
   "Schema": "dbo",
   "Name": "InformacionDeContacto",
   "ClassName": "InformacionDeContacto",
-  "PluralClassName": "InformacionDeContacto",
+  "PluralClassName": "InformacionDeContactos",
+  "DisplayName": "Informacion De Contacto",
+  "PluralDisplayName": "Informacion De Contactos",
   "QualifiedName": "dbo.InformacionDeContacto",
   "ObjectType": "Table",
-  "DatabaseProvider": "sqlserver",
   "Columns": [
     {
       "OrdinalPosition": 1,
@@ -166,6 +167,5 @@
       ]
     }
   ],
-  "ScannedAtUtc": "2026-08-24T18:47:42.540031+00:00",
   "RowCountEstimate": 902
 }

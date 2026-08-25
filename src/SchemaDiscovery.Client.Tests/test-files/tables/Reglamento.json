@@ -2,10 +2,11 @@
   "Schema": "dbo",
   "Name": "Reglamento",
   "ClassName": "Reglamento",
-  "PluralClassName": "Reglamento",
+  "PluralClassName": "Reglamentos",
+  "DisplayName": "Reglamento",
+  "PluralDisplayName": "Reglamentos",
   "QualifiedName": "dbo.Reglamento",
   "ObjectType": "Table",
-  "DatabaseProvider": "sqlserver",
   "Columns": [
     {
       "OrdinalPosition": 1,
@@ -155,6 +156,5 @@
       ]
     }
   ],
-  "ScannedAtUtc": "2026-08-24T18:47:42.6169312+00:00",
   "RowCountEstimate": 1
 }

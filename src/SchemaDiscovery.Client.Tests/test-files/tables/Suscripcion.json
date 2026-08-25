@@ -2,10 +2,11 @@
   "Schema": "dbo",
   "Name": "Suscripcion",
   "ClassName": "Suscripcion",
-  "PluralClassName": "Suscripcion",
+  "PluralClassName": "Suscripciones",
+  "DisplayName": "Suscripcion",
+  "PluralDisplayName": "Suscripciones",
   "QualifiedName": "dbo.Suscripcion",
   "ObjectType": "Table",
-  "DatabaseProvider": "sqlserver",
   "Columns": [
     {
       "OrdinalPosition": 1,
@@ -179,6 +180,5 @@
       ]
     }
   ],
-  "ScannedAtUtc": "2026-08-24T18:47:42.6384397+00:00",
   "RowCountEstimate": 4414
 }

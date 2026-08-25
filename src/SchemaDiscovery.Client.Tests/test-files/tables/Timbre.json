@@ -2,10 +2,11 @@
   "Schema": "dbo",
   "Name": "Timbre",
   "ClassName": "Timbre",
-  "PluralClassName": "Timbre",
+  "PluralClassName": "Timbres",
+  "DisplayName": "Timbre",
+  "PluralDisplayName": "Timbres",
   "QualifiedName": "dbo.Timbre",
   "ObjectType": "Table",
-  "DatabaseProvider": "sqlserver",
   "Columns": [
     {
       "OrdinalPosition": 1,
@@ -116,6 +117,5 @@
       ]
     }
   ],
-  "ScannedAtUtc": "2026-08-24T18:47:42.6448933+00:00",
   "RowCountEstimate": 1024
 }

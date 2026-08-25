@@ -40,7 +40,5 @@
   "Schema": "dbo",
   "Name": "rpt_Membresia_Index",
   "ObjectType": "StoredProcedure",
-  "DatabaseProvider": "sqlserver",
-  "ScannedAtUtc": "2026-08-24T18:47:44.6858702+00:00",
   "QualifiedName": "dbo.rpt_Membresia_Index"
 }

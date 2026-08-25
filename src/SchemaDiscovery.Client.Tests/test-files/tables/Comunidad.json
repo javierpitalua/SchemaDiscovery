@@ -2,10 +2,11 @@
   "Schema": "dbo",
   "Name": "Comunidad",
   "ClassName": "Comunidad",
-  "PluralClassName": "Comunidad",
+  "PluralClassName": "Comunidades",
+  "DisplayName": "Comunidad",
+  "PluralDisplayName": "Comunidades",
   "QualifiedName": "dbo.Comunidad",
   "ObjectType": "Table",
-  "DatabaseProvider": "sqlserver",
   "Columns": [
     {
       "OrdinalPosition": 1,
@@ -190,6 +191,5 @@
       ]
     }
   ],
-  "ScannedAtUtc": "2026-08-24T18:47:42.4642434+00:00",
   "RowCountEstimate": 6
 }

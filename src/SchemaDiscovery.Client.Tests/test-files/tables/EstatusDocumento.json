@@ -2,10 +2,11 @@
   "Schema": "dbo",
   "Name": "EstatusDocumento",
   "ClassName": "EstatusDocumento",
-  "PluralClassName": "EstatusDocumento",
+  "PluralClassName": "EstatusDocumentos",
+  "DisplayName": "Estatus Documento",
+  "PluralDisplayName": "Estatus Documentos",
   "QualifiedName": "dbo.EstatusDocumento",
   "ObjectType": "Table",
-  "DatabaseProvider": "sqlserver",
   "Columns": [
     {
       "OrdinalPosition": 1,
@@ -47,6 +48,5 @@
       ]
     }
   ],
-  "ScannedAtUtc": "2026-08-24T18:47:42.5099967+00:00",
   "RowCountEstimate": 11
 }

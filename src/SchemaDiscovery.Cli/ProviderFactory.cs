@@ -1,8 +1,5 @@
 using Microsoft.Extensions.Logging;
 using SchemaDiscovery;
-using SchemaDiscovery.Providers.MySql;
-using SchemaDiscovery.Providers.PostgreSql;
-using SchemaDiscovery.Providers.SqlServer;
 
 namespace SchemaDiscovery.Cli;
 
@@ -10,22 +7,15 @@ namespace SchemaDiscovery.Cli;
 /// Central registry of known <see cref="IDatabaseSchemaProviderFactory"/> implementations.
 /// To add support for a new database engine: implement IDatabaseSchemaProvider and
 /// IDatabaseSchemaProviderFactory in a new project (see SchemaDiscovery.Providers.PostgreSql
-/// for the expected shape), then add an instance of your factory to the array below.
+/// for the expected shape), then register the factory in DependencyResolution/DefaultModule.cs.
 /// </summary>
 public sealed class ProviderFactory
 {
     private readonly Dictionary<string, IDatabaseSchemaProviderFactory> _factories;
 
-    public ProviderFactory()
+    public ProviderFactory(IEnumerable<IDatabaseSchemaProviderFactory> factories)
     {
-        IDatabaseSchemaProviderFactory[] known =
-        [
-            new SqlServerProviderFactory(),
-            new PostgreSqlProviderFactory(),
-            new MySqlProviderFactory()
-        ];
-
-        _factories = known.ToDictionary(f => f.ProviderName, StringComparer.OrdinalIgnoreCase);
+        _factories = factories.ToDictionary(f => f.ProviderName, StringComparer.OrdinalIgnoreCase);
     }
 
     public IReadOnlyCollection<string> SupportedProviders => _factories.Keys;

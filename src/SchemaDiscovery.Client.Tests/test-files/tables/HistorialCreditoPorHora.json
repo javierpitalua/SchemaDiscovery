@@ -2,10 +2,11 @@
   "Schema": "dbo",
   "Name": "HistorialCreditoPorHora",
   "ClassName": "HistorialCreditoPorHora",
-  "PluralClassName": "HistorialCreditoPorHora",
+  "PluralClassName": "HistorialCreditoPorHoras",
+  "DisplayName": "Historial Credito Por Hora",
+  "PluralDisplayName": "Historial Credito Por Horas",
   "QualifiedName": "dbo.HistorialCreditoPorHora",
   "ObjectType": "Table",
-  "DatabaseProvider": "sqlserver",
   "Columns": [
     {
       "OrdinalPosition": 1,
@@ -145,6 +146,5 @@
       ]
     }
   ],
-  "ScannedAtUtc": "2026-08-24T18:47:42.5310157+00:00",
   "RowCountEstimate": 1186
 }

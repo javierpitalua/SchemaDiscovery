@@ -2,10 +2,11 @@
   "Schema": "dbo",
   "Name": "HistoricoMembresia",
   "ClassName": "HistoricoMembresia",
-  "PluralClassName": "HistoricoMembresia",
+  "PluralClassName": "HistoricoMembresias",
+  "DisplayName": "Historico Membresia",
+  "PluralDisplayName": "Historico Membresias",
   "QualifiedName": "dbo.HistoricoMembresia",
   "ObjectType": "Table",
-  "DatabaseProvider": "sqlserver",
   "Columns": [
     {
       "OrdinalPosition": 1,
@@ -94,6 +95,5 @@
       ]
     }
   ],
-  "ScannedAtUtc": "2026-08-24T18:47:42.5359242+00:00",
   "RowCountEstimate": 31447
 }

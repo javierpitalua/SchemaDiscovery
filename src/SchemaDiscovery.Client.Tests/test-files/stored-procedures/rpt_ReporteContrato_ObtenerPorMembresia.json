@@ -12,7 +12,5 @@
   "Schema": "dbo",
   "Name": "rpt_ReporteContrato_ObtenerPorMembresia",
   "ObjectType": "StoredProcedure",
-  "DatabaseProvider": "sqlserver",
-  "ScannedAtUtc": "2026-08-24T18:47:44.7063454+00:00",
   "QualifiedName": "dbo.rpt_ReporteContrato_ObtenerPorMembresia"
 }

@@ -19,7 +19,5 @@
   "Schema": "dbo",
   "Name": "rpt_EstacionDeTrabajo_Index",
   "ObjectType": "StoredProcedure",
-  "DatabaseProvider": "sqlserver",
-  "ScannedAtUtc": "2026-08-24T18:47:44.6805871+00:00",
   "QualifiedName": "dbo.rpt_EstacionDeTrabajo_Index"
 }

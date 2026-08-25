@@ -2,10 +2,11 @@
   "Schema": "dbo",
   "Name": "EstacionDeTrabajo",
   "ClassName": "EstacionDeTrabajo",
-  "PluralClassName": "EstacionDeTrabajo",
+  "PluralClassName": "EstacionDeTrabajos",
+  "DisplayName": "Estacion De Trabajo",
+  "PluralDisplayName": "Estacion De Trabajos",
   "QualifiedName": "dbo.EstacionDeTrabajo",
   "ObjectType": "Table",
-  "DatabaseProvider": "sqlserver",
   "Columns": [
     {
       "OrdinalPosition": 1,
@@ -143,6 +144,5 @@
       ]
     }
   ],
-  "ScannedAtUtc": "2026-08-24T18:47:42.5057484+00:00",
   "RowCountEstimate": 36
 }

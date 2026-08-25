@@ -2,10 +2,11 @@
   "Schema": "dbo",
   "Name": "ReporteBanxico",
   "ClassName": "ReporteBanxico",
-  "PluralClassName": "ReporteBanxico",
+  "PluralClassName": "ReporteBanxicos",
+  "DisplayName": "Reporte Banxico",
+  "PluralDisplayName": "Reporte Banxicos",
   "QualifiedName": "dbo.ReporteBanxico",
   "ObjectType": "Table",
-  "DatabaseProvider": "sqlserver",
   "Columns": [
     {
       "OrdinalPosition": 1,
@@ -58,6 +59,5 @@
       ]
     }
   ],
-  "ScannedAtUtc": "2026-08-24T18:47:42.6194596+00:00",
   "RowCountEstimate": 0
 }

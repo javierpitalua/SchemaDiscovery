@@ -2,10 +2,11 @@
   "Schema": "dbo",
   "Name": "Permiso",
   "ClassName": "Permiso",
-  "PluralClassName": "Permiso",
+  "PluralClassName": "Permisos",
+  "DisplayName": "Permiso",
+  "PluralDisplayName": "Permisos",
   "QualifiedName": "dbo.Permiso",
   "ObjectType": "Table",
-  "DatabaseProvider": "sqlserver",
   "Columns": [
     {
       "OrdinalPosition": 1,
@@ -70,6 +71,5 @@
       ]
     }
   ],
-  "ScannedAtUtc": "2026-08-24T18:47:42.5782343+00:00",
   "RowCountEstimate": 34
 }

@@ -2,10 +2,11 @@
   "Schema": "dbo",
   "Name": "EspacioExclusivo",
   "ClassName": "EspacioExclusivo",
-  "PluralClassName": "EspacioExclusivo",
+  "PluralClassName": "EspacioExclusivos",
+  "DisplayName": "Espacio Exclusivo",
+  "PluralDisplayName": "Espacio Exclusivos",
   "QualifiedName": "dbo.EspacioExclusivo",
   "ObjectType": "Table",
-  "DatabaseProvider": "sqlserver",
   "Columns": [
     {
       "OrdinalPosition": 1,
@@ -143,6 +144,5 @@
       ]
     }
   ],
-  "ScannedAtUtc": "2026-08-24T18:47:42.4992529+00:00",
   "RowCountEstimate": 0
 }

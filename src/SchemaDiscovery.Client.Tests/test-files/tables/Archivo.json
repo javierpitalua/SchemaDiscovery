@@ -2,10 +2,11 @@
   "Schema": "dbo",
   "Name": "Archivo",
   "ClassName": "Archivo",
-  "PluralClassName": "Archivo",
+  "PluralClassName": "Archivos",
+  "DisplayName": "Archivo",
+  "PluralDisplayName": "Archivos",
   "QualifiedName": "dbo.Archivo",
   "ObjectType": "Table",
-  "DatabaseProvider": "sqlserver",
   "Columns": [
     {
       "OrdinalPosition": 1,
@@ -130,6 +131,5 @@
       ]
     }
   ],
-  "ScannedAtUtc": "2026-08-24T18:47:42.4369024+00:00",
   "RowCountEstimate": 59466
 }

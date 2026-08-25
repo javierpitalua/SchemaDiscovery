@@ -19,7 +19,5 @@
   "Schema": "dbo",
   "Name": "rpt_CicloFacturacionReporte_ObtenerReporteTabular",
   "ObjectType": "StoredProcedure",
-  "DatabaseProvider": "sqlserver",
-  "ScannedAtUtc": "2026-08-24T18:47:44.6737108+00:00",
   "QualifiedName": "dbo.rpt_CicloFacturacionReporte_ObtenerReporteTabular"
 }

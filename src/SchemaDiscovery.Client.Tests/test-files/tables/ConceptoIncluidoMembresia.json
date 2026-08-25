@@ -2,10 +2,11 @@
   "Schema": "dbo",
   "Name": "ConceptoIncluidoMembresia",
   "ClassName": "ConceptoIncluidoMembresia",
-  "PluralClassName": "ConceptoIncluidoMembresia",
+  "PluralClassName": "ConceptoIncluidoMembresias",
+  "DisplayName": "Concepto Incluido Membresia",
+  "PluralDisplayName": "Concepto Incluido Membresias",
   "QualifiedName": "dbo.ConceptoIncluidoMembresia",
   "ObjectType": "Table",
-  "DatabaseProvider": "sqlserver",
   "Columns": [
     {
       "OrdinalPosition": 1,
@@ -169,6 +170,5 @@
       ]
     }
   ],
-  "ScannedAtUtc": "2026-08-24T18:47:42.4708844+00:00",
   "RowCountEstimate": 6260
 }

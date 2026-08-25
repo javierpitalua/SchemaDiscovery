@@ -2,10 +2,11 @@
   "Schema": "dbo",
   "Name": "ConceptoMembresia",
   "ClassName": "ConceptoMembresia",
-  "PluralClassName": "ConceptoMembresia",
+  "PluralClassName": "ConceptoMembresias",
+  "DisplayName": "Concepto Membresia",
+  "PluralDisplayName": "Concepto Membresias",
   "QualifiedName": "dbo.ConceptoMembresia",
   "ObjectType": "Table",
-  "DatabaseProvider": "sqlserver",
   "Columns": [
     {
       "OrdinalPosition": 1,
@@ -87,6 +88,5 @@
       ]
     }
   ],
-  "ScannedAtUtc": "2026-08-24T18:47:42.4731261+00:00",
   "RowCountEstimate": 0
 }

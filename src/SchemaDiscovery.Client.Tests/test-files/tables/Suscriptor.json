@@ -2,10 +2,11 @@
   "Schema": "dbo",
   "Name": "Suscriptor",
   "ClassName": "Suscriptor",
-  "PluralClassName": "Suscriptor",
+  "PluralClassName": "Suscriptores",
+  "DisplayName": "Suscriptor",
+  "PluralDisplayName": "Suscriptores",
   "QualifiedName": "dbo.Suscriptor",
   "ObjectType": "Table",
-  "DatabaseProvider": "sqlserver",
   "Columns": [
     {
       "OrdinalPosition": 1,
@@ -261,6 +262,5 @@
       ]
     }
   ],
-  "ScannedAtUtc": "2026-08-24T18:47:42.6404271+00:00",
   "RowCountEstimate": 3583
 }

@@ -2,10 +2,11 @@
   "Schema": "dbo",
   "Name": "RegistroPago",
   "ClassName": "RegistroPago",
-  "PluralClassName": "RegistroPago",
+  "PluralClassName": "RegistroPagos",
+  "DisplayName": "Registro Pago",
+  "PluralDisplayName": "Registro Pagos",
   "QualifiedName": "dbo.RegistroPago",
   "ObjectType": "Table",
-  "DatabaseProvider": "sqlserver",
   "Columns": [
     {
       "OrdinalPosition": 1,
@@ -231,6 +232,5 @@
       ]
     }
   ],
-  "ScannedAtUtc": "2026-08-24T18:47:42.6144155+00:00",
   "RowCountEstimate": 5149
 }

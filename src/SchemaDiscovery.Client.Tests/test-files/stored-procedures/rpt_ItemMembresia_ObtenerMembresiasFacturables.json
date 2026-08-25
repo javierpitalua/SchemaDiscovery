@@ -4,7 +4,5 @@
   "Schema": "dbo",
   "Name": "rpt_ItemMembresia_ObtenerMembresiasFacturables",
   "ObjectType": "StoredProcedure",
-  "DatabaseProvider": "sqlserver",
-  "ScannedAtUtc": "2026-08-24T18:47:44.6852777+00:00",
   "QualifiedName": "dbo.rpt_ItemMembresia_ObtenerMembresiasFacturables"
 }

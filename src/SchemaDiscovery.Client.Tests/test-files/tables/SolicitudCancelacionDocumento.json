@@ -2,10 +2,11 @@
   "Schema": "dbo",
   "Name": "SolicitudCancelacionDocumento",
   "ClassName": "SolicitudCancelacionDocumento",
-  "PluralClassName": "SolicitudCancelacionDocumento",
+  "PluralClassName": "SolicitudCancelacionDocumentos",
+  "DisplayName": "Solicitud Cancelacion Documento",
+  "PluralDisplayName": "Solicitud Cancelacion Documentos",
   "QualifiedName": "dbo.SolicitudCancelacionDocumento",
   "ObjectType": "Table",
-  "DatabaseProvider": "sqlserver",
   "Columns": [
     {
       "OrdinalPosition": 1,
@@ -155,6 +156,5 @@
       ]
     }
   ],
-  "ScannedAtUtc": "2026-08-24T18:47:42.6364173+00:00",
   "RowCountEstimate": 0
 }

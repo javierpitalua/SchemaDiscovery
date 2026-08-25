@@ -2,10 +2,11 @@
   "Schema": "dbo",
   "Name": "FolioFacturacion",
   "ClassName": "FolioFacturacion",
-  "PluralClassName": "FolioFacturacion",
+  "PluralClassName": "FolioFacturaciones",
+  "DisplayName": "Folio Facturacion",
+  "PluralDisplayName": "Folio Facturaciones",
   "QualifiedName": "dbo.FolioFacturacion",
   "ObjectType": "Table",
-  "DatabaseProvider": "sqlserver",
   "Columns": [
     {
       "OrdinalPosition": 1,
@@ -71,6 +72,5 @@
       ]
     }
   ],
-  "ScannedAtUtc": "2026-08-24T18:47:42.5233032+00:00",
   "RowCountEstimate": 27
 }

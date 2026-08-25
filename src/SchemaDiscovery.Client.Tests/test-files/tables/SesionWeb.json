@@ -2,10 +2,11 @@
   "Schema": "dbo",
   "Name": "SesionWeb",
   "ClassName": "SesionWeb",
-  "PluralClassName": "SesionWeb",
+  "PluralClassName": "SesionWebes",
+  "DisplayName": "Sesion Web",
+  "PluralDisplayName": "Sesion Webes",
   "QualifiedName": "dbo.SesionWeb",
   "ObjectType": "Table",
-  "DatabaseProvider": "sqlserver",
   "Columns": [
     {
       "OrdinalPosition": 1,
@@ -167,6 +168,5 @@
       ]
     }
   ],
-  "ScannedAtUtc": "2026-08-24T18:47:42.6343149+00:00",
   "RowCountEstimate": 73
 }

@@ -2,10 +2,11 @@
   "Schema": "dbo",
   "Name": "Invitacion",
   "ClassName": "Invitacion",
-  "PluralClassName": "Invitacion",
+  "PluralClassName": "Invitaciones",
+  "DisplayName": "Invitacion",
+  "PluralDisplayName": "Invitaciones",
   "QualifiedName": "dbo.Invitacion",
   "ObjectType": "Table",
-  "DatabaseProvider": "sqlserver",
   "Columns": [
     {
       "OrdinalPosition": 1,
@@ -107,6 +108,5 @@
       ]
     }
   ],
-  "ScannedAtUtc": "2026-08-24T18:47:42.5466442+00:00",
   "RowCountEstimate": 7468
 }

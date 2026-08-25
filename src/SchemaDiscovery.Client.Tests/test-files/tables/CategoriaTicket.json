@@ -2,10 +2,11 @@
   "Schema": "dbo",
   "Name": "CategoriaTicket",
   "ClassName": "CategoriaTicket",
-  "PluralClassName": "CategoriaTicket",
+  "PluralClassName": "CategoriaTicketes",
+  "DisplayName": "Categoria Ticket",
+  "PluralDisplayName": "Categoria Ticketes",
   "QualifiedName": "dbo.CategoriaTicket",
   "ObjectType": "Table",
-  "DatabaseProvider": "sqlserver",
   "Columns": [
     {
       "OrdinalPosition": 1,
@@ -58,6 +59,5 @@
       ]
     }
   ],
-  "ScannedAtUtc": "2026-08-24T18:47:42.4562733+00:00",
   "RowCountEstimate": 9
 }

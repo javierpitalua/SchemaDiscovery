@@ -2,10 +2,11 @@
   "Schema": "dbo",
   "Name": "ExtensionTelefonica",
   "ClassName": "ExtensionTelefonica",
-  "PluralClassName": "ExtensionTelefonica",
+  "PluralClassName": "ExtensionTelefonicas",
+  "DisplayName": "Extension Telefonica",
+  "PluralDisplayName": "Extension Telefonicas",
   "QualifiedName": "dbo.ExtensionTelefonica",
   "ObjectType": "Table",
-  "DatabaseProvider": "sqlserver",
   "Columns": [
     {
       "OrdinalPosition": 1,
@@ -143,6 +144,5 @@
       ]
     }
   ],
-  "ScannedAtUtc": "2026-08-24T18:47:42.5213501+00:00",
   "RowCountEstimate": 360
 }

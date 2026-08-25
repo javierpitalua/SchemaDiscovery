@@ -2,10 +2,11 @@
   "Schema": "dbo",
   "Name": "TipoProcesoEjecucion",
   "ClassName": "TipoProcesoEjecucion",
-  "PluralClassName": "TipoProcesoEjecucion",
+  "PluralClassName": "TipoProcesoEjecuciones",
+  "DisplayName": "Tipo Proceso Ejecucion",
+  "PluralDisplayName": "Tipo Proceso Ejecuciones",
   "QualifiedName": "dbo.TipoProcesoEjecucion",
   "ObjectType": "Table",
-  "DatabaseProvider": "sqlserver",
   "Columns": [
     {
       "OrdinalPosition": 1,
@@ -47,6 +48,5 @@
       ]
     }
   ],
-  "ScannedAtUtc": "2026-08-24T18:47:42.6593271+00:00",
   "RowCountEstimate": 4
 }

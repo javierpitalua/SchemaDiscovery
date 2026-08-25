@@ -2,10 +2,11 @@
   "Schema": "dbo",
   "Name": "AdjuntoMembresia",
   "ClassName": "AdjuntoMembresia",
-  "PluralClassName": "AdjuntoMembresia",
+  "PluralClassName": "AdjuntoMembresias",
+  "DisplayName": "Adjunto Membresia",
+  "PluralDisplayName": "Adjunto Membresias",
   "QualifiedName": "dbo.AdjuntoMembresia",
   "ObjectType": "Table",
-  "DatabaseProvider": "sqlserver",
   "Columns": [
     {
       "OrdinalPosition": 1,
@@ -71,6 +72,5 @@
       ]
     }
   ],
-  "ScannedAtUtc": "2026-08-24T18:47:42.4330313+00:00",
   "RowCountEstimate": 3777
 }

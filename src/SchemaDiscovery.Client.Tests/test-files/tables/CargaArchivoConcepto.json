@@ -2,10 +2,11 @@
   "Schema": "dbo",
   "Name": "CargaArchivoConcepto",
   "ClassName": "CargaArchivoConcepto",
-  "PluralClassName": "CargaArchivoConcepto",
+  "PluralClassName": "CargaArchivoConceptos",
+  "DisplayName": "Carga Archivo Concepto",
+  "PluralDisplayName": "Carga Archivo Conceptos",
   "QualifiedName": "dbo.CargaArchivoConcepto",
   "ObjectType": "Table",
-  "DatabaseProvider": "sqlserver",
   "Columns": [
     {
       "OrdinalPosition": 1,
@@ -71,6 +72,5 @@
       ]
     }
   ],
-  "ScannedAtUtc": "2026-08-24T18:47:42.4471057+00:00",
   "RowCountEstimate": 16
 }

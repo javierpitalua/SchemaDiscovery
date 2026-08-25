@@ -37,7 +37,6 @@ namespace SchemaDiscovery.Client.Tests
 
             Assert.AreEqual("dbo", usuario.Schema);
             Assert.AreEqual(SchemaObjectType.Table, usuario.ObjectType);
-            Assert.AreEqual("sqlserver", usuario.DatabaseProvider);
             Assert.AreEqual("dbo.Usuario", usuario.QualifiedName);
             Assert.AreEqual(17, usuario.Columns.Count);
             Assert.AreEqual(76, usuario.RowCountEstimate);
@@ -91,6 +90,63 @@ namespace SchemaDiscovery.Client.Tests
             Assert.AreEqual(1, function.Parameters.Count);
             Assert.AreEqual("@mes", function.Parameters[0].Name);
             StringAssert.Contains(function.Definition, "CREATE FUNCTION");
+        }
+
+        [TestMethod]
+        public void Load_PopulatesProjectInfoFromProjectInfoJson()
+        {
+            var project = new ProjectLoader().Load(TestFilesRoot);
+
+            Assert.AreEqual("sqlserver", project.ProviderName);
+            Assert.AreEqual(DateTimeOffset.Parse("2026-08-24T23:42:32.1725042+00:00"), project.ScannedAtUtc);
+            Assert.AreEqual("Spanish", project.CultureLanguage);
+        }
+
+        [TestMethod]
+        public void Load_WithoutProjectInfoJson_LeavesProjectInfoPropertiesAtDefaults()
+        {
+            var emptyDirectory = Path.Combine(Path.GetTempPath(), "schema-discovery-tests-" + Guid.NewGuid());
+            Directory.CreateDirectory(emptyDirectory);
+
+            try
+            {
+                var project = new ProjectLoader().Load(emptyDirectory);
+
+                Assert.IsNull(project.ProviderName);
+                Assert.AreEqual(default(DateTimeOffset), project.ScannedAtUtc);
+                Assert.IsNull(project.CultureLanguage);
+            }
+            finally
+            {
+                Directory.Delete(emptyDirectory, recursive: true);
+            }
+        }
+
+        [TestMethod]
+        public void Load_WithMalformedProjectInfoJson_ThrowsJsonException()
+        {
+            var directory = Path.Combine(Path.GetTempPath(), "schema-discovery-tests-" + Guid.NewGuid());
+            Directory.CreateDirectory(directory);
+            File.WriteAllText(Path.Combine(directory, "projectInfo.json"), "{ not valid json");
+
+            try
+            {
+                Exception thrown = null;
+                try
+                {
+                    new ProjectLoader().Load(directory);
+                }
+                catch (Exception ex)
+                {
+                    thrown = ex;
+                }
+
+                Assert.IsInstanceOfType(thrown, typeof(JsonException));
+            }
+            finally
+            {
+                Directory.Delete(directory, recursive: true);
+            }
         }
 
         [TestMethod]

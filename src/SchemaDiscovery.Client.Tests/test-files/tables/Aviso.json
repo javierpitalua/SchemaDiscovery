@@ -2,10 +2,11 @@
   "Schema": "dbo",
   "Name": "Aviso",
   "ClassName": "Aviso",
-  "PluralClassName": "Aviso",
+  "PluralClassName": "Avisos",
+  "DisplayName": "Aviso",
+  "PluralDisplayName": "Avisos",
   "QualifiedName": "dbo.Aviso",
   "ObjectType": "Table",
-  "DatabaseProvider": "sqlserver",
   "Columns": [
     {
       "OrdinalPosition": 1,
@@ -215,6 +216,5 @@
       ]
     }
   ],
-  "ScannedAtUtc": "2026-08-24T18:47:42.4389828+00:00",
   "RowCountEstimate": 14
 }

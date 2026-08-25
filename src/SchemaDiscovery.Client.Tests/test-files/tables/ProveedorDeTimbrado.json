@@ -2,10 +2,11 @@
   "Schema": "dbo",
   "Name": "ProveedorDeTimbrado",
   "ClassName": "ProveedorDeTimbrado",
-  "PluralClassName": "ProveedorDeTimbrado",
+  "PluralClassName": "ProveedorDeTimbrados",
+  "DisplayName": "Proveedor De Timbrado",
+  "PluralDisplayName": "Proveedor De Timbrados",
   "QualifiedName": "dbo.ProveedorDeTimbrado",
   "ObjectType": "Table",
-  "DatabaseProvider": "sqlserver",
   "Columns": [
     {
       "OrdinalPosition": 1,
@@ -155,6 +156,5 @@
       ]
     }
   ],
-  "ScannedAtUtc": "2026-08-24T18:47:42.5867088+00:00",
   "RowCountEstimate": 2
 }

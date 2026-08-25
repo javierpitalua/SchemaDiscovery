@@ -2,10 +2,11 @@
   "Schema": "dbo",
   "Name": "RegistroLLamada",
   "ClassName": "RegistroLLamada",
-  "PluralClassName": "RegistroLLamada",
+  "PluralClassName": "RegistroLLamadas",
+  "DisplayName": "Registro L Lamada",
+  "PluralDisplayName": "Registro L Lamadas",
   "QualifiedName": "dbo.RegistroLLamada",
   "ObjectType": "Table",
-  "DatabaseProvider": "sqlserver",
   "Columns": [
     {
       "OrdinalPosition": 1,
@@ -166,6 +167,5 @@
       ]
     }
   ],
-  "ScannedAtUtc": "2026-08-24T18:47:42.6115712+00:00",
   "RowCountEstimate": 19738
 }

@@ -2,10 +2,11 @@
   "Schema": "dbo",
   "Name": "Membresia",
   "ClassName": "Membresia",
-  "PluralClassName": "Membresia",
+  "PluralClassName": "Membresias",
+  "DisplayName": "Membresia",
+  "PluralDisplayName": "Membresias",
   "QualifiedName": "dbo.Membresia",
   "ObjectType": "Table",
-  "DatabaseProvider": "sqlserver",
   "Columns": [
     {
       "OrdinalPosition": 1,
@@ -355,6 +356,5 @@
       ]
     }
   ],
-  "ScannedAtUtc": "2026-08-24T18:47:42.5516123+00:00",
   "RowCountEstimate": 2172
 }

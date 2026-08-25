@@ -2,10 +2,11 @@
   "Schema": "dbo",
   "Name": "PlantillaCorreo",
   "ClassName": "PlantillaCorreo",
-  "PluralClassName": "PlantillaCorreo",
+  "PluralClassName": "PlantillaCorreos",
+  "DisplayName": "Plantilla Correo",
+  "PluralDisplayName": "Plantilla Correos",
   "QualifiedName": "dbo.PlantillaCorreo",
   "ObjectType": "Table",
-  "DatabaseProvider": "sqlserver",
   "Columns": [
     {
       "OrdinalPosition": 1,
@@ -70,6 +71,5 @@
       ]
     }
   ],
-  "ScannedAtUtc": "2026-08-24T18:47:42.5847822+00:00",
   "RowCountEstimate": 23
 }

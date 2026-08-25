@@ -2,10 +2,11 @@
   "Schema": "dbo",
   "Name": "Documento",
   "ClassName": "Documento",
-  "PluralClassName": "Documento",
+  "PluralClassName": "Documentos",
+  "DisplayName": "Documento",
+  "PluralDisplayName": "Documentos",
   "QualifiedName": "dbo.Documento",
   "ObjectType": "Table",
-  "DatabaseProvider": "sqlserver",
   "Columns": [
     {
       "OrdinalPosition": 1,
@@ -461,6 +462,5 @@
       ]
     }
   ],
-  "ScannedAtUtc": "2026-08-24T18:47:42.4887058+00:00",
   "RowCountEstimate": 39399
 }

@@ -199,7 +199,5 @@
   "Schema": "dbo",
   "Name": "vMembresiaVigente",
   "ObjectType": "View",
-  "DatabaseProvider": "sqlserver",
-  "ScannedAtUtc": "2026-08-24T18:47:44.5572737+00:00",
   "QualifiedName": "dbo.vMembresiaVigente"
 }

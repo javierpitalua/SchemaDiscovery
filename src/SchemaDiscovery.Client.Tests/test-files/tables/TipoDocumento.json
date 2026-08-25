@@ -2,10 +2,11 @@
   "Schema": "dbo",
   "Name": "TipoDocumento",
   "ClassName": "TipoDocumento",
-  "PluralClassName": "TipoDocumento",
+  "PluralClassName": "TipoDocumentos",
+  "DisplayName": "Tipo Documento",
+  "PluralDisplayName": "Tipo Documentos",
   "QualifiedName": "dbo.TipoDocumento",
   "ObjectType": "Table",
-  "DatabaseProvider": "sqlserver",
   "Columns": [
     {
       "OrdinalPosition": 1,
@@ -59,6 +60,5 @@
       ]
     }
   ],
-  "ScannedAtUtc": "2026-08-24T18:47:42.6519151+00:00",
   "RowCountEstimate": 2
 }

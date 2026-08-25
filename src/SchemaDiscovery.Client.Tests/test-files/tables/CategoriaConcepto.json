@@ -2,10 +2,11 @@
   "Schema": "dbo",
   "Name": "CategoriaConcepto",
   "ClassName": "CategoriaConcepto",
-  "PluralClassName": "CategoriaConcepto",
+  "PluralClassName": "CategoriaConceptos",
+  "DisplayName": "Categoria Concepto",
+  "PluralDisplayName": "Categoria Conceptos",
   "QualifiedName": "dbo.CategoriaConcepto",
   "ObjectType": "Table",
-  "DatabaseProvider": "sqlserver",
   "Columns": [
     {
       "OrdinalPosition": 1,
@@ -131,6 +132,5 @@
       ]
     }
   ],
-  "ScannedAtUtc": "2026-08-24T18:47:42.4503429+00:00",
   "RowCountEstimate": 7
 }

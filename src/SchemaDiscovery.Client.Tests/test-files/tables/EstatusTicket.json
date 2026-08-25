@@ -2,10 +2,11 @@
   "Schema": "dbo",
   "Name": "EstatusTicket",
   "ClassName": "EstatusTicket",
-  "PluralClassName": "EstatusTicket",
+  "PluralClassName": "EstatusTicketes",
+  "DisplayName": "Estatus Ticket",
+  "PluralDisplayName": "Estatus Ticketes",
   "QualifiedName": "dbo.EstatusTicket",
   "ObjectType": "Table",
-  "DatabaseProvider": "sqlserver",
   "Columns": [
     {
       "OrdinalPosition": 1,
@@ -71,6 +72,5 @@
       ]
     }
   ],
-  "ScannedAtUtc": "2026-08-24T18:47:42.5155986+00:00",
   "RowCountEstimate": 7
 }

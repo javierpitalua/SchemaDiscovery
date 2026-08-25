@@ -2,10 +2,11 @@
   "Schema": "dbo",
   "Name": "CategoriaDocumento",
   "ClassName": "CategoriaDocumento",
-  "PluralClassName": "CategoriaDocumento",
+  "PluralClassName": "CategoriaDocumentos",
+  "DisplayName": "Categoria Documento",
+  "PluralDisplayName": "Categoria Documentos",
   "QualifiedName": "dbo.CategoriaDocumento",
   "ObjectType": "Table",
-  "DatabaseProvider": "sqlserver",
   "Columns": [
     {
       "OrdinalPosition": 1,
@@ -71,6 +72,5 @@
       ]
     }
   ],
-  "ScannedAtUtc": "2026-08-24T18:47:42.4542977+00:00",
   "RowCountEstimate": 9
 }

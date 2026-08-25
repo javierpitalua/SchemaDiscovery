@@ -2,10 +2,11 @@
   "Schema": "dbo",
   "Name": "PublicacionMuroLike",
   "ClassName": "PublicacionMuroLike",
-  "PluralClassName": "PublicacionMuroLike",
+  "PluralClassName": "PublicacionMuroLikes",
+  "DisplayName": "Publicacion Muro Like",
+  "PluralDisplayName": "Publicacion Muro Likes",
   "QualifiedName": "dbo.PublicacionMuroLike",
   "ObjectType": "Table",
-  "DatabaseProvider": "sqlserver",
   "Columns": [
     {
       "OrdinalPosition": 1,
@@ -71,6 +72,5 @@
       ]
     }
   ],
-  "ScannedAtUtc": "2026-08-24T18:47:42.6029507+00:00",
   "RowCountEstimate": 1328
 }

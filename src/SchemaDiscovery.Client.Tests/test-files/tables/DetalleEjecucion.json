@@ -2,10 +2,11 @@
   "Schema": "dbo",
   "Name": "DetalleEjecucion",
   "ClassName": "DetalleEjecucion",
-  "PluralClassName": "DetalleEjecucion",
+  "PluralClassName": "DetalleEjecuciones",
+  "DisplayName": "Detalle Ejecucion",
+  "PluralDisplayName": "Detalle Ejecuciones",
   "QualifiedName": "dbo.DetalleEjecucion",
   "ObjectType": "Table",
-  "DatabaseProvider": "sqlserver",
   "Columns": [
     {
       "OrdinalPosition": 1,
@@ -106,6 +107,5 @@
       ]
     }
   ],
-  "ScannedAtUtc": "2026-08-24T18:47:42.4858689+00:00",
   "RowCountEstimate": 62286
 }

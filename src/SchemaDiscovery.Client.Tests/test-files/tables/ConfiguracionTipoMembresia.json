@@ -2,10 +2,11 @@
   "Schema": "dbo",
   "Name": "ConfiguracionTipoMembresia",
   "ClassName": "ConfiguracionTipoMembresia",
-  "PluralClassName": "ConfiguracionTipoMembresia",
+  "PluralClassName": "ConfiguracionTipoMembresias",
+  "DisplayName": "Configuracion Tipo Membresia",
+  "PluralDisplayName": "Configuracion Tipo Membresias",
   "QualifiedName": "dbo.ConfiguracionTipoMembresia",
   "ObjectType": "Table",
-  "DatabaseProvider": "sqlserver",
   "Columns": [
     {
       "OrdinalPosition": 1,
@@ -157,6 +158,5 @@
       ]
     }
   ],
-  "ScannedAtUtc": "2026-08-24T18:47:42.4772911+00:00",
   "RowCountEstimate": 91
 }

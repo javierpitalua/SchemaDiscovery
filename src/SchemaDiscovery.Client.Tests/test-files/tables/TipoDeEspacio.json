@@ -2,10 +2,11 @@
   "Schema": "dbo",
   "Name": "TipoDeEspacio",
   "ClassName": "TipoDeEspacio",
-  "PluralClassName": "TipoDeEspacio",
+  "PluralClassName": "TipoDeEspacios",
+  "DisplayName": "Tipo De Espacio",
+  "PluralDisplayName": "Tipo De Espacios",
   "QualifiedName": "dbo.TipoDeEspacio",
   "ObjectType": "Table",
-  "DatabaseProvider": "sqlserver",
   "Columns": [
     {
       "OrdinalPosition": 1,
@@ -131,6 +132,5 @@
       ]
     }
   ],
-  "ScannedAtUtc": "2026-08-24T18:47:42.6501921+00:00",
   "RowCountEstimate": 11
 }

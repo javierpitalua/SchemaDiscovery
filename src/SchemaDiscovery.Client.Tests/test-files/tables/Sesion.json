@@ -2,10 +2,11 @@
   "Schema": "dbo",
   "Name": "Sesion",
   "ClassName": "Sesion",
-  "PluralClassName": "Sesion",
+  "PluralClassName": "Sesiones",
+  "DisplayName": "Sesion",
+  "PluralDisplayName": "Sesiones",
   "QualifiedName": "dbo.Sesion",
   "ObjectType": "Table",
-  "DatabaseProvider": "sqlserver",
   "Columns": [
     {
       "OrdinalPosition": 1,
@@ -167,6 +168,5 @@
       ]
     }
   ],
-  "ScannedAtUtc": "2026-08-24T18:47:42.6317536+00:00",
   "RowCountEstimate": 1145
 }

@@ -1,6 +1,8 @@
+using Autofac;
 using Microsoft.Extensions.Logging;
 using SchemaDiscovery;
 using SchemaDiscovery.Cli;
+using SchemaDiscovery.Cli.DependencyResolution;
 
 CommandLineOptions options;
 try
@@ -29,19 +31,15 @@ if (string.IsNullOrWhiteSpace(options.ConnectionString))
     return 1;
 }
 
-using var loggerFactory = LoggerFactory.Create(builder =>
-{
-    builder
-        .AddSimpleConsole(c =>
-        {
-            c.SingleLine = true;
-            c.TimestampFormat = "HH:mm:ss ";
-        })
-        .SetMinimumLevel(options.Verbose ? LogLevel.Debug : LogLevel.Information);
-});
+var containerBuilder = new ContainerBuilder();
+containerBuilder.RegisterInstance(options);
+containerBuilder.RegisterModule<DefaultModule>();
 
+using var container = containerBuilder.Build();
+
+var loggerFactory = container.Resolve<ILoggerFactory>();
 var logger = loggerFactory.CreateLogger("SchemaDiscovery");
-var providerFactory = new ProviderFactory();
+var providerFactory = container.Resolve<ProviderFactory>();
 
 try
 {
@@ -56,7 +54,7 @@ try
 
     await using var provider = providerFactory.Create(options.Provider, options.ConnectionString, loggerFactory, culture);
 
-    var exportService = new SchemaExportService(loggerFactory.CreateLogger<SchemaExportService>());
+    var exportService = container.Resolve<SchemaExportService>();
     var outputPath = Path.GetFullPath(options.OutputDirectory);
 
     var count = await exportService.ExportAsync(
@@ -65,7 +63,7 @@ try
         options.SkipViews,
         options.SkipProcedures,
         options.SkipFunctions,
-        options.Language,   
+        options.Language,
         CancellationToken.None);
 
     logger.LogInformation("Done. Exported {Count} object(s) to '{Output}'.", count, outputPath);

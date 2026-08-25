@@ -2,10 +2,11 @@
   "Schema": "dbo",
   "Name": "Espacio",
   "ClassName": "Espacio",
-  "PluralClassName": "Espacio",
+  "PluralClassName": "Espacios",
+  "DisplayName": "Espacio",
+  "PluralDisplayName": "Espacios",
   "QualifiedName": "dbo.Espacio",
   "ObjectType": "Table",
-  "DatabaseProvider": "sqlserver",
   "Columns": [
     {
       "OrdinalPosition": 1,
@@ -182,6 +183,5 @@
       ]
     }
   ],
-  "ScannedAtUtc": "2026-08-24T18:47:42.4956032+00:00",
   "RowCountEstimate": 191
 }

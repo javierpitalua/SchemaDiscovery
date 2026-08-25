@@ -2,10 +2,11 @@
   "Schema": "dbo",
   "Name": "TipoInventario",
   "ClassName": "TipoInventario",
-  "PluralClassName": "TipoInventario",
+  "PluralClassName": "TipoInventarios",
+  "DisplayName": "Tipo Inventario",
+  "PluralDisplayName": "Tipo Inventarios",
   "QualifiedName": "dbo.TipoInventario",
   "ObjectType": "Table",
-  "DatabaseProvider": "sqlserver",
   "Columns": [
     {
       "OrdinalPosition": 1,
@@ -131,6 +132,5 @@
       ]
     }
   ],
-  "ScannedAtUtc": "2026-08-24T18:47:42.6534027+00:00",
   "RowCountEstimate": 4
 }

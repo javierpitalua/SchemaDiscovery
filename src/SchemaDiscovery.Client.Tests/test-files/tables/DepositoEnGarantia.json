@@ -2,10 +2,11 @@
   "Schema": "dbo",
   "Name": "DepositoEnGarantia",
   "ClassName": "DepositoEnGarantia",
-  "PluralClassName": "DepositoEnGarantia",
+  "PluralClassName": "DepositoEnGarantias",
+  "DisplayName": "Deposito En Garantia",
+  "PluralDisplayName": "Deposito En Garantias",
   "QualifiedName": "dbo.DepositoEnGarantia",
   "ObjectType": "Table",
-  "DatabaseProvider": "sqlserver",
   "Columns": [
     {
       "OrdinalPosition": 1,
@@ -193,6 +194,5 @@
       ]
     }
   ],
-  "ScannedAtUtc": "2026-08-24T18:47:42.4811167+00:00",
   "RowCountEstimate": 5
 }

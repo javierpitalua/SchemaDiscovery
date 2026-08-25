@@ -2,10 +2,11 @@
   "Schema": "dbo",
   "Name": "EspacioArchivo",
   "ClassName": "EspacioArchivo",
-  "PluralClassName": "EspacioArchivo",
+  "PluralClassName": "EspacioArchivos",
+  "DisplayName": "Espacio Archivo",
+  "PluralDisplayName": "Espacio Archivos",
   "QualifiedName": "dbo.EspacioArchivo",
   "ObjectType": "Table",
-  "DatabaseProvider": "sqlserver",
   "Columns": [
     {
       "OrdinalPosition": 1,
@@ -95,6 +96,5 @@
       ]
     }
   ],
-  "ScannedAtUtc": "2026-08-24T18:47:42.497391+00:00",
   "RowCountEstimate": 20
 }

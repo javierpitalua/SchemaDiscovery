@@ -12,7 +12,5 @@
   "Schema": "dbo",
   "Name": "rpt_ReservacionesWebApi_ObtenerReservaciones60Dias",
   "ObjectType": "StoredProcedure",
-  "DatabaseProvider": "sqlserver",
-  "ScannedAtUtc": "2026-08-24T18:47:44.7087168+00:00",
   "QualifiedName": "dbo.rpt_ReservacionesWebApi_ObtenerReservaciones60Dias"
 }

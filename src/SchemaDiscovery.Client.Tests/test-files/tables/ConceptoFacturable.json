@@ -2,10 +2,11 @@
   "Schema": "dbo",
   "Name": "ConceptoFacturable",
   "ClassName": "ConceptoFacturable",
-  "PluralClassName": "ConceptoFacturable",
+  "PluralClassName": "ConceptoFacturables",
+  "DisplayName": "Concepto Facturable",
+  "PluralDisplayName": "Concepto Facturables",
   "QualifiedName": "dbo.ConceptoFacturable",
   "ObjectType": "Table",
-  "DatabaseProvider": "sqlserver",
   "Columns": [
     {
       "OrdinalPosition": 1,
@@ -204,6 +205,5 @@
       ]
     }
   ],
-  "ScannedAtUtc": "2026-08-24T18:47:42.4684427+00:00",
   "RowCountEstimate": 158
 }

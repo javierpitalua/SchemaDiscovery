@@ -2,10 +2,11 @@
   "Schema": "dbo",
   "Name": "ActivoInventario",
   "ClassName": "ActivoInventario",
-  "PluralClassName": "ActivoInventario",
+  "PluralClassName": "ActivoInventarios",
+  "DisplayName": "Activo Inventario",
+  "PluralDisplayName": "Activo Inventarios",
   "QualifiedName": "dbo.ActivoInventario",
   "ObjectType": "Table",
-  "DatabaseProvider": "sqlserver",
   "Columns": [
     {
       "OrdinalPosition": 1,
@@ -191,6 +192,5 @@
       ]
     }
   ],
-  "ScannedAtUtc": "2026-08-24T18:47:42.2343765+00:00",
   "RowCountEstimate": 1
 }

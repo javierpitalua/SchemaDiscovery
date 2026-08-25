@@ -2,10 +2,11 @@
   "Schema": "dbo",
   "Name": "RegistroCargaMasivaConcepto",
   "ClassName": "RegistroCargaMasivaConcepto",
-  "PluralClassName": "RegistroCargaMasivaConcepto",
+  "PluralClassName": "RegistroCargaMasivaConceptos",
+  "DisplayName": "Registro Carga Masiva Concepto",
+  "PluralDisplayName": "Registro Carga Masiva Conceptos",
   "QualifiedName": "dbo.RegistroCargaMasivaConcepto",
   "ObjectType": "Table",
-  "DatabaseProvider": "sqlserver",
   "Columns": [
     {
       "OrdinalPosition": 1,
@@ -99,6 +100,5 @@
       ]
     }
   ],
-  "ScannedAtUtc": "2026-08-24T18:47:42.6091703+00:00",
   "RowCountEstimate": 815
 }

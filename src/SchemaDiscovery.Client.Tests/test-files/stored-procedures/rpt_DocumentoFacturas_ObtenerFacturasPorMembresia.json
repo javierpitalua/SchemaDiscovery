@@ -12,7 +12,5 @@
   "Schema": "dbo",
   "Name": "rpt_DocumentoFacturas_ObtenerFacturasPorMembresia",
   "ObjectType": "StoredProcedure",
-  "DatabaseProvider": "sqlserver",
-  "ScannedAtUtc": "2026-08-24T18:47:44.6781002+00:00",
   "QualifiedName": "dbo.rpt_DocumentoFacturas_ObtenerFacturasPorMembresia"
 }

@@ -2,10 +2,11 @@
   "Schema": "dbo",
   "Name": "Paqueteria",
   "ClassName": "Paqueteria",
-  "PluralClassName": "Paqueteria",
+  "PluralClassName": "Paqueterias",
+  "DisplayName": "Paqueteria",
+  "PluralDisplayName": "Paqueterias",
   "QualifiedName": "dbo.Paqueteria",
   "ObjectType": "Table",
-  "DatabaseProvider": "sqlserver",
   "Columns": [
     {
       "OrdinalPosition": 1,
@@ -203,6 +204,5 @@
       ]
     }
   ],
-  "ScannedAtUtc": "2026-08-24T18:47:42.5696152+00:00",
   "RowCountEstimate": 13566
 }

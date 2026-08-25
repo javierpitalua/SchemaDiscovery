@@ -2,10 +2,11 @@
   "Schema": "dbo",
   "Name": "EstadoCuenta",
   "ClassName": "EstadoCuenta",
-  "PluralClassName": "EstadoCuenta",
+  "PluralClassName": "EstadoCuentas",
+  "DisplayName": "Estado Cuenta",
+  "PluralDisplayName": "Estado Cuentas",
   "QualifiedName": "dbo.EstadoCuenta",
   "ObjectType": "Table",
-  "DatabaseProvider": "sqlserver",
   "Columns": [
     {
       "OrdinalPosition": 1,
@@ -71,6 +72,5 @@
       ]
     }
   ],
-  "ScannedAtUtc": "2026-08-24T18:47:42.5082773+00:00",
   "RowCountEstimate": 841
 }

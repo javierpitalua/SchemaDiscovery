@@ -2,10 +2,11 @@
   "Schema": "dbo",
   "Name": "MetodoDePago",
   "ClassName": "MetodoDePago",
-  "PluralClassName": "MetodoDePago",
+  "PluralClassName": "MetodoDePagos",
+  "DisplayName": "Metodo De Pago",
+  "PluralDisplayName": "Metodo De Pagos",
   "QualifiedName": "dbo.MetodoDePago",
   "ObjectType": "Table",
-  "DatabaseProvider": "sqlserver",
   "Columns": [
     {
       "OrdinalPosition": 1,
@@ -59,6 +60,5 @@
       ]
     }
   ],
-  "ScannedAtUtc": "2026-08-24T18:47:42.5546286+00:00",
   "RowCountEstimate": 6
 }

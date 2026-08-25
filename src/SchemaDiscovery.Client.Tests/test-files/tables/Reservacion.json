@@ -2,10 +2,11 @@
   "Schema": "dbo",
   "Name": "Reservacion",
   "ClassName": "Reservacion",
-  "PluralClassName": "Reservacion",
+  "PluralClassName": "Reservaciones",
+  "DisplayName": "Reservacion",
+  "PluralDisplayName": "Reservaciones",
   "QualifiedName": "dbo.Reservacion",
   "ObjectType": "Table",
-  "DatabaseProvider": "sqlserver",
   "Columns": [
     {
       "OrdinalPosition": 1,
@@ -263,6 +264,5 @@
       ]
     }
   ],
-  "ScannedAtUtc": "2026-08-24T18:47:42.6214603+00:00",
   "RowCountEstimate": 77603
 }
