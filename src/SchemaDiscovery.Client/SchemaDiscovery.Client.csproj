@@ -47,11 +47,11 @@
   <ItemGroup>
     <PackageReference Include="NuGet.Build.Tasks.Pack" Version="6.9.1" PrivateAssets="all" />
     <PackageReference Include="System.Text.Json" Version="8.0.5" />
-    <!-- SchemaDiscovery.Abstractions' own package dependencies. Its ProjectReference below is
+    <!-- SchemaDiscovery.Models' own package dependencies. Its ProjectReference below is
          PrivateAssets="all" (its DLL is embedded into this package instead of being a separate
          NuGet dependency - see the _PackAbstractionsAssembly target), which also drops these two
          from the generated nuspec unless declared here directly; without them, consumers would be
-         missing assemblies SchemaDiscovery.Abstractions.dll needs at runtime. -->
+         missing assemblies SchemaDiscovery.Models.dll needs at runtime. -->
     <PackageReference Include="Microsoft.Bcl.AsyncInterfaces" Version="8.0.0" />
     <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="8.0.1" />
   </ItemGroup>
@@ -93,9 +93,14 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <!-- PrivateAssets="all" keeps this off the NuGet dependency list (see the
+         _PackAbstractionsAssembly target below, which embeds the built DLL into
+         this package's lib folder instead of making consumers install a second
+         package). -->
     <ProjectReference Include="..\SchemaDiscovery.Models\SchemaDiscovery.Models.csproj">
       <Project>{66f968ea-0919-4881-bb5a-6bb469ee26f5}</Project>
       <Name>SchemaDiscovery.Models</Name>
+      <PrivateAssets>all</PrivateAssets>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
