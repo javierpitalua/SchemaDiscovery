@@ -46,7 +46,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SchemaDiscovery.Models\SchemaDiscovery.Models.csproj" />
     <ProjectReference Include="..\SchemaDiscovery.Providers.SqlServer\SchemaDiscovery.Providers.SqlServer.csproj" />
     <ProjectReference Include="..\SchemaDiscovery.Providers.PostgreSql\SchemaDiscovery.Providers.PostgreSql.csproj" />
     <ProjectReference Include="..\SchemaDiscovery.Providers.MySql\SchemaDiscovery.Providers.MySql.csproj" />

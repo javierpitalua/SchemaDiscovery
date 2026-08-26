@@ -92,7 +92,6 @@ public sealed class SqlServerSchemaProvider : IDatabaseSchemaProvider
                 DisplayName = _humanizer.ToHumanReadable(tableRef.Name),
                 PluralDisplayName = _humanizer.ToPluralCase(_humanizer.ToHumanReadable(tableRef.Name), _culture),
                 Name = tableRef.Name,
-                RowCountEstimate = tableRef.RowCount
             };
 
             table.Columns.AddRange(await GetColumnsAsync(connection, tableRef.ObjectId, cancellationToken));

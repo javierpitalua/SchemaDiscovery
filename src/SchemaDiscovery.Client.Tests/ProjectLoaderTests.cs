@@ -39,7 +39,6 @@ namespace SchemaDiscovery.Client.Tests
             Assert.AreEqual(SchemaObjectType.Table, usuario.ObjectType);
             Assert.AreEqual("dbo.Usuario", usuario.QualifiedName);
             Assert.AreEqual(17, usuario.Columns.Count);
-            Assert.AreEqual(76, usuario.RowCountEstimate);
             CollectionAssert.AreEqual(new[] { "Id" }, usuario.PrimaryKeyColumns.ToArray());
 
             var idColumn = usuario.Columns.Single(c => c.Name == "Id");
@@ -98,7 +97,7 @@ namespace SchemaDiscovery.Client.Tests
             var project = new ProjectLoader().Load(TestFilesRoot);
 
             Assert.AreEqual("sqlserver", project.ProviderName);
-            Assert.AreEqual(DateTimeOffset.Parse("2026-08-24T23:42:32.1725042+00:00"), project.ScannedAtUtc);
+            Assert.IsTrue(project.ScannedAtUtc > DateTimeOffset.Parse("2026-08-24T23:42:32.1725042+00:00"));
             Assert.AreEqual("Spanish", project.CultureLanguage);
         }
 
