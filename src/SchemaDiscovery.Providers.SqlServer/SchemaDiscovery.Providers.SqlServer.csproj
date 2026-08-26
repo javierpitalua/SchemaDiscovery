@@ -12,7 +12,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SchemaDiscovery.Models\SchemaDiscovery.Models.csproj" />
     <ProjectReference Include="..\SchemaDiscovery\SchemaDiscovery.csproj" />
   </ItemGroup>
 

@@ -11,8 +11,4 @@
     <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="10.0.11" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\SchemaDiscovery.Models\SchemaDiscovery.Models.csproj" />
-  </ItemGroup>
-
 </Project>

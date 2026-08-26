@@ -13,8 +13,6 @@ namespace SchemaDiscovery.Client.Models
         public List<ForeignKeyDefinition> ForeignKeys { get; set; } = new List<ForeignKeyDefinition>();
         public List<IndexDefinition> Indexes { get; set; } = new List<IndexDefinition>();
 
-        /// <summary>Approximate row count, when the provider can obtain it cheaply.</summary>
-        public long? RowCountEstimate { get; set; }
 
         // --- Custom, user-editable metadata -------------------------------
         // Everything above this point is overwritten on every scan. Everything

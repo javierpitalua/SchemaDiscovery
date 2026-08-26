@@ -1,4 +1,3 @@
-    using SchemaDiscovery.Models;
 using System.Collections.Generic;
 
 namespace SchemaDiscovery.Models

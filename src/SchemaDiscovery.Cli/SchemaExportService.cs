@@ -26,8 +26,7 @@ public sealed class SchemaExportService
         nameof(TableSchema.Columns),
         nameof(TableSchema.PrimaryKeyColumns),
         nameof(TableSchema.ForeignKeys),
-        nameof(TableSchema.Indexes),
-        nameof(TableSchema.RowCountEstimate),
+        nameof(TableSchema.Indexes)
     ];
 
     private static readonly JsonSerializerOptions JsonOptions = new()
