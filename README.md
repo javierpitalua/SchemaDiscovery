@@ -11,24 +11,37 @@ CLI or the SQL Server code.
 ## Project layout
 
 ```
-SchemaDiscovery.sln
+SchemaDiscoveryV1.sln
 src/
-  SchemaDiscovery.Abstractions/          Shared models + provider interfaces (no DB dependency)
-  SchemaDiscovery.Providers.SqlServer/   Full SQL Server implementation (Microsoft.Data.SqlClient)
-  SchemaDiscovery.Providers.PostgreSql/  Stub — throws NotImplementedException, ready to fill in
-  SchemaDiscovery.Providers.MySql/       Stub — throws NotImplementedException, ready to fill in
-  SchemaDiscovery.Cli/                   Argument parsing, logging setup, provider registry, JSON export
+  SchemaDiscovery.Cli/                   01 - CLI: argument parsing, Autofac wiring, JSON export
+  SchemaDiscovery/                       02 - Core: schema models, provider interfaces, Humanizer, persistence
+  SchemaDiscovery.Models/                Legacy models project, kept temporarily but no longer referenced
+                                          by anything — its classes now live in SchemaDiscovery (see below)
+  SchemaDiscovery.Providers.SqlServer/   03 - Full SQL Server implementation (Microsoft.Data.SqlClient)
+  SchemaDiscovery.Providers.PostgreSql/  03 - Stub — throws NotImplementedException, ready to fill in
+  SchemaDiscovery.Providers.MySql/       03 - Stub — throws NotImplementedException, ready to fill in
+  SchemaDiscovery.Client/                04 - .NET Framework 4.7.2 library that reads the exported JSON back
+  SchemaDiscovery.Client.Tests/          05 - Tests for SchemaDiscovery.Client
+  SchemaDiscovery.Tests/                 05 - Tests for SchemaDiscovery (NUnit)
 ```
+
+> **Note:** `SchemaDiscovery.Models` is mid-deprecation — its classes
+> (`TableSchema`, `ColumnDefinition`, etc., namespace `SchemaDiscovery.Models`)
+> were moved into the `SchemaDiscovery` project. The project is kept in the
+> solution for now but nothing references it anymore; it's expected to be
+> deleted in a follow-up.
 
 The design is a simple strategy/factory pattern:
 
-- `IDatabaseSchemaProvider` (in `SchemaDiscovery.Abstractions`) is the contract
-  every database engine implements: `GetTablesAsync`, `GetViewsAsync`,
+- `IDatabaseSchemaProvider` (in `SchemaDiscovery`) is the contract every
+  database engine implements: `GetTablesAsync`, `GetViewsAsync`,
   `GetStoredProceduresAsync`, `GetFunctionsAsync`.
 - `IDatabaseSchemaProviderFactory` creates a provider instance given a
-  connection string and an `ILoggerFactory`.
+  connection string, an `ILoggerFactory`, and the output `CultureLanguages`.
 - `SchemaDiscovery.Cli.ProviderFactory` is a small registry that maps a
-  `--provider` name (`sqlserver`, `postgres`, `mysql`) to the right factory.
+  `--provider` name (`sqlserver`, `postgres`, `mysql`) to the right factory;
+  factories are registered with Autofac in
+  `SchemaDiscovery.Cli/DependencyResolution/DefaultModule.cs`.
 - `SchemaExportService` is provider-agnostic: it just calls the interface and
   serializes whatever comes back, so it never needs to change when a new
   provider is added.
@@ -118,31 +131,27 @@ dotnet add package SchemaDiscovery.Client
 var project = SchemaDiscovery.Client.ProjectLoader.LoadProject(@".\schema-output");
 ```
 
-It depends on the `SchemaDiscovery.Abstractions` package (also published from
-this repo) for the schema model types, published as a separate NuGet
-dependency rather than embedded, so both packages share one set of model
-types. See `SchemaDiscovery.Client/README.md` for the full API.
+Being a classic .NET Framework 4.7.2 library, it doesn't take a package
+dependency on the (net10.0-only) `SchemaDiscovery` project; instead it keeps
+its own copy of the model types under `SchemaDiscovery.Client/Models/`. See
+`SchemaDiscovery.Client/README.md` for the full API.
 
-### Releasing SchemaDiscovery.Client / SchemaDiscovery.Abstractions
+### Releasing SchemaDiscovery.Cli / SchemaDiscovery.Client
 
-Pushing a tag matching `v<major>.<minor>.<patch>` (e.g. `v1.2.0`, optionally
-with a `-prerelease` suffix) runs
-[`.github/workflows/publish-nuget.yml`](.github/workflows/publish-nuget.yml),
-which packs both projects at that version and pushes them to nuget.org:
+There is currently no CI workflow that publishes packages automatically —
+both are packed and pushed by hand:
 
 ```bash
-git tag v1.2.0
-git push origin v1.2.0
+dotnet pack src/SchemaDiscovery.Cli -c Release      # -> nupkg/SchemaDiscovery.Tool.<version>.nupkg
+dotnet pack src/SchemaDiscovery.Client -c Release    # -> nupkg/SchemaDiscovery.Client.<version>.nupkg
+
+dotnet nuget push src/SchemaDiscovery.Cli/nupkg/SchemaDiscovery.Tool.<version>.nupkg --source https://api.nuget.org/v3/index.json --api-key <key>
+dotnet nuget push src/SchemaDiscovery.Client/nupkg/SchemaDiscovery.Client.<version>.nupkg --source https://api.nuget.org/v3/index.json --api-key <key>
 ```
 
-The workflow needs a `NUGET_API_KEY` repository secret (an nuget.org API key
-scoped to the `SchemaDiscovery.Client` and `SchemaDiscovery.Abstractions`
-package IDs). This is separate from packing `SchemaDiscovery.Tool` above,
-which is still manual.
-
-Bump `<Version>` in `SchemaDiscovery.Cli.csproj` before each release; the
-`PackageId` (`SchemaDiscovery.Tool`), `ToolCommandName` (`schema-discovery`),
-and package metadata (author, description, tags) also live there.
+Bump `<Version>` in `SchemaDiscovery.Cli.csproj` (`PackageId`
+`SchemaDiscovery.Tool`) and `SchemaDiscovery.Client.csproj` (`PackageId`
+`SchemaDiscovery.Client`) before each release; both currently sit at `1.0.0`.
 
 ### Options
 
@@ -151,6 +160,7 @@ and package metadata (author, description, tags) also live there.
 | `-c`, `--connection-string` | Database connection string (required) |
 | `-p`, `--provider` | `sqlserver` (default), `postgres`, or `mysql` |
 | `-o`, `--output` | Output folder for JSON files (default `./schema-output`) |
+| `-l`, `--language` | Output language for generated text: `en` (default) or `es` |
 | `-v`, `--verbose` | Enable debug-level console logging |
 | `--skip-views` | Don't export views |
 | `--skip-procedures` | Don't export stored procedures |
@@ -159,20 +169,24 @@ and package metadata (author, description, tags) also live there.
 
 ### Output
 
-Every table, view, stored procedure, and function is written as its own JSON
-file in the output folder. Objects in the default schema (`dbo` for SQL
-Server, `public` for Postgres) are named `<ObjectName>.json`; objects in any
-other schema are named `<Schema>.<ObjectName>.json` to avoid collisions.
+A `projectInfo.json` file is written at the root of the output folder with
+scan metadata (`providerName`, `scannedAtUtc`, `cultureLanguage`). Every
+table, view, stored procedure, and function is then written as its own JSON
+file into a subfolder by kind — `tables/`, `views/`, `stored-procedures/`,
+`functions/`. Objects in the default schema (`dbo` for SQL Server, `public`
+for Postgres) are named `<ObjectName>.json`; objects in any other schema are
+named `<Schema>.<ObjectName>.json` to avoid collisions.
 
-Example `dbo.Customers.json` (trimmed):
+Example `tables/Customers.json` (trimmed):
 
 ```json
 {
   "schema": "dbo",
   "name": "Customers",
+  "className": "Customer",
+  "pluralClassName": "Customers",
+  "qualifiedName": "dbo.Customers",
   "objectType": "Table",
-  "databaseProvider": "sqlserver",
-  "scannedAtUtc": "2026-08-18T12:00:00Z",
   "columns": [
     { "ordinalPosition": 1, "name": "Id", "dataType": "int", "isNullable": false, "isIdentity": true, "isPrimaryKey": true },
     { "ordinalPosition": 2, "name": "Email", "dataType": "nvarchar", "maxLength": 255, "isNullable": false, "isPrimaryKey": false }
@@ -182,16 +196,14 @@ Example `dbo.Customers.json` (trimmed):
   "indexes": [
     { "name": "IX_Customers_Email", "isUnique": true, "isPrimaryKey": false, "indexType": "NONCLUSTERED", "columns": ["Email"] }
   ],
-  "rowCountEstimate": 4213,
-  "className": "Customer",
-  "pluralClassName": "Customers"
+  "rowCountEstimate": 4213
 }
 ```
 
-`className`/`pluralClassName` (and a column's `propertyName`/`description`)
-are omitted entirely until you set them by hand — nulls aren't written to
-the file — and once set, they survive future scans. See "Custom properties
-that survive a schema refresh" below.
+`className`/`pluralClassName`/`displayName`/`pluralDisplayName` (and a
+column's `propertyName`/`description`) are omitted entirely until you set
+them by hand — nulls aren't written to the file — and once set, they survive
+future scans. See "Custom properties that survive a schema refresh" below.
 
 ## Custom properties that survive a schema refresh
 
@@ -215,7 +227,7 @@ public class TableSchema : SchemaObjectBase
 
 **How it works:** before `SchemaExportService` overwrites `dbo.Customers.json`,
 it reads the *existing* file (if any) and — via `SchemaPersistence` in
-`SchemaDiscovery.Abstractions` — copies the current value of every
+`SchemaDiscovery` — copies the current value of every
 `[Persist]` property from that file onto the freshly scanned object. Columns
 are matched between the old and new file by `Name`, so per-column persisted
 values (like `PropertyName`) are preserved too, not just table-level ones.
@@ -224,8 +236,8 @@ always the fresh, scanned value.
 
 Typical workflow:
 
-1. Run `schema-discovery` — `dbo.Customers.json` is created with `ClassName: null`.
-2. Hand-edit the file, setting `"className": "Customer"`.
+1. Run `schema-discovery` — `tables/Customers.json` is created without a `className`.
+2. Hand-edit the file, adding `"className": "Customer"`.
 3. Run `schema-discovery` again (schema changed, or just re-running) —
    `"className": "Customer"` is still there; everything else reflects the
    current database schema.
@@ -252,15 +264,16 @@ To persist additional custom values, add a property with `[Persist]` to
    reference implementation — the shape (list objects, then fetch
    columns/keys/indexes per object) carries over directly.
 4. No changes are needed in `SchemaDiscovery.Cli` — the provider is already
-   registered in `ProviderFactory` and selectable via `-p postgres` / `-p mysql`.
+   registered in `DefaultModule` and selectable via `-p postgres` / `-p mysql`.
 
 To add a brand-new engine entirely (e.g. Oracle, SQLite):
 
 1. Create a new class library project under `src/`, referencing
-   `SchemaDiscovery.Abstractions`.
+   `SchemaDiscovery`.
 2. Implement `IDatabaseSchemaProvider` and `IDatabaseSchemaProviderFactory`.
 3. Add a `<ProjectReference>` to it from `SchemaDiscovery.Cli.csproj`.
-4. Add `new YourProviderFactory()` to the array in `ProviderFactory.cs`.
+4. Register it (`builder.RegisterType<YourProviderFactory>().As<IDatabaseSchemaProviderFactory>()...`)
+   in `SchemaDiscovery.Cli/DependencyResolution/DefaultModule.cs`.
 
 ## Logging
 

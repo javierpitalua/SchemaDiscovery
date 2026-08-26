@@ -3,7 +3,7 @@
 Reads the JSON files produced by the [schema-discovery](https://github.com/javierpitalua/SchemaDiscovery)
 CLI back into typed .NET objects, so a code generator, ORM scaffolder, or
 other tool can consume a scanned database schema without re-parsing JSON
-itself.
+itself.  This dll is intended to be consumed from Visual Studio T4 Templates.
 
 Targets .NET Framework 4.7.2.
 
@@ -32,11 +32,13 @@ foreach (var view in project.Views) { /* ... */ }
 foreach (var routine in project.Routines) { /* stored procedures and functions */ }
 ```
 
-`ProjectLoader` reads every `*.json` file in the given directory and sorts
-each one into `Project.Tables`, `Project.Views`, or `Project.Routines` based
-on its `ObjectType`, using the same models schema-discovery scanned them
-with (`SchemaDiscovery.Abstractions.Models`) — so hand-edited, `[Persist]`-ed
-fields like `TableSchema.ClassName` come through untouched.
+`ProjectLoader` reads every `*.json` file from the `tables/`, `views/`,
+`stored-procedures/` and `functions/` subfolders of the given directory and
+sorts each one into `Project.Tables`, `Project.Views`, or `Project.Routines`
+based on its `ObjectType`, using its own copy of the same model shapes
+schema-discovery scanned them with (`SchemaDiscovery.Client.Models`) — so
+hand-edited, `[Persist]`-ed fields like `TableSchema.ClassName` come through
+untouched.
 
 ## Instance vs. static
 
