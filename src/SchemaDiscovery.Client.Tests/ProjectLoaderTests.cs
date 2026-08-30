@@ -103,7 +103,7 @@ namespace SchemaDiscovery.Client.Tests
 
             Assert.AreEqual("sqlserver", project.ProviderName);
             Assert.IsTrue(project.ScannedAtUtc > DateTimeOffset.Parse("2026-08-24T23:42:32.1725042+00:00"));
-            Assert.AreEqual("Spanish", project.CultureLanguage);
+            Assert.AreEqual("English", project.CultureLanguage);
         }
 
         [TestMethod]
