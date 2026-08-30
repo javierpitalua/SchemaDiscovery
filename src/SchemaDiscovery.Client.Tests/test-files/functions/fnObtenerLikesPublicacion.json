@@ -8,6 +8,7 @@
       "MaxLength": 4
     }
   ],
+  "ResultColumns": [],
   "ReturnType": "int",
   "Definition": "CREATE FUNCTION [dbo].[fnObtenerLikesPublicacion] (@PublicacionMuro_Id INT)\r\nRETURNS INT\r\nAS\r\nBEGIN\r\n\r\n\tDECLARE @LikeCount INT\r\n\tSELECT @LikeCount = Count(*) FROM PublicacionMuroLike WHERE PublicacionMuro_Id =  @PublicacionMuro_Id \r\n\tGROUP BY PublicacionMuro_Id\t\r\n\r\n\tRETURN @LikeCount\r\nEND",
   "Schema": "dbo",

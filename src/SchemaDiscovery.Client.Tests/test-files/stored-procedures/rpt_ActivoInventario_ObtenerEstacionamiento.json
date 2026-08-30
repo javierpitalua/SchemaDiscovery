@@ -8,6 +8,36 @@
       "MaxLength": 4
     }
   ],
+  "ResultColumns": [
+    {
+      "OrdinalPosition": 1,
+      "Name": "Id",
+      "DataType": "int",
+      "IsNullable": false,
+      "MaxLength": 4,
+      "IsIdentity": true,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "DefaultValue": "",
+      "ComputedExpression": "",
+      "PropertyName": "Id",
+      "Description": ""
+    },
+    {
+      "OrdinalPosition": 2,
+      "Name": "NumeroDeSerie",
+      "DataType": "varchar",
+      "IsNullable": false,
+      "MaxLength": 100,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "DefaultValue": "",
+      "ComputedExpression": "",
+      "PropertyName": "NumeroDeSerie",
+      "Description": ""
+    }
+  ],
   "Definition": "CREATE PROCEDURE [dbo].[rpt_ActivoInventario_ObtenerEstacionamiento]\r\n@Membresia_Id INT = 0\r\nAS\r\nBEGIN\r\n\r\n\tSELECT \r\n\t    [InventarioAsignado].[Id],\r\n\t\t[ActivoInventario].[NumeroDeSerie]\r\n\tFROM [ActivoInventario]\r\n\t\tJOIN [InventarioAsignado]\r\n\t\t\tON [InventarioAsignado].[ActivoInventario_Id] = [ActivoInventario].[Id]\r\n\t\tJOIN [TipoInventario]\r\n\t\t\tON [TipoInventario].[Id] = [ActivoInventario].[TipoInventario_Id]\r\n\tWHERE [InventarioAsignado].[Membresia_Id] = @Membresia_Id\r\n\tAND [TipoInventario].[Id] = 10\r\n\r\nEND",
   "Schema": "dbo",
   "Name": "rpt_ActivoInventario_ObtenerEstacionamiento",

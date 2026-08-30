@@ -8,6 +8,36 @@
       "MaxLength": 4
     }
   ],
+  "ResultColumns": [
+    {
+      "OrdinalPosition": 1,
+      "Name": "Id",
+      "DataType": "int",
+      "IsNullable": false,
+      "MaxLength": 4,
+      "IsIdentity": true,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "DefaultValue": "",
+      "ComputedExpression": "",
+      "PropertyName": "Id",
+      "Description": ""
+    },
+    {
+      "OrdinalPosition": 2,
+      "Name": "Nombre",
+      "DataType": "varchar",
+      "IsNullable": false,
+      "MaxLength": 50,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "DefaultValue": "",
+      "ComputedExpression": "",
+      "PropertyName": "Nombre",
+      "Description": ""
+    }
+  ],
   "Definition": "CREATE PROCEDURE [dbo].[rpt_Reservaciones_ObtenerDisponibilidad]\r\n@Comunidad_Id INT = 0\r\nAS\r\nBEGIN\r\n\r\n\t--DECLARE @FechaHoraInicial SMALLDATETIME\r\n\t--DECLARE @FechaHoraFinal SMALLDATETIME\r\n\r\n\t--TODO: Completar la informacion de las salas de juntas\r\n\r\n\tSELECT esp.Id, esp.Nombre \r\n\tFROM Espacio esp \r\n\tWHERE \r\n\t\tesp.TipoDeEspacio_Id = 4\r\n\tAND esp.Comunidad_Id = @Comunidad_Id\r\n\r\nEND",
   "Schema": "dbo",
   "Name": "rpt_Reservaciones_ObtenerDisponibilidad",

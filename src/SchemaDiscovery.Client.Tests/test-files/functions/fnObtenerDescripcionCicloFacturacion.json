@@ -8,6 +8,7 @@
       "MaxLength": 8
     }
   ],
+  "ResultColumns": [],
   "ReturnType": "varchar",
   "Definition": "CREATE FUNCTION [dbo].[fnObtenerDescripcionCicloFacturacion] (@fecha DATETIME)\r\nRETURNS VARCHAR(50)\r\nBEGIN\r\n\tDECLARE @retValue VARCHAR(50)\t\r\n\r\n\tSELECT @retValue = [dbo].[fnObtenerDescripcionMes](MONTH(@fecha)) \u002B \u0027 \u0027 \u002B CONVERT(VARCHAR(10), YEAR(@fecha))\r\n\r\n\tRETURN @retValue;\t\r\nEND",
   "Schema": "dbo",

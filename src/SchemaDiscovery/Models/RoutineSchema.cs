@@ -20,6 +20,13 @@ namespace SchemaDiscovery.Models
 
         public List<ParameterDefinition> Parameters { get; set; } = new List<ParameterDefinition>();
 
+        /// <summary>
+        /// Columns of the routine's first result set (stored procedures only),
+        /// when the provider can determine them without executing the routine.
+        /// Empty when the shape can't be resolved statically (e.g. dynamic SQL).
+        /// </summary>
+        public List<ColumnDefinition> ResultColumns { get; set; } = new List<ColumnDefinition>();
+
         /// <summary>Return type, applicable to functions.</summary>
         public string ReturnType { get; set; } = string.Empty;
 

@@ -108,7 +108,7 @@
       "OrdinalPosition": 9,
       "Name": "FechaCreacion",
       "DataType": "smalldatetime",
-      "IsNullable": true,
+      "IsNullable": false,
       "MaxLength": 4,
       "IsIdentity": false,
       "IsComputed": false,

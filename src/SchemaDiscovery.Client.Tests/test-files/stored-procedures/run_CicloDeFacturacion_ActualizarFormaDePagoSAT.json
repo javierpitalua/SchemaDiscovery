@@ -8,6 +8,7 @@
       "MaxLength": 4
     }
   ],
+  "ResultColumns": [],
   "Definition": "CREATE PROCEDURE [dbo].[run_CicloDeFacturacion_ActualizarFormaDePagoSAT]\r\n@CicloDeFacturacion_Id INT = 0\r\nAS\r\n\r\nBEGIN\r\n\r\n\tUPDATE Documento SET MetodoDePagoSAT_Id = 2, formadepagosat_id =6\r\n\tFROM\r\n\tDocumento WHERE CicloDeFacturacion_Id = @CicloDeFacturacion_Id\r\n\tAND GeneracionAutomatica = 1\r\n\tAND MetodoDePagoSAT_Id is null\r\n\tAND Activo = 1\r\n\r\nEND",
   "Schema": "dbo",
   "Name": "run_CicloDeFacturacion_ActualizarFormaDePagoSAT",

@@ -1,5 +1,35 @@
 {
   "Parameters": [],
+  "ResultColumns": [
+    {
+      "OrdinalPosition": 1,
+      "Name": "Id",
+      "DataType": "int",
+      "IsNullable": false,
+      "MaxLength": 4,
+      "IsIdentity": true,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "DefaultValue": "",
+      "ComputedExpression": "",
+      "PropertyName": "Id",
+      "Description": ""
+    },
+    {
+      "OrdinalPosition": 2,
+      "Name": "Nombre",
+      "DataType": "varchar",
+      "IsNullable": true,
+      "MaxLength": 253,
+      "IsIdentity": false,
+      "IsComputed": true,
+      "IsPrimaryKey": false,
+      "DefaultValue": "",
+      "ComputedExpression": "",
+      "PropertyName": "Nombre",
+      "Description": ""
+    }
+  ],
   "Definition": "CREATE PROCEDURE [dbo].[rpt_MembresiaParaReservaciones_ObtenerListadoParaReservaciones]\r\nAS\r\nBEGIN\r\n\r\nSELECT\r\n\tMembresia.Id,\r\n\tMembresia.ClaveMembresia \u002B \u0027 \u0027 \u002B \u0027-\u0027 \u002B \u0027 \u0027 \u002B InformacionFacturacion.RazonSocial AS [Nombre]\r\nFROM Membresia\r\n\tLEFT JOIN InformacionFacturacion\r\n\t\tON InformacionFacturacion.Id = Membresia.InformacionFacturacion_Id\r\nWHERE Membresia.EstatusMembresia_Id = 1\r\nAND Membresia.DeshabilitarReservaciones = 0 OR Membresia.DeshabilitarReservaciones IS NULL\r\n\r\nEND",
   "Schema": "dbo",
   "Name": "rpt_MembresiaParaReservaciones_ObtenerListadoParaReservaciones",

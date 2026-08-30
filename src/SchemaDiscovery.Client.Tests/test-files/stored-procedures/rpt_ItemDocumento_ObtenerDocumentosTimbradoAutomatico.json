@@ -15,6 +15,36 @@
       "MaxLength": 4
     }
   ],
+  "ResultColumns": [
+    {
+      "OrdinalPosition": 1,
+      "Name": "Id",
+      "DataType": "int",
+      "IsNullable": false,
+      "MaxLength": 4,
+      "IsIdentity": true,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "DefaultValue": "",
+      "ComputedExpression": "",
+      "PropertyName": "Id",
+      "Description": ""
+    },
+    {
+      "OrdinalPosition": 2,
+      "Name": "Folio",
+      "DataType": "varchar",
+      "IsNullable": true,
+      "MaxLength": 50,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "DefaultValue": "",
+      "ComputedExpression": "",
+      "PropertyName": "Folio",
+      "Description": ""
+    }
+  ],
   "Definition": "--[dbo].[rpt_ItemDocumento_ObtenerDocumentosTimbradoAutomatico] 2, 3\r\nCREATE PROCEDURE [dbo].[rpt_ItemDocumento_ObtenerDocumentosTimbradoAutomatico]\r\n@CicloDeFacturacion_Id INT = 0,\r\n@CategoriaDocumento_Id INT = 0\r\nAS\r\nBEGIN\r\n\r\n\tSELECT \r\n\t\tdoc.Id, \r\n\t\tdoc.Folio \r\n\tFROM Documento doc \r\n\t\tWHERE \r\n\t\t\tdoc.CicloDeFacturacion_Id = @CicloDeFacturacion_Id\r\n\tAND doc.CategoriaDocumento_Id = @CategoriaDocumento_Id\r\n\tAND doc.GeneracionAutomatica = 1\r\n\tAND ISNULL(doc.Timbrado, 0) = 0\t\r\n\r\nEND",
   "Schema": "dbo",
   "Name": "rpt_ItemDocumento_ObtenerDocumentosTimbradoAutomatico",

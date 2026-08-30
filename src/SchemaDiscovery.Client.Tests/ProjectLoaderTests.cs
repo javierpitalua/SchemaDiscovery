@@ -75,6 +75,11 @@ namespace SchemaDiscovery.Client.Tests
             Assert.AreEqual("@Suscriptor_Id", procedure.Parameters[0].Name);
             Assert.AreEqual("int", procedure.Parameters[0].DataType);
             StringAssert.Contains(procedure.Definition, "CREATE PROCEDURE");
+
+            Assert.AreEqual(26, procedure.ResultColumns.Count);
+            var idColumn = procedure.ResultColumns.Single(c => c.Name == "Id");
+            Assert.AreEqual("int", idColumn.DataType);
+            Assert.IsTrue(idColumn.IsIdentity);
         }
 
         [TestMethod]

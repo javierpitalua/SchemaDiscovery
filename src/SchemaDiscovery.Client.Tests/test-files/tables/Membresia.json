@@ -134,7 +134,7 @@
       "OrdinalPosition": 11,
       "Name": "FechaCreacion",
       "DataType": "smalldatetime",
-      "IsNullable": true,
+      "IsNullable": false,
       "MaxLength": 4,
       "IsIdentity": false,
       "IsComputed": false,
@@ -325,26 +325,7 @@
   "PrimaryKeyColumns": [
     "Id"
   ],
-  "ForeignKeys": [
-    {
-      "Name": "FK_Membresia_EstatusMembresia",
-      "Column": "EstatusMembresia_Id",
-      "ReferencedSchema": "dbo",
-      "ReferencedTable": "EstatusMembresia",
-      "ReferencedColumn": "Id",
-      "DeleteRule": "NO_ACTION",
-      "UpdateRule": "NO_ACTION"
-    },
-    {
-      "Name": "FK_Membresia_TipoMembresia",
-      "Column": "TipoMembresia_Id",
-      "ReferencedSchema": "dbo",
-      "ReferencedTable": "TipoMembresia",
-      "ReferencedColumn": "Id",
-      "DeleteRule": "NO_ACTION",
-      "UpdateRule": "NO_ACTION"
-    }
-  ],
+  "ForeignKeys": [],
   "Indexes": [
     {
       "Name": "PK_Membresia",

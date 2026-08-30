@@ -1,5 +1,49 @@
 {
   "Parameters": [],
+  "ResultColumns": [
+    {
+      "OrdinalPosition": 1,
+      "Name": "Id",
+      "DataType": "int",
+      "IsNullable": false,
+      "MaxLength": 4,
+      "IsIdentity": true,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "DefaultValue": "",
+      "ComputedExpression": "",
+      "PropertyName": "Id",
+      "Description": ""
+    },
+    {
+      "OrdinalPosition": 2,
+      "Name": "Mes",
+      "DataType": "int",
+      "IsNullable": true,
+      "MaxLength": 4,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "DefaultValue": "",
+      "ComputedExpression": "",
+      "PropertyName": "Mes",
+      "Description": ""
+    },
+    {
+      "OrdinalPosition": 3,
+      "Name": "Anio",
+      "DataType": "int",
+      "IsNullable": true,
+      "MaxLength": 4,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "DefaultValue": "",
+      "ComputedExpression": "",
+      "PropertyName": "Anio",
+      "Description": ""
+    }
+  ],
   "Definition": "CREATE PROCEDURE [dbo].[rpt_CicloFacturacionItem_ObtenerCiclosVigentes]\r\nAS\r\nBEGIN\r\n\r\n\tSELECT \r\n\t\tcdf.Id, cdf.Mes, cdf.Anio \r\n\tFROM \r\n\t\tCicloDeFacturacion cdf\r\n\tWHERE cdf.Vigente = 1\r\n\tORDER BY cdf.Anio DESC, cdf.Mes DESC\r\n\r\nEND",
   "Schema": "dbo",
   "Name": "rpt_CicloFacturacionItem_ObtenerCiclosVigentes",

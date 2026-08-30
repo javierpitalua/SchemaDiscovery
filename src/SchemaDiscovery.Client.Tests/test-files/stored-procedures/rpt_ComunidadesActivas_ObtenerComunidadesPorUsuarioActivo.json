@@ -8,6 +8,50 @@
       "MaxLength": 4
     }
   ],
+  "ResultColumns": [
+    {
+      "OrdinalPosition": 1,
+      "Name": "Id",
+      "DataType": "int",
+      "IsNullable": false,
+      "MaxLength": 4,
+      "IsIdentity": true,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "DefaultValue": "",
+      "ComputedExpression": "",
+      "PropertyName": "Id",
+      "Description": ""
+    },
+    {
+      "OrdinalPosition": 2,
+      "Name": "Nombre",
+      "DataType": "varchar",
+      "IsNullable": false,
+      "MaxLength": 100,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "DefaultValue": "",
+      "ComputedExpression": "",
+      "PropertyName": "Nombre",
+      "Description": ""
+    },
+    {
+      "OrdinalPosition": 3,
+      "Name": "Telefono",
+      "DataType": "varchar",
+      "IsNullable": true,
+      "MaxLength": 200,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "DefaultValue": "",
+      "ComputedExpression": "",
+      "PropertyName": "Telefono",
+      "Description": ""
+    }
+  ],
   "Definition": "CREATE PROCEDURE [dbo].[rpt_ComunidadesActivas_ObtenerComunidadesPorUsuarioActivo]\n@SuscriptorId INT\nAS\nBEGIN\n\nSELECT \n\tc1.Id,\n\tc1.Nombre,\n\tc1.Telefono\nFROM Comunidad c1 JOIN (\nSELECT mem.Comunidad_Id FROM Suscripcion sus\nJOIN Membresia mem ON sus.Membresia_Id = mem.Id\nWHERE Suscriptor_Id = @SuscriptorId\nAND sus.Activo = 1\nGROUP BY mem.Comunidad_Id\n) AS c2 ON c2.Comunidad_Id = c1.Id\n\nEND",
   "Schema": "dbo",
   "Name": "rpt_ComunidadesActivas_ObtenerComunidadesPorUsuarioActivo",
