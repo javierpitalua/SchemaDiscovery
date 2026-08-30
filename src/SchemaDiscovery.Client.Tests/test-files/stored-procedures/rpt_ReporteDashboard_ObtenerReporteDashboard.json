@@ -22,6 +22,54 @@
       "MaxLength": 200
     }
   ],
+  "ResultColumns": [
+    {
+      "OrdinalPosition": 1,
+      "Name": "Id",
+      "DataType": "int",
+      "IsNullable": false,
+      "MaxLength": 4,
+      "IsIdentity": false,
+      "IsComputed": true,
+      "IsPrimaryKey": false,
+      "DefaultValue": "",
+      "ComputedExpression": "",
+      "PropertyName": "Id",
+      "Description": ""
+    },
+    {
+      "OrdinalPosition": 2,
+      "Name": "SumaTotalFacturado",
+      "DataType": "decimal",
+      "IsNullable": true,
+      "MaxLength": 17,
+      "NumericPrecision": 38,
+      "NumericScale": 2,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "DefaultValue": "",
+      "ComputedExpression": "",
+      "PropertyName": "SumaTotalFacturado",
+      "Description": ""
+    },
+    {
+      "OrdinalPosition": 3,
+      "Name": "SumaMontoPagado",
+      "DataType": "decimal",
+      "IsNullable": true,
+      "MaxLength": 17,
+      "NumericPrecision": 38,
+      "NumericScale": 2,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "DefaultValue": "",
+      "ComputedExpression": "",
+      "PropertyName": "SumaMontoPagado",
+      "Description": ""
+    }
+  ],
   "Definition": "CREATE PROCEDURE [dbo].[rpt_ReporteDashboard_ObtenerReporteDashboard]\r\n\u00A0\u00A0\u00A0\u00A0@CicloFacturacion_Id AS INT = 0,\r\n\u00A0\u00A0\u00A0\u00A0@Comunidad_Id AS INT = 0,\r\n\t@BaseUrl AS VARCHAR(200) = NULL\r\nAS\r\nBEGIN\t\r\n\r\n\tDECLARE @MES_SELECCIONADO INT\r\n\tDECLARE @ANIO_SELECCIONADO INT\r\n\r\n\tSELECT \r\n\t\t@MES_SELECCIONADO = Mes, \r\n\t\t@ANIO_SELECCIONADO = Anio \r\n\tFROM CicloDeFacturacion WHERE Id = @CicloFacturacion_Id\r\n\r\n\tDECLARE @FechaInicio_FechaEmision AS SMALLDATETIME = NULL\r\n\tDECLARE @FechaFin_FechaEmision AS SMALLDATETIME = NULL\r\n\r\n\tSELECT @FechaInicio_FechaEmision = DATEFROMPARTS (@ANIO_SELECCIONADO, @MES_SELECCIONADO, 1)\r\n\tSELECT @FechaFin_FechaEmision = DATEADD(mm, 1, @FechaInicio_FechaEmision)\r\n\tSELECT @FechaFin_FechaEmision = DATEADD(minute, -1, @FechaFin_FechaEmision)\r\n\r\n\tPRINT @FechaInicio_FechaEmision\r\n\tPRINT @FechaFin_FechaEmision\r\n\r\n\tDECLARE @Pagos TABLE (\r\n\t\tId INT IDENTITY(1,1),\r\n\t\tRegistroPago_Id INT,\r\n\t\tDocumento_Id INT NULL,\r\n\t\tFecha SMALLDATETIME NULL\r\n\t)\r\n\r\n\tINSERT INTO @Pagos (RegistroPago_Id, Documento_Id, Fecha)\r\n\tSELECT Id AS [RegistroPago_Id], Documento_Id, Fecha FROM (\r\n\t\t\tSELECT \r\n\t\t\t\tId, \r\n\t\t\t\tDocumento_Id, \r\n\t\t\t\tPagoAplicado, \r\n\t\t\t\tFecha, \r\n\t\t\t\tROW_NUMBER() OVER(PARTITION BY Documento_Id ORDER BY Fecha DESC) AS rownum \r\n\t\t\tFROM RegistroPago\r\n\t) A1\r\n\tWHERE rownum = 1 AND PagoAplicado = 1\r\n\tORDER BY Documento_Id\r\n\r\n\tDECLARE @Totales TABLE(\r\n\t\tId INT IDENTITY(1, 1),\r\n\t\tTotalFacturado DECIMAL (18, 2),\r\n\t\tMontoPagado DECIMAL (18, 2)\r\n\t)\r\n\r\n\tINSERT INTO @Totales(MontoPagado, TotalFacturado)\r\n\r\n\tSELECT\r\n\t\t--doc.Id as Id,\r\n\t\t--dbo.fnObtenerDescripcionMes(ciclo.Mes) as Mes,\r\n\t\t--mem.id as MembresiaId,\r\n\t\t--ciclo.Anio,\r\n\t\t--doc.Folio as FolioFactura,\r\n\t\t--catd.Nombre as [TipoDocumento],\r\n\t\t--CASE ISNULL(doc.Pagado, 0) WHEN 1 THEN \u0027S\u00ED\u0027 ELSE \u0027No\u0027 END AS [Pagado],\t\t\r\n\t    doc.MontoPagado AS [MontoPagado],\r\n\t\t--mem.ClaveMembresia,\r\n\t\t--info.RFC,\r\n\t\t--info.RazonSocial,\r\n\t\t--info.NombreFiscal,\r\n\t\t--tdc.Nombre AS Moneda,\r\n\t\t--com.Nombre AS Comunidad,\r\n\t\t--doc.MontoTotal AS [MontoFactura],\r\n\t\t--doc.IVA AS [IVA],\r\n\t\tCASE\r\n\t\t\tWHEN \r\n\t\t\t\tdoc.CategoriaDocumento_Id = 2 \r\n\t\t\t\t\tTHEN ((doc.MontoTotal) * -1) -- RESTAR NOTAS DE CREDITO\r\n\t\t\tELSE (doc.MontoTotal)\r\n\t\tEND AS [TotalFacturado]\r\n\t\t--est.Nombre AS [EstatusDocumento],\r\n\t\t--doc.FechaCreacion,\r\n\t\t--doc.FechaDeTimbrado AS [FechaEmision],\r\n\t\t--DATEDIFF(DAY, doc.FechaDeTimbrado, @FECHA_ACTUAL) AS [DiasTranscurridosDesdeEmision],\t\t\r\n\t\t--ISNULL(pago.Fecha, doc.FechaPago) AS [FechaDePago],\r\n\t\t--CASE ISNULL(mem.EsPagoDomiciliado, 0) WHEN 1 THEN \u0027Si\u0027 ELSE \u0027\u0027 END AS [PagoDomiciliado] ,\r\n\t\t--(doc.MontoTotal \u002B doc.IVA) - ISNULL(doc.MontoPagado, 0) AS [PendientePago]\r\n\r\n\tFROM Documento doc\r\n\t\tjoin Membresia mem on doc.Membresia_Id = mem.Id\r\n\t\tleft join Comunidad com on mem.Comunidad_Id = com.Id\r\n\t\tjoin InformacionFacturacion info on doc.InformacionFacturacion_Id = info.Id\r\n\t\tjoin TipoDeCambio tdc on doc.TipoDeCambio_Id = tdc.Id\r\n\t\tjoin CategoriaDocumento catd ON doc.CategoriaDocumento_Id = catd.Id\r\n\t\tleft join CicloDeFacturacion ciclo on doc.CicloDeFacturacion_Id = ciclo.Id\r\n\t\tleft join EstatusDocumento est ON doc.EstatusDocumento_Id = est.Id\r\n\t\tLEFT JOIN @Pagos pago ON pago.Documento_Id = doc.Id\r\n\tWHERE\r\n\t\tdoc.Activo = 1 \r\n\tAND doc.CategoriaDocumento_Id IN (2, 3, 8) -- Notas de Credito, facturas y recibos\t\r\n\tAND NOT ((doc.EstatusDocumento_Id = 8) OR (doc.EstatusDocumento_Id = 9))-- eliminar las cancelaciones fiscales o documentos cancelados\r\n\tAND (@FechaInicio_FechaEmision \u003C= doc.FechaDeTimbrado AND doc.FechaDeTimbrado \u003C= @FechaFin_FechaEmision)\r\n\tAND (doc.Comunidad_Id = @Comunidad_Id OR @Comunidad_Id = 0)\r\n\t\r\n\tSELECT \n\t\t1 AS [Id],\n\t\tSUM(ISNULL(TotalFacturado, 0)) AS SumaTotalFacturado,\n\t\tSUM(ISNULL(MontoPagado, 0)) AS SumaMontoPagado\n\tFROM @Totales;\r\n\r\nEND",
   "Schema": "dbo",
   "Name": "rpt_ReporteDashboard_ObtenerReporteDashboard",

@@ -8,6 +8,78 @@
       "MaxLength": 4
     }
   ],
+  "ResultColumns": [
+    {
+      "OrdinalPosition": 1,
+      "Name": "Id",
+      "DataType": "int",
+      "IsNullable": false,
+      "MaxLength": 4,
+      "IsIdentity": true,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "DefaultValue": "",
+      "ComputedExpression": "",
+      "PropertyName": "Id",
+      "Description": ""
+    },
+    {
+      "OrdinalPosition": 2,
+      "Name": "ClaveMembresia",
+      "DataType": "varchar",
+      "IsNullable": true,
+      "MaxLength": 50,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "DefaultValue": "",
+      "ComputedExpression": "",
+      "PropertyName": "ClaveMembresia",
+      "Description": ""
+    },
+    {
+      "OrdinalPosition": 3,
+      "Name": "suscriptor_Id",
+      "DataType": "int",
+      "IsNullable": false,
+      "MaxLength": 4,
+      "IsIdentity": true,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "DefaultValue": "",
+      "ComputedExpression": "",
+      "PropertyName": "suscriptor_Id",
+      "Description": ""
+    },
+    {
+      "OrdinalPosition": 4,
+      "Name": "Nombre",
+      "DataType": "varchar",
+      "IsNullable": false,
+      "MaxLength": 100,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "DefaultValue": "",
+      "ComputedExpression": "",
+      "PropertyName": "Nombre",
+      "Description": ""
+    },
+    {
+      "OrdinalPosition": 5,
+      "Name": "CorreoElectronico",
+      "DataType": "varchar",
+      "IsNullable": false,
+      "MaxLength": 100,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "DefaultValue": "",
+      "ComputedExpression": "",
+      "PropertyName": "CorreoElectronico",
+      "Description": ""
+    }
+  ],
   "Definition": "CREATE PROCEDURE [rpt_SuscriptorPaqueteria_ObtenerSuscriptores]\r\n@Membresia_Id INT\r\nAS\r\nBEGIN\r\n\r\nSELECT\r\n\t[Membresia].[Id],\r\n\t[Membresia].[ClaveMembresia],\r\n\t[Suscriptor].[Id] AS [suscriptor_Id],\r\n\t[Suscriptor].[Nombre],\r\n\t[Suscriptor].[CorreoElectronico]\r\nFROM [Membresia]\r\n\tJOIN [Suscripcion]\r\n\t\tON [Membresia].[Id] = [Suscripcion].[Membresia_Id]\r\n\tJOIN [Suscriptor]\r\n\t\tON [Suscripcion].[Suscriptor_Id] = [Suscriptor].[Id]\r\nWHERE [Membresia].[Id] = @Membresia_Id\r\n\r\nEND",
   "Schema": "dbo",
   "Name": "rpt_SuscriptorPaqueteria_ObtenerSuscriptores",

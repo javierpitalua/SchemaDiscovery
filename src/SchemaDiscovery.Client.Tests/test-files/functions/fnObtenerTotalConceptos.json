@@ -8,6 +8,7 @@
       "MaxLength": 4
     }
   ],
+  "ResultColumns": [],
   "ReturnType": "decimal",
   "Definition": "CREATE FUNCTION [dbo].[fnObtenerTotalConceptos](@Membresia_Id INT) \r\nRETURNS DECIMAL(18,2)  \r\nAS  \r\nBEGIN    \r\n    DECLARE @retval DECIMAL(18,2);   \r\n\r\n\tSELECT \r\n\t\t@retval = SUM(ISNULL(cmb.Cantidad, 0) * ISNULL(cfac.PrecioUnitario, 0)) \r\n\tFROM ConceptoIncluidoMembresia cmb\r\n\tLEFT JOIN ConceptoFacturable cfac \r\n\t\tON cmb.ConceptoFacturable_Id = cfac.Id\r\n\tWHERE \r\n\t\tcmb.IncluidoEnlaMembresia = 0\r\n\tAND cmb.Activo = 1\r\n\tAND Membresia_Id = @Membresia_Id    \r\n\r\n    RETURN @retval\r\nEND;",
   "Schema": "dbo",

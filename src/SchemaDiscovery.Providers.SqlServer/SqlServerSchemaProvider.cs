@@ -219,6 +219,12 @@ public sealed class SqlServerSchemaProvider : IDatabaseSchemaProvider
             routine.Parameters.AddRange(parameters);
             routine.ReturnType = returnType;
 
+            if (objectType == SchemaObjectType.StoredProcedure)
+            {
+                routine.ResultColumns.AddRange(
+                    await GetResultColumnsAsync(connection, routineRef.ObjectId, routine.QualifiedName, cancellationToken));
+            }
+
             routines.Add(routine);
         }
 
@@ -435,6 +441,83 @@ public sealed class SqlServerSchemaProvider : IDatabaseSchemaProvider
         }
 
         return (parameters, returnType);
+    }
+
+    /// <summary>
+    /// Determines the columns of a stored procedure's first result set using
+    /// sys.dm_exec_describe_first_result_set_for_object, which statically
+    /// analyzes the procedure's T-SQL instead of executing it. This avoids
+    /// the older technique of running the procedure with NULL parameters
+    /// (which has side effects, needs EXECUTE permission, and can't work for
+    /// procedures whose required parameters can't sensibly be NULL).
+    /// Returns an empty list when SQL Server can't resolve the result set
+    /// shape statically (e.g. dynamic SQL, temp tables built across batches).
+    /// </summary>
+    private async Task<List<ColumnDefinition>> GetResultColumnsAsync(
+        SqlConnection connection, int objectId, string qualifiedName, CancellationToken cancellationToken)
+    {
+        const string sql = """
+            SELECT column_ordinal, name, is_nullable, system_type_name, max_length, precision, scale,
+                   is_identity_column, is_computed_column, error_number, error_message
+            FROM sys.dm_exec_describe_first_result_set_for_object(@ObjectId, 0)
+            ORDER BY column_ordinal;
+            """;
+
+        var columns = new List<ColumnDefinition>();
+
+        try
+        {
+            await using var cmd = new SqlCommand(sql, connection);
+            cmd.Parameters.AddWithValue("@ObjectId", objectId);
+
+            await using var reader = await cmd.ExecuteReaderAsync(cancellationToken);
+            while (await reader.ReadAsync(cancellationToken))
+            {
+                if (!reader.IsDBNull(9)) // error_number: SQL Server couldn't statically resolve the result set.
+                {
+                    _logger.LogWarning(
+                        "Could not determine result set columns for {Routine}: {Message}",
+                        qualifiedName, reader.IsDBNull(10) ? "unknown error" : reader.GetString(10));
+                    return new List<ColumnDefinition>();
+                }
+
+                var systemTypeName = reader.GetString(3);
+                var parenIndex = systemTypeName.IndexOf('(');
+                var dataType = parenIndex >= 0 ? systemTypeName[..parenIndex] : systemTypeName;
+
+                var rawMaxLength = reader.GetInt16(4);
+                long? maxLength = rawMaxLength switch
+                {
+                    -1 => null, // MAX types (nvarchar(max), varbinary(max), ...)
+                    _ when IsDoubleByteType(dataType) => rawMaxLength / 2,
+                    _ => rawMaxLength
+                };
+
+                var ordinal = reader.GetInt32(0);
+                var name = reader.IsDBNull(1) ? $"Column{ordinal}" : reader.GetString(1);
+
+                columns.Add(new ColumnDefinition
+                {
+                    OrdinalPosition = ordinal,
+                    Name = name,
+                    PropertyName = name,
+                    DataType = dataType,
+                    IsNullable = reader.IsDBNull(2) || reader.GetBoolean(2),
+                    MaxLength = maxLength,
+                    NumericPrecision = dataType is "decimal" or "numeric" ? reader.GetByte(5) : null,
+                    NumericScale = dataType is "decimal" or "numeric" ? reader.GetByte(6) : null,
+                    IsIdentity = !reader.IsDBNull(7) && reader.GetBoolean(7),
+                    IsComputed = !reader.IsDBNull(8) && reader.GetBoolean(8)
+                });
+            }
+        }
+        catch (SqlException ex)
+        {
+            _logger.LogWarning(ex, "Could not determine result set columns for {Routine}; skipping.", qualifiedName);
+            return new List<ColumnDefinition>();
+        }
+
+        return columns;
     }
 
     public async ValueTask DisposeAsync()

@@ -8,6 +8,64 @@
       "MaxLength": 100
     }
   ],
+  "ResultColumns": [
+    {
+      "OrdinalPosition": 1,
+      "Name": "Id",
+      "DataType": "int",
+      "IsNullable": false,
+      "MaxLength": 4,
+      "IsIdentity": true,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "DefaultValue": "",
+      "ComputedExpression": "",
+      "PropertyName": "Id",
+      "Description": ""
+    },
+    {
+      "OrdinalPosition": 2,
+      "Name": "ClaveMembresia",
+      "DataType": "varchar",
+      "IsNullable": true,
+      "MaxLength": 50,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "DefaultValue": "",
+      "ComputedExpression": "",
+      "PropertyName": "ClaveMembresia",
+      "Description": ""
+    },
+    {
+      "OrdinalPosition": 3,
+      "Name": "NombreFiscal",
+      "DataType": "varchar",
+      "IsNullable": true,
+      "MaxLength": 200,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "DefaultValue": "",
+      "ComputedExpression": "",
+      "PropertyName": "NombreFiscal",
+      "Description": ""
+    },
+    {
+      "OrdinalPosition": 4,
+      "Name": "RazonSocial",
+      "DataType": "varchar",
+      "IsNullable": true,
+      "MaxLength": 200,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "DefaultValue": "",
+      "ComputedExpression": "",
+      "PropertyName": "RazonSocial",
+      "Description": ""
+    }
+  ],
   "Definition": "CREATE PROCEDURE [dbo].[rpt_MembresiasListadoItem_ObtenerMembresias]\r\n@SearchText AS VARCHAR(100) = NULL\r\nAS\r\nBEGIN\r\n\t--OBTIENE LAS MEMBRESIAS VIGENTES\r\n\r\n\tIF(@SearchText IS NULL)\r\n\tBEGIN\r\n\t\tSET @SearchText = \u0027\u0027\r\n\tEND\r\n\r\n\tSELECT \r\n\t\tmem.Id,\r\n\t\tmem.ClaveMembresia,\r\n\t\tinfo.NombreFiscal,\r\n\t\tinfo.RazonSocial\r\n\tFROM [dbo].[Membresia] mem\r\n\tLEFT JOIN [dbo].[InformacionFacturacion] info\r\n\t\tON mem.InformacionFacturacion_Id = info.Id\t\t\r\n\tWHERE \r\n\t\tmem.Activo = 1\r\n\t\tAND mem.EstatusMembresia_Id = 1\r\n\t\tAND ((info.RazonSocial like \u0027%\u0027\u002B@SearchText\u002B\u0027%\u0027) OR\r\n\t\t\t(info.NombreFiscal like \u0027%\u0027\u002B@SearchText\u002B\u0027%\u0027) OR\r\n\t\t\t(mem.ClaveMembresia like \u0027%\u0027\u002B@SearchText\u002B\u0027%\u0027) OR\r\n\t\t\t(@SearchText=\u0027\u0027))\r\n\t\r\n\tORDER BY info.RazonSocial ASC\r\n\r\nEND",
   "Schema": "dbo",
   "Name": "rpt_MembresiasListadoItem_ObtenerMembresias",

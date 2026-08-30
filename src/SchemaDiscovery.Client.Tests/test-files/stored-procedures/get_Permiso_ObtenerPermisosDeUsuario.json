@@ -8,6 +8,63 @@
       "MaxLength": 100
     }
   ],
+  "ResultColumns": [
+    {
+      "OrdinalPosition": 1,
+      "Name": "Id",
+      "DataType": "int",
+      "IsNullable": false,
+      "MaxLength": 4,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "DefaultValue": "",
+      "ComputedExpression": "",
+      "PropertyName": "Id",
+      "Description": ""
+    },
+    {
+      "OrdinalPosition": 2,
+      "Name": "Nombre",
+      "DataType": "varchar",
+      "IsNullable": true,
+      "MaxLength": 100,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "DefaultValue": "",
+      "ComputedExpression": "",
+      "PropertyName": "Nombre",
+      "Description": ""
+    },
+    {
+      "OrdinalPosition": 3,
+      "Name": "Descripcion",
+      "DataType": "varchar",
+      "IsNullable": true,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "DefaultValue": "",
+      "ComputedExpression": "",
+      "PropertyName": "Descripcion",
+      "Description": ""
+    },
+    {
+      "OrdinalPosition": 4,
+      "Name": "Clave",
+      "DataType": "varchar",
+      "IsNullable": true,
+      "MaxLength": 50,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "DefaultValue": "",
+      "ComputedExpression": "",
+      "PropertyName": "Clave",
+      "Description": ""
+    }
+  ],
   "Definition": "--[dbo].[get_Permiso_ObtenerPermisosDeUsuario] \u0027javier.pitalua@live.com\u0027\r\nCREATE PROCEDURE [dbo].[get_Permiso_ObtenerPermisosDeUsuario]\r\n@CorreoElectronico VARCHAR(100)\r\nAS\r\nBEGIN\r\n\r\n\tSELECT \r\n\t\ttmp.Permiso_Id AS [Id], \r\n\t\tpermiso.Nombre, \r\n\t\tpermiso.Descripcion, \r\n\t\tpermiso.Clave \r\n\tFROM (\r\n\tSELECT \r\n\t\tperm.Id AS Permiso_Id\r\n\t\tFROM Usuario usr\r\n\t\t\tJOIN PerfilAsociado pasoc\r\n\t\t\t\tON pasoc.Usuario_Id = usr.Id\r\n\t\t\t\tAND pasoc.Activo = 1\r\n\t\t\tJOIN PermisoAsociado prasoc\r\n\t\t\t\tON prasoc.Perfil_Id = pasoc.Perfil_Id\r\n\t\t\t\tAND prasoc.Activo = 1\r\n\t\t\tJOIN Permiso perm\r\n\t\t\t\tON prasoc.Permiso_Id = perm.Id\t\t\t\t\t\t\t\t\r\n\tWHERE \r\n\t\tusr.CorreoElectronico = @CorreoElectronico\r\n\t\tGROUP BY perm.Id\r\n\t) tmp\r\n\t\tJOIN Permiso permiso ON tmp.Permiso_Id = permiso.Id\r\n\r\nEND",
   "Schema": "dbo",
   "Name": "get_Permiso_ObtenerPermisosDeUsuario",

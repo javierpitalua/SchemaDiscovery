@@ -8,6 +8,36 @@
       "MaxLength": 100
     }
   ],
+  "ResultColumns": [
+    {
+      "OrdinalPosition": 1,
+      "Name": "Id",
+      "DataType": "int",
+      "IsNullable": false,
+      "MaxLength": 4,
+      "IsIdentity": true,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "DefaultValue": "",
+      "ComputedExpression": "",
+      "PropertyName": "Id",
+      "Description": ""
+    },
+    {
+      "OrdinalPosition": 2,
+      "Name": "NombreInventario",
+      "DataType": "varchar",
+      "IsNullable": false,
+      "MaxLength": 203,
+      "IsIdentity": false,
+      "IsComputed": true,
+      "IsPrimaryKey": false,
+      "DefaultValue": "",
+      "ComputedExpression": "",
+      "PropertyName": "NombreInventario",
+      "Description": ""
+    }
+  ],
   "Definition": "CREATE PROCEDURE [dbo].[rpt_ItemInventario_BuscarPorSerieNombre]\r\n@SearchText VARCHAR(100) = \u0027\u0027\r\nAS\r\nBEGIN\r\n\r\n\tDECLARE @InventariosEncontrados TABLE(\r\n\t\tId INT IDENTITY(1,1),\r\n\t\tInventario_Id INT\r\n\t)\r\n\r\n\tINSERT INTO @InventariosEncontrados (Inventario_Id)\r\n\tSELECT Id FROM ActivoInventario WHERE NumeroDeSerie LIKE @SearchText AND Activo = 1\r\n\r\n\tINSERT INTO @InventariosEncontrados (Inventario_Id)\r\n\tSELECT Id FROM ActivoInventario WHERE ISNULL(Descripcion, \u0027\u0027) LIKE @SearchText AND Activo = 1\r\n\r\n\tIF(@SearchText = \u0027\u0027)\r\n\tBEGIN\r\n\t\tINSERT INTO @InventariosEncontrados (Inventario_Id)\r\n\t\tSELECT Id FROM ActivoInventario WHERE Activo = 1\r\n\tEND\r\n\r\n\tSELECT \r\n\t\tId,\r\n\t\tISNULL(Descripcion, \u0027\u0027) \u002B \u0027 (\u0027 \u002B NumeroDeSerie \u002B \u0027)\u0027 AS NombreInventario\r\n\tFROM ActivoInventario\r\n\t\tJOIN (\r\n\t\t\tSELECT Inventario_Id FROM @InventariosEncontrados GROUP BY Inventario_Id\r\n\t\t) AS [InventariosEncontrados] ON ActivoInventario.Id = [InventariosEncontrados].Inventario_Id\r\n\tORDER BY ISNULL(Descripcion, \u0027\u0027)  \u002B \u0027 (\u0027 \u002B NumeroDeSerie \u002B \u0027)\u0027  \r\n\t\r\n\t\r\nEND",
   "Schema": "dbo",
   "Name": "rpt_ItemInventario_BuscarPorSerieNombre",

@@ -8,6 +8,36 @@
       "MaxLength": 4
     }
   ],
+  "ResultColumns": [
+    {
+      "OrdinalPosition": 1,
+      "Name": "Id",
+      "DataType": "int",
+      "IsNullable": true,
+      "MaxLength": 4,
+      "IsIdentity": true,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "DefaultValue": "",
+      "ComputedExpression": "",
+      "PropertyName": "Id",
+      "Description": ""
+    },
+    {
+      "OrdinalPosition": 2,
+      "Name": "ClaveMembresia",
+      "DataType": "varchar",
+      "IsNullable": true,
+      "MaxLength": 50,
+      "IsIdentity": false,
+      "IsComputed": false,
+      "IsPrimaryKey": false,
+      "DefaultValue": "",
+      "ComputedExpression": "",
+      "PropertyName": "ClaveMembresia",
+      "Description": ""
+    }
+  ],
   "Definition": "CREATE PROCEDURE [dbo].[rpt_EstacionDeTrabajo_TieneEstacionDeTrabajo]\r\n@Suscriptor_Id int = 0\r\nAS\r\nBEGIN\r\n\r\n\tselect mem.Id, mem.ClaveMembresia from Suscripcion sus\r\n\tLEFT JOIN Membresia mem ON sus.Membresia_Id = mem.Id\r\n\tLEFT JOIN Espacio esp ON mem.Espacio_Id = esp.Id\r\n\tWHERE esp.AdministrarEstacionesDeTrabajo = 1\r\n\tAND sus.Activo = 1\r\n\tAND sus.Suscriptor_Id = @Suscriptor_Id\r\nEND",
   "Schema": "dbo",
   "Name": "rpt_EstacionDeTrabajo_TieneEstacionDeTrabajo",

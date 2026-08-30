@@ -14,6 +14,11 @@
     <Deterministic>true</Deterministic>
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
     <LangVersion>latest</LangVersion>
+    <!-- Classic (non-SDK) Framework project restored via PackageReference needs an
+         explicit RID so `dotnet restore`/`dotnet build` produce an assets file
+         Visual Studio's ResolveNuGetPackageAssets accepts (it otherwise fails with
+         "doesn't list 'win' as a RuntimeIdentifier"). -->
+    <RuntimeIdentifiers>win</RuntimeIdentifiers>
   </PropertyGroup>
   <!-- NuGet package metadata. Bump <Version> before each release; the CI
        release workflow (.github/workflows/publish-nuget.yml) overrides it

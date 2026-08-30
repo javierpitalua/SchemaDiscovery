@@ -75,6 +75,11 @@ namespace SchemaDiscovery.Client.Tests
             Assert.AreEqual("@Suscriptor_Id", procedure.Parameters[0].Name);
             Assert.AreEqual("int", procedure.Parameters[0].DataType);
             StringAssert.Contains(procedure.Definition, "CREATE PROCEDURE");
+
+            Assert.AreEqual(26, procedure.ResultColumns.Count);
+            var idColumn = procedure.ResultColumns.Single(c => c.Name == "Id");
+            Assert.AreEqual("int", idColumn.DataType);
+            Assert.IsTrue(idColumn.IsIdentity);
         }
 
         [TestMethod]
@@ -98,7 +103,7 @@ namespace SchemaDiscovery.Client.Tests
 
             Assert.AreEqual("sqlserver", project.ProviderName);
             Assert.IsTrue(project.ScannedAtUtc > DateTimeOffset.Parse("2026-08-24T23:42:32.1725042+00:00"));
-            Assert.AreEqual("Spanish", project.CultureLanguage);
+            Assert.AreEqual("English", project.CultureLanguage);
         }
 
         [TestMethod]

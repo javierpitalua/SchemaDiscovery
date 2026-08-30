@@ -168,6 +168,13 @@ namespace SchemaDiscovery.Client
                         parametersElement.GetRawText(), JsonOptions) ?? new List<ParameterDefinition>();
                 }
 
+                if (root.TryGetProperty(nameof(RoutineSchema.ResultColumns), out var resultColumnsElement) &&
+                    resultColumnsElement.ValueKind == JsonValueKind.Array)
+                {
+                    routine.ResultColumns = JsonSerializer.Deserialize<List<ColumnDefinition>>(
+                        resultColumnsElement.GetRawText(), JsonOptions) ?? new List<ColumnDefinition>();
+                }
+
                 return routine;
             }
             catch (JsonException ex)

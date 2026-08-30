@@ -15,6 +15,7 @@
       "MaxLength": 4
     }
   ],
+  "ResultColumns": [],
   "ReturnType": "decimal",
   "Definition": "CREATE FUNCTION [dbo].[fnObtenerConteoHorasSalaDeJuntas] (@Membresia_Id INT, @CicloDeFacturacion_Id INT) \r\nRETURNS DECIMAL(18,2)  \r\nAS  \r\nBEGIN    \r\n\tDECLARE @MES INT\r\n\tDECLARE @ANIO INT\r\n\r\n\tSELECT @MES = Mes, @ANIO = Anio FROM CicloDeFacturacion WHERE Id = @CicloDeFacturacion_Id\r\n\r\n\tDECLARE @FechaInicial DATETIME\r\n\tDECLARE @FechaFinal DATETIME\r\n\tSELECT @FechaInicial = DATEFROMPARTS(@ANIO, @MES, 1)\r\n\tSELECT @FechaInicial = DATEADD(month, -1, @FechaInicial)\r\n\tSELECT @FechaFinal = DATEADD(minute, -1, DATEADD(month, 1, @FechaInicial))\r\n\r\n\t--PRINT \u0027Fechas:\u0027 \u002B CONVERT(VARCHAR(20), @FechaInicial) \u002B \u0027, \u0027 \u002B CONVERT(VARCHAR(20), @FechaFinal)\r\n\r\n    DECLARE @retval DECIMAL(18,2);   \r\n\r\n\tSELECT \r\n\t\t@retval = SUM(res1.Duracion)\r\n\tFROM Reservacion res1 \t\r\n\t\tWHERE res1.Membresia_Id = @Membresia_Id \r\n\tAND @FechaInicial \u003C= res1.FechaHoraInicial\r\n\tAND res1.FechaHoraInicial \u003C= @FechaFinal\r\n\tAND ISNULL(res1.Cancelado, 0) = 0\r\n\tAND res1.Activo = 1\t\t\r\n\tGROUP BY res1.Membresia_Id\r\n\r\n    RETURN (@retval) / 60\r\nEND;",
   "Schema": "dbo",
