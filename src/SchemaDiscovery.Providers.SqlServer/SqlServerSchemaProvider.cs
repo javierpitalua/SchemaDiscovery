@@ -434,6 +434,7 @@ public sealed class SqlServerSchemaProvider : IDatabaseSchemaProvider
             {
                 OrdinalPosition = parameterId,
                 Name = reader.GetString(1),
+                PropertyName = reader.GetString(1).TrimStart('@'),
                 DataType = dataType,
                 Mode = isOutput ? "OUT" : "IN",
                 MaxLength = maxLength
