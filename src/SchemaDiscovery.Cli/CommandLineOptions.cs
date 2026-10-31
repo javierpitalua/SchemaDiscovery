@@ -93,7 +93,9 @@ public sealed class CommandLineOptions
 
             OPTIONS:
               -c, --connection-string <value>   Database connection string (required)
-              -p, --provider <value>            Database provider. Default: sqlserver
+
+              -p, --provider <value>            Database provider. Default: sqlserver, 
+                                                    Valid values: sqlserver, postgresql, mysql
               -o, --output <path>               Output folder for JSON files. Default: ./schema-output
               -l, --language <en|es>            Output language. Default: en
               -v, --verbose                     Enable verbose (debug) logging
@@ -105,6 +107,18 @@ public sealed class CommandLineOptions
             EXAMPLES:
               schema-discovery -c "Server=localhost;Database=MyDb;Trusted_Connection=True;TrustServerCertificate=True;" -o ./out
               schema-discovery -c "Server=.;Database=MyDb;User Id=sa;Password=***;" -p sqlserver -v
+              schema-discovery -c "Host=localhost;Port=5432;Database=mydb;Username=postgres;Password=***;" -p postgresql
+              schema-discovery -c "Server=localhost;Port=3306;Database=mydb;User=root;Password=***;" -p mysql
+
+            SAMPLE CONNECTION STRINGS:
+              SQL Server (Windows auth):
+                Server=localhost;Database=MyDb;Trusted_Connection=True;TrustServerCertificate=True;
+              SQL Server (SQL auth):
+                Server=localhost,1433;Database=MyDb;User Id=sa;Password=***;TrustServerCertificate=True;
+              PostgreSQL:
+                Host=localhost;Port=5432;Database=mydb;Username=postgres;Password=***;
+              MySQL:
+                Server=localhost;Port=3306;Database=mydb;User=root;Password=***;
             """);
     }
 }
