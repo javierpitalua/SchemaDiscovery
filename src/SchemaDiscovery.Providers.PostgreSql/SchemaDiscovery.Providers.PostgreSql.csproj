@@ -8,9 +8,7 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="10.0.11" />
-    <!-- When implementing this provider, add:
-    <PackageReference Include="Npgsql" Version="8.0.5" />
-    -->
+    <PackageReference Include="Npgsql" Version="9.0.3" />
   </ItemGroup>
 
   <ItemGroup>
