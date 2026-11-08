@@ -114,7 +114,7 @@ public sealed class MySqlSchemaProvider : IDatabaseSchemaProvider
                 Name = tableRef.Name,
             };
 
-            table.Columns.AddRange(await GetColumnsAsync(connection, tableRef.Schema, tableRef.Name, cancellationToken));
+            table.Columns.AddRange(await GetColumnsAsync(connection, tableRef.Schema, tableRef.Name, _humanizer, cancellationToken));
             table.PrimaryKeyColumns.AddRange(await GetPrimaryKeyColumnsAsync(connection, tableRef.Schema, tableRef.Name, cancellationToken));
             table.ForeignKeys.AddRange(await GetForeignKeysAsync(connection, tableRef.Schema, tableRef.Name, cancellationToken));
             table.Indexes.AddRange(await GetIndexesAsync(connection, tableRef.Schema, tableRef.Name, cancellationToken));
@@ -165,7 +165,7 @@ public sealed class MySqlSchemaProvider : IDatabaseSchemaProvider
                 Definition = viewRef.Definition
             };
 
-            view.Columns.AddRange(await GetColumnsAsync(connection, viewRef.Schema, viewRef.Name, cancellationToken));
+            view.Columns.AddRange(await GetColumnsAsync(connection, viewRef.Schema, viewRef.Name, _humanizer, cancellationToken));
             views.Add(view);
         }
 
@@ -233,7 +233,9 @@ public sealed class MySqlSchemaProvider : IDatabaseSchemaProvider
     }
 
     private static async Task<List<ColumnDefinition>> GetColumnsAsync(
-        MySqlConnection connection, string schema, string tableName, CancellationToken cancellationToken)
+        MySqlConnection connection, string schema, string tableName, 
+        IHumanizer humanizer,
+        CancellationToken cancellationToken)
     {
         const string sql = """
             SELECT ORDINAL_POSITION, COLUMN_NAME, DATA_TYPE, IS_NULLABLE,
@@ -264,11 +266,13 @@ public sealed class MySqlSchemaProvider : IDatabaseSchemaProvider
             var precision = Int64(reader, 5);
             var scale = Int64(reader, 6);
 
+            var propertyName = humanizer.ToPascalCase(name);
+
             columns.Add(new ColumnDefinition
             {
                 OrdinalPosition = (int)(Int64(reader, 0) ?? 0),
                 Name = name,
-                PropertyName = name,
+                PropertyName = propertyName,
                 DataType = dataType,
                 IsNullable = string.Equals(Str(reader, 3), "YES", StringComparison.OrdinalIgnoreCase),
                 MaxLength = Int64(reader, 4),
