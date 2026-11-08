@@ -17,6 +17,14 @@ namespace SchemaDiscovery
         string ToPascalCase(string input);
 
         /// <summary>
+        /// Converts a string to a plural PascalCase. For example, "recibo_de_honorario" becomes "RecibosDeHonorario",
+        /// "ReciboDeHonorario" becomes "RecibosDeHonorario", "WorkItem" becomes "WorkItems".  Depending on culture.
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
+        string ToPluralPascalCase(string input, CultureLanguages culture);
+
+        /// <summary>
         /// Converts a string to plural form. For example, "User" becomes "Users".
         /// </summary>
         /// <param name="input"></param>

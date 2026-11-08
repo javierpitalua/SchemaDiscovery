@@ -95,6 +95,55 @@ namespace SchemaDiscovery.Tests
                 () => _humanizer.ToPluralCase(null!, CultureLanguages.English));
         }
 
+        [TestCase("project_member", "ProjectMembers")]
+        [TestCase("time_registry", "TimeRegistries")]
+        [TestCase("state_transition", "StateTransitions")]
+        [TestCase("work_item", "WorkItems")]
+        [TestCase("ProjectMember", "ProjectMembers")]
+        [TestCase("TimeRegistry", "TimeRegistries")]
+        [TestCase("StateTransition", "StateTransitions")]
+        [TestCase("WorkItem", "WorkItems")]
+        [TestCase("user", "Users")]
+        public void ToPluralPascalCase_English_PluralizesLastWord(string input, string expected)
+        {
+            Assert.That(_humanizer.ToPluralPascalCase(input, CultureLanguages.English), Is.EqualTo(expected));
+        }
+
+        [TestCase("mencion_en_comentario", "MencionesEnComentario")]
+        [TestCase("miembro_del_proyecto", "MiembrosDelProyecto")]
+        [TestCase("transicion_de_estado", "TransicionesDeEstado")]
+        [TestCase("elemento_de_Trabajo", "ElementosDeTrabajo")]
+        [TestCase("recibo_de_honorario", "RecibosDeHonorario")]
+        [TestCase("MencionEnComentario", "MencionesEnComentario")]
+        [TestCase("MiembroDelProyecto", "MiembrosDelProyecto")]
+        [TestCase("TransicionDeEstado", "TransicionesDeEstado")]
+        [TestCase("ElementoDeTrabajo", "ElementosDeTrabajo")]
+        [TestCase("comision", "Comisiones")]
+        public void ToPluralPascalCase_Spanish_PluralizesFirstWord(string input, string expected)
+        {
+            Assert.That(_humanizer.ToPluralPascalCase(input, CultureLanguages.Spanish), Is.EqualTo(expected));
+        }
+
+        [Test]
+        public void ToPluralPascalCase_WithEmptyString_ReturnsEmptyString()
+        {
+            Assert.That(_humanizer.ToPluralPascalCase(string.Empty, CultureLanguages.English), Is.EqualTo(string.Empty));
+        }
+
+        [Test]
+        public void ToPluralPascalCase_WithNullInput_ThrowsArgumentNullException()
+        {
+            Assert.Throws<ArgumentNullException>(
+                () => _humanizer.ToPluralPascalCase(null!, CultureLanguages.English));
+        }
+
+        [Test]
+        public void ToPluralPascalCase_WithUndefinedCulture_ThrowsArgumentOutOfRangeException()
+        {
+            Assert.Throws<ArgumentOutOfRangeException>(
+                () => _humanizer.ToPluralPascalCase("work_item", CultureLanguages.undefined));
+        }
+
         [Test]
         public void ToHumanReadable_WithPascalCaseInput_InsertsSpacesAndTitleCases()
         {
