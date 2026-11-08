@@ -102,11 +102,13 @@ public sealed class MySqlSchemaProvider : IDatabaseSchemaProvider
             cancellationToken.ThrowIfCancellationRequested();
             _logger.LogDebug("Scanning table {Schema}.{Table}...", tableRef.Schema, tableRef.Name);
 
+            var className = _humanizer.ToPascalCase(tableRef.Name);
+
             var table = new TableSchema
             {
                 Schema = tableRef.Schema,
-                ClassName = _humanizer.ToPascalCase(tableRef.Name),
-                PluralClassName = _humanizer.ToPluralCase(tableRef.Name, _culture),
+                ClassName = className,
+                PluralClassName = _humanizer.ToPluralCase(className, _culture),
                 DisplayName = _humanizer.ToHumanReadable(tableRef.Name),
                 PluralDisplayName = _humanizer.ToPluralCase(_humanizer.ToHumanReadable(tableRef.Name), _culture),
                 Name = tableRef.Name,

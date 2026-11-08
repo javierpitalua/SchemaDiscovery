@@ -86,9 +86,17 @@ public sealed class SchemaExportService
         await WriteObjectAsync(projectInfoFileName, projectInfo, cancellationToken);
 
         var tables = await provider.GetTablesAsync(cancellationToken);
+
+        bool ignoreSchemaName = false;
+
+        if(provider.ProviderName == "mysql")
+        {
+            ignoreSchemaName = true;
+        }
+
         foreach (var table in tables)
         {
-            await WriteObjectAsync(outputDirectory, "table", table, cancellationToken);
+            await WriteObjectAsync(outputDirectory, "table", table, ignoreSchemaName, cancellationToken);
             exportedCount++;
         }
         _logger.LogInformation("Exported {Count} table(s).", tables.Count);
@@ -98,7 +106,7 @@ public sealed class SchemaExportService
             var views = await provider.GetViewsAsync(cancellationToken);
             foreach (var view in views)
             {
-                await WriteObjectAsync(outputDirectory, "view", view, cancellationToken);
+                await WriteObjectAsync(outputDirectory, "view", view, ignoreSchemaName, cancellationToken);
                 exportedCount++;
             }
             _logger.LogInformation("Exported {Count} view(s).", views.Count);
@@ -109,7 +117,7 @@ public sealed class SchemaExportService
             var procedures = await provider.GetStoredProceduresAsync(cancellationToken);
             foreach (var procedure in procedures)
             {
-                await WriteObjectAsync(outputDirectory, "procedure", procedure, cancellationToken);
+                await WriteObjectAsync(outputDirectory, "procedure", procedure, ignoreSchemaName, cancellationToken);
                 exportedCount++;
             }
             _logger.LogInformation("Exported {Count} stored procedure(s).", procedures.Count);
@@ -120,7 +128,7 @@ public sealed class SchemaExportService
             var functions = await provider.GetFunctionsAsync(cancellationToken);
             foreach (var function in functions)
             {
-                await WriteObjectAsync(outputDirectory, "function", function, cancellationToken);
+                await WriteObjectAsync(outputDirectory, "function", function, ignoreSchemaName, cancellationToken);
                 exportedCount++;
             }
             _logger.LogInformation("Exported {Count} function(s).", functions.Count);
@@ -130,12 +138,12 @@ public sealed class SchemaExportService
     }
 
     private async Task WriteObjectAsync(
-        string outputDirectory, string kind, SchemaObjectBase schemaObject, CancellationToken cancellationToken)
+        string outputDirectory, string kind, SchemaObjectBase schemaObject, bool ignoreSchemaName, CancellationToken cancellationToken)
     {
         var kindDirectory = Path.Combine(outputDirectory, GetSubfolderName(kind));
         Directory.CreateDirectory(kindDirectory);
 
-        var fileName = BuildFileName(schemaObject);
+        var fileName = BuildFileName(schemaObject, ignoreSchemaName);
         var filePath = Path.Combine(kindDirectory, fileName);
 
         await TryRestorePersistedValuesAsync(schemaObject, filePath, cancellationToken);
@@ -188,7 +196,7 @@ public sealed class SchemaExportService
     /// and "&lt;Schema&gt;.&lt;TableName&gt;.json" otherwise, to avoid collisions between
     /// same-named objects in different schemas.
     /// </summary>
-    private static string BuildFileName(SchemaObjectBase schemaObject)
+    private static string BuildFileName(SchemaObjectBase schemaObject, bool ignoreSchemaName = false)
     {
         var safeSchema = Sanitize(schemaObject.Schema);
         var safeName = Sanitize(schemaObject.Name);
@@ -196,6 +204,11 @@ public sealed class SchemaExportService
         var isDefaultSchema = string.IsNullOrEmpty(safeSchema)
             || safeSchema.Equals("dbo", StringComparison.OrdinalIgnoreCase)
             || safeSchema.Equals("public", StringComparison.OrdinalIgnoreCase);
+
+        if (ignoreSchemaName)
+        {
+            return $"{safeName}.json";
+        }
 
         return isDefaultSchema ? $"{safeName}.json" : $"{safeSchema}.{safeName}.json";
     }
