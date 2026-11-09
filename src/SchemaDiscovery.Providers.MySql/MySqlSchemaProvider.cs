@@ -263,11 +263,20 @@ public sealed class MySqlSchemaProvider : IDatabaseSchemaProvider
             var isComputed = extra.Contains("GENERATED", StringComparison.OrdinalIgnoreCase)
                              && !string.IsNullOrEmpty(generationExpression);
 
+            var maxLength = Int64(reader, 4);
+
             // Types without a fixed precision/scale report NULL here.
             var precision = Int64(reader, 5);
             var scale = Int64(reader, 6);
 
-            var propertyName = humanizer.ToPascalCase(name);
+            var propertyName = humanizer.ToPascalCase(name);            
+
+            // CHAR(36) Hack:
+            // For mySql guids are represented as CHAR(36) in Table, but for C# must be mapped as Guid:
+            if (dataType.ToLower() == "char" && maxLength == 36)
+            {
+                dataType = "uniqueidentifier";
+            }
 
             columns.Add(new ColumnDefinition
             {
@@ -276,7 +285,7 @@ public sealed class MySqlSchemaProvider : IDatabaseSchemaProvider
                 PropertyName = propertyName,
                 DataType = dataType,
                 IsNullable = string.Equals(Str(reader, 3), "YES", StringComparison.OrdinalIgnoreCase),
-                MaxLength = Int64(reader, 4),
+                MaxLength = maxLength,
                 NumericPrecision = precision is null ? null : (int)precision,
                 NumericScale = scale is null ? null : (int)scale,
                 IsIdentity = extra.Contains("auto_increment", StringComparison.OrdinalIgnoreCase),
